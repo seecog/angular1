@@ -33,7 +33,6 @@ return result;
 });
 
 app.service('Triangle',function(Perimeter){
-
 this.sideArea = function(a,b,c){
 var s = Perimeter.calculate(a,b,c);
 return Math.sqrt(s*(s-a)*(s-b)*(s-c));
