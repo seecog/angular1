@@ -1,0 +1,48 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body ng-app="myApp">
+<div class="container" ng-controller="myController">
+<p>
+<input ng-model="searchKey" class="form-control">
+</p>
+<p>
+<table class="table table-stripped">
+<th ng-click="orderMe('id')">Id</th><th ng-click="orderMe('first_name')">First Name</th><th ng-click="orderMe('last_name')">Last Name</th><th>Image</th>
+<tr ng-repeat="user in users | filter : searchKey | limitTo:limitKey | orderBy:orderKey ">
+<td>{{user.id}}</td>
+<td>{{user.first_name | uppercase}}</td>
+<td>{{user.last_name}}</td>
+<td><img src="{{user.avatar}}" width=100 height=100></td>
+</tr>
+</table>
+</p>
+<p>
+<select ng-model="limitKey" class="form-control">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+</p>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope,$http){
+
+$scope.orderMe = function(x){
+console.log('the key is '+x);
+$scope.orderKey = x;
+}
+
+
+$http.get('https://reqres.in/api/users?page=2').then(function(response){
+console.log('Response is ');
+console.log(response.data.data)
+$scope.users = response.data.data;
+});
+});
+</script>
+</html>
