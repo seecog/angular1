@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="angular.min.js"></script>
+<script src="ng-pattern-restrict.min.js"></script>
+<link rel="stylesheet" href="bootstrap.min.css"/>
+</head>
+<body ng-app="myApp"> 
+<div class="container" ng-controller="myController">
+
+<triangle a="2" b="2" c="3"></triangle>
+
+</div>
+
+
+
+</body>
+<script>
+var app = angular.module('myApp',['ngPatternRestrict']);
+app.directive('triangle',function(){
+
+return {
+template : 'The area is {{ar}}',
+link : function(scope,element,attrs){
+var a = parseFloat(attrs.a);
+var b = parseFloat(attrs.b);
+var c = parseFloat(attrs.c);
+var s = (a+b+c)/2;
+scope.ar =  Math.sqrt(s*(s-a)*(s-b)*(s-c));
+}
+}
+
+});
+app.controller('myController',function($scope){
+
+});
+
+</script>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<head>
+<script src="angular.min.js"></script>
+<script src="ng-pattern-restrict.min.js"></script>
+<link rel="stylesheet" href="bootstrap.min.css"/>
+</head>
+<body ng-app="myApp"> 
+<div class="container" ng-controller="myController">
+
+<my-img></my-img>
+
+</div>
+
+
+
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive('myImg',function(){
+
+return {
+template : '<img src="{{txt}}" width="{{wid}}" height="{{ht}}">',
+link : function(scope,element,attrs){
+scope.txt = 'sathya_sai_baba.jpg';
+scope.wid='100';
+scope.ht='100'
+element.bind('mouseover',function(){
+
+scope.$apply(function(){
+scope.wid = '200';
+scope.ht = '200'
+console.log('applying new width and height');
+});
+
+});
+
+element.bind('mouseout',function(){
+
+scope.$apply(function(){
+scope.wid='100';
+scope.ht='100';
+console.log('applying default width and height');
+});
+
+});
+
+
+}
+}
+
+});
+app.controller('myController',function($scope){
+
+});
+
+</script>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="angular.min.js"></script>
+<script src="ng-pattern-restrict.min.js"></script>
+<link rel="stylesheet" href="bootstrap.min.css"/>
+</head>
+<body ng-app="myApp"> 
+<div class="container" ng-controller="myController">
+
+<span class='my-directive'></span>
+
+</div>
+
+
+
+</body>
+<script>
+var app = angular.module('myApp',['ngPatternRestrict']);
+app.directive('myDirective',function(){
+
+return {
+restrict : 'C',
+template : '<h1>Mohan kr</h1>'
+
+}
+
+});
+app.controller('myController',function($scope){
+
+});
+
+</script>
+</html>
