@@ -1,0 +1,19 @@
+<p>
+Id : <input ng-model="product.id" class="form-control">
+</p>
+
+<p>
+Product Name : <input ng-model="product.pro_name" class="form-control">
+</p>
+
+
+<p>
+Product Cost : <input ng-model="product.pro_cost" class="form-control">
+</p>
+
+<p>
+<button ng-hide="btn_stt" class="btn btn-default" ng-click="addProduct()">Add Product</button>
+
+
+<button ng-show="btn_stt" class="btn btn-default" ng-click="editProduct(product)">Edit Product</button>
+</p>

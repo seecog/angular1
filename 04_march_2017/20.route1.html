@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    </head>
+        <body ng-app="myApp">
+		<div class="container">
+		<div class="col-lg-12" style="margin-top:20px;">
+            <a href="#products" class="btn btn-success">products</a>  <a href="#contact" class="btn btn-success">Contact</a> <a href="#feedback" class="btn btn-success">Feedback</a>
+			</div>
+			
+            <div ng-view class="col-lg-12">
+
+
+            </div>
+			
+			</div>
+            <script>
+                var app = angular.module('myApp',['ngRoute']);
+                
+				app.run(function($rootScope){
+				$rootScope.products = [{id : 1,pro_name : 'Refrigerator',pro_cost : 15000}];
+				});
+				
+				app.config(['$routeProvider',function($routeProvider){
+
+                $routeProvider
+                .when('/products',{
+                templateUrl : 'products.html',
+                controller : 'productcontroller'
+                })
+                .when('/feedback',{
+                templateUrl : 'feedback.html',
+                controller : 'feedbackcontroller'
+                })
+				.when('/contact',{
+                templateUrl : 'contact.html',
+                })
+				.when('/addProduct',{
+				templateUrl : 'addproduct.html',
+				controller : 'AddproductController'
+				}).
+				when('/editProduct/:id',{
+				templateUrl : 'addProduct.html',
+				controller : 'AddproductController'
+				});
+                }]);
+
+                app.controller('productcontroller',function($scope,$rootScope){
+                    $scope.products = $rootScope.products;
+					$scope.deleteProduct = function(x){
+					
+					$rootScope.products.splice(x,1);
+					
+					}
+                });
+				
+				app.controller('AddproductController',function($scope,$rootScope,$location,$routeParams){
+				
+				var id = $routeParams.id;
+				if(id)
+				{
+				
+				for(i=0;i<$rootScope.products.length;i++)
+				{
+				if($rootScope.products[i].id == id)
+				{
+				$scope.product = $rootScope.products[i];
+				}
+				}
+				
+				$scope.btn_stt = true;
+				}
+				else
+				{
+				$scope.btn_stt = false;
+				}
+				$scope.addProduct = function(){
+				$rootScope.products.push($scope.product);
+				console.log($rootScope.products);
+				$location.path('/products');
+				}
+				
+				$scope.editProduct = function(product){
+				
+				for(i=0;i<$rootScope.products.length;i++)
+				{
+				if($rootScope.products[i].id==product.id)
+				{
+				$rootScope.products[i].id = product.id;
+				$rootScope.products[i].pro_name = product.pro_name;
+				$rootScope.products[i].pro_cost = product.pro_cost;
+				}
+				}
+				
+				$location.path('/products');
+				}
+				
+				});
+
+                app.controller('feedbackcontroller',function($scope){
+                    $scope.products = [] ;
+                    $scope.addToTable =function(){
+                        $scope.products.push({t1:$scope.name,t2:$scope.feedback});
+                    };
+                    $scope.remove = function ($index) {
+                    $scope.products.splice($index, 1 );
+                    };
+
+                });
+            </script>
+        </body>
+</html>

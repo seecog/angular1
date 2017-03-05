@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+
+</head>
+<body ng-app="myApp" ng-controller="myController">
+FirstName:<input ng-model="firstName"><br>
+{{firstName}}
+<span ng-bind="firstName" style="color:red;"></span>
+LastName:<input ng-model="lastName"><br>
+{{lastName}}
+<button ng-click="show()">Show</button>
+</body>
+<script>
+var app=angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.firstName='mohan';
+$scope.show=function(){
+console.log('first name is '+$scope.firstName);
+console.log('last name is '+$scope.lastName);
+}
+});
+
+</script>
+</html>
+
