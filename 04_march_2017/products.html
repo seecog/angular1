@@ -1,0 +1,33 @@
+<p>
+            <table class="table table-stripped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in products">
+                        <td>{{x.id}}</td>
+                        <td>{{x.pro_name}}</td>
+                        <td>{{x.pro_cost}}</td>
+                        <td><a ng-click="deleteProduct(x)">
+						<span class="glyphicon glyphicon-trash btn btn-danger"></span>
+						</a>
+						
+						<a href="#editProduct/{{x.id}}">
+						<span class="glyphicon glyphicon-edit btn btn-danger"></span>
+						</a>
+						
+						</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+			</p>
+			
+			<p>
+			<a href="#addProduct" class="btn btn-primary">Add Product</a>
+			
+			</p>
