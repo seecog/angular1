@@ -1,0 +1,51 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="col-lg-12">
+<table class="table table-stripped">
+<th>Id</th><th>Name</th><th>Cost</th><th>Action</th>
+<tr ng-repeat="x in products">
+<td>{{x.id}}</td><td>{{x.pro_name}}</td><td>{{x.pro_cost}}</td>
+<td><button class="btn btn-warning" ng-click="deleteProduct(x)">Delete</button></td>
+</tr>
+</table>
+</div>
+<div class="col-lg-12">
+<p>
+Id : <input ng-model="id" class="form-control">
+</p>
+<p>
+Product Name : <input ng-model="name" class="form-control">
+</p>
+<p>
+Product Cost : <input ng-model="cost" class="form-control">
+</p>
+<p>
+<button ng-click="addProduct()" class="btn btn-primary">Add Product</button>
+</p>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.products = [];
+
+$scope.addProduct = function(){
+$scope.products.push({id:$scope.id,pro_name:$scope.name,pro_cost:$scope.cost});
+$scope.id = '';
+$scope.name = '';
+$scope.cost = '';
+}
+
+$scope.deleteProduct = function(x){
+$scope.products.splice(x,1);
+}
+
+});
+</script>
+</html>
