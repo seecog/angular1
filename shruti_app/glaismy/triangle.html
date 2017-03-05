@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+
+</head>
+<body ng-app="myApp" ng-controller="myController">
+a:<input ng-model="a"><br>
+b:<input ng-model="b"><br>
+c:<input ng-model="c"><br>
+area:{{area}}
+<button ng-click="show()">Area</button>
+</body>
+<script>
+var app=angular.module('myApp',[]);
+app.controller('myController',function($scope){
+
+$scope.show=function(){
+var a=parseFloat($scope.a);
+var b=parseFloat($scope.b);
+var c=parseFloat($scope.c);
+var s=(a*b*c)/2.0;
+$scope.area=Math.sqrt(s*(s-a)*(s-b)*(s-c)
+
+}
+});
+
+</script>
+</html>
