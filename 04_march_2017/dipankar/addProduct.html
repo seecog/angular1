@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="col-lg-6">
+		
+	</div>
+	<div class="col-lg-6">
+		<form>
+		<label>Enter Product Id</label>
+		<input type="" name="" ng-model="product.id" class="form-control">
+		<br>
+		<label>Enter Product Name</label>
+		<input type="" name="" ng-model="product.name" class="form-control">
+		<br>
+		<label>Select Product Category</label>
+		<select ng-model="product.category" class="form-control">
+			<option value="shirt">Shirt</option>
+			<option value="Trousers">Trousers</option>
+			<option value="Tshirt">Tshirt</option>
+			<option value="Sorts">Sorts</option>
+		</select>
+		<br>
+		<label>Select Image</label>
+		<input type="" name="" ng-model="product.image" class="form-control">
+		<button ng-hide="btn_stt" ng-click="add()" class="button">Insert Item</button>
+		<button ng-show="btn_stt" ng-click="updateProduct(product)" class="button">Update Item</button>
+
+	</form>
+	</div>
+
+	
+</div>
