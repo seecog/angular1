@@ -84,11 +84,11 @@ form
 				<table class="table table-striped table-responsive">
 					<thead>
 						<tr>
-							<th>Id</th><th>Name</th><th>Doctor Name</th><th>Disease</th><th>Pending payment</th><th>Remove</th>
+							<th>Id</th><th>Name</th><th>Doctor Name</th><th>Disease</th><th>Pending payment</th><th></th><th></th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="record in pat_data"><td>{{record.id}}</td><td>{{record.name}}</td><td>{{record.disc}}</td><td>{{record.doc}}</td><td>Rs. {{record.totalBill - record.paid}}</td><td><button class="btn btn-danger" ng-click="removePatientRecord(record)">X</button></td></tr>
+						<tr ng-repeat="record in pat_data"><td>{{record.id}}</td><td>{{record.name}}</td><td>{{record.disc}}</td><td>{{record.doc}}</td><td>Rs. {{record.totalBill - record.paid}}</td><td><button class="btn btn-danger" ng-click="removePatientRecord(record)">X</button></td><td><button class="btn btn-info" ng-click="editPatientRecord(record)">Edit</button></td></tr>
 					</tbody>
 					
 				</table>
@@ -112,8 +112,8 @@ form
 		$scope.allDocs = ["Shiva K", "Renesh V K", "Ritesh S K", "Bala Krishna", "Chand Nawab", "Shaik", "Basha"];
 
 		$scope.pat_data = [
-						{id:101, name:"Smith", disc:"disease 1", doc:"Shiva K", totalBill:10000, paid:2000},
-						{id:102, name:"Starc", disc:"disease 1", doc:"Shiva K", totalBill:10000, paid:5000},
+						{id:101, name:"Smith", disc:"OP", doc:"Shiva K", totalBill:10000, paid:2000},
+						{id:102, name:"Starc", disc:"disease 4", doc:"Shiva K", totalBill:10000, paid:5000},
 						{id:103, name:"Hazlewood", disc:"disease 2", doc:"Chand Nawab", totalBill:10000, paid:10000}
 		]
 
@@ -129,6 +129,11 @@ form
 			$scope.pat_data.push($scope.tempData);
 
 			$scope.tempData = {id:idCounter++, name:"", totalBill:0, paid:0, doc:$scope.allDocs[0], disc:"OP"};
+		}
+
+		$scope.editPatientRecord = function (rec)
+		{
+			$scope.tempData = rec;
 		}
 
 
