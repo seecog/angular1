@@ -1,0 +1,60 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js""></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+	<div class="col-lg-12">
+		<table class="table table-striped">
+			<th>Id</th><th>Patient Name</th><th>Disease</th><th>Ward no</th><th>Patient Doc</th><th>Fee paid</th><th>patient complete fee</th><th>Image</th><th>Action</th>
+			<tr ng-repeat="x in patient">
+				<td>{{x.id}}</td><td>{{x.name}}</td><td>{{x.disease}}</td><td>{{x.ward_no}}</td><td>{{x.doc}}</td><td>{{x.fee_paid}}</td><td>{{x.complete_fee}}</td><td>{{img}}</td>
+				<td><button class="btn btn-warning" ng-click="Delete(x)">Delete</button></td>
+			
+			</tr>
+		</table>
+	</div>
+	
+	<div class="col-lg-12">
+		<p>Id : <input ng-model="id" class="form-control"></p>
+		<p>Patient Name : <input ng-model="name" class="form-control"></p>
+		<p>Disease : <select ng-model="disease" ng-options="x for x in dids">
+				  </select></p>
+		<p>Ward no : <input ng-model="ward_no" class="form-control"></p>
+		<p>Patient Doc : <select ng-model="doc" ng-options="x for x in docs">
+				  </select></p>
+		<p>fee paid : <input ng-model="fee_paid" class="form-control"></p>
+		<p>complete fee : <input ng-model="complete_fee" class="form-control"></p>
+		<img src="doc.png" alt="doc img">
+		<p><button ng-click="addPatientdetail()" class="btn btn-primary">Add detail</button></p>
+	</div>
+
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+	app.controller('myController',function($scope){
+	$scope.patient = [];
+	$scope.dids = ["cold","cough","headache"];
+	$scope.docs = ["Dr Rajesh","Dr Geeta","Dr Anita"];
+	$scope.addPatientdetail = function(){
+	$scope.patient.push({id:$scope.id,name:$scope.name,disease:$scope.disease,ward_no:$scope.ward_no,doc:$scope.doc,fee_paid:$scope.fee_paid,complete_fee:$scope.complete_fee});
+	$scope.id = '';
+	$scope.name = '';
+	$scope.disease = '';
+	$scope.ward_no = '';
+	$scope.doc = '';
+	$scope.fee_paid = '';
+	$scope.complete_fee ='';
+	}
+	
+	$scope.Delete = function(x){
+	console.log('inside delete');
+	$scope.patient.splice(x,1);
+	}
+});
+</script>
+</html>
