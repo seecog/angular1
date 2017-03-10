@@ -1,0 +1,84 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<h1 class="text-center">Patient Details</h1>
+<div class="col-lg-12">
+<p>
+	Patient Picture : <input ng-model="picture" class="form-control">
+</p>
+<p>
+	Patient Name : <input ng-model="pname" class="form-control">
+</p>
+<p>
+	Patient Disease : <select ng-model="disease" class="form-control">
+		<option>Disease 1</option>
+		<option>Disease 2</option>
+		<option>Disease 3</option>
+		<option>Disease 4</option>
+	</select>
+</p>
+<p>
+	Patient Doctor : <select ng-model="doctor" class="form-control">
+		<option>Doctor 1</option>
+		<option>Doctor 2</option>
+		<option>Doctor 3</option>
+	</select>
+</p>
+<p>
+	Patient Ward No. : <input ng-model="ward" class="form-control">
+</p>
+<p>
+	Patient Bed No. : <input ng-model="bed" class="form-control">
+</p>
+<p>
+	Patient Fees : <input ng-model="fees" class="form-control">
+</p>
+<p>
+	Patient Fee Paid : <input ng-model="paid" class="form-control">
+</p>
+<p>
+<button ng-click="addPatient()" class="btn btn-primary">ADD</button>
+</p>
+</div>
+
+
+	<table class="table">
+		<tr>
+			<th>
+				<tr><th>Patient Picture</th><th>Patient Name</th><th>Patient Disease</th><th>Patient Doctor</th><th>Patient Ward No.</th><th>Patient Bed No.</th><th>Patient Fees</th><th>Patient Fee Paid</th><th>Patient Remaining Fees</th><th>Actions</th></tr>
+				<tr ng-repeat="patient in patients"><td><image ng-src="{{patient.picture}}" alt="picture" height="70" width="70" /></td><td>{{patient.pname}}</td><td>{{patient.disease}}</td><td>{{patient.doctor}}</td><td>{{patient.ward}}</td><td>{{patient.bed}}</td><td>{{patient.fees}}</td><td>{{patient.paid}}</td><td>{{patient.fees - patient.paid}}</td><td><button ng-click="deletePatient(x)" class="btn btn-danger">Delete</button></td></tr>
+			</th>
+		</tr>
+	</table>
+</div>
+
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+
+$scope.patients = [{picture:"http://www.newsread.in/wp-content/uploads/2016/06/Images-4.jpg",pname:"patient1",disease:"Disease1",doctor:"Doctor1",ward:"ward1",bed:5,fees:50000,paid:8000}];
+$scope.addPatient = function(){
+	$scope.patients.push({picture:$scope.picture,pname:$scope.pname,disease:$scope.disease,doctor:$scope.doctor,ward:$scope.ward,bed:$scope.bed,fees:$scope.fees,paid:$scope.paid});
+	$scope.picture = '';
+	$scope.pname = '';
+	$scope.disease = '';
+	$scope.doctor = '';
+	$scope.ward = '';
+	$scope.bed = '';
+	$scope.fees = '';
+	$scope.paid = '';
+}
+
+$scope.deletePatient = function(x){
+	$scope.patients.splice(x,1);
+}
+
+});
+</script>
+</html>
