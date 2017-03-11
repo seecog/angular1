@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+	
+
+<div ng-controller="myctrl" ng-init="radius=10">
+	<input ng-model='radius'></input>
+
+    <button ng-click='calc()'>calculate area and circumference</button>
+
+    <div>area : {{area}} and circumference : {{radius * 2 * 3.14}}</div>
+
+</div>
+
+</body>
+<script>
+var app = angular.module('myapp', []);
+app.controller("myctrl", function ($scope){
+//$scope.radius = 1;
+
+$scope.calc = function ()
+{
+    var rad = parseFloat($scope.radius);
+
+    $scope.area = 3.14 * rad * rad;
+}
+
+})
+</script>
+</html>
