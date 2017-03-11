@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		Basic Salary <input ng-model="bs" class="form-control"> 
+		Gross Salary : <span ng-bind="gross"></span>
+		<div class="col-lg-12">
+		<button class="btn btn-primary" ng-click="salary()">Area</button>
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.service('Da', function(){
+	this.getDa = function(x){
+		return (5 * x)/100;
+	}
+});
+app.service('Ta',function(){
+	this.getTa = function(x){
+		return (3 * x)/100;
+	}
+});
+app.service('Hra',function(){
+	this.getHra = function(x){
+		return (7 * x)/100;
+	}
+});
+app.service('salary',function(Da,Ta,Hra){
+	this.getSalary = function(x){
+		var da = Da.getDa(x);
+		var ta = Ta.getTa(x);
+		var hra = Hra.getHra(x);
+		return (da + ta + hra + 800);
+	}
+});
+app.controller('myController',function($scope,salary){
+
+	$scope.salary = function(){
+		var bs = parseFloat($scope.bs);
+		console.log(bs);
+		$scope.gross = salary.getSalary(bs);
+	}
+});
+</script>
+</html>
