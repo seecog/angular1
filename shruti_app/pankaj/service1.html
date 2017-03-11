@@ -1,0 +1,42 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="col-lg-12">
+first No : <input ng-model="a" class="form-control">
+</div>
+<div class="col-lg-12">
+second No : <input ng-model="b" class="form-control">
+</div>
+<div class="col-lg-12">
+result : <span ng-bind="c"></span>
+</div>
+<div class="col-lg-12">
+<button class="btn btn-primary" ng-click="addNum()">Add</button>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.service('Calculator',function(){
+
+this.add= function(a,b)
+{
+return (a+b)
+}
+
+});
+app.controller('myController',function($scope,Calculator){
+
+$scope.addNum = function(){
+var a = parseInt($scope.a);
+var b = parseInt($scope.b);
+$scope.c = Calculator.add(a,b);
+}
+
+});
+</script>
+</html>
