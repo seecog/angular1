@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>sbk</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp" class="container">
+	<div ng-controller="myctrl">
+	
+	</div>
+</body>
+
+<script>
+	var app = angular.module("myapp", []);
+	app.controller("myctrl", function(Rectangle, Circle, $scope){
+		var s1=10;
+		var s2=20;
+		var radius = 30;
+
+		console.log(Rectangle.area(s1, s2));
+
+		console.log(Rectangle.peri(s1, s2));
+
+		console.log(Circle.area(radius));
+
+		console.log(Circle.circ(radius));
+
+	});
+	app.service("Calculator", function(){
+		this.sum = function(a,b)
+		{
+			return a+b;
+		}
+		this.sub = function(a,b)
+		{
+			return a-b;
+		}
+		this.mul = function(a,b)
+		{
+			return a*b;
+		}
+		this.div = function(a,b)
+		{
+			return a/b;
+		}
+		this.mod = function(a,b)
+		{
+			return a%b;
+		}
+	});
+	app.factory("Rectangle", function(Calculator){
+		var obj={};
+
+		obj.area = function(a,b)
+		{
+			return Calculator.mul(a, b);
+		}
+		obj.peri = function(a,b)
+		{
+			return Calculator.mul(2, Calculator.sum(a,b));
+		}
+		return obj;
+	});
+
+	app.service("Circle", function(Calculator){
+		this.area = function(r){
+			return Calculator.mul(3.14 , Calculator.mul(r,r));
+		}
+		this.circ = function(r){
+			return Calculator.mul(2 , Calculator.mul(3.14,r));
+		}
+	})
+
+</script>
+</html>
