@@ -1,0 +1,20 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+The First Name is {{firstName}}<br>
+The Last Name is {{lastName}}<br>
+The Salary is {{salary}}<br>
+The Age is {{age}}<br>
+</body>
+<script>
+var app=angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.firstName='Glaismy';
+$scope.lastName='Baby';
+$scope.salary=40000;
+$scope.age=23;
+});
+</script>
+</html>
