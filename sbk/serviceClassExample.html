@@ -1,12 +1,12 @@
 <html>
 <head>
-<script src="../bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
 </head>
 <body ng-app="myapp">
-	{{1+2}}
+	
 
 <div ng-controller="myctrl">
-	<span>{{employee.fn}} {{employee.ln}} {{employee.sal}}</span>
+	
 </div>
 
 </body>
@@ -14,7 +14,7 @@
 var app = angular.module('myapp', []);
 app.controller("myctrl", function ($scope){
 
-$scope.employee = {fn:"shiva", ln:"k", sal:10000};
+
 })
 </script>
 </html>
