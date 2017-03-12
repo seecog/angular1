@@ -1,0 +1,100 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js""></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+	<div class="col-lg-12">
+	first no:<input ng-model ="a" class="form-control">
+	</div>
+	<div class="col-lg-12">
+	Second no:<input ng-model ="b" class="form-control">
+	</div>
+	<div class="col-lg-12">
+	Output <span ng-bind="d"></span>
+	</div>
+	<div class="col-lg-12">
+		<button class="btn btn-primary" ng-click="calsum()">Sum</button>
+		<button class="btn btn-primary" ng-click="calsub()">Subtract</button>
+		<button class="btn btn-primary" ng-click="calmul()">Multiply</button>
+		<button class="btn btn-primary" ng-click="caldiv()">Divide</button>
+		<button class="btn btn-primary" ng-click="calmod()">Modulas</button>
+	</div>
+</div>
+</body>
+
+<script>
+var app = angular.module('myApp',[]);
+app.service('Sum',function(){
+	this.sidesum=function(a,b)
+	{
+	return(a+b);
+	}
+});
+
+app.service('Sub',function(){
+	this.sidesub=function(a,b)
+	{
+	<!--if -->
+	return(a-b);
+	}
+});
+
+app.service('Mul',function(){
+	this.sidemul=function(a,b)
+	{
+	return(a*b);
+	}
+});
+
+app.service('Div',function(){
+	this.sidediv=function(a,b)
+	{
+	return(a/b);
+	}
+});
+
+app.service('Mod',function(){
+	this.sidemod=function(a,b)
+	{
+	return(a%b);
+	}
+});
+
+	app.controller('myController',function($scope,Sum,Sub,Mul,Div,Mod){
+
+	$scope.calsum=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Sum.sidesum(a,b);
+	}
+	
+	$scope.calsub=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Sub.sidesub(a,b);
+	}
+	
+	$scope.calmul=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Mul.sidemul(a,b);
+	}
+	
+	$scope.caldiv=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Div.sidediv(a,b);
+	}
+	
+	$scope.calmod=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Mod.sidemod(a,b);
+	}
+});
+</script>
+</html>
