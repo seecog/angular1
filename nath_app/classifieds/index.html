@@ -1,0 +1,69 @@
+<!--<link rel="stylesheet" href="bower_components/mdi/css/materialdesignicons.css"/>
+<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css"/>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="scripts/app.js"></script>
+<script src="components/ngclassifieds.ctr.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-material/angular-material.min.js"></script>
+-->
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-app="BlankApp" ng-cloak>
+<md-toolbar>
+<div class="md-toolbar-tools">
+<p>
+<strong>ngClassifieds</strong>
+</p>
+<md-button>
+<md-icon class="mdi mdi-plus-circle"></md-icon>Add Classified
+</md-button>
+</div>
+
+</md-toolbar>
+
+<md-content>
+
+<md-card flex="33px">
+<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSEBMWFRUVFRcVGBcYGBcXGBgVFRcYGBUVFRcYHSggGBolGxcVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGy0mICYtLS0tLi0tLS0tKy0tLS0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOAA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAAAQIDBAYHBQj/xABCEAACAQIDBAcFBgQEBgMAAAAAAQIDEQQhMQUGQVESYXGBkaHwBxMiscEyQlJi0eEUI3LxM4KSsiRDU8LS4hUWF//EABoBAQADAQEBAAAAAAAAAAAAAAABAgMEBQb/xAArEQACAgEDAwIEBwAAAAAAAAAAAQIRAwQSIQUxQSJRE0JhcRQjMpGxwdH/2gAMAwEAAhEDEQA/AO4gAAAAAAAAAAAAAAAAAAAAAGHtPalHDw6depGC4X1duEUs5PsIbSVsGYDnG1/acs1haXDKdT/xTy8e41SvvvjqmTruN7JdFKNm+XRS6tTjnroL9KsruR3IHBv/ALHi1Z/xNbn9uWmfN8foZ2E36xtPWr0s9JJS7r68uJVa9eYsjejtYNC2H7RYzcYYql7ty+/H7PfF5pdlzfTqxZoZVcWXAANQAAAAAAAAACLkgAi5IAAAABFyQAAAAAAAAAajv/vR/CU/d0n/ADqi1/BH8XbrbsZnlyLHHcyG6I3v33p4W9Klada2f4Yf1c31HKdq7TqYiXvK0nOWevC1mklolfgsixUi5O7bbd7vi9Xd97K4UXLJJt307V+x4ebPLLK5fsZOTZiV3y6vJfqUK/SslneVrdjt9D1P4GMf8R90c+Wr0XdcmVR5+7Sin+HV35vUx+J7EUYiw7X+I+jlkrXlry4Zcy7Tml9lNdd/i8bZdxbtbq7D391dhSxdXoRbUVZzlbRdXW+C/Rj1Tdd7JSPZ9nmwffVffzj/AC6bvn96fBd2TfdzOp3LOBwkKMI06atGKsl9Xzb1uXz3dLgWGFefJsuAADpAAABFyQAAAAAAAAAAAAAAAAAa3vjvXHAxgnFynUeTd1GK5yfHOyt18DZDHxuBpVo9CtThUj+GcVJcr2fayHdcExq+TR/Z9v1LF1qmHxLh07uVJxTipRWsLPitb8VfkdAOZb67m+4/4vBLoe7am4r/AJbjmqkOPR0uuFr6abZuZvNHHUb/AGasLRqw5S4Sj+V2duxrgUjJ3tZtkxrbvj2/g2E4lvFUlisTVq5tObUf6YtwjbtUU+9nY9pVejSlnZtNRf5mrI0TD7MjTj0enHpdbUX4PvPO6hNtqEfv/n9nNOLaNThszo/4mX5VrxKm7K0PhXLn2vievicAlducdfxR7+N/IilsiU/sLpdcVKf+1fM8twnJmdM8GrT5rvWvei3HDXeWeXY8u03XCbn1p/aVl+bJW/3cnayNl2VulRpNSmveSXNWjdcbZ3fa2b49Fmn4r7kqDZoWwdz62Jak704L7z0a/KvvPy6zqWydmU8NTVOlGyWr4yfGUnxbMwHsafSQw8937miVAAHUSAAAAAAAAAAAAACACQQSAAAAAQYuJ2jThlKXrrIbolJvsZYNfrbxQvb3kI+LfkYeNpOvH4Kqk/8AMvqV3rwaLE/m4NixeOpQT95OCXW0cax+0o7M2iq2Fmp4eWdo/gk/jovsdnF8rcmU7z7PrU283btv/bvNJxNWUl0W9H4MylNs9HDpY7XUrs6xD2jUJVHPEJ2jboQjZxXW5feenrW9ivarQelDpL80l+hxnDScrx4rh35pd/zMmFB2uYp7L+vf6nRi0WGaTo6rT9qtFaYdLsaX0MiPtZpaypeEv2ON4jDtFFHBzqS6ME2+STk2+xGkcjE+n414Ozw9r2Hbzoz/ANSPZ2d7RcHV1cof1K68mcg2VubVfx4iLpRXCTUJPtTzRsFFYag+j7tPrUvqjRTZwZMGNOkdjwe1aNX/AAqkZdjz8DMOJy23h0/hTXXd/Q9rZW+TjZRq3/LPNdieqLKZzPC/B1IHk7I27TrrVKXK/wAj1S6dmTVEgAkgAEAEgAAAAAAAAAAAAHl7e2nGhTbbtkRJpK2WhBzkoowd5d4I0YtRefm3yRyvbm8k5Oyl+nZl67SN4drupJtvN+S5I8Gorpvo2btbN2S+rPPnmcmfW6PpsMcLfcontOrf7VjLwW3qsHlOS7zzqdDO8k31Xtn4Fp0ZN5BTNMmlg/Bts99JP4ayhXSy+JX8Hk14nibRx+Fq5xw8qcucart13UlLLsZ404NFFWOlnfLz5GqlZxS0sY8ozaFCjGXvJObt+FqPC2bcZar5HoPa+GjlDDyl/VVf/bFGvLXi+oqopat9VuJEki2PC77s9evvHBO8MLRXXPpVP9za8ime+WJt0YNU1+GmlBeETX67LPSLJcFZY1fPP35PVr7arT+1NvtZhVMZNPX6mOr68i7Cg2uwnsQ8UWuESsVJ6mVQk1bPLl+hYhSSL8ZF7OWWOuDYdk7aqUmrTfVnp3nVt0N9Y1bUqztJ5J8zhcKlj1MBi2ms/XUSnRz5MCkj6YTuSajuDvB7+mqdR3nFZP8AEl6+RtxqnZ50ouLpgAElQAAAAAAAAAAACmpOybfA5bvxtJzm4p5K/jxfrkdC29iehT7fornH9uYuzlo2759creu849VOuD3OjaffNzZrsIuVTS/05M9T3CLGyaV79Z7ioqyOOPJ9NlqLpHjywmRYlg2bW8KpRSSzT14sRwSyuaJHJLMjTauEaz5HnVqFjeMZgVZvLLhxz5I1vGUc2XUitKRr8oZlHRzM5wzLLqdGWlyXM1hh8mDKGeayLPu88j06mKyeSzLEVxEZsrPAi1/DWeWhLVjJci3IupMxeJFm5Tclk1Er5FkznljVWSp5W7zIoVTEiXEy6OWUTd9zdrypVoNPiv3Xfod5w1ZTjGcc1JJrsZ8w7PqtNNarPwO9+z7afvsMk9YO3c80aQZ5mrh8xs4ANDiAAAAAABBIAIJAANV3zxXRXR6l8zke1Kl5d50Xfmp/MfrRHMdoT+LzZ5epdzZ9j0OCWNGZsiu4yy1WfdxyNlw0Vk/VzTsFXvO7ebX008jbMPioxkle6uvkv3MsbPQ1cXfB72AwTyk8+lp67T1Y7GlO3UvAt7NxcLJXWVrdmqNgp4rK6s7nfCMWj5jUZ8ilwjVtr7vSUbrO3I0famH6F3bmufridU2liH0JJavI5pvViUpdDgrXtq29VczyxS7HZ0/LknxI03FxszzsRWcpOT1eZl46s7tJ66nntpIyPa8FMr2XWX6ehjIv00WRi2GylzehW8uBbqPO+hZGUuClkBk046+RcwbKm759XDqCQsVRRZGM1Zdw8rNM6/7I8V8dSnwcFL/S/wD2OQRemXrkdF9k9ZrFQXOM15X+heL5PO1MfQztAANzyAAAAAAAAAAAADne/wBlUv2+azOZYqprlq15X/VnU/aRS0lzi/JHK5wu1dX0dr6rt4Hmalepn2XRmvhJmJSlZ6Z5O/V2etD04459Hhf8XLg12GFDDtvN2y49SyXlYuUKS6SUtHq0r2XFpfQ5eT2puMu56OC2tKLi29H6XzNi2bvJKLd3eLvlf5LQ1Snhb3z49/UzLpUMsmaxlJHDmxYp90bBtHe6TTUevuNH2jtBzzvnf1mZ+Ow+WT5nk4ikuCt1a+ZZzb7lcOHHjXCMDEScldrqv16583n5GOzKnBZXLPQLou2imSV7J3XhmXqLtmuBbUVbje/dbgXIIkzYqO+ZQ7W0zLskW3EujGZbaQUCbE3b14ZFznbKpp6PgSkrdZKWWZEQikiexG/eya/8ZD+mT8rGhKVtOB0H2O0nLFdLhGEvmrfU0j3PP1VbGdsAB0HigAAAAAAAAAEWJANR9odG9KMuV14po5XHDpPlq/A7XvXhfeYaa5K/gcZxiay5XXmcOpj6j6bo2T8pr2ZYlDjwvbvK1JWSssuNs+/1xMac8uvy6yZVUsk7rsszmo9m7Mn31vh4XK44m19HdWzz15dZhtq3Svfhrmrcbci1KoTRRl7F1sjBxU87rLJac7al3ENrJ9viYlZW1yLJEGPUWXaY7WZdqSLbzvw9aF6M3IhRK+m3ZPPgihNWz19XKXIUJT4K7lMo94lGwTRYxbIqJXy0Ii9Vz+hKTd7dvcTGOduOnplkYsiayVvTK4txuua/fIoRccevgSVLcnyXA697FsFaFWrbV9FfX6HIYo+hvZxs90cFT6StKf8AMfD7Wa8rG0FyeXrZVCvc2gAGx5QBFiQAAAAAAAAACirTUk4vRprxOK7y4J0qs4taSa/RnbTQPaXsz7NaK1yfav2+Rhnjas9TpWbZl2vycyqPLrV7/Qx5K1nwf0MjEtpt88n2erGHOSa6/Vzko+mciqMxKTd3yRYU7ESldt6dQorZcqO3zLMnfK/iIq714cSxUkWSIcim+etv3LdR52ImyhstRk5FUla19GU3s8/0uimcvkRZq1/mKM5S5K+mFmUJXeXn+pWpZJX007yaK3ZMlbj65Etq3X6sW78UTTed3mTRTcXIysuvn9CekUxkS7Ph2WJSKTlwevurst4nF0qK4y+Lsiry8kz6UpQUUktEcy9jOwejGeLms38EOpZObXbZeB1A6IKkeHq8m6dLwAAXOUAAAAAAAAAAAAGJtXARr0pUp6SWvJ8GZYDVkxbi7RwLbuzZUZzhJWcXb125Hh1HbLvO17/bA99T99TXxwXxfmh+xxrHUrN5Wz04HFOG1n1Ol1SzY78+TCllnx10y8yjpWzRMnbTUo97qruzz7+BWjo3FdWTfxPjnw+S0LfS+6knfqz7iOj3Z5vPLlctrXmKG4tS1KKkvHiVzaLcpa5v1zLIykyli3PkUt8PXmQ5f3LUYuaK+r+xVcta5lxStmnbL9reuZNFd4bJTCk+y3Vx4XIguoUVci7HT6HsbtbInia0KUFdyku5cW+qx5eHpOclGObeVjvns63VWDo9Oa/mzWf5Y627S8Y2cepzbUbNsvAQoUoUqatGCt2833sygDc8gAAAAAAAAAAAAAAAAAAixzLf/dBxvXoL4XnKP4XzXJfI6cRKKas80ysoqSNsGaWKW5HzJiaTT4+tTFlHLPQ6vvzuVa9agvh1aX3e7kcyxeElFvL19DncaPdx6mOSNowJXstezgUy0Vy/0fn60LVWHr5kUarIY83y0LckuHf+xVUurWy7/mWZWJSKTyFUrcy2/X7BvmUdIskc8pl1P1/cqXaiwpfoVRl5E0RvL8W9L25l2jTbaSTbeVvkWcPByajFXbySWbbZ2z2c+z1UYxxGMjeo840393k5dfVwJUTLLnUUU+zPcX3ajisTH4nZwg+HKT+iOnEIk1So8uc3N2wACSgAAAAAAAAAAAAAAAAAAIZIAKJo0Tezc6nUvOg1Tlxi18D7LZx811G+tFirhlLUhqy8JuDtHzxtPYWMg2oYfpW+9dOL8WmefDAYlL+bQf8Al/dn0e9mx5FL2RTesURtNvxErtM+ZsVhXwT7+a5o8+pSfI+n8VuthaitOjF+T8UeZ/8AnOAvd0W+2c2vBsrsNvxlrlcnzXLpP7KZk4bDdJWdJvrTkn+h9L0dy8HD7NCHhf5mVDdvDrSlBdyLUc0srbs+XP8A4zEX+GlOS4O2Z7Gx91a9ZrpL3cXq2m33RX6o+kobHpLSEfBF5YCC+6vAbR8Zmibm7vYTB2nThKdX/qzWa/oWkO7PrN0p4y/PwMqOGiuBcVFCjNyvuWIYgvwqEqmSoklSpMkgIkEgAAAAAAAAAAAAAAAAAAAAAAAEEgAAAAAAAgEgAAAAgEgAAAAAAAi5IAAAAB//2Q==">
+<md-card-content>
+<h2>Apple</h2>
+</md-card-content>
+</md-card>
+
+</md-content>
+
+
+  <!--
+    Your HTML content here
+  -->  
+  
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">    
+    /**
+     * You must include the dependency on 'ngMaterial' 
+     */
+    angular.module('BlankApp', ['ngMaterial']);
+  </script>
+  
+</body>
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->

@@ -1,0 +1,66 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="col-lg-12">
+A : <input ng-model="a" class="form-control">
+</div>
+<div class="col-lg-12">
+B : <input ng-model="b" class="form-control">
+</div>
+<div class="col-lg-12">
+C : <input ng-model="c" class="form-control">
+</div>
+<div class="col-lg-12">
+Area : <span ng-bind="ar"></span>
+</div>
+<div class="col-lg-12">
+Perimeter : <span ng-bind="pr"></span>
+</div>
+<div class="col-lg-12">
+<button class="btn btn-primary" ng-click="calculate()">Add</button>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.service('TriangleSupport',function(){
+
+this.sValue = function(a,b,c){
+return(a+b+c)/2;
+}
+
+});
+
+app.factory('Triangle',function(TriangleSupport){
+var obj = {};
+obj.sideArea= function(a,b,c)
+{
+var s = TriangleSupport.sValue(a,b,c);
+return  Math.sqrt(s*(s-a)*(s-b)*(s-c))
+}
+
+obj.sidePerimeter = function(a,b,c)
+{
+return (a+b+c);
+}
+
+return obj;
+});
+app.controller('myController',function($scope,Triangle){
+
+$scope.calculate = function(){
+var a = parseFloat($scope.a);
+var b = parseFloat($scope.b);
+var c = parseFloat($scope.c);
+$scope.ar = Triangle.sideArea(a,b,c);
+$scope.pr = Triangle.sidePerimeter(a,b,c);
+}
+
+});
+</script>
+</html>

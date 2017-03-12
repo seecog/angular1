@@ -1,0 +1,75 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp">
+<div class="container">
+<form name="frm" novalidate>
+<div class="col-lg-12">
+A : <input name="a" ng-model="a" class="form-control" required ng-minlength="6">
+<span ng-show="frm.a.$dirty && frm.a.$error.required" style="color:red;">Please enter a value</span>
+<span ng-show="frm.a.$dirty && frm.a.$error.minlength" style="color:red;">Please enter 5 charaters</span>
+</div>
+<div class="col-lg-12">
+B : <input name="b" ng-model="b" class="form-control" required ng-maxlength="3">
+<span ng-show="frm.b.$dirty && frm.b.$error.maxlength" style="">Character can not exceed 3</span>
+</div>
+<div class="col-lg-12">
+Email : <input type="email" name="em" ng-model="c" class="form-control" required ng-minlength="6" ng-maxlength="20">
+<p>
+<span ng-show="frm.em.$dirty && frm.em.$error.required" style="color:red;font-family:'Times New Roman'">Please enter email id </span>
+</p>
+<p>
+<span ng-show="frm.em.$dirty && frm.em.$error.minlength" style="color:red;font-family:'Times New Roman'">Minimum 6 character required </span>
+</p>
+<p>
+<span ng-show="frm.em.$dirty && frm.em.$error.maxlength" style="color:red;font-family:'Times New Roman'">Maximum 20 character allowed </span>
+</p>
+<p>
+<span ng-show="frm.em.$dirty && frm.em.$error.email" style="color:red;font-family:'Times New Roman'">Invalid email </span>
+</p>
+
+<div class="col-lg-12">
+Gender : <input type="radio" name="gen" value="2" ng-model="gen" required>female <input type="radio" name="gen" value="1" ng-model="gen" required>female
+<span ng-show="frm.gen.$error.required" >gender required</span>
+</div>
+
+<div class="col-lg-12">
+sate : <select name="st" ng-model="st" required>
+<option value="">Select</option>
+<option value="1" selected>A</option>
+<option value="2">B</option>
+</select>
+<span ng-show="frm.st.$dirty && frm.st.$error.required" >gender required</span>
+</div>
+
+
+</div>
+<div class="col-lg-12">
+Area : <span ng-bind="ar"></span>
+</div>
+<div class="col-lg-12">
+Perimeter : <span ng-bind="pr"></span>
+</div>
+<div class="col-lg-12">
+<button class="btn btn-primary" ng-disabled="frm.$invalid" ng-click="calculate()">Add</button>
+</div>
+</form>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.factory('Triangle',function(){
+var obj = [];
+obj.add = function(a,b){
+return (a+b)
+}
+return obj;
+});
+app.controller('myController',function($scope,Triangle){
+Triangle.add(1,2);
+});
+</script>
+</html>
