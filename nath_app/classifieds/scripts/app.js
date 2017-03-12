@@ -1,5 +1,5 @@
-var app = angular.module('ngClassifieds',['ngMaterial']);
-app.config(function($mdThemingProvider){
-	$mdThemingProvider.theme('default')
-	.primaryPalette('teal');
+var app = angular.module('ngClassifieds',[]);
+app.controller('myController',function(){
+	
+	
 });

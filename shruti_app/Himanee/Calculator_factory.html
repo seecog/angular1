@@ -1,0 +1,98 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+	<div class="col-lg-12">
+	first no:<input ng-model ="a" class="form-control">
+	</div>
+	<div class="col-lg-12">
+	Second no:<input ng-model ="b" class="form-control">
+	</div>
+	<div class="col-lg-12">
+	Output <span ng-bind="d"></span>
+	</div>
+	<div class="col-lg-12">
+		<button class="btn btn-primary" ng-click="calsum()">Sum</button>
+		<button class="btn btn-primary" ng-click="calsub()">Subtract</button>
+		<button class="btn btn-primary" ng-click="calmul()">Multiply</button>
+		<button class="btn btn-primary" ng-click="caldiv()">Divide</button>
+		<button class="btn btn-primary" ng-click="calmod()">Modulas</button>
+	</div>
+</div>
+</body>
+
+<script>
+var app= angular.module('myApp',[]);
+app.service('CalsumSupport',function(){
+	this.sValue = function(a,b){
+	return (a+b);
+	}
+});
+
+app.service('CalsubSupport',function(){
+	this.sValue = function(a,b){
+	return (a-b);
+	}
+});
+app.factory('Calculator',function(CalsumSupport,CalsubSupport){
+	var obj =[];
+	obj.sidesum=function(a,b){
+		var s = CalsumSupport.sValue(a,b);
+		return s;
+	}
+	obj.sidesub = function(a,b){
+		var s = CalsubSupport.sValue(a,b);
+		return s;
+	}
+	obj.sidemul =function(a,b){
+		var s =(a*b);
+		return s;
+	}
+	obj.sidediv =function(a,b){
+		var s =(a/b);
+		return s;
+	}
+	obj.sidemod =function(a,b){
+		var s =(a%b);
+		return s;
+	}
+	return obj;
+});
+
+app.controller('myController',function($scope,Calculator){
+	
+	$scope.calsum=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Calculator.sidesum(a,b);
+	}
+	
+	$scope.calsub=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Calculator.sidesub(a,b);
+	}
+	
+	$scope.calmul=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Calculator.sidemul(a,b);
+	}
+	
+	$scope.caldiv=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Calculator.sidediv(a,b);
+	}
+	
+	$scope.calmod=function(){
+	var a =parseInt($scope.a);
+	var b =parseInt($scope.b);
+	$scope.d =Calculator.sidemod(a,b);
+	}
+});
+</script>
+</html>

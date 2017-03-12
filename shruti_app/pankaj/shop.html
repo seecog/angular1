@@ -1,6 +1,6 @@
 <html>
 <head>
-<script src="bower_components/angular/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
 </head>
 <body ng-app="myApp" ng-controller="myController">
@@ -9,7 +9,7 @@
 <table class="table table-stripped">
 <th>Id</th><th>Name</th><th>Cost</th><th>Action</th>
 <tr ng-repeat="x in products">
-<td>{{x.id}}</td><td>{{x.pro_name}}</td><td>{{x.pro_cost}}</td>
+<td>{{x.id}}</td><td>{{x.name}}</td><td>{{x.cost}}</td>
 <td><button class="btn btn-warning" ng-click="deleteProduct(x)">Delete</button></td>
 </tr>
 </table>

@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+	</head>
+	<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		<div class="col-lg-12">
+		First no :<input ng-model="num1" class="form-control">
+		</div>
+		<div class="col-lg-12">
+		Second no :<input ng-model="num2" class="form-control">
+		</div>
+		<div class="col-lg-12">
+		Output: <span ng-bind="output1"></span>
+		</div>
+		<div class="col-lg-12">
+			<button class="btn btn-primary" ng-click="calarea()">Area</button>
+			<button class="btn btn-primary" ng-click="calperimeter()">Perimeter</button>
+		</div>
+	</div>
+	</body>
+	
+	<script>
+		var app= angular.module('myApp',[]);
+		alert('inside module')
+		app.service('area',function(){
+		this.Xvalue= function(a,b){
+			return (a+b);
+			}
+		});
+		
+		app.factory('Rectangle',function(area){
+		alert('inside factory')
+			var obj = [];
+			obj.recarea=function(a,b){
+			var x=area.Xvalue(a,b);
+				return 2*x;
+			}
+		
+			obj.recperi=function(a,b){
+			var x=area.Xvalue(a,b);
+				return x;
+			}
+			return obj;
+		});
+		alert('going in controller')
+		app.controller('myController',function($scope,Rectangle){
+		alert('inside controller')
+		$scope.calarea=function(){
+			var a =parseInt($scope.num1);
+			var b =parseInt($scope.num2);
+			$scope.output1=Rectangle.recarea(a,b);
+		}
+		$scope.calperimeter=function(){
+			var a =parseInt($scope.num1);
+			var b =parseInt($scope.num2);
+			$scope.output1=Rectangle.recperi(a,b);
+		}
+		});
+	
+	</script>
+	
+</html>

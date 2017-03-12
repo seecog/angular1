@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+</head>
+<body ng-app ="myapp" ng-controller="mycontroller">
+radius:<input ng-model='r'><br>
+Cicumfrence of circle is {{circum}} <br>
+
+<button ng-click="circumference()">calculate</button>
+
+</body>
+<script>
+var app=angular.module('myapp',[])
+app.controller('mycontroller',function($scope){
+
+$scope.circumference=function(){
+console.log('inside cicrumfrenece function');
+var r=parseFloat($scope.r);
+
+$scope.circum =(2*3.14*r)
+}
+});
+
+</script>
+</html>

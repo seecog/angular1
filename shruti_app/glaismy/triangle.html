@@ -1,7 +1,6 @@
 <html>
 <head>
 <script src="bower_components/angular/angular.min.js"></script>
-
 </head>
 <body ng-app="myApp" ng-controller="myController">
 a:<input ng-model="a"><br>
@@ -18,8 +17,8 @@ $scope.show=function(){
 var a=parseFloat($scope.a);
 var b=parseFloat($scope.b);
 var c=parseFloat($scope.c);
-var s=(a*b*c)/2.0;
-$scope.area=Math.sqrt(s*(s-a)*(s-b)*(s-c)
+var s=(a+b+c)/2.0;
+$scope.area=Math.sqrt(s*(s-a)*(s-b)*(s-c));
 
 }
 });
