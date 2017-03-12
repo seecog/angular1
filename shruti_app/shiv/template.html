@@ -1,20 +1,24 @@
 <html>
 <head>
-<script src="bower_components/angular/angular.min.js"></script>
+<title>sbk</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
 </head>
-<body ng-app="myapp">
-	
 
-<div ng-controller="myctrl">
-	
-</div>
-
+<body ng-app="myapp" class="container">
+	<div ng-controller="myctrl">
+	{{1+2}}
+	</div>
 </body>
+
 <script>
-var app = angular.module('myapp', []);
-app.controller("myctrl", function ($scope){
+	var app = angular.module("myapp", []);
+	app.controller("myctrl", function(){
 
-
-})
+	});
 </script>
 </html>

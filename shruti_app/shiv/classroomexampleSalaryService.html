@@ -1,0 +1,66 @@
+<html>
+<head>
+<script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+<div ng-controller="myctrl">
+    <label>Enter basic salary:</label>
+    <input type="text" ng-model="basicsalary">
+
+    <hr>
+    <span>Gross Salary: {{grosssalary}}</span>
+    <button ng-click="docalculations()">calculate GROSS SALARY</button>
+	
+
+</div>
+
+</body>
+<script>
+var app = angular.module('myapp', []);
+
+app.service("DA", function(){
+    this.getval = function(x)
+    {
+        return parseFloat(x) * 0.05;
+    }
+});
+app.service("HRA", function(){
+    this.getval = function(x)
+    {
+        return parseFloat(x) * 0.1;
+    }
+});
+app.service("TA", function(){
+    this.getval = function(x)
+    {
+        return parseFloat(x) * 0.03;
+    }
+});
+
+app.factory("PT", function(){
+    var obj = {};
+    obj.getval = function()
+    {
+        return 800;
+    }
+    return obj;
+});
+
+app.service("Salary", function(DA, TA, HRA, PT){
+    this.getgrosssalary = function (x)
+    {
+        
+        return parseFloat(x)+ DA.getval(x) + DA.getval(x) + DA.getval(x) - PT.getval();
+    }
+
+});
+app.controller("myctrl", function ($scope, Salary){
+        
+    $scope.docalculations = function (){
+    //alert('Hello')
+        $scope.grosssalary = Salary.getgrosssalary($scope.basicsalary);
+    }
+   
+})
+</script>
+</html>
