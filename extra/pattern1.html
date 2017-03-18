@@ -1,0 +1,39 @@
+<html>
+   
+   <head>
+      <title>AngularJS First Application</title>
+   </head>
+   
+   <body>
+      <h1>Sample Application</h1>
+      
+      <div ng-app = "myApp">
+	  <form name="frm">
+         <p>Enter your Code: <input type = "text" name="name" ng-model = "name" ng-pattern="/^\d+$/">
+		 <span ng-show="frm.name.$dirty && frm.name.$error.pattern">Please enter number only</span>
+		 </p>
+		 <p>Enter your Name: <input type = "text" name="nm" ng-model = "nm" ng-pattern="/^[a-z]{1,7}$/">
+		 <span ng-show="frm.nm.$dirty && frm.nm.$error.pattern">Please enter charater only</span>
+		 </p>
+		 <p>Contact : <input type = "text" name="contact" ng-model = "contact" ng-pattern="/^\d{10}$/">
+		 <span ng-show="frm.contact.$dirty && frm.contact.$error.pattern">Please enter number only.10 digit only</span>
+		 </p>
+		 <p>Phone : <input type = "text" name="phone" ng-model = "phone" ng-pattern="/^\+?\d{2}[- ]?\d{3}[- ]?\d{5}$/">
+		 <span ng-show="frm.phone.$dirty && frm.phone.$error.pattern">Please enter valid phone</span>
+		 </p>
+		 <p>Department : <input type = "text" name="dp" ng-model = "dp" ng-pattern="/a-zA-Z0-9/">
+		 <span ng-show="frm.dp.$dirty && frm.dp.$error.pattern">Please enter character only</span>
+		 </p>
+		 <p>Custom : <input type = "text" name="dp" ng-model = "dp" ng-pattern="/a-zA-Z0-9/">
+		 <span ng-show="frm.dp.$dirty && frm.dp.$error.pattern">Please enter character only</span>
+		 </p>
+      </form>
+      </div>
+      
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <script>
+	  var app = angular.module('myApp',[]);
+	  
+	  </script>
+   </body>
+</html>
