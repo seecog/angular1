@@ -11,7 +11,9 @@
 		<table class="table table-striped">
 			<th>Id</th><th>Patient Name</th><th>Disease</th><th>Ward no</th><th>Patient Doc</th><th>Fee paid</th><th>patient complete fee</th><th>Image</th><th>Action</th>
 			<tr ng-repeat="x in patient">
-				<td>{{x.id}}</td><td>{{x.name}}</td><td>{{x.disease}}</td><td>{{x.ward_no}}</td><td>{{x.doc}}</td><td>{{x.fee_paid}}</td><td>{{x.complete_fee}}</td><td>{{img}}</td>
+				<td>{{x.id}}</td><td>{{x.pic}}
+				<img src="{{x.pic}}" width=100 height=100>
+				{{x.name}}</td><td>{{x.disease}}</td><td>{{x.ward_no}}</td><td>{{x.doc}}</td><td>{{x.fee_paid}}</td><td>{{x.complete_fee}}</td><td>{{img}}</td>
 				<td><button class="btn btn-warning" ng-click="Delete(x)">Delete</button></td>
 			
 			</tr>
@@ -21,10 +23,11 @@
 	<div class="col-lg-12">
 		<p>Id : <input ng-model="id" class="form-control"></p>
 		<p>Patient Name : <input ng-model="name" class="form-control"></p>
-		<p>Disease : <select ng-model="disease" ng-options="x for x in dids">
+		<p>Patient Pic : <input ng-model="pic" class="form-control"></p>
+		<p>Disease : <select ng-model="disease" class="form-control" ng-options="x for x in dids">
 				  </select></p>
 		<p>Ward no : <input ng-model="ward_no" class="form-control"></p>
-		<p>Patient Doc : <select ng-model="doc" ng-options="x for x in docs">
+		<p>Patient Doc : <select ng-model="doc" class="form-control" ng-options="x for x in docs">
 				  </select></p>
 		<p>fee paid : <input ng-model="fee_paid" class="form-control"></p>
 		<p>complete fee : <input ng-model="complete_fee" class="form-control"></p>
@@ -41,7 +44,7 @@ var app = angular.module('myApp',[]);
 	$scope.dids = ["cold","cough","headache"];
 	$scope.docs = ["Dr Rajesh","Dr Geeta","Dr Anita"];
 	$scope.addPatientdetail = function(){
-	$scope.patient.push({id:$scope.id,name:$scope.name,disease:$scope.disease,ward_no:$scope.ward_no,doc:$scope.doc,fee_paid:$scope.fee_paid,complete_fee:$scope.complete_fee});
+	$scope.patient.push({id:$scope.id,name:$scope.name,pic : $scope.pic ,disease:$scope.disease,ward_no:$scope.ward_no,doc:$scope.doc,fee_paid:$scope.fee_paid,complete_fee:$scope.complete_fee});
 	$scope.id = '';
 	$scope.name = '';
 	$scope.disease = '';
