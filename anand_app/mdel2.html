@@ -1,0 +1,42 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myfirstApp">
+<div ng-controller="myController">
+<p>
+first Number : <input ng-model="fnm">
+</p>
+<p>
+second Number : <input ng-model="snm">
+</p>
+<p>
+Addition is {{ad}} | Subtraction is {{sb}} | Multiplication is {{mult}}
+</p>
+<p>
+<button ng-click="add()">Add</button> <button ng-click="subtract()">Subtract</button> <button ng-click="multiply()">Multiply</button> 
+</p>
+</div>
+<script>
+var app = angular.module('myfirstApp',[]);
+app.controller('myController',function($scope){
+
+$scope.add = function(){
+var a = parseInt($scope.fnm);
+var b = parseInt($scope.snm);
+$scope.ad = a+b;
+}
+
+$scope.subtract = function(){
+$scope.sb = parseInt($scope.fnm)-parseInt($scope.snm);
+}
+
+$scope.multiply = function(){
+$scope.mult = parseInt($scope.fnm)*parseInt($scope.snm);
+}
+
+});
+</script>
+</body>
+
+</html>

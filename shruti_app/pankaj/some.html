@@ -1,0 +1,71 @@
+<html>
+   
+   <head>
+      <title>AngularJS First Application</title>
+   </head>
+   
+   <body>
+      <h1>Sample Application</h1>
+      
+      <div ng-app = "myApp" ng-controller="myController">
+	  Name : <input ng-model="fnm">
+	  <span my-directive a='10' b='20'></span>
+	  <my-image></my-image>
+      </div>
+      
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <script>
+	  var app = angular.module('myApp',[]);
+	  
+	  app.controller('myController',function($scope){
+	  
+	 $scope.$watch('fnm',function(){
+	  console.log('Value gets changed '+$scope.fnm);
+	  });
+	  
+	  });
+	  
+	  app.directive('myImage',function(){
+	  
+	  return {
+	  template : '<img src="{{im}}" width="200" height="200">',
+	  link : function(scope,element,attrs){
+	  element.bind('mouseover',function(){
+	  //scope.$apply(function(){
+	  scope.im = 'app2.jpg';
+	  console.log('the lite is '+scope.im);
+	  scope.$digest();
+	 // });
+	  });
+	  }
+	  }
+	  
+	  });
+	  
+	  app.directive('myDirective',function(){	  
+	  return {
+	  restrict : 'A',
+	  template : 'Sum is {{c}}',
+	  scope : {
+	  a : '=',
+	  b : '='
+	  },
+	  link : function(scope,element,attrs){
+	  
+	  console.log('the value is '+(scope.a+scope.b));
+	  scope.c = scope.a+scope.b;
+	  element.bind('mouseover',function(){
+	  element.css('color','red');
+	  });
+	  
+	  element.bind('mouseout',function(){
+	  element.css('color','black');
+	  });
+	  }
+	  }
+	  
+	  });
+	  
+	  </script>
+   </body>
+</html>

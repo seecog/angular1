@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myfirstApp">
+<div ng-controller="myController">
+<p>
+A : <input ng-model="a"> {{a}}
+</p>
+<p>
+B : <input ng-model="b">
+</p>
+<p>
+C : <input ng-model="c">
+</p>
+<p>
+Area is {{ar}} 
+</p>
+<p>
+<button ng-click="area()">Triagnle Area</button> 
+</p>
+</div>
+<script>
+var app = angular.module('myfirstApp',[]);
+app.controller('myController',function($scope){
+$scope.area = function(){
+var a = parseFloat($scope.a);
+var b = parseFloat($scope.b);
+var c = parseFloat($scope.c);
+var s = (a+b+c)/2;
+$scope.ar = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+
+}
+});
+</script>
+</body>
+
+</html>

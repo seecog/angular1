@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myfirstApp">
+<div ng-controller="myController">
+<p>
+first Number : <input ng-model="fnm">
+</p>
+<p>
+second Number : <input ng-model="snm">
+</p>
+</div>
+<script>
+var app = angular.module('myfirstApp',[]);
+app.controller('myController',function($scope){
+$scope.fnm = 10;
+$scope.snm = 20;
+});
+</script>
+</body>
+
+</html>
