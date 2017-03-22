@@ -20,25 +20,41 @@
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 <script>
-var app = angular.module('myApp',['ngMaterial'])
-app.config(function($mdThemingProvider){
+var app1 = angular.module('MyClassifieds',['ngMaterial']);
+app1.config(function($mdThemingProvider){
 $mdThemingProvider.theme('default')
-.primaryPalette('teal')
+.primaryPalette('teal');
+
 });
+app1.controller('myController',function($scope,$mdSidenav){
 
-app.controller('myController',function($scope,$mdSidenav){
+var contact = 
+{
+      "name":"Mohan kumar",
+      "phone":"(+91)(7348820668) ",
+      "email":"johndoe@gmail.com"
+    }
 
-$scope.openSidenav = function(){
 
-$mdSidenav('left').open();
-
+$scope.saveClassified = function(classified)
+{
+classified.contact = contact;
+$scope.classifieds.push(classified);
+classified = {};
+$scope.cancelSidenav();
 }
 
-$scope.closeSidenav = function(){
-$mdSidenav('left').close();
+
+$scope.openClassified = function(){
+$mdSidenav('myLeft').open();
 }
 
-$scope.classifieds = [
+$scope.cancelSidenav = function(){
+$mdSidenav('myLeft').close();
+}
+	
+	
+	$scope.classifieds = [
   {
     "id":"1",
     "title":"20 Foot Equipment Trailer",
@@ -147,59 +163,69 @@ $scope.classifieds = [
 ];
 
 });
-</script>
-<body ng-app="myApp" ng-controller="myController">
+
+</script> 
+  
+</head>
+<body ng-app="MyClassifieds" ng-controller="myController">
+
 <md-toolbar>
 <div class="md-toolbar-tools">
 <p>
-Classifieds
+<strong>ngClassifieds</strong>
 </p>
-<md-button ng-click="openSidenav()">
-<md-icon class="mdi mdi-plus-circle"></md-icon> Add Classified
-
+<md-button>
+<md-icon class="mdi mdi-plus-circle" ng-click="openClassified()"></md-icon>Add Classified
 </md-button>
 </div>
-
 </md-toolbar>
 
-<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="false">
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="myLeft">
 <md-toolbar>
-<div class="md-toolbar-tools">
-<h2>Add classified</h2>
-</div>
+<h1 class="md-toolbar-tools"><strong>Add a classified</strong></h1>
 </md-toolbar>
-<md-content>
+<md-content layout-padding>
+<form>
 <md-input-container>
 <label>Title</label>
-<input ng-model="classified.title" md-auto-focus>
+<input id="title" ng-model="classified.title" md-autofocus>
 </md-input-container>
 
 <md-input-container>
 <label>Price</label>
-<input ng-model="classified.price">
+<input id="price" ng-model="classified.price">
 </md-input-container>
 
 <md-input-container>
 <label>Description</label>
-<textarea rows=4 cols=20 ng-model="classified.description">Description..</textarea>
+<textarea id="description" ng-model="classified.description"></textarea>
 </md-input-container>
 
 <md-input-container>
-<md-button class="md-primary">Save</md-button>
-
-<md-button class="md-primary">Save Edit</md-button>
+<label>Image Link</label>
+<input id="image" ng-model="classified.image">
 </md-input-container>
 
+<p>
+{{classified | json}}
+</p>
+
+<md-button class="md-primary" ng-click="saveClassified(classified)">Save</md-button>
+<md-button class="md-primary">Edit</md-button>
+<md-button class="md-warn" ng-click="cancelSidenav()">Cancel</md-button>
+
+</form>
 </md-content>
 </md-sidenav>
+
 
 <md-content layout="row" layout-padding layout-wrap>
 
 <md-card ng-repeat="classified in classifieds" flex="30">
-<img src="{{classified.image}}" width=200 height=200>
+<img src="{{classified.image}}">
 <md-card-content>
 
-<div class="classified-info" ng-show="!showContact">
+<div class="basic-info" ng-show="!showContact">
 <h2>{{classified.title}}</h2>
 <h2>{{classified.price | currency}}</h2>
 <p>
@@ -217,29 +243,27 @@ Classifieds
 <p>
 <md-icon class="mdi mdi-email"></md-icon> {{classified.contact.email}}
 </p>
-<p>
-
-</p>
 </div>
 
-<div class="classified-button">
-<md-button ng-hide="showContact" class="md-primary" ng-click="showContact = true">Contact</md-button>
-<md-button ng-hide="!showContact" class="md-primary" ng-click="showContact = false">Details</md-button> 
-<md-button ng-hide="showAdmin" ng-click="showAdmin = true">Admin</md-button> 
+<div class="classified-button" layout="row">
+<md-button ng-hide="showContact" ng-click="showContact = true">Contact</md-button>
+<md-button ng-hide="!showContact" ng-click="showContact = false">Detail</md-button>
+<md-button ng-hide="showAdmin" ng-click="showAdmin = true">Admin</md-button>
 <md-button ng-hide="!showAdmin" ng-click="showAdmin = false">Close</md-button>
 </div>
 
-<div class="admin-button" ng-show="showAdmin">
-<md-button class="md-primary">Edit</md-button> 
+<div class="classified-admin" ng-if="showAdmin">
+<h2>Admin</h2>
+<div layout="row">
+<md-button class="md-primary">Edit</md-button>
 <md-button class="md-warn">Delete</md-button>
+</div>
 </div>
 
 </md-card-content>
 </md-card>
-
 </md-content>
-
-
+  
 </body>
 </html>
 

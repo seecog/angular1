@@ -1,0 +1,34 @@
+<p>
+  <button (click)="show()">Click Me</button>
+</p>
+<p>
+<input [(ngModel)]="customer.fnm">
+</p>
+<div appHighlight>All is well</div>
+<div appHover [backgroundColor]="'blue'">Albert Einstein</div>
+<p appThird [textColor]="'#000'">This is the text part</p>
+<p>
+<button (click)="myswitch()">Click Here</button>
+
+</p>
+<p *ngIf="switch">
+Here is the food
+</p>
+<ul>
+
+<li *ngFor="let item of items;let i = index;">
+   {{i}} - {{item}}
+    </li>
+</ul>
+
+<div [ngSwitch]="value">
+<p *ngSwitchCase="100">
+    100 is here
+    </p>
+<p *ngSwitchCase="200">
+    200 is here
+    </p>
+    <p *ngSwitchDefault>
+    Other
+    </p>
+</div>
