@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>sbk</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp" class="container">
+	
+		<emp-details></emp-details>
+	
+
+
+
+</body>
+
+<script>
+	var app = angular.module("myapp", []);
+	app.controller("myctrl", function($scope){
+		$scope.x=1;
+	});
+
+	app.directive("empDetails", function(){
+		return{
+			template: "<div>Id : 123</div><div>Name : shiva</div><div>Salary : 12345</div><div>Dept : UIUX</div>"
+		}
+	});
+</script>
+</html>

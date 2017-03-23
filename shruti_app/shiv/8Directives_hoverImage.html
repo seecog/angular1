@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>sbk</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+
+
+
+</head>
+
+<body ng-app="myapp" class="container">
+	<div ng-controller="myctrl">
+		<hover-image></hover-image>
+
+		<p change-css-on-hover>Hover me</p>
+
+	</div>
+</body>
+
+<script>
+	var app = angular.module("myapp", []);
+	app.controller("myctrl", function(){
+
+	});
+	app.directive("changeCssOnHover", function(){
+		return{
+			link:function(s, e, d){
+				e.on("mouseover", function(){
+					e.toggleClass('text-uppercase');
+					
+				});
+				
+				
+			}
+		}
+	});
+	app.directive("hoverImage", function(){
+		return {
+			template:"<img width=\"50px\" src='{{thesrc}}'/>",
+			link:function(scpe, elem, attr){
+				scpe.thesrc = "images/2.png";
+
+				elem.bind("mouseover", function(){
+
+					scpe.thesrc = "images/1.png";
+					scpe.$digest();
+				});
+				elem.bind("mouseout", function(){
+
+					scpe.$apply(function(){
+						scpe.thesrc = "images/2.png";
+					});
+				});
+
+				console.log("elem");
+				console.log(elem);
+				console.log("attr");
+				console.log(attr);
+				console.log("scope");
+				console.log(scpe);
+			}
+
+		}
+	});
+</script>
+</html>

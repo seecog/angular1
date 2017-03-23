@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>sbk</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp" class="container">
+	
+		<tri-area s1="10" s2="20" s3="15" ></tri-area>
+		<tri-area s1="130" s2="230" s3="135" ></tri-area>
+		<tri-area s1="100" s2="200" s3="150" ></tri-area>
+	
+
+
+
+</body>
+
+<script>
+	var app = angular.module("myapp", []);
+	app.controller("myctrl", function(){
+
+	});
+
+	app.directive("triArea", function(){
+		return{
+			template: "<div>the perimeter is {{peri}}</div>",
+			
+			link:function(scope, element, attrs){
+				var a=parseInt(attrs.s1);
+				var b=parseInt(attrs.s2);
+				var c=parseInt(attrs.s3);
+				scope.peri = a+b+c;
+
+				console.log(scope, element, attrs);
+			}
+		}
+	});
+</script>
+</html>

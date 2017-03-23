@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>sbk</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../bower_components/angular/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp" class="container">
+	<div ng-controller="myctrl">
+		<table class="table table-stripped">
+		<thead>
+			<th ng-click="orderbyvar='id';reverse=!reverse;">ID</th>
+			<th ng-click="orderbyvar='fn';reverse=!reverse;">First Name</th>
+			<th ng-click="orderChange('ln')">Last Name</th>
+			<th ng-click="orderChange('age')">Age</th>
+			<th ng-click="orderChange('dept')">Department</th>
+			<th ng-click="orderChange('sal')">Salary</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="emp in data|orderBy:orderbyvar:reverse">
+				<td>{{emp.id}}</td>
+				<td>{{emp.fn|uppercase|limitTo:5}}</td>
+				<td>{{emp.ln|uppercase}}</td>
+				<td>{{emp.age|convertToTwoDigit}}</td>
+				<td>{{emp.dept}}</td>
+				<td>{{emp.sal|currency}}</td>
+			</tr>
+		</tbody>
+		</table>
+	</div>
+</body>
+
+<script>
+	var app = angular.module("myapp", []);
+
+    app.filter("convertToTwoDigit", function (){
+    	return function(num){
+    		
+			return ("0" + num).slice(-2);
+    	}
+    });
+
+	app.controller("myctrl", function($scope){
+
+		$scope.orderChange = function (val)
+		{
+			
+			$scope.orderbyvar=val;
+			$scope.reverse=!$scope.reverse;
+		}
+
+		$scope.orderbyvar = "id";
+
+		$scope.reverse = true;
+
+		$scope.data = [
+					{id:1, fn:"shiva", ln:"k", age:98, dept:"M", sal:100100},
+					{id:2, fn:"Bala", ln:"k", age:25, dept:"H", sal:10000},
+					{id:3, fn:"Krishna", ln:"k", age:21, dept:"H", sal:200000},
+					{id:4, fn:"Basha", ln:"k", age:27, dept:"K", sal:10000},
+					{id:5, fn:"Chand", ln:"k", age:29, dept:"M", sal:100500},
+					{id:6, fn:"Shaik", ln:"k", age:21, dept:"H", sal:140000},
+					{id:7, fn:"Nawab", ln:"k", age:22, dept:"K", sal:10000},
+					{id:8, fn:"Babu", ln:"k", age:19, dept:"H", sal:100600},
+					{id:9, fn:"Pankaj", ln:"k", age:15, dept:"H", sal:10000},
+					{id:10, fn:"Srinu", ln:"k", age:12, dept:"K", sal:100000},
+					{id:11, fn:"Renesh", ln:"k", age:12, dept:"H", sal:103000},
+					{id:12, fn:"Ritesh", ln:"k", age:2, dept:"M", sal:10000},
+					{id:13, fn:"Badsha", ln:"k", age:4, dept:"H", sal:102000}
+		];
+	});
+</script>
+</html>

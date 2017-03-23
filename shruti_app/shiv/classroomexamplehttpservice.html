@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="../bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+	
+
+<div ng-controller="myctrl">
+	
+</div>
+
+</body>
+<script>
+var app = angular.module('myapp', []);
+app.service("calc", function(){
+    this.add = function (x, y)
+    {
+        return parseInt(x)+y;
+    }
+});
+app.controller("myctrl", function ($scope, calc){
+    
+
+    console.log(calc.add(1, 2));
+})
+</script>
+</html>
