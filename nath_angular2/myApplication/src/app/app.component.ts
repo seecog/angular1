@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { DataService } from './data.service';
 import { TriangleService } from './triangle.service';
 import { ProductlistService } from './productlist.service';
 import { Product } from './product';
@@ -7,8 +6,11 @@ import { Product } from './product';
 @Component({
   selector: 'app-root',
   template: `
+  <app-component-24-march name="Mohan" cost="100" brand="Philips Innovation" (clicked)="showMedication($event)"></app-component-24-march>
+  
+  
   <!--<button (click)="showMessage()">Show Me</button><br>
-  <button (click)="calculateArea()">Calculate Area</button>{{area}}-->
+  <button (click)="calculateArea()">Calculate Area</button>{{area}}
   <div class="container">
   <div class="row">
   <div class="col-lg-6">
@@ -43,16 +45,21 @@ import { Product } from './product';
   
   </div>
   
-  </div>
+  </div>-->
   `,
-  providers : [DataService,TriangleService,ProductlistService]
+  providers : [TriangleService,ProductlistService]
 })
 export class AppComponent {
 private area : number = 0;
 
-constructor(private dataService : DataService,private triangleService : TriangleService,private productlist : ProductlistService)
+constructor(private triangleService : TriangleService,private productlist : ProductlistService)
 {
 
+
+}
+
+showMedication(item : string){
+alert('Correct value is '+item);
 
 }
 
@@ -69,10 +76,6 @@ this.cost = 0;
 }
 //saving the product end
 
-showMessage(){
-/*console.log('The list record is ')
-console.log(JSON.stringify(this.dataService.getData()))*/
-}
 
 calculateArea(){
  this.area= this.triangleService.sideArea(10,12,13);
