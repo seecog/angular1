@@ -1,0 +1,42 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div class="container">
+<div class="col-lg-12">
+<my-first-directive stt="first">
+<my-first-directive stt="second">
+<my-first-directive stt="third"></my-first-directive> 
+</my-first-directive>
+</my-first-directive>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+	app.directive('myFirstDirective',function(){
+	
+	return{
+		compile: function(iElement,iAttribute){
+		iElement.css('color','red');
+		console.log('inside the compile function ' + iAttribute.stt);
+	return{
+		pre(scope,iElement,iAttribute){
+			console.log('inside the pre function ' + iAttribute.stt);
+			},
+		post(scope,iElement,iAttribute){
+			console.log('inside the post function ' + iAttribute.stt);
+			}
+		  }//return
+		},
+		controller:function($scope,$element,$attrs){
+		console.log('inside the controller function');
+		}
+	<!--,template:'We all are powerful' for nested directive we should not use template-->
+	}
+});
+
+</script>
+</html>

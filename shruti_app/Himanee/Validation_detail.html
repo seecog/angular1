@@ -5,16 +5,63 @@
 	</head>
 	<body ng-app="myApp" ng-controller="myController">
 	<div class="container">
-		<form name ="frm" nonvalidate>
+		<form name ="frm" novalidate>
 		<div class="col-lg-12">
-		First name :<input name ="fname" ng-model="fname" class="form-control" required ng-minlength ="3">
-		<span ng-show ="frm.fname.$dirty && frm.fname.$error.required" style ="color:red;">Please enter first name</span>
-		<span ng-show ="frm.fname.$dirty && frm.fname.$error.minlength" style ="color:red;">Minimum 3 char long</span>
+			First name :<input name ="fname" ng-model="fname" class="form-control" required ng-minlength ="3">
+			<span ng-show ="frm.fname.$dirty && frm.fname.$error.required" style ="color:red;">Please enter first name</span>
+			<span ng-show ="frm.fname.$dirty && frm.fname.$error.minlength" style ="color:red;">Minimum 3 char long</span>
 		</div>
+		
 		<div class="col-lg-12">
-		Last name :<input name ="lname" ng-model="lastname" class="form-control" required ng-minlength ="3">
-		<span ng-show ="frm.lname.$dirty && frm.lname.$error.required" style ="color:red;">Please enter last name</span>
-		<!--<span ng-show ="frm.lname.$dirty && frm.lname.$error.required" class="text-danger">Please enter last name</span>
+			Last name :<input name ="lname" ng-model="lastname" class="form-control" required ng-minlength ="3">
+			<span ng-show ="frm.lname.$dirty && frm.lname.$error.required" style ="color:red;">Please enter last name</span>
+			<span ng-show ="frm.lname.$dirty && frm.lname.$error.minlength" style ="color:red;">Minimum 3 char long</span>
+		</div>
+		
+		<div class="col-lg-12">
+		Email :<input type="email" name="c" ng-model="yh" class="form-control" required ng-minlength ="6" ng-maxlength="20">
+			<span ng-show ="frm.c.$dirty && frm.c.$error.required" style ="color:red;">Please enter a email Id</span>
+			<span ng-show ="frm.c.$dirty && frm.c.$error.minlength" style ="color:red;">Minimum 6 char long</span>
+			<span ng-show ="frm.c.$dirty && frm.c.$error.maxlength" style ="color:red;">Max 20 char long</span>
+			<span ng-show ="frm.c.$dirty && frm.c.$error.email" style ="color:red;">Invalid email</span>
+		</div>
+		
+		<div class="col-lg-12">
+			Contact no:<input name="contact" ng-model="con" class="form-control" required ng-minlength="10">
+			<span ng-show="frm.contact.$dirty && frm.contact.$error.required">Please type contact no</span>
+			<span ng-show="frm.contact.$dirty && frm.contact.$error.minlength">Please enter min 10 digit</span>
+		</div>
+		
+		<div class="col-lg-12">
+			Martial status:<input type="radio" name="ms" value="N" ng-model="status" required>Not Married
+						<input type="radio" name="ms" value="Y" ng-model="status" required>Married
+						<span ng-show="frm.ms.$error.required" class="text-danger">Select martial status</span>
+		</div>
+		
+		<div class="col-lg-12">
+				State:<Select name="st" ng-model="st" class="form-control" required>
+				<option value="">Select state</option>
+				<option value ="MP">Madhya pradesh</option>
+				<option value ="HP">Himachal pradesh</option>
+				</select>
+				<span ng-show="frm.st.$error.required" class="text-danger">Please select state</span>
+		</div>
+
+		<div class="col-lg-12">
+			<button class="btn btn-primary" ng-disabled="frm.$invalid" ng-click="Add()">submit</button>
+		</div>
+	</form>
+	</div>
+	</body>
+	
+	<script>
+		var app= angular.module('myApp',[]);
+		app.controller('myController',function($scope){
+		});
+	
+	</script>
+	<!--no need of controller-->
+	<!--<span ng-show ="frm.lname.$dirty && frm.lname.$error.required" class="text-danger">Please enter last name</span>
 		Address:<textarea rows="5"  col="20" name="add" ng-model="add" etc></textarea>
 		
 		Martial status :<input type="radio" name ="ms" value="y" ng-model="ms" required>Married --dont use form-control
@@ -27,34 +74,4 @@
 		</select>
 		<span ng-show ="frm.st.$error.required" class"text-danger">Please select state</span>
 		-->
-		<span ng-show ="frm.lname.$dirty && frm.lname.$error.minlength" style ="color:red;">Minimum 3 char long</span>
-		</div>
-		<div class="col-lg-12">
-		Email :<input type="email" name="c" ng-model="yh" class="form-control" required ng-minlength ="6" ng-maxlength="20">
-		<span ng-show ="frm.c.$dirty && frm.c.$error.required" style ="color:red;">Please enter a email Id</span>
-		<span ng-show ="frm.c.$dirty && frm.c.$error.minlength" style ="color:red;">Minimum 6 char long</span>
-		<span ng-show ="frm.c.$dirty && frm.c.$error.maxlength" style ="color:red;">Max 20 char long</span>
-		<span ng-show ="frm.c.$dirty && frm.c.$error.email" style ="color:red;">Invalid email</span>
-		</div>
-		<div class="col-lg-12">
-		Martial status:<input type ="radio" name="Mstatus" ng-model="d" class="form-control" required>
-		</div>
-		<div class="col-lg-12">
-		State:<input type ="email" name="em" ng-model="c" class="form-control" required ng-minlength ="6" ng-maxlength="20">
-		</div>
-		<div class="col-lg-12">
-			<button class="btn btn-primary" ng-disabled="frm.$invalid" ng-click="">submit</button>
-		</div>
-	</form>
-	</div>
-	</body>
-	
-	<script>
-		var app= angular.module('myApp',[]);
-		app.controller('myController',function($scope){
-		
-		});
-	
-	</script>
-	
 </html>

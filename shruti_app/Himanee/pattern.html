@@ -1,0 +1,73 @@
+<html>
+<head>
+<!--http service-->
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awsome.css"/>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		<form name="frm">
+			<div class="row">
+				<div class="col-lg-12">
+					<input ng-model="key" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<table class="table table-stripped">
+					<tr>
+						<th><a href="#" ng-click="sortType='id';sortReverse = !sortReverse">Id
+							<i ng-show="sortReverse" class="fa -fa-caret-up"></i>
+							<i ng-show="sortReverse" class="fa -fa-caret-up"></i>
+							</a>
+						</th>
+
+						<th><a href="#" ng-click="sortType='title';sortReverse = !sortReverse">Title
+							<i ng-show="sortReverse" class="fa -fa-caret-up"></i>
+							<i ng-show="sortReverse" class="fa -fa-caret-up"></i>
+							</a>
+						</th>
+
+						<th>Description</th>
+					</tr>
+					<tr ng-repeat="x in classifieds | fliter : key |limitTo : limit | orderBy: sortType : sortReverse">
+						<td>{{x.id}}</td>
+						<td>{{x.title | uppercase}}</td>
+						<td>{{x.price | number}}</td>
+					</tr>
+					</table>
+				</div>
+			</div>
+			
+		<div class="row">
+			<div class="col-lg-12">
+				<select ng-model="limit" class="form-control">
+					<option value="1">1</option>
+					<option value="3">3</option>
+					<option value="5">5</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="col-lg-12">
+			{{classifieds | json}}
+		</div>
+		
+	</form>
+	</div>
+</body>
+
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope,$http){
+	$scope.sortReverse = false;
+	$http.get('http://sooryprojects.com/key/index.json')
+	.then(function(res){
+		console.log('The record is');
+		console.log(JSON.stringify(res));
+	$scope.classifieds = res.data;
+	});
+});
+</script>
+</html>

@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+	</head>
+<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		<div class="col-lg-12">
+			R:<input ng-model="radius" class="form-control">
+		</div>
+		<br>
+		<div class="col-lg-12">
+			Output: <span ng-bind="output"  class="form-control"></span>
+		</div>
+		<br>
+		<div class="col-lg-12">
+			<button ="btn btn-primary" ng-click="cal()">Area</button>
+			<button ="btn btn-primary" ng-click="calcircum()">Circumference</button>
+		</div>
+	</div>
+
+</body>
+	<script>
+	 var app= angular.module("myApp",[]);
+		app.service('circle',function(){
+			this.area=function(r){
+				return (2*3.14*r);
+			}
+			console.log("cicumfrence");
+			this.circum=function(r){
+				return(3.14*r*r);
+			}
+		});
+	 
+	 app.controller("myController",function($scope,circle){
+		$scope.cal = function(){
+			var a = parseInt($scope.radius);
+			$scope.output = circle.area(a);
+		}
+		
+		$scope.calcircum = function(){
+			var a = parseInt($scope.radius);
+			$scope.output = circle.circum(a);
+		}
+	 });
+	</script>
+</html>

@@ -1,0 +1,75 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+	<form name="frm">
+		<div class="row">
+			<div class="col-lg-12">
+			Search box:	<input ng-model="search" class="form-control">
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<table class="table table-stripped">
+						<th>Id</th>
+						<th><a href="#" ng-click="sortType='first';sortReverse = !sortReverse">First Name</th>
+						<th>Last Name</th>
+						<th>Age</th>
+						<th>Dept</th>
+						<th>Salary</th>
+					<tr ng-repeat="x in employee | filter : search | limitTo : limit | orderBy : sortType : sortReverse">
+						<td>{{x.id}}</td>
+						<td>{{x.first|uppercase}}</td>
+						<td>{{x.last}}</td>
+						<td>{{x.age}}</td>
+						<td>{{x.dept}}</td>
+						<td>Rs{{x.sal| currency| number}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<div class="col-lg-12">
+			<p>Id : <input ng-model="id" class="form-control"></p>
+			<p>Emp First Name : <input ng-model="first" class="form-control"></p>
+			<p>Emp Last Name : <input ng-model="last" class="form-control"></p>
+			<p>Age : <input ng-model="age" class="form-control"></p>
+			<p>Dept: <input ng-model="dept" class="form-control"></p>
+			<p>Salary: <input ng-model="sal" class="form-control"></p>
+			<p><button ng-click="addempdetail()" class="btn btn-primary">Add detail</button></p>
+		</div>
+	
+		<div class="row">
+			<div class="col-lg-12">
+				<select ng-model="limit" class="form-control">
+					<option value="1">1</option>
+					<option value="3">3</option>
+					<option value="5">5</option>
+				</select>
+			</div>
+		</div>
+		
+	</form>
+</div>
+</body>
+	<script>
+	 var app=angular.module('myApp',[]);
+	 app.controller('myController',function($scope){
+	 $scope.sortReverse = false;
+	 $scope.employee=[];
+	 $scope.addempdetail = function(){
+	 $scope.employee.push({id:$scope.id,first:$scope.first,last:$scope.last,age:$scope.age,dept:$scope.dept,sal:$scope.sal});
+	 $scope.id = '';
+	 $scope.first = '';
+	 $scope.last='';
+	 $scope.age= '';
+	 $scope.dept ='';
+	 $scope.sal ='';
+	 }
+	 });
+	</script>
+</html>
