@@ -1,0 +1,50 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp">
+<div class="container">
+<first-directive stt='first'>
+
+<first-directive  stt='second'>
+
+<first-directive  stt='third'>
+</first-directive>
+
+</first-directive>
+
+</first-directive>
+
+</div>
+</body>
+<script>
+var mainApp = angular.module('myApp',[]);
+
+mainApp.directive('firstDirective',function(){
+		 
+		 return {
+		 compile : function(iElement,iAttributes){
+		 console.log('Inside compile function '+iAttributes.stt)
+		 return {
+		 pre(scope,iElement,iAttributes){
+		 console.log('Inside pre function '+iAttributes.stt)
+		 },
+		 post(scope,iElement,iAttributes){
+		 console.log('Inside post function '+iAttributes.stt)
+		 }
+		 }
+		 },
+		 controller : function($scope,$element,$attrs){
+		 console.log('Inside the controller function '+$attrs.stt)
+		 },
+		 link : function(scope,element,attrs){
+		 
+		 console.log('Going on..')
+		 }
+		 
+		 }
+		 
+		 });
+</script>
+</html>

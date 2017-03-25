@@ -7,10 +7,7 @@
 <body ng-app="myApp">
 <div class="container">
 <div class="col-lg-12">
-<my-directive stt="first">
-</my-directive>
-<my-directive stt="first">
-</my-directive>
+<my-directive></my-directive>
 </div>
 </div>
 </body>
@@ -18,28 +15,9 @@
 var app = angular.module('myApp',[]);
 app.directive('myDirective',function(){
 return {
-compile : function(iElement,iAttributes){
-iElement.css('color','red');
-console.log('Inside the compile function '+iAttributes.stt);
-return {
-pre(scope,iElement,iAttributes){
-console.log('Inside the pre link function '+iAttributes.stt);
-},
-post(scope,iElement,iAttributes){
-console.log('Inside the post link function '+iAttributes.stt);
+template : 'I am superman'
 }
-}
-
-},
-controller : function($scope,$element,$attrs){
-console.log('Inside the controller function');
-},
-template : 'We all are Indians'
-
-}//return end
-
 });
-
 
 </script>
 </html>

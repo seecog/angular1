@@ -8,8 +8,14 @@
 <div class="container">
 <div class="col-lg-12">
 <my-directive stt="first">
+
+<my-directive stt="second">
+
+<my-directive stt="third">
 </my-directive>
-<my-directive stt="first">
+
+</my-directive>
+
 </my-directive>
 </div>
 </div>
@@ -33,9 +39,7 @@ console.log('Inside the post link function '+iAttributes.stt);
 },
 controller : function($scope,$element,$attrs){
 console.log('Inside the controller function');
-},
-template : 'We all are Indians'
-
+}
 }//return end
 
 });
