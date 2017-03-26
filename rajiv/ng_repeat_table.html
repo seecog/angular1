@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body ng-app="" ng-init="products=[
+{id : 1,product_name : 'Apple',cost : 100},
+{id : 2,product_name : 'Banana',cost : 50},
+{id : 3,product_name : 'Pineapple',cost : 150}
+];">
+<div class="container">
+<ul>
+<li ng-repeat="x in products">
+{{x.id}} | {{x.product_name}} | {{x.cost}}
+</li>
+</ul>
+
+<table class="table">
+<th>Id</th><th>Name</th><th>Cost</th>
+<tr ng-repeat="product in products">
+<td>{{product.id}}</td><td>{{product.product_name}}</td><td>{{product.cost}}</td>
+</tr>
+</table>
+
+</div>
+</body>
+</html>
