@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCont">
+Controller value is {{a}}
+<my-directive a="20"></my-directive>
+<my-directive a="{{a}}"></my-directive>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myCont',function($scope){
+
+$scope.a = 10;
+
+});
+app.directive('myDirective',function(){
+return {
+scope : {
+a : '@'
+},
+template : '{{a}}<input ng-model="a"></h1>'
+}
+});
+</script>
+</html>

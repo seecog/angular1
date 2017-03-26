@@ -1,0 +1,19 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="" ng-init="marks=[90,87,85];">
+Physics : {{marks[0]}} <br>
+Chemistry : {{marks[1]}} <br>
+Math : {{marks[2]}} <br>
+
+
+<p>
+<ul>
+<li ng-repeat="x in marks">{{x}}</li>
+</ul>
+
+</p>
+</body>
+
+</html>

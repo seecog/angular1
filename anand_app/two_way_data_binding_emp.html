@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<p>
+{{employee}}
+</p>
+<p>
+Name : <input ng-model="employee.name">
+</p>
+<p>
+Mobile : <input ng-model="employee.contact.mobile">
+</p>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.employee = {
+id : 1,
+name : 'Rajeev',
+sal : 1200,
+contact : {
+email : 'rajeev@gmail.com',
+mobile : 973425252
+}
+};
+});
+
+</script>
+</html>

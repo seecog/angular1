@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  
+  newShow(val : string){
+  
+  alert('the new value is '+val)
+  }
 }

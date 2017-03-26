@@ -1,0 +1,39 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCont">
+<my-directive product="product" show-me="show(product)"></my-directive>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.directive('postInfo',function(){
+
+});
+
+app.directive('myDirective',function(){
+
+return {
+scope : {
+product : '=',
+showMe : '&'
+},
+template : '<button ng-click="showMe(product)">Show Me</button>'
+
+}
+
+});
+app.controller('myCont',function($scope){
+$scope.product = {
+id : 1,
+name : 'Apple'
+};
+$scope.show = function(product){
+alert('Hello there')
+alert(product)
+}
+
+});
+</script>
+</html>

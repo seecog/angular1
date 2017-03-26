@@ -10,6 +10,9 @@ import { GanguliComponent } from './ganguli/ganguli.component';
 import { MyFormComponent } from './my-form/my-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { OutsideeraComponent } from './outsideera/outsideera.component';
+import { TwowaydatabindComponent } from './twowaydatabind/twowaydatabind.component';
+import { TwowaydatabindobjComponent } from './twowaydatabindobj/twowaydatabindobj.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     GanguliComponent,
     MyFormComponent,
     LoginFormComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    OutsideeraComponent,
+    TwowaydatabindComponent,
+    TwowaydatabindobjComponent
   ],
   imports: [
     BrowserModule,

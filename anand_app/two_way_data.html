@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<p>
+{{product}}
+</p>
+<p>
+Name : <input ng-model="product.name">
+</p>
+<p>
+Cost : <input ng-model="product.cost">
+</p>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.product = {
+id : 1,
+name : 'Apple',
+cost : 120
+};
+});
+
+</script>
+</html>
