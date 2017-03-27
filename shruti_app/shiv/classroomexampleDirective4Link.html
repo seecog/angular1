@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>sbk</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<script src="../bower_components/angular/angular.min.js"></script>
+</head>
+
+<body ng-app="myapp" class="container">
+	
+		<emp-details atr='first'>
+			<emp-details atr='second'></emp-details>
+		</emp-details>
+
+
+</body>
+
+<script>
+	var app = angular.module("myapp", []);
+	
+	app.directive("empDetails", function(){
+		return {
+			compile : function(iElement, iAttribu){
+					console.log("compile fn  "+iAttribu.atr);
+				return {
+					pre(scope,iElement,iAttributes){
+						console.log("pre "+iAttributes.atr);
+					},
+					post(scope,iElement,iAttributes){
+
+						console.log("post "+iAttributes.atr);
+					}
+				}
+			},
+			controller($scope,$element,$attrs){
+
+				console.log("controller  "+$attrs.atr);
+
+			}//,
+			//template:"hi"
+		}
+	});
+</script>
+</html>

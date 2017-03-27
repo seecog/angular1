@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>Custom Directives 1</title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="js/bootstrap.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+<script src="js/angular.js"></script>
+<style>
+
+.phoneThumbNail
+{
+	width: 33%;
+    background-color: darkseagreen;
+    float: left;
+    padding: 10px;
+    border: white 5px solid;
+    color:#58825B;
+    
+}
+.phoneThumbNail > div
+{
+	width:100%;
+	padding:10px;
+}
+.phoneThumbNail footer > div
+{
+	width:40%;
+	float:left;
+	text-align:center;
+	background-color:#58825B;
+	margin: 5% 5% 4px;
+	padding:5px;
+	color:darkseagreen;
+	cursor:pointer;
+
+}
+</style>
+
+</head>
+
+<body ng-app="myapp" class="container">
+	<div ng-controller="myctrl">
+		<phones:complete:info></phones:complete:info>
+		
+	</div>
+</body>
+
+<script>
+	var app = angular.module("myapp", []);
+
+	app.directive("phonesCompleteInfo", function(){
+		return{
+			scope:false,
+			template:'<div ng-repeat="phone in phonesdata"><phone-info info="phone" delete-phone:details="deletePhDetails(phone)"></phone-info></div>'
+		}
+	});
+
+
+	app.controller("myctrl", function($scope, GetData,$http)
+	{
+		GetData.getPhonesData().then(function (rest){
+			$scope.phonesdata =  rest.data;
+		});
+
+		$scope.deletePhDetails = function(ph)
+		{
+			 $scope.phonesdata.splice($scope.phonesdata.indexOf(ph), 1);
+		}
+		
+	});
+
+	app.service("GetData", function($http)
+	{
+		this.getPhonesData = function()
+		{
+			return $http.get("data/phones.json");
+		}
+	});
+
+	app.directive("phoneInfo", function ()
+	{
+		return{
+			scope:{
+				info:"=",
+				deletePhoneDetails:"&"
+			},
+			templateUrl:'templates/9customdirectives.html',
+			controller:function($scope){
+				$scope.isInEditMode = false;
+
+				$scope.toggleEditMode = function(bool)
+				{
+					$scope.isInEditMode = bool;
+				}
+			}
+		}
+	})
+
+</script>
+</html>

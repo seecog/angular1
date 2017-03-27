@@ -1,0 +1,22 @@
+<style>
+	.editcolor
+	{
+		background-color:#cccccc;
+	}
+	
+</style>
+
+<div class="phoneThumbNail" ng-class="{editcolor:isInEditMode}">
+	<div><b>Index:</b> {{info.age}}</div>
+	<div ng-if="!isInEditMode" style="height:45px; padding-top: 13px;"><b>Name:</b> {{info.name}}</div>
+	<div ng-if="isInEditMode" style="height:45px;"><b>Name:</b> <input type="text" ng-model="info.name"/></div>
+
+	<div style="white-space: nowrap;overflow: hidden; text-overflow: ellipsis;"><b>About:</b> {{info.snippet}}</div>
+	
+	<footer>
+		<div ng-click="toggleEditMode(true);" ng-if="!isInEditMode">Edit</div>
+		<div ng-click="toggleEditMode(false);" ng-if="isInEditMode">Save Changes</div>
+		<div ng-click="deletePhoneDetails(info)">Delete</div>
+	</footer>
+</div>
+	

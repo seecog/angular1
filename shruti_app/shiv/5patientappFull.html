@@ -1,20 +1,142 @@
 <html>
 <head>
+<title>Patient App</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../bower_components/angular/angular.min.js"></script>
+
+<style>
+body
+{
+	background-color:#cecece;
+}
+
+.page-headers
+{
+	
+	text-align:center;
+}
+#mycontainer
+{
+	background-color: white;
+	padding:0 20px;
+}
+form
+{
+	margin:0 20px;
+}
+</style>
+
 </head>
-<body ng-app="myapp">
-	
+<body ng-app="myapp" class="container">
+	<div id="mycontainer">
 
-<div ng-controller="myctrl">
-	
-</div>
+		<header class="page-headers ">
+		<h1>Patients Info</h1>
+		</header>
+			<hr >
 
+		<div ng-controller="myctrl" >
+			<h3>Add new patient informaton:</h3>
+			<section id="addPInfo">
+				<form>
+					<div class="form-group">
+						<label for="pname_input">Name:</label>
+						<input type="text" class="form-control" id="pname_input" ng-model="tempData.name">
+					</div>
+
+					<div class="form-group">
+						<label for="doc_input">Doctor Name:</label>
+						<select class="form-control" id="doc_input" ng-model="tempData.doc">
+					        <option value="{{doc}}" ng-repeat="doc in allDocs">Dr. {{doc}}</option>
+					        
+					    </select>
+					</div>
+
+					<div class="form-group">
+						<label for="dis_input">Disease:</label>
+						<select class="form-control" id="dis_input" ng-model="tempData.disc">
+					        <option value="{{dis}}" ng-repeat="dis in allDiscs">{{dis}}</option>
+					        
+					    </select>
+					</div>
+
+					<div class="form-group">
+						<label for="Fee_input">Fee:</label>
+						<input type="text" class="form-control" id="Fee_input" ng-model="tempData.totalBill">
+					</div>
+					<div class="form-group">
+						<label for="paid_input">Paid:</label>
+						<input type="text" class="form-control" id="paid_input" ng-model="tempData.paid">
+					</div>
+					<div class="form-group">
+						<button  class="btn btn-success"  ng-click="addRecord()">Add Patient info</button>
+					</div>
+				</form>
+			</section>
+
+<hr >
+			<section id="listPInfo">
+			<h3>Active patients list:</h3>
+				<table class="table table-striped table-responsive">
+					<thead>
+						<tr>
+							<th>Id</th><th>Name</th><th>Doctor Name</th><th>Disease</th><th>Pending payment</th><th></th><th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="record in pat_data"><td>{{record.id}}</td><td>{{record.name}}</td><td>{{record.disc}}</td><td>{{record.doc}}</td><td>Rs. {{record.totalBill - record.paid}}</td><td><button class="btn btn-danger" ng-click="removePatientRecord(record)">X</button></td><td><button class="btn btn-info" ng-click="editPatientRecord(record)">Edit</button></td></tr>
+					</tbody>
+					
+				</table>
+			</section>
+		</div>
+	</div>
 </body>
 <script>
-var app = angular.module('myapp', []);
-app.controller("myctrl", function ($scope){
+	var app = angular.module('myapp', []);
+
+	
+
+	app.controller("myctrl", function ($scope){
+
+		var idCounter = 104; 
+
+		
+
+		$scope.allDiscs = ["OP", "disease 2", "disease 3", "disease 4", "disease 5", "disease 6", "disease 7"];
+
+		$scope.allDocs = ["Shiva K", "Renesh V K", "Ritesh S K", "Bala Krishna", "Chand Nawab", "Shaik", "Basha"];
+
+		$scope.pat_data = [
+						{id:101, name:"Smith", disc:"OP", doc:"Shiva K", totalBill:10000, paid:2000},
+						{id:102, name:"Starc", disc:"disease 4", doc:"Shiva K", totalBill:10000, paid:5000},
+						{id:103, name:"Hazlewood", disc:"disease 2", doc:"Chand Nawab", totalBill:10000, paid:10000}
+		]
+
+		$scope.tempData = {id:idCounter,name:"", totalBill:0, paid:0, doc:$scope.allDocs[0], disc:"OP"};
+
+		$scope.removePatientRecord = function(rec)
+		{
+			$scope.pat_data.splice($scope.pat_data.indexOf(rec), 1);
+		}
+
+		$scope.addRecord = function()
+		{
+			$scope.pat_data.push($scope.tempData);
+
+			$scope.tempData = {id:idCounter++, name:"", totalBill:0, paid:0, doc:$scope.allDocs[0], disc:"OP"};
+		}
+
+		$scope.editPatientRecord = function (rec)
+		{
+			$scope.tempData = rec;
+		}
 
 
-})
+	})
 </script>
 </html>

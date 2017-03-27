@@ -1,0 +1,47 @@
+<html>
+<head>
+<title>sbk</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="js/jquery.js"></script>  
+
+<link rel="stylesheet" href="js/bootstrap.css">
+
+<script src="js/angular.js"></script>
+</head>
+
+<body ng-app="myapp" class="container">
+
+	<div ng-controller="myctrl">
+		<my-dir newfun="show(a)">
+			
+		</my-dir>
+	</div>
+	
+</body>
+
+<script>
+	var app = angular.module("myapp", []);
+
+	app.directive("myDir", function (){
+		return {
+			scope:{newfun:'&'},
+			template:"<button ng-click='newfun(a)'>show</button>"
+		}
+	});
+	
+	app.controller("myctrl", function ($scope){
+
+		$scope.a=10;
+
+		$scope.show = function(a)
+		{
+			alert("super"+a);
+		}
+	});
+
+	
+	
+</script>
+</html>
