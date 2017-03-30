@@ -1,0 +1,72 @@
+<html>
+   
+   <head>
+      <title>Angular JS Views</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+	  <style>
+	  input.ng-invalid {
+	  border : 1px solid red;
+	  }
+	  input.ng-valid {
+	  border : 1px solid green;
+	  }
+	  
+	  .ng-invalid .btn {
+	  background-color : gray
+	  }
+	  </style>
+   </head>
+   
+   <body>
+      <h2>AngularJS Sample Application</h2>
+      <div class="container" ng-app = "mainApp">
+	  <form name="frm" novalidate>
+	  <div class="col-lg-12">
+	  <div class="form-group">
+	  <label>First name </label>
+	  <input class="form-control" name="first_name" ng-model="first_name" required>
+	  <p ng-show="frm.first_name.$dirty && frm.first_name.$error.required">
+	  Please enter first name
+	  </p>
+	  </div>
+	  
+	  <div class="form-group">
+	  <label>Password </label>
+	  <input type="password" class="form-control" name="password" ng-model="password" required ng-minlength="6" ng-maxlength="10">
+	  <p ng-show="frm.password.$dirty && frm.password.$error.required">
+	  Password required
+	  </p>
+	  <p ng-show="frm.password.$dirty && frm.password.$error.minlength">
+	  Password should be of minimum 6 characters
+	  </p>
+	  <p ng-show="frm.password.$dirty && frm.password.$error.maxlength">
+	  Password should not be more then 10 characters
+	  </p>
+	  </div>
+	  
+	  <div class="form-group">
+	  <label>Email </label>
+	  <input type="email" class="form-control" name="email" ng-model="email" required>
+	  <p ng-show="frm.email.$dirty && frm.email.$error.required">
+	  Please enter email
+	  </p>
+	  <p ng-show="frm.email.$dirty && frm.email.$error.email">
+	  Please enter valid email
+	  </p>
+	  </div>
+	  
+	  <div class="form-group">
+	  <button ng-disabled="frm.$invalid" class="btn btn-success">Register</button>
+	  </div>
+	  
+	  </div>
+	  </form>
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+      </script>
+      
+   </body>
+</html>
