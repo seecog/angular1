@@ -14,6 +14,7 @@ import { ProductComponent } from './product/product.component';
 import { CalculateService } from './calculate.service';
 import { Component24MarchComponent } from './component-24-march/component-24-march.component';
 import { EffectDirective } from './component-24-march/effect.directive';
+import { FormvalidationComponent } from './formvalidation/formvalidation.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EffectDirective } from './component-24-march/effect.directive';
     ThirdDirective,
     ProductComponent,
     Component24MarchComponent,
-    EffectDirective
+    EffectDirective,
+    FormvalidationComponent
   ],
   imports: [
     BrowserModule,

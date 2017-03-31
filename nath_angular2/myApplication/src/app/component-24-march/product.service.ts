@@ -1,7 +1,7 @@
 import { Product } from './product';
 export class ProductService {
 
-  private products : product[] = [];
+  private products : Product[] = [];
   addProduct(product : Product)
   {
   this.products.push(product)

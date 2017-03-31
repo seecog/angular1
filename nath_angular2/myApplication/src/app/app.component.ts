@@ -6,10 +6,11 @@ import { Product } from './product';
 @Component({
   selector: 'app-root',
   template: `
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+  <app-formvalidation></app-formvalidation>
+  <!--
   <app-component-24-march name="Mohan" cost="100" brand="Philips Innovation" (clicked)="showMedication($event)"></app-component-24-march>
-  
-  
-  <!--<button (click)="showMessage()">Show Me</button><br>
+  <button (click)="showMessage()">Show Me</button><br>
   <button (click)="calculateArea()">Calculate Area</button>{{area}}
   <div class="container">
   <div class="row">

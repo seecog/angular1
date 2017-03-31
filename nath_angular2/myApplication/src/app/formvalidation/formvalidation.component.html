@@ -1,0 +1,39 @@
+<div class="container">
+
+<div class="row">
+    <form #f="ngForm">
+    <div class="col-lg-12">
+        <div ngModelGroup="userData">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" name="username" [ngModel]="user.username" required #username="ngModel">
+        <p *ngIf="!username.valid">Username is required</p>
+        </div>    
+        
+        <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" name="email" [ngModel]="user.email" required>
+        </div>  
+        </div>
+        <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" name="password" [(ngModel)]="user.password">
+        </div>  
+        
+        <div class="radio">
+            <label>
+        <input type="radio" name="gen" [(ngModel)]="user.gender" value="m">Male
+            </label>
+            <label>
+        <input type="radio" name="gen" [(ngModel)]="user.gender" value="f">FeMale
+                </label>
+        </div>
+        
+        <div class="form-group">
+            <input type="button"  (click)="onSubmit(f)" class="btn btn-primary" value="Register">
+        </div>  
+    </div>
+    </form>
+    </div>
+
+</div>
