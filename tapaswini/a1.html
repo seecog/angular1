@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<p>
+a = {{a}}<br>
+b = {{b}}
+</p>
+<p>
+First No : <input type="text" name="a" ng-model="a">
+</p>
+<p>
+Second No : <input type="text" name="b" ng-model="b">
+</p>
+<p>
+Sum is : {{c}}
+</p>
+<p>
+<button ng-click="add()">Add</button>
+</p>
+
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+
+$scope.add = function(){
+var t1 = parseInt($scope.a);
+var t2 = parseInt($scope.b);
+$scope.c = t1+t2;
+}
+
+
+});
+
+
+</script>
+</html>

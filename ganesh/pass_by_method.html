@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+<my-directive show="display()"></my-directive>
+
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+
+$scope.display = function(){
+alert('I am in controller')
+}
+
+});
+
+app.directive('myDirective',function(){
+return {
+scope : {
+show : '&'
+},
+template : '<button ng-click="show()">Click</button>'
+
+}
+});
+
+</script>
+</html>
