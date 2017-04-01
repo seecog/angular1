@@ -2,9 +2,23 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 </head>
-<body ng-app="" ng-init="products={id : 1,name : 'Mohan',age : 21};">
+<body ng-app="" ng-init="products=[
+{},
+{},
+{id : 1,name : 'Mohan',age : 21}
+7348820668 : Pankaj
+];">
  Name : {{product.name}} <br>
 
+ <table>
+ <th>Id</th><th>Id</th><th>Id</th>
+ <tr ng-repat="x in products">
+ <td>{{x.id}}</td><td>{{}}</td>
+ </tr>
+ </table>
+ 
+ 
+ 
 </body>
 
 </html>

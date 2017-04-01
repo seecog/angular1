@@ -1,11 +1,10 @@
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"
-/>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<style>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+   <style>
+   
 
 .card {
     padding-top: 20px;
@@ -248,32 +247,71 @@
     margin-bottom: 17px;
 }
 
-
-
 </style>
 </head>
-<body ng-app="myApp" ng-controller="myCont">
+<body ng-app="myApp">
 <div class="container">
-<p>
-</p>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#product">Products <span class="sr-only">(current)</span></a></li>
+        <li><a href="#about">About Us</a></li>  
+        <li><a href="#contact">Contact Us</a></li> 		
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" ng-model="key" class="form-control" placeholder="Search">
+        </div>
+      </form>
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="row">
+<div ng-view></div>
 
 
-<!--<ul ng-repeat="x in products">
-
-<li product-info product="x"></li>
-
-
-</ul>
--->
-<span product-info del-dir="delproduct(products[0])" product="products[0]" editproduct="editPro(products[0])"></span>
-<!--<span product-info product="products[1]"></span>
-<span product-info product="products[2]"></span>
--->
 </div>
+
 </body>
 <script>
-var app = angular.module('myApp',[]);
+var app = angular.module('myApp',['ngRoute']);
 </script>
-<script src="script/controller/product.ctrl.js"></script>
-<script src="script/directive/product.dir.js"></script>
+<script src="scripts/controllers/products.ctrl.js"></script>
+   <script src="scripts/controllers/about.ctr.js"></script>
+   <script src="scripts/controllers/contact.ctr.js"></script>
+   <script>
+app.config(['$routeProvider',function($routeProvider){
+$routeProvider
+.when('/product',{
+templateUrl : 'views/products.html',
+controller : 'ProductController'
+
+})
+.when('/contact',{
+templateUrl : 'views/contact.html',
+controller : 'ContactController'
+})
+.when('/about',{
+templateUrl : 'views/about.html',
+controller : 'AboutController'
+})
+}]);
+
+</script>
 </html>

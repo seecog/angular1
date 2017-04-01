@@ -13,6 +13,10 @@ import { RegisterFormComponent } from './register-form/register-form.component';
 import { OutsideeraComponent } from './outsideera/outsideera.component';
 import { TwowaydatabindComponent } from './twowaydatabind/twowaydatabind.component';
 import { TwowaydatabindobjComponent } from './twowaydatabindobj/twowaydatabindobj.component';
+import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
+import { Directive1Directive } from './custom-directive/directive1.directive';
+import { Directive2Directive } from './custom-directive/directive2.directive';
+import { Directive3Directive } from './custom-directive/directive3.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { TwowaydatabindobjComponent } from './twowaydatabindobj/twowaydatabindob
     RegisterFormComponent,
     OutsideeraComponent,
     TwowaydatabindComponent,
-    TwowaydatabindobjComponent
+    TwowaydatabindobjComponent,
+    CustomDirectiveComponent,
+    Directive1Directive,
+    Directive2Directive,
+    Directive3Directive
   ],
   imports: [
     BrowserModule,
