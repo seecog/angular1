@@ -1,7 +1,7 @@
-angular.module('myApp').controller('ProductController',function($scope){
+angular.module('myApp').controller('ProductController',function($scope,$rootScope){
 	
 
-$scope.products = [
+$rootScope.products = [
   {
     "id":"1",
     "title":"20 Foot Equipment Trailer",

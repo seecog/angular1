@@ -295,6 +295,7 @@ var app = angular.module('myApp',['ngRoute']);
 <script src="scripts/controllers/products.ctrl.js"></script>
    <script src="scripts/controllers/about.ctr.js"></script>
    <script src="scripts/controllers/contact.ctr.js"></script>
+   <script src="scripts/controllers/productinfo.controller.js"></script>
    <script>
 app.config(['$routeProvider',function($routeProvider){
 $routeProvider
@@ -310,6 +311,10 @@ controller : 'ContactController'
 .when('/about',{
 templateUrl : 'views/about.html',
 controller : 'AboutController'
+})
+.when('/productinfo/:id',{
+templateUrl : 'views/productinfo.html',
+controller : 'ProductinfoController'
 })
 }]);
 
