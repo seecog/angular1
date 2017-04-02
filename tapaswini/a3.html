@@ -1,0 +1,65 @@
+<html>
+<head>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="row">
+
+<div class="form-group">
+<label for="length">
+length
+</label>
+<input ng-model="len" class="form-control">
+</div>
+
+<div class="form-group">
+<label for="width">
+Width
+</label>
+<input ng-model="width" class="form-control">
+</div>
+
+<div class="form-group">
+<p>
+Area is {{ar}}
+</p>
+<p>
+Perimeter is {{peri}}
+</p>
+<p>
+
+</p>
+</div>
+
+<div class="form-group">
+<button class="btn btn-primary" ng-click="area()">Area</button> 
+<button class="btn btn-primary" ng-click="perimeter()">Perimeter</button>
+</div>
+
+</div>
+
+
+</div>
+
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+
+$scope.area = function(){
+var t1 = parseInt($scope.len);
+var t2 = parseInt($scope.width);
+$scope.ar = t1*t2;
+}
+$scope.perimeter = function(){
+$scope.peri = 2*(parseInt($scope.len)+parseInt($scope.width));
+}
+});
+
+
+
+
+</script>
+</html>
