@@ -28,6 +28,10 @@
 </body>
 <script>
 var app = angular.module('myApp',['ngRoute']);
+app.run(function($rootScope){
+$rootScope.employees = [];
+
+});
 app.config(['$routeProvider',function($routeProvider){
 $routeProvider
 .when('/home',{
