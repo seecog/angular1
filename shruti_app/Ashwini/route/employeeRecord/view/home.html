@@ -1,0 +1,8 @@
+<p><a class="btn btn-info" href="/add">Add Employee</a></p>
+</nav>
+<table class="table">
+	<tr><th>Name</th><th>Title</th><th>phone number</th><th>detail</th><th>Edit</th><th>Delete</th></tr>
+	<tr ng-repeat="x in employees">
+		<td>{{x.firstName}}</td><td>{{x.jobTitleName}}</td><td>{{x.phoneNumber}}</td><td><a class="btn btn-info btn-sm" href="/detail">See Details</a></td><td><a class="btn btn-warning btn-sm" href="/edit">Edit</a></td><td><a class="btn btn-danger btn-sm" href="/delete">Delete</a></td>
+	</tr>
+</table>

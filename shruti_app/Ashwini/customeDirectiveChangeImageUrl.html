@@ -1,0 +1,42 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" >
+	<div class="container">
+		<div class="col-lg-12">
+			<img-link></img-link>
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive("imgLink",function(){
+	return{
+		template:"<img src='{{im}}' width='350' height='350' />",
+		// another way to add image with controller
+		//controller : function($scope){
+		//	$scope.im="image.jpg";
+		//},
+		link : function (scope,element,attrs){
+			element.bind('mouseover',function(){
+				scope.im = "image.jpg";
+				scope.$digest();
+			});
+			
+			//alternative  $apply dont wait for watch and also calls digest
+			//element.bind('mouseover',function(){
+				//scope.#apply(function(){
+					//scope.im = "image.jpg";
+				//});
+			//});
+			element.bind('mouseout',function(){
+				scope.im = "image1.jpg";
+				scope.$digest();
+			});
+		}
+	}
+});
+</script>
+</html>

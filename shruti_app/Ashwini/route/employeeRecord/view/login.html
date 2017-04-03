@@ -1,0 +1,19 @@
+<div class="col-md-offset-5 col-md-3">
+            <div class="form-login">
+            <h4>Welcome back.</h4>
+			<form name="frm" novalidate>
+				<input type="text" ng-model="unm" name="unm" class="form-control input-sm chat-input" placeholder="username" required />
+				<p class="error" ng-show="frm.unm.$dirty && frm.unm.$error.required">Please enter username</p>
+				</br>
+				<input type="password" ng-model="pss" name="pss" class="form-control input-sm chat-input" placeholder="password" required />
+				<p class="error" ng-show="frm.pss.$dirty && frm.pss.$error.required">Please enter password</p>
+				</br>
+				<div class="wrapper">
+				<span class="group-btn">     
+					<button class="btn btn-primary btn-md" ng-disabled="frm.$invalid" ng-click="login()">login <i class="fa fa-sign-in"></i></button>
+				</span>
+				</div>
+			</form>
+            </div>
+        
+        </div>

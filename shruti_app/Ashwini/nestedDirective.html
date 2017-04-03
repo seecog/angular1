@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" >
+	<div class="container">
+		<div class="col-lg-12">
+			<my-directive stat="first">
+				<my-directive stat="second">
+					<my-directive stat="Third"></my-directive>
+				</my-directive>
+			</my-directive>
+			
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive("myDirective",function(){
+	return{
+		compile: function(iElement,iAttributes){
+			iElement.css('color','red');
+			console.log('Inside the compile function' + iAttributes.stat);
+			return{
+				pre(scope,iElement,iAttributes){
+					console.log('Inside the pre function' + iAttributes.stat);
+				},
+				post(scope,iElement,iAttributes){
+					console.log('Inside the post function' + iAttributes.stat);
+				}
+			}
+		},
+		controller : function(){
+			console.log("inside controller function");
+		},
+		//template : "hello world"
+	} //return end
+});
+</script>
+</html>

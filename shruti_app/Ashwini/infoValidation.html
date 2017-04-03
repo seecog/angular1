@@ -1,0 +1,58 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		<form name="frm" novalidate>
+			<div class="col-md-12">
+				First name: <input name="fnm" ng-model="fnm" class="form-control" required>
+				<p ng-show="frm.fnm.$dirty && frm.fnm.$error.required" class="text-danger">First name required</p>
+			</div>
+			<div class="col-md-12">
+				Last Name: <input name="lnm" ng-model="lnm" class="form-control"required>
+				<p ng-show="frm.lnm.$dirty && frm.lnm.$error.required" class="text-danger">Last name required</p>
+			</div>
+			<div class="col-md-12">
+				Email ID: <input type="email" name="em" ng-model="b" class="form-control">
+				<p ng-show="frm.em.$dirty && frm.em.$error.email" class="text-danger">invalid email</p>
+			</div>
+			<div class="col-md-12">
+				Contact Number: <input type="number" name="con" ng-model="con" class="form-control" ng-minlength="10" ng-maxlength="13">
+				<p ng-show="frm.con.$dirty && frm.con.$error.maxlength" class="text-danger">Contact number more than 13 digit not allowed</p>
+				<p ng-show="frm.con.$dirty $$ frm.con.$error.minlength" class="text-danger">Cantact number should be atleast 10 digit</p>
+			</div>
+			<div class="col-md-12">
+				Address: <input name="addr" ng-model="addr" class="form-control" required>
+				<p ng-show="frm.addr.$dirty && frm.addr.$error.required" class="text-danger">please enter address</p>				
+			</div>
+			<div class="col-md-12">
+				Maritial Status: <input type="radio" name="mar" ng-model="mar" value="married" ng-required="!mar">Married<input type="radio" name="mar" ng-model="mar" value="un-married" ng-required="!mar">unmarried
+				<p ng-show="frm.mar.$error.required" class="text-danger">please enter maritial status</p>
+			</div>
+			<div class="col-md-12">
+				State <select name="stat" ng-model="stat" class="form-control" required>
+					<option value="">Please select state</option>
+					<option value="mh">Maharashtra</option>
+					<option value="ka">Karnataka</option>
+					<option value="ke">Kerla</option>
+					<option value="ta">Tamilnadu</option>
+				</select>
+				<p ng-show="frm.stat.$error.required" class="text-danger">please select state</p>
+			</div>
+			<div class="col-md-12">
+				<button class="btn" ng-disabled="frm.$invalid" ng-click="calculate()">Calculate</button>
+			</div>
+		</form>
+		
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+	
+});
+</script>
+</html>
