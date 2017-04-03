@@ -1,0 +1,48 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		<div class="col-lg-12">
+			<table class="table table-striped">
+				<tr ng-repeat="x in products">
+					<th>Name</th><th>Cost</th>
+				</tr>
+				<tr>
+					</td>x.name</td><td>x.cost</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-lg-12">
+			<div class="form-group">
+				<label for="name">Name</label>
+				<input ng-model="nm" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="cost">Cost</label>
+				<input ng-model="ct" class="form-control">
+				<input type="hidden" ng-model="table-length" class="form-control">
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" ng-click="saveRecord()">Save</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+	$scope.products = [];
+	$scope.saveRecord = function(){
+		$scope.products.push({name: $scope.nm,cost:$scope.ct});
+		$scope.nm ="";
+		$scope.ct="";
+		$scope.table-length =$scope.products.length;
+	}
+	$scope.$watch
+});
+</script>
+</html>

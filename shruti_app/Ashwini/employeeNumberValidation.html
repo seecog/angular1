@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		<form name="frm" novalidate>
+			<div class="col-md-12">
+				Mobile Number: <input name="eno" ng-model="eno" class="form-control" required ng-pattern="/^[e]-(00[1-9]|0[1-9][0-9]|[1-9][0-9]{2})-[a-z]{3}-#$/">
+				<p ng-show="frm.eno.$dirty && frm.eno.$error.pattern" class="text-danger">Employee number invalid</p>
+			</div>
+			
+			<div class="col-md-12">
+				<button class="btn" ng-disabled="frm.$invalid" ng-click="calculate()">Calculate</button>
+			</div>
+		</form>
+		
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+	
+});
+</script>
+</html>

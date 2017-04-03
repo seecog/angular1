@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" >
+	<div class="container">
+		<div class="col-lg-12">
+			<number-add a=10 b=20></number-add>
+			<!-- a abd b are the attributes of our directives -->
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive("numberAdd",function(){
+	return{
+		template:"Tme sum is {{c}}",
+		link : function (scope,element,attrs){
+			var a = parseInt(attrs.a);
+			var b = parseInt(attrs.b);
+			scope.c = a + b;
+		}
+	}
+});
+</script>
+</html>

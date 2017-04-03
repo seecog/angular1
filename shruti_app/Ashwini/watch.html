@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		<div class="col-lg-12">
+			Name: <input ng-model="fnm" class="form-control">
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+	$scope.fnm ="Enter Name";
+	$scope.$watch('fnm',function(){
+		console.log('value is'+$scope.fnm.length);
+		if($scope.fnm.length > 10){
+			alert('You entered more than 11 letters.');
+		}
+	});
+});
+</script>
+</html>

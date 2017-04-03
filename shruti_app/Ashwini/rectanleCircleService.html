@@ -1,0 +1,56 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		<div class="col-md-12">
+			Rectanle 1st side: <input ng-model="a" class="form-control">
+			Rectanle 2nd side: <input ng-model="b" class="form-control">
+		</div>
+		<div class="col-md-12">
+			Radius of circle: <input ng-model="r" class="form-control">
+		</div>
+		<div class="col-md-12">
+			<button class="btn" ng-click="calculate()">Calculate</button>
+		</div>
+		<div class="col-md-12">
+			<p>Area of triangle is <span ng-bind="rechArea"></span></p>
+			<p>Perimeter of triangle is <span ng-bind="rectPeri"></span></p>
+			<p>Area of circle is <span ng-bind="cirArea"></span></p>
+			<p>Circumference of circle is <span ng-bind="cirCir"></span></p>
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.service("rectangle",function(){
+	this.area = function(a,b){
+		return (2 * a * b);
+	}
+	this.perimeter = function(a,b){
+		return 2(a+b);
+	}
+});
+app.service("circle",function(){
+	this.area = function(a){
+		return 2*Math.PI*a;
+	}
+	this.circunference = function(a,b){
+		return (a-b);
+	}
+});
+app.controller('myController',function($scope,calculator){
+	$scope.calculate = function (){
+		var a = parseFloat($scope.a);
+		var b = parseFloat($scope.b);
+		$scope.sum = calculator.sum(a,b);
+		$scope.sub = calculator.substract(a,b);
+		$scope.mul = calculator.multiply(a,b);
+		$scope.div = calculator.divide(a,b);
+		$scope.mod = calculator.modulas(a,b);
+	}
+});
+</script>
+</html>
