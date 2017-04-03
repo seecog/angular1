@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row">
+        <!-- Card Projects -->
+        <div class="col-md-4 col-md-offset-3">
+            <div class="card">
+                <div class="card-image">
+                    <img class="img-responsive" src="{{medicine.img}}">
+                    <span class="card-title">Material Cards</span>
+                </div>
+            
+                    
+                <div class="info" ng-show="showstt">
+                    <div class="title">
+                    <h1>{{medicine.id}}</h1>                    
+					<h2>{{medicine.name}}</h2>
+					<h3>{{medicine.cost}}</h3>
+					
+					</div>
+                </div>
+				<div ng-show="!showstt">
+				<div class="form-group">
+				Id : 
+				<input class="form-control" ng-model="medicine.id">
+				</div>
+				<div class="form-group">
+				Name : 
+				<input class="form-control" ng-model="medicine.name">
+				</div>
+				<div class="form-group">
+				Cost : 
+				<input  class="form-control" ng-model="medicine.cost">
+				</div>
+				
+				<div class="form-group">
+				<button class="btn btn-primary" ng-click="updatedmed(medicine)">Update</button>
+				</div>
+				</div>
+				
+                <div class="bottom">
+				    <button class="btn btn-primary" ng-click="showstt=true"><span class="glyphicon glyphicon-eye-open"></span></button>
+                    <button class="btn btn-primary" ng-click="showstt=false"><span class="glyphicon glyphicon-edit"></span></button>
+					<button class="btn btn-primary" ng-click="deletedmed(medicine)"><span class="glyphicon glyphicon-trash"></span></button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--<div class="col-lg-6">
+            <div class="card hovercard">
+               <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="{{medicine.img}}">
+                </div>
+                
+                <div class="info" ng-show="showstt">
+                    <div class="title">
+                    <h1>{{medicine.id}}</h1>                    
+					<h2>{{medicine.name}}</h2>
+					<h3>{{medicine.cost}}</h3>
+					
+					</div>
+                </div>
+				<div ng-show="!showstt">
+				<div class="form-group">
+				Id : 
+				<input class="form-control" ng-model="medicine.id">
+				</div>
+				<div class="form-group">
+				Name : 
+				<input class="form-control" ng-model="medicine.name">
+				</div>
+				<div class="form-group">
+				Cost : 
+				<input  class="form-control" ng-model="medicine.cost">
+				</div>
+				
+				<div class="form-group">
+				<button class="btn btn-primary" ng-click="updatedmed(medicine)">Update</button>
+				</div>
+				</div>
+				
+                <div class="bottom">
+				    <button class="btn btn-primary" ng-click="showstt=true"><span class="glyphicon glyphicon-eye-open"></span></button>
+                    <button class="btn btn-primary" ng-click="showstt=false"><span class="glyphicon glyphicon-edit"></span></button>
+					<button class="btn btn-primary" ng-click="deletedmed(medicine)"><span class="glyphicon glyphicon-trash"></span></button>
+                </div>
+				
+
+            </div>
+</div>-->

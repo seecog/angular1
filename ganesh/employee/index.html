@@ -260,7 +260,7 @@ $scope.showstt = true;
 templateUrl : 'employeeinfo.html'
 }
 });
-app.controller('myController',function($scope){
+app.controller('myController',function($scope,$http){
 $scope.employee = {};
 $scope.addemp = function(){
 console.log(JSON.stringify($scope.employee))
@@ -280,7 +280,7 @@ $scope.employees[i].email = employee.email;
 $scope.deleteemp = function(employee){
 $scope.employees.splice(employee,1);
 }
-$scope.employees = 
+/*$scope.employees = 
 [{
 "id":"1",
 "name":"Mohan Kumar",
@@ -316,7 +316,19 @@ $scope.employees =
 "name":"Micheal Clark",
 "phone":"(111) 555-5555",
 "email":"mclarke@gmail.com"
-}]
+}]*/
+$http.get('http://dummy.restapiexample.com/api/v1/employees').
+then(function(response) {
+console.log(JSON.stringify(response));
+$scope.employees = response.data;
+                   
+});
+
+
+
+
+
+
 });
 </script>
 </html>

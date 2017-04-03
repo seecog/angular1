@@ -5,9 +5,9 @@
                 <div class="info" ng-show="showstt">
                     <div class="title">
                     <h1>{{employee.id}}</h1>                    
-					<h2>{{employee.name}}</h2>
-					<h3>{{employee.phone }}</h3>
-					<p>{{employee.email}}</p>
+					<h2>{{employee.employee_name}}</h2>
+					<h3>{{employee.employee_salary|currency}}</h3>
+					<p>{{employee.employee_age}}</p>
 					</div>
                 </div>
 				<div ng-show="!showstt">
@@ -17,15 +17,15 @@
 				</div>
 				<div class="form-group">
 				Name : 
-				<input class="form-control" ng-model="employee.name">
+				<input class="form-control" ng-model="employee.employee_name">
 				</div>
 				<div class="form-group">
-				Phone : 
-				<input  class="form-control" ng-model="employee.phone">
+				Salary : 
+				<input  class="form-control" ng-model="employee.employee_salary">
 				</div>
 				<div class="form-group">
-				Email : 
-				<input rows="4" cols="20" class="form-control" ng-model="employee.email">
+				Age : 
+				<input rows="4" cols="20" class="form-control" ng-model="employee.employee_age">
 				</div>
 				<div class="form-group">
 				<button class="btn btn-primary" ng-click="updatedir(employee)">Update</button>
