@@ -1,0 +1,49 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+
+<form name="frm">
+<div class="col-lg-12">
+<table class="table table-striped">
+ <th>Name</th><th>Cost</th>
+<tr ng-repeat="x in products">
+<td>{{x.name}}</td><td>{{x.cost | number}}</td>
+</tr>
+</table>
+</div>
+<div class="col-lg-12">
+	<div class="form-group">
+		<label for="name">Name:</label>
+		<input ng-model"nm" class="form-control"/>
+	</div>
+	<div class="form-group">
+		<label for="cost">Cost:</label>
+		<input ng-model"ct" class="form-control"/>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-primary" ng-click="saveRecord()">Save</button>
+	</div>
+</div>
+</form>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.products =[];
+$scope.saveRecord = function(){
+$scope.products.push({name:$scope.nm,cost:$scope.ct});
+$scope.nm = '';
+$scope.ct = '';
+$scope.table_length = $scope.products.length;
+console.log(JSON.dtringify($scope.products));
+}
+$scope.$watch(
+});
+</script>
+</html>

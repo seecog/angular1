@@ -1,0 +1,50 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="col-lg-12">
+<p>
+Radius : <input ng-model="r" class="form-control">
+</p>
+<p>
+Area: <span ng-bind="area"></span>
+</p>
+<p>
+Circumfrance: <span ng-bind="circfrence"></span>
+</p>
+<p>
+<button ng-click="addArea()" class="btn btn-primary">Calculate</button>
+</p>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.service('Circle',function(){
+this.Area=function(r)
+{
+				return 3.14*r*r;
+}
+this.circfrence=function(r)
+{
+
+				return 2*3.14*r;
+}
+});
+
+app.controller('myController',function($scope,Circle){
+
+$scope.addArea = function(){
+var r=parseFloat($scope.r);
+$scope.area=Circle.Area(r);
+$scope.circfrence=Circle.circfrence(r);
+}
+
+
+
+});
+</script>
+</html>
