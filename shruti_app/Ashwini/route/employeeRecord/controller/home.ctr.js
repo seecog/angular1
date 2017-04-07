@@ -1,7 +1,7 @@
 angular.module('myApp').controller('homeController', function($scope, $rootScope){
 	$rootScope.employees =[
 		{
-		"userId":"rirani",
+		"userId":"1",
 		"jobTitleName":"Developer",
 		"firstName":"Romin",
 		"lastName":"Irani",
@@ -12,7 +12,7 @@ angular.module('myApp').controller('homeController', function($scope, $rootScope
 		"emailAddress":"romin.k.irani@gmail.com"
 		},
 		{
-		"userId":"nirani",
+		"userId":"2",
 		"jobTitleName":"Developer",
 		"firstName":"Neil",
 		"lastName":"Irani",
@@ -23,7 +23,7 @@ angular.module('myApp').controller('homeController', function($scope, $rootScope
 		"emailAddress":"neilrirani@gmail.com"
 		},
 		{
-		"userId":"thanks",
+		"userId":"3",
 		"jobTitleName":"Program Directory",
 		"firstName":"Tom",
 		"lastName":"Hanks",
@@ -34,4 +34,7 @@ angular.module('myApp').controller('homeController', function($scope, $rootScope
 		"emailAddress":"tomhanks@gmail.com"
 		}
 	]
+	$scope.delEmplyee = function(x){
+		$rootScope.employees.splice(x,1);
+	}
 });
