@@ -20,9 +20,8 @@
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="Search" ng-model="key">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a ng-click="logout()" style="cursor:pointer;">Logout</a></li>
@@ -42,13 +41,13 @@
                 <th>Depatment</th>
                 <th>Actions</th>
             </tr>
-            <tr ng-repeat="x in employees |filter">
+            <tr ng-repeat="x in employees | filter : key">
             	<td>{{x.empId}}</td>
                 <td>{{x.firstName}}</td>
                 <td>{{x.lastName}}</td>
                 <td>{{x.designmation}}</td>
                 <td>{{x.departmant}}</td>
-                <td><a href="#view/{{x.empId}}">View</a> | <a href="#edit">Edit</a> | <a href="#delete">Delete</a></td>
+                <td><a href="#view/{{x.empId}}">View</a> | <a href="#edit">Edit</a> | <a ng-click="delEmplyee(x)">Delete</a></td>
             </tr>
         </table>
     </div>
