@@ -13,6 +13,7 @@ angular.module('myApp').controller('HomeController',function($scope,$location, $
 		"designmation":"Director",
 		"departmant":"Managment",
 		"age":"41",
+		"sex":"Male",
 		"mobile":"123456789",
 		"emailAddress":"emmanuel@gmail.com",
 		"location":"US"
@@ -24,6 +25,7 @@ angular.module('myApp').controller('HomeController',function($scope,$location, $
 		"designmation":"Technical Architect",
 		"departmant":"Software",
 		"age":"32",
+		"sex":"Male",
 		"mobile":"123456789",
 		"emailAddress":"jim@gmail.com",
 		"location":"US"
@@ -35,6 +37,7 @@ angular.module('myApp').controller('HomeController',function($scope,$location, $
 		"designmation":"Lead Manager",
 		"departmant":"Datacenter Operatons",
 		"age":"37",
+		"sex":"Male",
 		"mobile":"123456789",
 		"emailAddress":"stefaus@gmail.com",
 		"location":"US"
@@ -46,6 +49,7 @@ angular.module('myApp').controller('HomeController',function($scope,$location, $
 		"designmation":"System Administrator",
 		"departmant":"Software",
 		"age":"24",
+		"sex":"Male",
 		"mobile":"123456789",
 		"emailAddress":"allen@gmail.com",
 		"location":"US"
@@ -57,6 +61,7 @@ angular.module('myApp').controller('HomeController',function($scope,$location, $
 		"designmation":"Developer",
 		"departmant":"Software",
 		"age":"26",
+		"sex":"Male",
 		"mobile":"123456789",
 		"emailAddress":"andrew@gmail.com",
 		"location":"US"

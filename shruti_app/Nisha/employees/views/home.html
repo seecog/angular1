@@ -13,8 +13,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#employees">Employees</a></li>
-        <li class="active"><a href="#employees">Add New Employee</a></li>
+        <li class="active"><a href="#home">Employees</a></li>
+        <li><a href="#add">Add New Employee</a></li>
         <li><a href="#">Contact Us</a></li>
         
       </ul>
@@ -42,13 +42,13 @@
                 <th>Depatment</th>
                 <th>Actions</th>
             </tr>
-            <tr ng-repeat="x in employees">
+            <tr ng-repeat="x in employees |filter">
             	<td>{{x.empId}}</td>
                 <td>{{x.firstName}}</td>
                 <td>{{x.lastName}}</td>
                 <td>{{x.designmation}}</td>
                 <td>{{x.departmant}}</td>
-                <td><a href="/detail">View</a> | <a href="/edit">Edit</a> | <a href="/delete">Delete</a></td>
+                <td><a href="#view/{{x.empId}}">View</a> | <a href="#edit">Edit</a> | <a href="#delete">Delete</a></td>
             </tr>
         </table>
     </div>

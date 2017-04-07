@@ -9,6 +9,8 @@
    </script>
    <script src="scripts/controllers/login.ctrl.js"></script>
    <script src="scripts/controllers/home.ctrl.js"></script>
+   <script src="scripts/controllers/add.ctrl.js"></script>
+   <script src="scripts/controllers/view.ctrl.js"></script>
    <script>
    app.config(['$routeProvider',function($routeProvider){
 	
@@ -20,6 +22,18 @@
 	.when('/home',{
 		templateUrl : 'views/home.html',
 		controller : 'HomeController'
+	})
+	.when('/view/:eId',{
+		templateUrl : 'views/view.html',
+		controller : 'ViewController'
+	})
+	.when('/add',{
+		templateUrl : 'views/add.html',
+		controller : 'AddController'
+	})
+	.when('/edit/:userId',{
+		templateUrl : 'views/edit.html',
+		controller : 'EditController'
 	})
 	
 	
