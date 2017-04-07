@@ -1,0 +1,45 @@
+<html>
+<header>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<script src="bower_components/angular/angular.min.js"></script>
+<title>Student Subject Avarage</title>
+</header>
+<body ng-app="MyApp" ng-controller="MyController">
+<div class="container">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="form-group">
+			Sub1 : <input class="form-control" ng-model="sub1">	
+			Sub2 : <input class="form-control" ng-model="sub2">	
+			Sub3 : <input class="form-control" ng-model="sub3">	
+			Sub4 : <input class="form-control" ng-model="sub4">	
+			Sub5 : <input class="form-control" ng-model="sub5">	
+		</div>
+		<div class="form-group">
+			Avarage is {{Avg}}
+		</div> 
+		<div class="form-group">
+			<button class="btn btn-danger" ng-click="Avarage()">Show Avg</button>
+		</div>
+	</div>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('MyApp',[]);
+app.controller('MyController',function($scope){
+
+$scope.Avarage = function(){
+var t1 = parseInt($scope.sub1);
+var t2 = parseInt($scope.sub2);
+var t3 = parseInt($scope.sub3);
+var t4 = parseInt($scope.sub4);
+var t5 = parseInt($scope.sub5);
+
+$scope.Avg = (t1+t2+t3+t4+t5) / 5;
+
+}
+});
+ 
+</script>
+</html>
