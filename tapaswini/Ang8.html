@@ -1,0 +1,95 @@
+<html>
+<head>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<script src="bower_components/angular/angular.min.js"></script> 
+<title>
+Product Table 
+</title>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+ <div class="container">
+ <div class="row">
+	<div class="col-lg-12">
+		<div class="form-group">
+		Id : <input class="form-control" ng-model="product.id">
+		</div>
+		<div class="form-group">
+		Name : <input class="form-control" ng-model="product.name">
+		</div>
+		<div class="form-group">
+		Cost : <input class="form-control" ng-model="product.cost">
+		</div>
+		<div class="form-group">
+		<button  class="btn" ng-click="addProduct()">Add Product</button>
+		</div>
+  	</div>
+	<div class="col-lg-12">
+		<table ng-if="products.length !=0" class="table" > 
+		   
+		<th>Id</th>
+		<th>Name</th>
+		<th>Cost</th>
+		<th>Action</th>
+		
+		<tr ng-repeat="x in products">
+			<td>{{x.id}}</td>
+			<td>{{x.name}}</td>
+			<td>{{x.cost}}</td>
+			
+			<td><button class="btn btn-danger" ng-click="deleteProduct(x)">
+			 <span class="glyphicon glyphicon-trash"></span>  
+			</button> </td>
+			<td><button class="btn btn-primary" ng-click="EditProduct(x)">
+			 <span class="glyphicon glyphicon-edit"></span>  
+			</button> </td>
+			
+		</tr>
+		</table>
+		 <div ng-if="products.length == 0" class="alert alert-danger">No record found</div>  
+	</div>	
+ </div>
+ </div>
+</body>
+<script>
+ var app = angular.module('MyApp',[]);
+app.controller('MyController', function($scope){
+
+$scope.products = [
+{id : 1,img: '',name:'Refrigerator',cost:27000},
+{id : 2,img: '',name:'Ovan',cost:12000}
+];
+
+ 
+
+$scope.addProduct =function(){
+console.log($scope.product)
+
+$scope.products.push($scope.product);
+   $scope.product ={};  
+}
+
+$scope.deleteProduct = function(product){
+var pid =$scope.products.indexOf(product);
+$scope.products.splice(pid,1);
+}
+
+$scope.EditProduct = function(product){
+$scope.products.id =	products.id;
+ <!-- $scope.b = product.name ; -->
+ <!-- $scope.c = product.cost ; -->
+
+
+<!-- var pid=$scope.products.indexOf(product); -->
+ <!-- alert( angular.copy($scope.a));  -->
+  
+	<!-- product.id   = $scope.products.id  ; -->
+	<!-- product.name = $scope.products.Name ; -->
+    <!-- product.cost = $scope.products.cost ; -->
+ 
+}
+
+
+});
+ 
+</script>
+</html>

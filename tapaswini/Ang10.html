@@ -1,0 +1,103 @@
+<html>
+<head>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<script src="bower_components/angular/angular.min.js"></script>
+<title>Employee Information</title>
+<style>
+	form{
+	 border:1px solid red; 
+	 width:100%; 
+	 float:left;
+	}
+	.form-group {
+    width: 15%;
+    float: left;
+    margin: 9px;
+	}
+	.add-emp {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-top: 25px;
+	}
+	
+</style>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+ 
+<div class="container">
+<div class="row">
+	 <div class="col-lg-12">  
+		<!-- <form > -->
+		<div class="form-group">
+		<label>Id :</label>	 
+		<input class="form-control" ng-model="Employee.Id">
+		</div>
+		<div class="form-group">
+		<label>Img :</label>  <input class="form-control" ng-model="Employee.Img">
+		</div>
+		<div class="form-group">
+		<label>Name :</label>  <input class="form-control" ng-model="Employee.Name">
+		</div>
+		<div class="form-group">
+		<label>Department : </label> <input class="form-control" ng-model="Employee.Department">
+		</div>
+		<div class="form-group">
+		<label>Salary :</label>  <input class="form-control" ng-model="Employee.Salary">
+		</div>
+		<div class="form-group">
+		<Button class="btn btn-primary add-emp" ng-click="AddEmployee()">Add Emp</Button>
+		</div>
+		<!-- </form> -->
+ 	 </div>   
+	<div class="col-lg-12">
+		 <table class="table " ng-if="employees.length!=0">
+		 <!-- Table Header -->
+		 <th>Id</th>
+		 <th>Img</th>
+		 <th>Name</th>
+		 <th>Department</th>
+		 <th>Salary</th>
+		 <th>Action</th>
+		 <!-- Table Body -->
+		 <tr ng-repeat="x in employees">
+			<td>{{x.Id}}</td>
+			<td><img src={{x.Img}} height="50px" width="50px"/></td>
+			<td>{{x.Name}}</td>
+			<td>{{x.Department}}</td>
+			<td>{{x.Salary}}</td>
+			
+			<td><button class="btn btn-danger" ng-click="delEmployee(x)">
+				<span class="glyphicon glyphicon-trash"> </span>
+			</button></td>
+		 </tr>
+		 </table>
+		 <div ng-if="employees.length==0"class="alert alert-danger">No Record Found!!</div>
+	</div>
+	
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('MyApp',[]);
+
+app.controller('MyController',function($scope){
+
+$scope.employees=[
+{Id:1,Img:'http://lh4.googleusercontent.com/-eRRZakWnjdw/AAAAAAAAAAI/AAAAAAAAAqY/7P1xGLW2d5E/s80-c/photo.jpg', Name:'Ganesh', Department:'IT',Salary:'10000' },
+{Id:2,Img:'http://2.bp.blogspot.com/-6ketPCYtWDQ/UsrzelMhNgI/AAAAAAAAAOk/K8LxxdUc3YY/s320/PANKAJ.jpg', Name :'Pankaj', Department:'HR',Salary:'15000' }
+];
+
+$scope.AddEmployee =function(){
+$scope.employees.push($scope.Employee);
+$scope.Employee={}; 
+}
+
+$scope.delEmployee =function (Employee){
+ var eid =$scope.employees.indexOf(Employee);
+  $scope.employees.splice(eid,1);
+ }
+
+
+});
+</script>	
+</html>
