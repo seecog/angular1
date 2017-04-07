@@ -9,6 +9,8 @@
    </script>
    <script src="scripts/controllers/login.ctrl.js"></script>
    <script src="scripts/controllers/home.ctrl.js"></script>
+   <script src="scripts/controllers/add.ctrl.js"></script>
+   <script src="scripts/controllers/view.ctrl.js"></script>
    <script>
    app.config(['$routeProvider',function($routeProvider){
 	
@@ -21,6 +23,18 @@
 		templateUrl : 'views/home.html',
 		controller : 'HomeController'
 	})
+	.when('/view/:eId',{
+		templateUrl : 'views/view.html',
+		controller : 'ViewController'
+	})
+	.when('/add',{
+		templateUrl : 'views/add.html',
+		controller : 'AddController'
+	})
+	.when('/edit/:userId',{
+		templateUrl : 'views/edit.html',
+		controller : 'EditController'
+	})
 	
 	
 	
@@ -32,12 +46,9 @@
 <div class="container">
 
 
-<div class="row">
-<div class="col-lg-3"></div>
-<div class="col-lg-6">
+
 <div ng-view></div>
-</div>
-</div>
+
 
 </div>
 
