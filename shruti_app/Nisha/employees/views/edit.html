@@ -1,0 +1,81 @@
+<style>
+input.ng-valid {
+border : 1px solid green;
+}
+input.ng-invalid {
+border : 1px solid red;
+}
+.error
+{
+color : red;
+}
+</style>
+<form action="" name="frmAdd" novalidate>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="panel panel-primary">
+    <div class="panel-heading">Edit Employee</div>
+    	<div class="panel-body">
+        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Employee Id</label>
+                        <input type="text" name="eid" ng-bind="employee.empId" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">First Name</label>
+                        <input name="fnm" ng-model="employee.firstName" type="text" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Last Name</label>
+                        <input type="text" name="lnm" ng-model="employee.lastName" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Designation</label>
+                        <input type="text" name="desig" ng-model="employee.designmation" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Department</label>
+                        <input type="text" name="dept" ng-model="employee.departmant" class="form-control" />
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Age</label>
+                        <input type="text" name="age" ng-model="employee.age" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Mobile Number</label>
+                        <input type="text" name="mob" ng-model="employee.mobile" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Email Address</label>
+                        <input type="text" name="em" ng-model="employee.emailAddress" class="form-control"/>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Location</label>
+                        <input type="text" name="loc" ng-model="employee.location" class="form-control"/>
+                </div>
+            </div>
+             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+                	<div class="form-group">
+                        <button type="submit" ng-click="editEmp()" class="btn btn-primary">Edit</button>
+                </div>
+            </div>
+            
+        </div>
+     </div>
+</div>
+</form>
