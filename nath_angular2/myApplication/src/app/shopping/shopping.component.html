@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+<div class="col-lg-12">
+<div class="form-group">
+Product Name : <input [(ngModel)]="product_name">
+</div>
+<div class="form-group">
+Cost : <input [(ngModel)]="product_cost">
+</div>
+<div class="form-group">
+Brand : <input [(ngModel)]="product_brand">
+</div>
+<div class="form-group">
+<button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+</div>
+</div>
+
+<div class="col-lg-12">
+<table class="table">
+<th>Product Name</th><th>Cost</th><th>Brand</th><th>Action</th>
+<tr *ngFor="let x of productlist">
+<td>{{x.name}}</td><td>{{x.cost}}</td><td>{{x.brand}}</td>
+<td><span class="glyphicon glyphicon-edit"></span> <span class="glyphicon glyphicon-trash"></span></td>
+</tr>
+</table>
+</div>

@@ -15,6 +15,8 @@ import { CalculateService } from './calculate.service';
 import { Component24MarchComponent } from './component-24-march/component-24-march.component';
 import { EffectDirective } from './component-24-march/effect.directive';
 import { FormvalidationComponent } from './formvalidation/formvalidation.component';
+import { StriComponent } from './stri/stri.component';
+import { ShoppingComponent } from './shopping/shopping.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FormvalidationComponent } from './formvalidation/formvalidation.compone
     ProductComponent,
     Component24MarchComponent,
     EffectDirective,
-    FormvalidationComponent
+    FormvalidationComponent,
+    StriComponent,
+    ShoppingComponent
   ],
   imports: [
     BrowserModule,
