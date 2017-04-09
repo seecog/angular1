@@ -62,4 +62,10 @@ angular.module('myApp').controller('HomeController',function($scope,$location, $
 		"location":"US"
 		},
 	]
+<<<<<<< HEAD
+=======
+	$scope.delEmplyee = function(x){
+		$rootScope.employees.splice(x,1);
+	}
+>>>>>>> f09329d2463b33b2cbfebef54cf379667ec065e1
 });

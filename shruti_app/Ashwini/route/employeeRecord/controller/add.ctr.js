@@ -21,6 +21,7 @@ angular.module('myApp').controller('addController',function($scope,$rootScope,$l
 			emailAddress : $scope.email
 		});
 		console.log($rootScope.employees);
+		
 		$location.path('/home');
 	}
 });
