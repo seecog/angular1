@@ -1,18 +1,9 @@
-angular.module('myApp').controller('Registercontroller',function($scope,$rootScope,$firebaseAuth){
-	var ref = firebase.database().ref();
-    var auth = $firebaseAuth();
+angular.module('myApp').controller('Registercontroller',function($scope,$rootScope,Authentication){
+	
     $scope.loadStt = false;
 	$scope.registerUser = function(){
 		$scope.loadStt = true;
-		auth.$createUserWithEmailAndPassword($scope.email,$scope.password).then(function(res){
-			ref.child('users').child(res.uid).set({
-				email : $scope.email,
-				first_name : $scope.first_name,
-				last_name : $scope.last_name,
-				date : new Date(),
-				userRef : res.uid
-				
-			});
+		    Authentication.register({first_name : $scope.first_name,last_name : $scope.last_name,email : $scope.email,password : $scope.password,img : $scope.img});
 			$scope.first_name = '';
 			$scope.last_name = '';
 			$scope.email = '';
@@ -20,9 +11,5 @@ angular.module('myApp').controller('Registercontroller',function($scope,$rootSco
 			$rootScope.msg = "You are succussfully registered !";
 			$scope.loadStt = false;
 			
-		}).catch(function(err){
-			
-			$rootScope.err = err.msg;
-		});
-	}
+		}
 });

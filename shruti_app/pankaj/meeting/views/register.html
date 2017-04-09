@@ -44,6 +44,12 @@ Password
 <p class="error" ng-show="frm.password.$dirty && frm.password.$error.minlength">Password should be 6 characters</p>
 <p class="error" ng-show="frm.password.$dirty && frm.email.$error.minlength">Password should not exceed 16 characters</p>
 </div>
+
+<div class="form-group">
+Image
+<input name="img" ng-model="img" class="form-control">
+</div>
+
 <div class="form-group">
 <button ng-disabled="frm.$invalid" class="btn btn-primary" ng-click="registerUser()">Register</button>
 </div>

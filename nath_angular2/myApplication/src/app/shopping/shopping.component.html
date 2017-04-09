@@ -11,7 +11,8 @@ Cost : <input [(ngModel)]="product_cost">
 Brand : <input [(ngModel)]="product_brand">
 </div>
 <div class="form-group">
-<button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+<button *ngIf="button_label=='Add Product'" class="btn btn-primary" (click)="addProduct()">{{button_label}}</button>
+<button *ngIf="button_label=='Edit Product'" class="btn btn-primary" (click)="updateProduct()">{{button_label}}</button>
 </div>
 </div>
 
@@ -20,7 +21,8 @@ Brand : <input [(ngModel)]="product_brand">
 <th>Product Name</th><th>Cost</th><th>Brand</th><th>Action</th>
 <tr *ngFor="let x of productlist">
 <td>{{x.name}}</td><td>{{x.cost}}</td><td>{{x.brand}}</td>
-<td><span class="glyphicon glyphicon-edit"></span> <span class="glyphicon glyphicon-trash"></span></td>
+<td><button class="btn btn-primary" (click)="editProduct(x)"><span class="glyphicon glyphicon-edit"></span></button>
+<button class="btn btn-danger" (click)="deleteProduct(x)"><span class="glyphicon glyphicon-trash"></span></button></td>
 </tr>
 </table>
 </div>

@@ -1,0 +1,36 @@
+<html>
+<head>
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.5/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCkZ14Ve4Z0gb4xENOwUBOoPXX7VKs_IBc",
+    authDomain: "angular1test.firebaseapp.com",
+    databaseURL: "https://angular1test.firebaseio.com",
+    projectId: "angular1test",
+    storageBucket: "angular1test.appspot.com",
+    messagingSenderId: "1013571658393"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+</body>
+<script>
+var app = angular.module('myApp',['firebase']);
+app.controller('myController',function(){
+});
+
+</script>
+</html>

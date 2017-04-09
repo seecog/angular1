@@ -1,7 +1,8 @@
-angular.module('myApp').controller('Logincontroller',function($scope,$rootScope){
+angular.module('myApp').controller('Logincontroller',function($scope,$rootScope,Authentication){
 	
 	$scope.checkLogin = function(){
 		
-		alert('Login')
+		Authentication.login($scope.email,$scope.password)
+		
 	}
 });

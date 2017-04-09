@@ -1,0 +1,52 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+<script src="Script/app.js"></script>
+<script src="Script/Controller/login.ctrl.js"></script>
+<script src="Script/Controller/home.ctrl.js"></script>
+
+</head>
+<body ng-app="myApp">
+<div class="container">
+
+<div class="row">
+<div class ="col-lg-12">
+<div ng-view></div>
+</div>
+</div>
+
+</body>
+
+<script>
+app.config(['$routeProvider',function($routeProvider){
+
+
+$routeProvider
+.when('/',{
+templateUrl : 'views/login.html',
+controller: 'logincontroller'
+})
+
+.when('/home',{
+templateUrl : 'views/home.html',
+controller: 'Homecontroller'
+})
+
+.when('/detail/:userId',{
+		templateUrl : 'views/detail.html',
+		controller : 'detailController'
+	})
+.when('/add',{
+		templateUrl : 'views/add.html',
+		controller : 'addController'
+	})
+.when('/edit/:userId',{
+		templateUrl : 'views/edit.html',
+		controller : 'editController'
+	})
+}]);
+
+</script>
+</html>
