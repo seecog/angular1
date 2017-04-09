@@ -1,0 +1,80 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+</head>
+<body ng-app="myapp" ng-controller="mycontroller">
+<div class="container">
+<div class="row">
+
+<div class="clg-lg-12">
+<div class="form-group">
+Name:<input class="form-control" ng-model="subject.name" />
+</div>
+<div class="form-group">
+Math:<input class="form-control" ng-model="subject.math" />
+</div>
+<div class="form-group">
+History:<input class="form-control" ng-model="subject.history" />
+</div>
+<div class="form-group">
+Physics:<input class="form-control" ng-model="subject.physics" />
+</div>
+<div class="form-group">
+Geography:<input class="form-control" ng-model="subject.geography" />
+</div>
+<div class="form-group">
+English:<input class="form-control" ng-model="subject.english" />
+</div>
+<div class="form-group">
+<button class="btn btn-primary" ng-click="submit()">submit</button>
+
+</div>
+</div>
+
+<div class="clg-lg-12">
+<table class="table" ng-if="subjects.length != 0">
+<th>Name</th><th>Math</th><th>History</th><th>Physics</th><th>Geography</th><th>English</th><th>Avg</th>
+<tr ng-repeat="x in subjects">
+<td>{{x.name}}</td><td>{{x.math}}</td><td>{{x.history}}</td><td>{{x.physics}}</td><td>{{x.geography}}</td><td>{{x.english}}</td><td>{{x.avg}}</td>
+<td><button class="btn btn-danger" ng-click="remove(x)">
+<span class="glyphicon glyphicon-trash"></span>
+</button></td>
+</tr>
+
+</table>
+
+<div ng-if="subjects.length == 0" class="alert alert-danger">No record Found</div>
+
+</div>
+</div>
+</div>
+</body>
+<script>
+var app=angular.module('myapp',[]);
+app.controller('mycontroller',function($scope){
+$scope.subjects=[{name:'nikesh',math: 75,history: 90,physics:65,geography: 75,english: 80,avg:78}];
+
+$scope.submit=function(){
+console.log($scope.subject)
+
+var total=parseInt($scope.subject.math)+parseInt($scope.subject.history)+parseInt($scope.subject.physics)+parseInt($scope.subject.geography)+parseInt($scope.subject.english);
+var avg=total/5;
+$scope.subject.avg=avg;
+$scope.subjects.push($scope.subject)
+$scope.subject={};
+ 
+}
+$scope.remove=function(subject){
+$scope.subjects.splice(subject,1)
+}
+
+
+});
+
+</script>
+
+
+
+</html>
