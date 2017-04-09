@@ -1,0 +1,48 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="row">
+<div class="form-group">
+First Side : <input class="form-control" ng-model="a">
+</div>
+<div class="form-group">
+Second Side : <input class="form-control" ng-model="b">
+</div>
+<div class="form-group">
+Third Side : <input class="form-control" ng-model="c">
+</div>
+<div class="form-group">
+Area is  : {{areares}}
+</div>
+<div class="form-group">
+<button class="btn btn-primary" ng-click="area()">Sum</button>
+</div>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.service('Triangle',function(){
+
+this.sidearea = function(a,b,c)
+{
+var s = (a+b+c)/2.0;
+return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+}
+
+
+});
+
+app.controller('myController',function($scope,Triangle){
+$scope.area = function(){
+console.log($scope.a+' ' +$scope.b+'  '+$scope.c);
+$scope.areares = Triangle.sidearea(parseFloat($scope.a),parseFloat($scope.b),parseFloat($scope.c));
+}
+});
+</script>
+</html>
