@@ -1,0 +1,90 @@
+<style>
+input.ng-valid {
+border : 1px solid green;
+}
+input.ng-invalid {
+border : 1px solid red;
+}
+.error
+{
+color : red;
+}
+</style>
+<form action="" name="frmAdd" novalidate>
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="panel panel-primary">
+    <div class="panel-heading">Add New Employee</div>
+    	<div class="panel-body">
+        	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Employee Id</label>
+                        <input type="text" name="eid" ng-model="eid" class="form-control" required/>
+                        <p ng-show="frmAdd.eid.$dirty && frmAdd.eid.$error.required" class="error">Please enter Employee ID</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">First Name</label>
+                        <input name="fnm" ng-model="fnm" type="text" class="form-control" required/>
+                        <p ng-show="frmAdd.fnm.$dirty && frmAdd.fnm.$error.required" class="error">Please enter First Name</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Last Name</label>
+                        <input type="text" name="lnm" ng-model="lnm" class="form-control" required/>
+                        <p ng-show="frmAdd.lnm.$dirty && frmAdd.lnm.$error.required" class="error">Please enter Last Name</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Designation</label>
+                        <input type="text" name="desig" ng-model="desig" class="form-control" required/>
+                        <p ng-show="frmAdd.desig.$dirty && frmAdd.desig.$error.required" class="error">Please enter Designation</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Department</label>
+                        <input type="text" name="dept" ng-model="dept" class="form-control" required/>
+                        <p ng-show="frmAdd.dept.$dirty && frmAdd.dept.$error.required" class="error">Please enter Department</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Age</label>
+                        <input type="text" name="age" ng-model="age" class="form-control" required/>
+                        <p ng-show="frmAdd.age.$dirty && frmAdd.age.$error.required" class="error">Please enter Age</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Mobile Number</label>
+                        <input type="text" name="mob" ng-model="mob" class="form-control" required/>
+                        <p ng-show="frmAdd.mob.$dirty && frmAdd.mob.$error.required" class="error">Please enter Mobile Number</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Email Address</label>
+                        <input type="text" name="em" ng-model="em" class="form-control" required/>
+                        <p ng-show="frmAdd.em.$dirty && frmAdd.em.$error.required" class="error">Please enter Email Address</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                	<div class="form-group">
+                        <label class="control-label">Location</label>
+                        <input type="text" name="loc" ng-model="loc" class="form-control" required/>
+                         <p ng-show="frmAdd.loc.$dirty && frmAdd.loc.$error.required" class="error">Please enter Location</p>
+                </div>
+            </div>
+             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="text-align:center;">
+                	<div class="form-group">
+                        <button type="submit" ng-click="addEmp()" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+            
+        </div>
+     </div>
+</div>
+</form>

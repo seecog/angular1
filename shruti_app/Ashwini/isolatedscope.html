@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+	<div class="container">
+		<div class="col-lg-12">
+			<my-directive>
+				
+			</my-directive>
+			
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive('myDirective',function(){
+	return{
+		template : 'Value is {{a}}'
+	}
+});
+app.controller('myController',function($scope){
+$scope.a = 10;
+$scope.b = 20;
+});
+</script>
+</html>

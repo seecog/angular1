@@ -1,0 +1,67 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="col-lg-12">
+<p>
+Basic Salary : <input ng-model="bs" class="form-control">
+</p>
+
+<p>
+Gross Salary: <span ng-bind="gs"></span>
+</p>
+<p>
+<button ng-click="calcSalary()" class="btn btn-primary">Calculate Salary</button>
+</p>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.service('Da',function(){
+	this.getDa=function(bs){
+		return(5*bs)/100;
+	}
+});
+app.service('Hra',function(){
+	this.getHra=function(bs){
+		return(7*bs)/100;
+	}
+});
+app.service('Ta',function(){
+	this.getTa=function(bs){
+		return(3*bs)/100;
+	}
+});
+app.service('pTax',function(){
+	this.getpTax=function(bs){
+		return 800;
+	}
+});
+app.service('Salary',function(Da,Hra,Ta,pTax){
+this.getSalary=function(bs)
+{
+
+				var da= Da.getDa(bs);
+				var hra= Hra.getHra(bs);
+				var ta= Ta.getTa(bs);
+				var ptax= pTax.getpTax(bs);
+				return(bs+da+hra+ta-ptax);
+}
+});
+
+app.controller('myController',function($scope,Salary){
+
+$scope.calcSalary = function(){
+var bs=parseFloat($scope.bs);
+$scope.gs=Salary.getSalary(bs);
+}
+
+
+
+});
+</script>
+</html>

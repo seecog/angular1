@@ -1,0 +1,21 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" >
+	<div class="container">
+		<div class="col-lg-12">
+			<emp-details></emp-details>
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive("empDetails",function(){
+	return{
+		template:"ID=10<br/>Fname= ashwini<br/>Lname= ch<br/>salary=100000<br/>dept=IT"
+	}
+});
+</script>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+
+
+<div class="col-lg-12">
+	<emp-details></emp-details>
+</div>
+
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive('empDetails',function(){
+	return{
+		template : 'Emp ID : 1001<br>Emp First Name : AAA <br> Emp ID : 1001<br>Emp Last Name : BBB<br>Salary : 70000<br>Emp Department : Dept'
+	}
+});
+</script>
+</html>

@@ -1,0 +1,43 @@
+
+<div class="col-lg-6">
+            <div class="card hovercard">
+               
+                <div class="info" ng-show="showstt">
+                    <div class="title">
+                    <h1>{{employee.id}}</h1>                    
+					<h2>{{employee.employee_name}}</h2>
+					<h3>{{employee.employee_salary|currency}}</h3>
+					<p>{{employee.employee_age}}</p>
+					</div>
+                </div>
+				<div ng-show="!showstt">
+				<div class="form-group">
+				Id : 
+				<input class="form-control" ng-model="employee.id">
+				</div>
+				<div class="form-group">
+				Name : 
+				<input class="form-control" ng-model="employee.employee_name">
+				</div>
+				<div class="form-group">
+				Salary : 
+				<input  class="form-control" ng-model="employee.employee_salary">
+				</div>
+				<div class="form-group">
+				Age : 
+				<input rows="4" cols="20" class="form-control" ng-model="employee.employee_age">
+				</div>
+				<div class="form-group">
+				<button class="btn btn-primary" ng-click="updatedir(employee)">Update</button>
+				</div>
+				</div>
+				
+                <div class="bottom">
+				    <button class="btn btn-primary" ng-click="showstt=true"><span class="glyphicon glyphicon-eye-open"></span></button>
+                    <button class="btn btn-primary" ng-click="showstt=false"><span class="glyphicon glyphicon-edit"></span></button>
+					<button class="btn btn-primary" ng-click="deletedir(employee)"><span class="glyphicon glyphicon-trash"></span></button>
+                </div>
+				
+
+            </div>
+</div>

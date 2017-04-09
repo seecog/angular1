@@ -1,0 +1,51 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+	
+
+<div ng-controller="myctrl">
+	Radius:<input ng-model="r"><br>
+	Area:<span ng-bind="area"></span><br>
+    Circumference:<span ng-bind="circfr"></span><br>
+	<button ng-click="calarea()">Area</button>
+    <button ng-click="calcirc()">Circumference</button>
+</div>
+
+
+</body>
+<script>
+var app = angular.module('myapp', []);
+app.controller("myctrl", function ($scope){
+
+$scope.calarea = function(){
+
+
+var a = parseFloat($scope.r);
+
+var area = 3.14*a*a;
+
+$scope.area = area;
+
+
+}
+$scope.calcirc = function(){
+
+
+var b = parseFloat($scope.r);
+
+var circfr = 2*3.14*b;
+
+$scope.circfr = circfr;
+
+
+}
+
+
+
+});
+
+
+</script>
+</html>

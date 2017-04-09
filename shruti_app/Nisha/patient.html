@@ -1,0 +1,83 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="col-lg-12">
+<table class="table table-stripped">
+<th>Patient Icon</th><th>Patient Id</th><th>Patient Name</th><th>Patient Disease</th><th>Patient Ward No.</th><th>Patient Doctor</th><th>Remaining Fee</th><th>Action</th>
+<tr ng-repeat="x in products">
+<td><image ng-src="{{x.p_Icon}}" alt="picture" height="50" width="50" /><td>{{x.p_id}}</td><td>{{x.p_name}}</td><td>{{x.p_disease}}<td>{{x.p_wardno}}</td><td>{{x.p_doctor}}</td><td>{{x.p_compFee - x.p_feepaid}}</td></td>
+<td><button class="btn btn-warning" ng-click="deleteProduct(x)">Delete</button></td>
+</tr>
+</table>
+</div>
+<div class="col-lg-12">
+<p>
+Patient Icon : <input ng-model="pIcon" class="form-control">
+</p>
+<p>
+Patient Id : <input ng-model="pid" class="form-control">
+</p>
+<p>
+Patient Name : <input ng-model="pname" class="form-control">
+</p>
+<p>
+Patient Disease : <select ng-model="pdisease" class="form-control">
+						<option value="1">Disease 1</option>
+                        <option value="2">Disease 2</option>
+                        <option value="3">Disease 3</option>
+                        <option value="4">Disease 4</option>
+                        <option value="5">Disease 5</option>
+				  </select>
+</p>
+<p>
+Patient Ward No. : <input ng-model="pwardno" class="form-control">
+</p>
+<p>
+Patient Doctor : <select ng-model="pdoctor" class="form-control">
+						<option value="1">Doctor 1</option>
+                        <option value="2">Doctor 2</option>
+                        <option value="3">Doctor 3</option>
+                        <option value="4">Doctor 4</option>
+                        <option value="5">Doctor 5</option>
+				  </select>
+</p>
+<p>
+Patient Fee Paid : <input ng-model="pfeepaid" class="form-control">
+</p>
+<p>
+Patient Complete Fee : <input ng-model="pcompFee" class="form-control">
+</p>
+<p>
+<button ng-click="addProduct()" class="btn btn-primary">Add Patient</button>
+</p>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.products = [];
+
+$scope.addProduct = function(){
+$scope.products.push({p_Icon:$scope.pIcon,p_id:$scope.pid,p_name:$scope.pname,p_disease:$scope.pdisease,p_wardno:$scope.pwardno,p_doctor:$scope.pdoctor,p_feepaid:$scope.pfeepaid,p_compFee:$scope.pcompFee});
+$scope.pIcon = '';
+$scope.pid = '';
+$scope.pname = '';
+$scope.pdisease = '';
+$scope.pwardno = '';
+$scope.pdoctor = '';
+$scope.pfeepaid = '';
+$scope.pcompFee = '';
+}
+
+$scope.deleteProduct = function(x){
+$scope.products.splice(x,1);
+}
+
+});
+</script>
+</html>

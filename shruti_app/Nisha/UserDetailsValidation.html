@@ -1,0 +1,81 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="myApp">
+<div class="container">
+<form name="frm" novalidate>
+<div class="col-lg-12">
+Fiirst name : <input name="fnm" ng-model="fnm" class="form-control" required ng-minlength="2" ng-maxlength="15">
+<span ng-show="frm.fnm.$dirty && frm.fnm.$error.required" class="text-danger">Please enter firstname</span>
+<span ng-show="frm.fnm.$dirty && frm.fnm.$error.minlength" class="text-danger">Minimum 2 characters required</span>
+<span ng-show="frm.fnm.$dirty && frm.fnm.$error.maxlength" class="text-danger">Maximum 15 characters allowed</span>
+</div>
+
+<div class="col-lg-12">
+Last name : <input name="lnm" ng-model="lnm" class="form-control" required ng-minlength="2" ng-maxlength="15">
+<span ng-show="frm.lnm.$dirty && frm.lnm.$error.required" class="text-danger">Please enter lastname</span>
+<span ng-show="frm.lnm.$dirty && frm.lnm.$error.minlength" class="text-danger">Minimum 2 characters required</span>
+<span ng-show="frm.lnm.$dirty && frm.lnm.$error.maxlength" class="text-danger">Maximum 15 characters allowed</span>
+</div>
+
+<div class="col-lg-12">
+Email : <input type="email" name="em" ng-model="em" class="form-control" required ng-minlength="6" ng-maxlength="25">
+<span ng-show="frm.em.$dirty && frm.em.$error.required" class="text-danger">Please enter email</span>
+<span ng-show="frm.em.$dirty && frm.em.$error.minlength" class="text-danger">Minimum 6 characters required</span>
+<span ng-show="frm.em.$dirty && frm.em.$error.maxlength" class="text-danger">Maximum 15 characters allowed</span>
+<span ng-show="frm.em.$dirty && frm.em.$error.email" class="text-danger">Invalid email</span>
+</div>
+
+<div class="col-lg-12">
+Mobile : <input name="mob" ng-model="mob" class="form-control" required ng-minlength="10" ng-maxlength="13">
+<span ng-show="frm.mob.$dirty && frm.mob.$error.required" class="text-danger">Please contact number</span>
+<span ng-show="frm.mob.$dirty && frm.mob.$error.minlength" class="text-danger">Minimum 12 characters required</span>
+<span ng-show="frm.mob.$dirty && frm.mob.$error.maxlength" class="text-danger">Maximum 13 characters allowed</span>
+</div>
+
+<div class="col-lg-12">
+Address : <textarea rows="5" cols="20" name="add" ng-model="add" class="form-control" required ng-minlength="30" ng-maxlength="800"></textarea>
+<span ng-show="frm.add.$dirty && frm.add.$error.required" class="text-danger">Please enter address</span>
+<span ng-show="frm.add.$dirty && frm.add.$error.minlength" class="text-danger">Minimum 30 characters required</span>
+<span ng-show="frm.mob.$dirty && frm.mob.$error.maxlength" class="text-danger">Maximum 800 characters allowed</span>
+</div>
+
+<div class="col-lg-12">
+Maritial status : <input type="radio" name="ms" value="y" ng-model="ms" required >Married 
+<input type="radio" name="ms" value="n" ng-model="ms"  required >Not Married
+<span ng-show="frm.ms.$error.required" class="text-danger">Please select maririal status</span>
+</div>
+
+<div class="col-lg-12">
+State : <select name="st" ng-model="st" class="form-control" required>
+<option value="">Select State</option>
+<option value="mp">Madhya Pradesh</option>
+<option value="ms">Maharastra</option>
+</select>
+<span ng-show="frm.st.$error.required" class="text-danger">Please select state</span>
+</div>
+
+<div class="col-lg-12">
+<button class="btn btn-primary" ng-disabled="frm.$invalid" ng-click="calculate()">Add</button>
+</div>
+
+</form>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.factory('Triangle',function(){
+var obj = [];
+obj.add = function(a,b){
+return (a+b)
+}
+return obj;
+});
+app.controller('myController',function($scope,Triangle){
+Triangle.add(1,2);
+});
+</script>
+</html>

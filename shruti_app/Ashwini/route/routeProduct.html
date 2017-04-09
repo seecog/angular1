@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body ng-app="myApp">
+	<div class="container">
+		<div class="col-lg-12">
+			<a class="btn" href="#home">Home</a>
+			<a class="btn" href="#contact">Contact Us</a>
+			<a class="btn" href="#about">About Us</a>
+		</div>
+		<div class="col-lg-12">
+			<div ng-view>
+			
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+var app = angular.module('myApp',['ngRoute']);
+</script>
+<script src="script/controllers/product.ctr.js"></script>
+<script src="script/controllers/contact.ctr.js"></script>
+<script src="script/controllers/about.ctr.js"></script>
+<script>
+app.config(['$routeProvider',function($routeProvider){
+$routeProvider
+.when('/home',{
+templateUrl:"script/views/product.html",
+controller:"productController"
+})
+.when('/contact',{
+template:"<h1>Contact US</h1>",
+controller:"contactController"
+})
+.when('/about',{
+template:"<h1>About Us</h1>",
+controller:"aboutController"
+})
+}]);
+</script>
+</html>

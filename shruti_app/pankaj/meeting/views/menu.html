@@ -1,0 +1,34 @@
+
+  <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+    	<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">My Store</a>
+	</div>
+	
+	<div class="collapse navbar-collapse js-navbar-collapse">
+	
+        <ul class="nav navbar-nav navbar-right">
+		
+        <li ng-if="currentUser" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <img ng-src="{{currentUser.img}}" class="img-circle" width="40" height="40">
+		  <span class="label label-success">{{currentUser.first_name}} {{currentUser.last_name}}</span>
+		  <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+        <li ng-if="!currentUser"><a href="#/">Login</a></li>
+      </ul>
+	</div><!-- /.nav-collapse -->
+  </nav>
+

@@ -1,0 +1,41 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div class="container">
+<div class="col-lg-12">
+	<my-directive stt="first">
+	</my-directive>
+	<my-directive stt="second">
+	</my-directive>
+</div>
+
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive('myDirective',function(){
+	return{
+		compile : function(iElement,iAttributes){
+			iElement.css('color','red');
+			console.log('Inside the compile function ' +iAttributes.stt);
+			return{
+				pre(scope,iElement,iAttributes){
+					console.log('Inside the pre function ' +iAttributes.stt);
+				},
+					post(scope,iElement,iAttributes){
+					console.log('Inside the post function ' +iAttributes.stt);
+				}
+			}
+		},
+		controller:function($scope,$element,$attrs){
+		console.log('Inside the controller function ');
+		},
+		template:'We are good'
+		
+		}
+});
+</script>
+</html>

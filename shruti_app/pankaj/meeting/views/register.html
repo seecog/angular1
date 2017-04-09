@@ -1,0 +1,57 @@
+<div class="col-lg-12">
+<h1 class="text-primary">Register</h1>
+</div>
+
+<div ng-if="err" class="col-lg-12">
+<div class="alert alert-danger">{{err}}</div>
+</div>
+
+<div ng-if="loadStt">
+<div class="alert alert-default"><img ng-src="../images/ring.gif" width=50 height=50> Loading</div>
+</div>
+
+<div ng-if="msg" class="col-lg-12">
+<div class="alert alert-success">{{msg}}</div>
+</div>
+
+<div class="col-lg-12">
+<form name="frm" novalidate>
+
+<div class="form-group">
+First Name 
+<input type="text" name="first_name" ng-model="first_name" class="form-control" required ng-minlength="2">
+<p class="error" ng-show="frm.first_name.$dirty && frm.first_name.$error.required">First name is required</p>
+<p class="error" ng-show="frm.first_name.$dirty && frm.first_name.$error.minlength">First name should be 2 characters</p>
+
+</div>
+<div class="form-group">
+Last Name
+<input type="text" name="last_name" ng-model="last_name" class="form-control" required ng-minlength="2">
+<p class="error" ng-show="frm.last_name.$dirty && frm.last_name.$error.required">First name is required</p>
+<p class="error" ng-show="frm.last_name.$dirty && frm.last_name.$error.minlength">First name should be 2 characters</p>
+</div>
+
+<div class="form-group">
+Email 
+<input type="email" name="email" ng-model="email" class="form-control" required>
+<p class="error" ng-show="frm.email.$dirty && frm.email.$error.required">Email is required</p>
+<p class="error" ng-show="frm.email.$dirty && frm.email.$error.email">Email is invalid</p>
+</div>
+<div class="form-group">
+Password
+<input type="password" name="password" ng-model="password" class="form-control" required ng-minlength="6" ng-maxlength="16">
+<p class="error" ng-show="frm.password.$dirty && frm.password.$error.required">Password is required</p>
+<p class="error" ng-show="frm.password.$dirty && frm.password.$error.minlength">Password should be 6 characters</p>
+<p class="error" ng-show="frm.password.$dirty && frm.email.$error.minlength">Password should not exceed 16 characters</p>
+</div>
+
+<div class="form-group">
+Image
+<input name="img" ng-model="img" class="form-control">
+</div>
+
+<div class="form-group">
+<button ng-disabled="frm.$invalid" class="btn btn-primary" ng-click="registerUser()">Register</button>
+</div>
+</form>
+</div>
