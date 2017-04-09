@@ -17,7 +17,8 @@ import { EffectDirective } from './component-24-march/effect.directive';
 import { FormvalidationComponent } from './formvalidation/formvalidation.component';
 import { StriComponent } from './stri/stri.component';
 import { ShoppingComponent } from './shopping/shopping.component';
-
+import { MytriComponent } from './mytri/mytri.component';
+import { TriperiService } from './mytri/triperi.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,14 +32,15 @@ import { ShoppingComponent } from './shopping/shopping.component';
     EffectDirective,
     FormvalidationComponent,
     StriComponent,
-    ShoppingComponent
+    ShoppingComponent,
+    MytriComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [LogService,CalculateService],
+  providers: [LogService,CalculateService,TriperiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
