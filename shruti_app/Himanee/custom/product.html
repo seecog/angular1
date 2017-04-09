@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCont">
+<p>
+Controller value is {{product}}
+</p>
+
+<p>
+<product-info product1="product"></product-info>
+</p>
+
+</body>
+<script>
+
+var app = angular.module('myApp',[]);
+app.directive('productInfo',function(){
+
+return {
+scope :{
+product1 : '='
+},
+template : '<p>Id : {{product1.id}}</p>'+
+'<p>Name : {{product1.name}}</p>'+
+'<p>Cost : {{product1.cost}}</p>'
+}
+
+});
+app.controller('myCont',function($scope){
+
+$scope.product = [{id : 1,name : 'fan', cost : 1500},
+					{id : 2,name : 'cup', cost : 1500}];
+
+});
+</script>
+</html>

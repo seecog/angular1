@@ -1,0 +1,52 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="row">
+
+<ul ng-repeat="x in emp">
+
+<li my-directive newfun="x"></li>
+
+
+</ul>
+<!-- <span my-directive newfun="emp[0]"></span>
+<span my-directive newfun="emp[1]"></span>
+<span my-directive newfun="emp[2]"></span>
+<span my-directive newfun="emp[3]"></span>
+<span my-directive newfun="emp[4]"></span> -->
+
+the value of controller is {{emp}}
+
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.directive('myDirective',function(){
+
+return {
+restrict: 'A',
+scope :{
+newfun : '='
+},
+template : '<p>Id : {{newfun.id}}</p>'+
+'<p>Name : {{newfun.name}}</p>'
+}
+}); 
+
+app.controller('myController',function($scope){
+$scope.emp=[{id:1,name:'geeta'},
+			{id:2,name:'seeta'},
+			{id:3,name:'meeta'},
+			{id:4,name:'pinky'},
+			{id:5,name:'seema'}];
+});
+
+</script>
+
+</html>

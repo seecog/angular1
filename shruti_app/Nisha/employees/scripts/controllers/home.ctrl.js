@@ -5,6 +5,7 @@ angular.module('myApp').controller('HomeController',function($scope,$location, $
 	  
 	  $location.path('/');
   }
+<<<<<<< HEAD
 	$rootScope.employees =[
 		{
 		"empId":"A1001",
@@ -64,6 +65,8 @@ angular.module('myApp').controller('HomeController',function($scope,$location, $
 	]
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> f103a81d791d45de25353d81871a503bcda42c8a
 	$scope.delEmplyee = function(x){
 		$rootScope.employees.splice(x,1);
 	}
