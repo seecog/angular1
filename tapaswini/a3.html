@@ -7,7 +7,9 @@
 <div class="container">
 <div class="row">
 
+
 <div class="form-group">
+
 <label for="length">
 length
 </label>
@@ -19,17 +21,15 @@ length
 Width
 </label>
 <input ng-model="width" class="form-control">
+
 </div>
 
 <div class="form-group">
 <p>
-Area is {{ar}}
+Area is {{are}}
 </p>
 <p>
 Perimeter is {{peri}}
-</p>
-<p>
-
 </p>
 </div>
 
@@ -38,8 +38,8 @@ Perimeter is {{peri}}
 <button class="btn btn-primary" ng-click="perimeter()">Perimeter</button>
 </div>
 
-</div>
 
+</div>
 
 </div>
 
@@ -51,10 +51,10 @@ app.controller('myController',function($scope){
 $scope.area = function(){
 var t1 = parseInt($scope.len);
 var t2 = parseInt($scope.width);
-$scope.ar = t1*t2;
+$scope.are = t1*t2;
 }
 $scope.perimeter = function(){
-$scope.peri = 2*(parseInt($scope.len)+parseInt($scope.width));
+$scope.peri = 2*(parseInt($scope.len)+parseInt($scope.width));;
 }
 });
 

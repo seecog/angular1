@@ -1,0 +1,57 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js">
+<script src="bower_components/bootstrap/dist/css/angular.min.js">
+</head>
+<body ng-app="myApp" ng-controller='myController'>
+<div class="container">
+<div class="row">
+
+<div class='form group'>
+<div class="col-sm-4">
+<label for="principal"principal amount></label>
+<input type="text" class="form-control" placeholder="principal" ng-model="principal">
+</div>
+</div>
+
+<div class='form group'>
+<div class="col-sm-4">
+<label for="rate"rate %></label>
+<input type="text" class="form-control" placeholder="enter rate %" ng-model="rate">
+</div>
+</div>
+
+<div class='form group'>
+<div class="col-sm-4">
+<label for="time"time></label>
+<input type="text" class="form-control" placeholder="time" ng-model="time">
+</div>
+</div>
+
+<div class= 'form-group'>
+<button type="button" class="btn btn-primary" ng-click="simple interest()">simple interest</button>
+</div>
+
+<div class='form-group'>
+<p>
+the simple interest is {{si}}
+</p>
+</div>
+</div>
+</div>
+
+</body>
+
+<script>
+var app= angular.module("myApp",[]);
+app.controller('myController',function($scope){
+
+$simple interest function(){
+var p = parseFloat($cope.principal);
+var r=parseFloat($scope.rate);
+var t=parseFloat($scope.time);
+$scope si={(p*r*t)/100);
+}
+});
+</script>
+</html>

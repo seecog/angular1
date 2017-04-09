@@ -1,0 +1,21 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js">
+</script>
+<body ng-app="" ng-init="employee=[
+{id:1,emp_first_name:'gourav',emp_last_name:'agarwal',emp_salary:50000,emp_dept:'cs'},
+{id:2,emp_first_name:'mohan',emp_last_name:'das',emp_salary:40000,emp_dept:'testing'}
+];">
+<table>
+<th>id</th> <th>first name</th> <th> last name</th> <th> salary</th> <th> dept</th>
+<tr ng-repeat="x in employee">
+<td> {{x.id}}</td>
+<td> {{x.emp_first_name}}</td>
+<td> {{x.emp_last_name}}</td>
+<td> {{x.emp_salary}}</td>
+<td> {{x.emp_dept}}</td>
+</td>
+</table>
+
+</body>
+</html>
