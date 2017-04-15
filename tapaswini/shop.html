@@ -1,0 +1,63 @@
+<html>
+<head>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="row">
+
+<div class="col-sm-12">
+<table  class="table">
+<h3>Click on the shop name for selecting the products</h3>
+<th>shop name</th>
+<th>Location</th>
+<th>Contact</th>
+<tr>
+<td><button type="button" class="btn btn-primary" ng-click="cosmetics()">M.A.C</button></td>
+<td>phoenix mall,1st floor</td>
+<td>9232637267</td>
+</tr>
+<tr>
+<td><button type="button" class="btn btn-primary" ng-click="funword()">FUN WORLD</button></td>
+<td>phoenix mall,2st floor</td>
+<td>9232637267</td>
+</tr>
+<tr>
+<td><button type="button" class="btn btn-primary" ng-click="Archies()">Archies</button></td>
+<td>phoenix mall,1st floor</td>
+<td>9232637267</td>
+</tr>
+</div>
+</table>
+
+<div class="col-sm-12">
+<table class="table">
+<th>location</th><th>contact</th>
+<tr ng-repeat="x in shop">
+<td>{{x.location}}</td><td>{{x.contact}}</td>
+</tr>
+</div>
+</table>
+
+
+
+
+</div>
+</div>
+</body>
+
+<script>
+var app=angular.module("myApp",[]);
+app.controller("myController",function($scope){
+
+$scope.shop=[
+{location:"phoenix mall,1st floor",contact:9232637267},
+{location:"forum value mall,2nd floor",contact:8786325369},
+{location:"park square mall,3rd floor",contact:7326352542}
+];
+});
+
+</script>
+</html>
+
