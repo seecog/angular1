@@ -1,0 +1,59 @@
+<html>
+<header>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+<title>Service Program</title>
+</header>
+<body ng-app="MyApp" ng-controller="MyController">
+
+<div class="container" style="border: red solid 1px; margin-top:15px;">
+<div class="row">
+<div class="form-group">
+		<label>First No :</label>  <input class="form-control" ng-model="Fno">
+		</div>
+		<div class="form-group">
+		<label>Second No :</label>  <input class="form-control" ng-model="Sno">
+		</div>
+		<div class="form-group">
+		<label>Third No :</label>  <input class="form-control" ng-model="Tno">
+		</div>
+		<div class="form-group">
+		<Button class="btn btn-primary" ng-click="TriangleArea()" >Operation</Button>
+		</div>
+		<div>
+		Area = {{Area}}
+ 
+		</div>
+</div>
+</div>
+
+<script>
+var app=angular.module('MyApp',[]);
+
+app.service('TriCalculate',function(){
+
+this.perimeter = function(Fno,Sno,Tno){
+return (Fno+Sno+Tno)/2.0;
+}
+ 
+});
+
+
+ app.service('Triangle',function(TriCalculate){
+ 
+ this.area = function(Fno,Sno,Tno){
+ 
+ var s = TriCalculate.perimeter(Fno,Sno,Tno);
+ <!-- var s = (Fno+Sno+Tno)/2.0; -->
+ return Math.sqrt(s*(s-Fno)*(s-Sno)*(s-Tno));
+ }
+});
+ 
+ app.controller('MyController',function($scope,Triangle){
+ 	$scope.TriangleArea = function(){
+ 		$scope.Area = Triangle.area(parseFloat($scope.Fno),parseFloat($scope.Sno),parseFloat($scope.Sno));
+  	}
+  });
+</script>
+</body>
+</html>
