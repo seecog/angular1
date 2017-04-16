@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<form name="frm">
+<p>
+First Number : <input name="a" ng-model="a">
+</p>
+<p>
+Second Number : <input ng-model="b">
+</p>
+<p>
+The sum is {{sum}}
+</p>
+<p>
+<button ng-click="add()">Add</button>
+</p>
+</form>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.service('Calculator',function(){
+
+this.add = function(a,b){
+return (a+b);
+}
+this.subtract = function(a,b){
+return (a-b);
+}
+
+});
+app.controller('myController',function($scope,Calculator){
+
+$scope.add = function(){
+$scope.sum = Calculator.add(parseInt($scope.a),parseInt($scope.b));
+
+}
+
+});
+
+
+</script>
+</html>

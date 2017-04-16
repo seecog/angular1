@@ -1,0 +1,58 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<form name="frm">
+<p>
+First Name : <input ng-model="first_name" class="form-control" name="first_name" ng-pattern="/^\D+$/">
+<span ng-show="frm.first_name.$dirty && frm.first_name.$error.pattern" class="text-danger">Character only required</span>
+</p>
+<p>
+Last Name : <input ng-model="last_name" class="form-control" name="last_name" ng-pattern="/^[a-z]+$/">
+<span ng-show="frm.last_name.$dirty && frm.last_name.$error.pattern" class="text-danger">Character only required</span>
+</p>
+<p>
+Age : <input ng-model="age" class="form-control" name="age" ng-pattern="/^[0-9]{1,2}$/">
+<span ng-show="frm.age.$dirty && frm.age.$error.pattern" class="text-danger">Not a valid age</span>
+<!-- /^[0-9]+$/ -->
+</p>
+<p>
+Age : <input ng-model="age2" class="form-control" name="age2" ng-pattern="/^\d+$/">
+<span ng-show="frm.age2.$dirty && frm.age2.$error.pattern" class="text-danger">Not a valid age</span>
+<!-- /^[0-9]+$/ -->
+</p>
+<p>
+Age : <input ng-model="age3" class="form-control" name="age3" ng-pattern="/^[0-9]+$/">
+<span ng-show="frm.age3.$dirty && frm.age3.$error.pattern" class="text-danger">Not a valid age</span>
+<!-- /^[0-9]+$/ -->
+</p>
+<p>
+Mobile : <input ng-model="mobile" class="form-control" name="mobile" 
+ng-pattern="/^[0][1-9]|[1-9][0-9]|10[0-9]$/">
+<span ng-show="frm.mobile.$dirty && frm.mobile.$error.pattern" class="text-danger">Not a valid mobile no.</span>
+<!-- /^[0-9]{1,10}$/ -->
+</p>
+</form>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+
+$scope.add = function(){
+var a = parseInt($scope.a);
+var b = parseInt($scope.b);
+$scope.sum = a+b;
+}
+
+
+});
+
+
+</script>
+</html>

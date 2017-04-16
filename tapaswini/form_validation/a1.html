@@ -1,0 +1,74 @@
+<html>
+<head>
+<style>
+input.ng-valid{
+border :  1px solid green;
+}
+input.ng-invalid {
+border :  1px solid red;
+}
+.ng-invalid.btn {
+background-color : grey;
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<div class="container">
+{
+4scope.employees.push({first_name : $scope.first-name,})
+}
+{
+$scope.emloyees.splice(0x,1)
+}
+<form name="frm" novalidate>
+<p>
+first Name : <input class="form-control" name="first_name" ng-model="first_name" required ng-minlength="2" ng-maxlength="10">
+<span class="text-danger" ng-show="frm.first_name.$dirty && frm.first_name.$error.required">
+First name is required
+</span>
+<span class="text-danger" ng-show="frm.first_name.$dirty && frm.first_name.$error.minlength">
+First name should be of 2 character's
+</span>
+<span class="text-danger" ng-show="frm.first_name.$dirty && frm.first_name.$error.maxlength">
+First name should not be more then 10 character's
+</span>
+</p>
+
+<p>
+email : <input type="email" class="form-control" name="em" ng-model="email" required>
+<span class="text-danger" ng-show="frm.em.$dirty && frm.em.$error.required">
+Email required
+</span>
+<span class="text-danger" ng-show="frm.em.$dirty && frm.em.$error.email">
+Invalid email
+</span>
+</p>
+<p>
+<button ng-disabled="frm.$invalid" class="btn btn-primary">Register</button>
+</p>
+</form>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

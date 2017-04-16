@@ -3,23 +3,22 @@
 <script src="bower_components/angular/angular.min.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="myController">
+<form name="frm">
 <p>
-a = {{a}}<br>
-b = {{b}}
+First Number : <input name="a" ng-model="a" ng-pattern='/^\D+$/'>
+<span ng-show="frm.a.$dirty && frm.a.$error.pattern">Charater only</span>
 </p>
 <p>
-First No : <input type="text" name="a" ng-model="a">
+Second Number : <input ng-model="b" name="b" ng-pattern="/^[a-z]{1,10}$/">
+<span ng-show="frm.b.$dirty && frm.b.$error.pattern">Number only</span>
 </p>
 <p>
-Second No : <input type="text" name="b" ng-model="b">
-</p>
-<p>
-Sum is : {{c}}
+The sum is {{sum}}
 </p>
 <p>
 <button ng-click="add()">Add</button>
 </p>
-
+</form>
 </body>
 <script>
 var app = angular.module('myApp',[]);
@@ -27,9 +26,9 @@ var app = angular.module('myApp',[]);
 app.controller('myController',function($scope){
 
 $scope.add = function(){
-var t1 = parseInt($scope.a);
-var t2 = parseInt($scope.b);
-$scope.c = t1+t2;
+var a = parseInt($scope.a);
+var b = parseInt($scope.b);
+$scope.sum = a+b;
 }
 
 

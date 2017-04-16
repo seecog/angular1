@@ -1,0 +1,78 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<p>
+The name is {{fnm | uppercase}}
+</p>
+<p>
+The name is {{lnm | lowercase}}
+</p>
+<p>
+Cost is {{cost | currency }}
+</p>
+<p>
+Coin count is {{count | number}}
+</p>
+<p>
+<input class="form-control" ng-model="key">
+</p>
+<p>
+<table class="table table-stripped">
+<th><a href="#" ng-click="sortkey='id';sortReverse=!sortReverse">Id
+<i ng-if="sortkey=='id' && sortReverse" class="fa fa-caret-down"></i>
+<i ng-if="sortkey=='id' && !sortReverse" class="fa fa-caret-up"></i>
+</a></th>
+
+<th><a href="#" ng-click="sortkey='name';sortReverse=!sortReverse">Name</a>
+<i ng-if="sortkey=='name' && sortReverse" class="fa fa-caret-down"></i>
+<i ng-if="sortkey=='name' && !sortReverse" class="fa fa-caret-up"></i>
+</th>
+
+<th><a href="#" ng-click="sortkey='age';sortReverse=!sortReverse">Age</a>
+<i ng-if="sortkey=='age' && sortReverse" class="fa fa-caret-down"></i>
+<i ng-if="sortkey=='age' && !sortReverse" class="fa fa-caret-up"></i>
+</th>
+
+<tr ng-repeat="x in employees | orderBy : sortkey : sortReverse | filter : key | limitTo : limit">
+<td>{{x.id}}</td>
+<td>{{x.name}}</td>
+<td>{{x.age}}</td>
+</tr>
+</table>
+
+</p>
+<p>
+<select ng-model="limit">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+</p>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+$scope.limit = 3;
+$scope.sortkey = 'id';
+$scope.sortReverse = false;
+$scope.fnm = 'Mohan';
+$scope.lnm = 'KUMAR';
+$scope.cost = 10000;
+$scope.count = 120000;
+$scope.employees = [
+{id : 1, name : 'Mohan',age : 20},
+{id : 2, name : 'Sohan',age : 21},
+{id : 3, name : 'Rohan',age : 22}
+];
+});
+
+
+</script>
+</html>
