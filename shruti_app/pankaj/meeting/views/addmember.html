@@ -1,0 +1,45 @@
+<div class="col-lg-12">
+<h1 class="text-primary">Add Member</h1>
+</div>
+<div class="col-lg-12">
+<form name="frm" novalidate>
+<div class="form-group">
+<label>First Name</label>
+<input class="form-control" ng-model="first_name" name="first_name" required>
+<p ng-if="frm.first_name.$dirty && frm.first_name.$error.required">
+Enter first name
+</p>
+</div>
+
+<div class="form-group">
+<label>Last Name</label>
+<input class="form-control" ng-model="last_name" name="last_name" required>
+<p ng-if="frm.last_name.$dirty && frm.last_name.$error.required">
+Enter last name
+</p>
+</div>
+
+<div class="form-group">
+<label>Email</label>
+<input type="email" class="form-control" ng-model="email" name="email" required>
+<p ng-if="frm.email.$dirty && frm.email.$error.required">
+Enter email
+</p>
+<p ng-if="frm.email.$dirty && frm.email.$error.email">
+Enter valid email
+</p>
+</div>
+
+<div class="form-group">
+<label>Pic </label>
+<input class="form-control" ng-model="pic" name="pic" required>
+<p ng-if="frm.pic.$dirty && frm.pic.$error.required">
+Enter image url
+</p>
+</div>
+
+<div class="form-group">
+<button class="btn btn-primary" ng-disabled="frm.$invalid" ng-click="addMember()">Add Member</button>
+</div>
+</form>
+</div>

@@ -28,4 +28,12 @@ $routeProvider
 		
 	}
 })
+.when('/addmember/:uid/:mid',{
+	templateUrl : 'views/addmember.html',
+	controller : 'Addmembercontroller'
+})
+.when('/memberlist/:uid/:mid',{
+	templateUrl : 'views/memberlist.html',
+	controller : 'Memberlistcontroller'
+});
 }]);

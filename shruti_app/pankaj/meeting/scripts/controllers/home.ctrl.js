@@ -6,8 +6,9 @@ angular.module('myApp').controller('Homecontroller',function($scope,Authenticati
 		console.log(user)
 		var meetingRef = ref.child('users').child(user.uid).child('meetings');
 		var meetingInfo = $firebaseArray(meetingRef);
-		
+		$scope.meetings = meetingInfo;
 		$scope.addMeeting = function(){
+			
 	meetingInfo.$add({name : $scope.meeting_name}).then(function(data){
 				console.log('Meeting Added')
 			}).catch(function(err){

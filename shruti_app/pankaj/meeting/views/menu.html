@@ -15,12 +15,12 @@
         <ul class="nav navbar-nav navbar-right">
 		
         <li ng-if="currentUser" class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
           <img ng-src="{{currentUser.img}}" class="img-circle" width="40" height="40">
 		  <span class="label label-success">{{currentUser.first_name}} {{currentUser.last_name}}</span>
 		  <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
+            <li><a href="#home">Meetings</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>

@@ -16,7 +16,14 @@
 <table class="table">
 <th>Meeting Name</th>
 <tr ng-repeat="x in meetings">
-<td>{{x}}</td>
+<td>{{x.name}}</td><td>
+<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+<a class="btn btn-success" href="#addmember/{{currentUser.$id}}/{{x.$id}}"><span class="glyphicon glyphicon-plus"></span>
+</a>
+<a class="btn btn-primary" href="#memberlist/{{currentUser.$id}}/{{x.$id}}"><span class="glyphicon glyphicon-th-list"></span>
+</a>
+
+</td>
 </tr>
 </table>
 </div>
