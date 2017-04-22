@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+The area is {{area}}
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.factory('Perimeter',function(){
+var obj = {};
+obj.peri = function(a,b,c){
+return (a+b+c)/2.0;
+}
+return obj;
+});
+
+app.service('Triangle',function(Perimeter){
+
+this.triarea = function(a,b,c){
+var s = Perimeter.peri(a,b,c);
+return Math.sqrt(s*(s-a)*(s-b)*(s-c));
+}
+
+});
+app.controller('myController',function($scope,Triangle){
+$scope.area = Triangle.triarea(10,11,12);
+});
+</script>
+</html>

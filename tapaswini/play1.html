@@ -1,0 +1,151 @@
+<html>
+<head>
+<style>
+input.ng-touched.ng-invalid {
+border : 1px solid red;
+}
+input.ng-valid {
+border : 1px solid green;
+}
+</style>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<form name="frm">
+<div class="col-lg-12">
+<label>First Name </label>
+<input ng-model="first_name" placeholder="First name" name="first_name" class="form-control" required>
+<p ng-if="frm.first_name.$dirty && frm.first_name.$error.required" class="text-danger">
+Please enter first name
+</p>
+</div>
+
+<div class="col-lg-12">
+<label>Last Name </label>
+<input ng-model="last_name" placeholder="last name" name="last_name" class="form-control" required>
+<p ng-if="frm.last_name.$dirty && frm.last_name.$error.required" class="text-danger">
+Please enter last name
+</p>
+</div>
+
+<div class="col-lg-12">
+<label>Mobile </label>
+<input ng-model="mobile" placeholder="Mobile" name="mobile" class="form-control" required>
+<p ng-if="frm.mobile.$dirty && frm.mobile.$error.required" class="text-danger">
+Please enter mobile number
+</p>
+</div>
+
+
+<div class="col-lg-12">
+<label>Email</label>
+<input type="email" ng-model="email" name="email" class="form-control" required>
+<p ng-if="frm.email.$dirty && frm.email.$error.required" class="text-danger">
+Please enter email
+</p>
+<p ng-if="frm.email.$dirty && frm.email.$error.email" class="text-danger">
+Please enter valid password
+</p>
+</div>
+
+<div class="col-lg-12">
+<label>Pic </label>
+<input class="form-control" ng-model="pic" name="pic" required>
+<p ng-if="frm.pic.$dirty && frm.pic.$error.required" class="text-danger">
+Please enter you image
+</p>
+</div>
+
+<div class="col-lg-12">
+<button class="btn btn-primary" ng-click="add()">Add User</button>
+</div>
+
+
+</form>
+<div class="col-lg-12">
+<h3 class="text-primary">User's List</h3>
+</div>
+<div class="col-lg-12" ng-hide="loadStt">
+<img src="hourglass.gif" width="100" height="100">
+</div>
+<div class="col-lg-12">
+<table ng-if="users.length!=0" ng-show="loadStt" class="table">
+<th>Name</th><th>Email</th><th>Mobile</th><th>Action</th>
+<tr ng-repeat="x in users">
+
+<td>
+<img ng-src="{{x.pic}}" width="60" height="60" class="img-circle"><br>
+{{x.first_name}} {{x.last_name}}
+</td>
+<td>{{x.email}}</td>
+<td>{{x.mobile}}</td>
+<td>
+<button class="btn btn-danger" ng-click="delete(x)"><span class="glyphicon glyphicon-trash"></span></button>
+</td>
+</tr>
+</table>
+<div ng-if="users.length==0 " class="alert alert-warning">No user record found !</div>
+</div>
+
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.run(function($rootScope){
+$rootScope.users = [{
+first_name : 'Yogi',
+last_name : 'Adityanath',
+email : 'yogi@gmail.com',
+mobile : '1232323234',
+pic : 'https://i.ndtvimg.com/i/2017-04/yogi-adityanath-uttar-pradesh-chief-minister_650x400_41492508560.jpg'
+}];
+});
+
+app.service('User',function($rootScope){
+
+this.addUser = function(user){
+$rootScope.users.push(user);
+}
+
+this.deleteUser = function(user){
+
+      $rootScope.users.splice(user,1);  
+	  
+}
+
+})
+
+app.controller('myController',function($scope,$rootScope,User,$timeout){
+console.log($rootScope.users)
+$scope.loadStt = true;
+$scope.add = function(){
+$scope.loadStt = true;
+$timeout(function () { 
+User.addUser({
+first_name : $scope.first_name,
+last_name : $scope.last_name,
+email : $scope.email,
+mobile : $scope.mobile,
+pic : $scope.pic
+});
+ $scope.loadStt = true;
+    }, 5000);
+}
+
+$scope.delete = function(x){
+$scope.loadStt = false;
+$timeout(function () { 
+	  User.deleteUser(x);
+	  console.log('Deleted user')
+	  $scope.loadStt = true;
+    }, 20000);
+
+}
+
+});
+</script>
+</html>
+
