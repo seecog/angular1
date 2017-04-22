@@ -1,8 +1,22 @@
-<p>
-<a href="#/" ng-click="logOut()">Logout</a>
-</p>
-<hr>
-<h1>My home</h1>
-<p>
-{{currentUser}}
-</p>
+<div class="col-lg-12">
+<span>My home</span> | <a href="#/" ng-click="logOut()">Logout</a>
+</div>
+<div class="col-lg-12">
+<h1 class="text-primary">Meetings</h1>
+</div>
+
+<div class="col-lg-12">
+<form name="frm">
+<input ng-model="meeting_name" name="meeting_name" class="form-control" required ng-minlength="3">
+<div class="pull-right"><button ng-disabled="frm.$invalid" class="btn btn-primary" ng-click="addMeeting()">Add Meeting</button></div>
+</form>
+</div>
+
+<div class="col-lg-12">
+<table class="table">
+<th>Meeting Name</th>
+<tr ng-repeat="x in meetings">
+<td>{{x}}</td>
+</tr>
+</table>
+</div>

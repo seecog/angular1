@@ -19,6 +19,7 @@ import { StriComponent } from './stri/stri.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { MytriComponent } from './mytri/mytri.component';
 import { TriperiService } from './mytri/triperi.service';
+import { FormValidation1Component } from './form-validation-1/form-validation-1.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { TriperiService } from './mytri/triperi.service';
     FormvalidationComponent,
     StriComponent,
     ShoppingComponent,
-    MytriComponent
+    MytriComponent,
+    FormValidation1Component
   ],
   imports: [
     BrowserModule,

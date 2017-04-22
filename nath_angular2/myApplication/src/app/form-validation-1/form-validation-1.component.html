@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div class="container">
+<form #f="ngForm">
+<div class="row">
+<h1 class="text-primary">Registration</h1>
+</div>
+<div class="row">
+<div class="col-lg-12">
+<label>Username </label>
+<input class="form-control" name="username" ngModel minlength="3" required #username="ngModel">
+</div>
+
+<div class="col-lg-12">
+<label>Password </label>
+<input type="password" class="form-control" name="password" ngModel required minlength="4" maxlength="14">
+</div>
+
+<div class="col-lg-12">
+<button [disabled]="!f.valid" (click)="register()" class="btn btn-success">Register</button>
+</div>
+</div>
+</form>
+</div>
