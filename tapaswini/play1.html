@@ -83,7 +83,7 @@ Please enter you image
 <td>{{x.email}}</td>
 <td>{{x.mobile}}</td>
 <td>
-<button class="btn btn-danger" ng-click="delete(x)"><span class="glyphicon glyphicon-trash"></span></button>
+<button class="btn btn-danger" ng-click="delete($index)"><span class="glyphicon glyphicon-trash"></span></button>
 </td>
 </tr>
 </table>
@@ -101,7 +101,23 @@ last_name : 'Adityanath',
 email : 'yogi@gmail.com',
 mobile : '1232323234',
 pic : 'https://i.ndtvimg.com/i/2017-04/yogi-adityanath-uttar-pradesh-chief-minister_650x400_41492508560.jpg'
-}];
+},
+{
+first_name : 'Laloo',
+last_name : 'yadav',
+email : 'laloo@gmail.com',
+mobile : '1232323234',
+pic : 'https://pbs.twimg.com/profile_images/551980514836365312/2risZpzU_400x400.jpeg'
+},
+{
+first_name : 'Modi',
+last_name : 'jii',
+email : 'modi@gmail.com',
+mobile : '1232323234',
+pic : 'https://upload.wikimedia.org/wikipedia/commons/9/90/PM_Modi_2015.jpg'
+}
+
+];
 });
 
 app.service('User',function($rootScope){
@@ -141,7 +157,7 @@ $timeout(function () {
 	  User.deleteUser(x);
 	  console.log('Deleted user')
 	  $scope.loadStt = true;
-    }, 20000);
+    }, 1000);
 
 }
 

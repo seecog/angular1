@@ -1,0 +1,36 @@
+<html>
+<head>
+<style>
+input.ng-touched.ng-invalid {
+border : 1px solid red;
+}
+input.ng-valid {
+border : 1px solid green;
+}
+</style>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<form name="frm">
+<div class="col-lg-12">
+{{name | uppercase}} {{lastname | lowercase}}<br>
+Cost is {{cost | currency}} | {{cost | number}}<br>
+Today date is {{dt | date : 'fullDate'}}
+</div>
+</form>
+
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.name = 'mohan';
+$scope.lastname = 'KUMAR';
+$scope.cost = 10000;
+$scope.dt = new Date();
+});
+</script>
+</html>
