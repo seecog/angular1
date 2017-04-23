@@ -2,11 +2,12 @@ angular.module('myApp').service('Authentication',function($rootScope,$firebaseAu
 	
 	var ref = firebase.database().ref();
     var auth = $firebaseAuth();
-	
+	$rootScope.loginstt = true;
 	this.login = function(email,password){
 		auth.$signInWithEmailAndPassword(email,password).then(function(userRef){
 			console.log('The user is ')
 			console.log(userRef)
+			$rootScope.loginstt = false;
 			$location.path('/home')
 		}).catch(function(err){
 			console.log('Error is ')

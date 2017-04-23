@@ -2,7 +2,8 @@
 <span>My home</span> | <a href="#/" ng-click="logOut()">Logout</a>
 </div>
 <div class="col-lg-12">
-<h1 class="text-primary">Meetings</h1>
+<h1 class="text-primary">
+<button type="button" class="btn btn-primary">Meetings <span class="badge">{{meetingCount}}</span></button>
 </div>
 
 <div class="col-lg-12">
@@ -11,13 +12,16 @@
 <div class="pull-right"><button ng-disabled="frm.$invalid" class="btn btn-primary" ng-click="addMeeting()">Add Meeting</button></div>
 </form>
 </div>
-
-<div class="col-lg-12">
-<table class="table">
+<div ng-hide="loadStt" class="col-lg-12">
+<img src="views/hourglass.gif" width=100 height=100>
+</div>
+<div ng-show="loadStt" class="col-lg-12">
+<div ng-if="meetings.length==0" class="alert alert-danger">No meeting found</div>
+<table  ng-if="meetings.length!=0" class="table">
 <th>Meeting Name</th>
 <tr ng-repeat="x in meetings">
 <td>{{x.name}}</td><td>
-<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+<button class="btn btn-danger" ng-click="deleteMeeting(x.$id)"><span class="glyphicon glyphicon-trash"></span></button>
 <a class="btn btn-success" href="#addmember/{{currentUser.$id}}/{{x.$id}}"><span class="glyphicon glyphicon-plus"></span>
 </a>
 <a class="btn btn-primary" href="#memberlist/{{currentUser.$id}}/{{x.$id}}"><span class="glyphicon glyphicon-th-list"></span>
