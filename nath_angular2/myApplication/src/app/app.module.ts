@@ -20,6 +20,8 @@ import { ShoppingComponent } from './shopping/shopping.component';
 import { MytriComponent } from './mytri/mytri.component';
 import { TriperiService } from './mytri/triperi.service';
 import { FormValidation1Component } from './form-validation-1/form-validation-1.component';
+import { ReactiveApproachComponent } from './reactive-approach/reactive-approach.component';
+import {ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,12 +37,14 @@ import { FormValidation1Component } from './form-validation-1/form-validation-1.
     StriComponent,
     ShoppingComponent,
     MytriComponent,
-    FormValidation1Component
+    FormValidation1Component,
+    ReactiveApproachComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+	ReactiveFormsModule
   ],
   providers: [LogService,CalculateService,TriperiService],
   bootstrap: [AppComponent]

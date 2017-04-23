@@ -8,11 +8,12 @@ import {NgForm} from '@angular/forms';
 export class FormValidation1Component implements OnInit {
 
   constructor() { }
-  @ViewChild('f') frm= NgForm; 
+  @ViewChild('f') frm : NgForm; 
   ngOnInit() {
   }
   register(){
-	  console.log(this.frm)
+	  console.log(this.frm.value.username);
+	  console.log(this.frm.value.password);
   }
 
 }

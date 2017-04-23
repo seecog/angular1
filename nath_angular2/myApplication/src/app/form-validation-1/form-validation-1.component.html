@@ -8,6 +8,7 @@
 <div class="col-lg-12">
 <label>Username </label>
 <input class="form-control" name="username" ngModel minlength="3" required #username="ngModel">
+<span *ngIf="!username.valid && username.touched" class="text-danger">Username required</span>
 </div>
 
 <div class="col-lg-12">
