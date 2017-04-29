@@ -8,6 +8,7 @@ angular.module('myApp').controller('Memberlistcontroller',function($scope,$route
 	$scope.recordKey = '';
 	$scope.key = '';
 	$scope.giftStt=false;
+	$scope.showRef = {};
 	//auth.$onAuthStateChanged(function(user){
 		//console.log(user)
 		var memberRef = ref.child('users').child(uid).child('meetings').child(mid).child('members');
@@ -18,9 +19,26 @@ angular.module('myApp').controller('Memberlistcontroller',function($scope,$route
 		$scope.loadStt = true;	
 		});
 		
-		$scope.giftStatusEntry = function(){
-			console.log($scope.giftStt);
-			$scope.giftStt = true;
+		$scope.giftStatusEntry = function(x){
+			alert('Inside th status ')
+			console.log(x);
+			$scope.showRef = x;
+		    $scope.showRef.giftStt = !$scope.showRef.giftStt;
+		}
+		
+		$scope.saveGift = function(member,giftext){
+			console.log(member)
+			console.log(giftext)
+			var giftRef = memberRef.child(member.$id).child('awards');
+			var giftInfo = $firebaseArray(giftRef);
+			giftInfo.$add({gift : giftext}).then(function(data){
+				
+				console.log('record added successfully')
+			}).catch(function(err){
+				console.log('Error is ')
+				console.log(err)
+			});
+			
 		}
 		
 		$scope.addGift = function(uid,mid,mmid){

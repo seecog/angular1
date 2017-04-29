@@ -16,8 +16,22 @@
 <input type="password" class="form-control" name="password" ngModel required minlength="4" maxlength="14">
 </div>
 
+<div ngModelGroup="info">
+<div class="col-lg-12">
+<label>Email </label>
+<input class="form-control" name="email" ngModel required>
+</div>
+
+<div class="col-lg-12">
+<label>Contact </label>
+<input class="form-control" name="contact" ngModel required>
+</div>
+</div>
+
 <div class="col-lg-12">
 <button [disabled]="!f.valid" (click)="register()" class="btn btn-success">Register</button>
+
+<button  (click)="reset()" class="btn btn-success">Reset</button>
 </div>
 </div>
 </form>

@@ -10,6 +10,7 @@ border : 1px solid green;
 </style>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css"/>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="myController">
@@ -72,9 +73,16 @@ Please enter you image
 <img src="hourglass.gif" width="100" height="100">
 </div>
 <div class="col-lg-12">
+<input ng-model="key" class="form-control">
+</div>
+<div class="col-lg-12">
 <table ng-if="users.length!=0" ng-show="loadStt" class="table">
-<th>Name</th><th>Email</th><th>Mobile</th><th>Action</th>
-<tr ng-repeat="x in users">
+<th ng-click="order='first_name';sortReverse=!sortReverse">Name
+<i ng-if="sortReverse" class="fa fa-caret-down" aria-hidden="true"></i>
+<i ng-if="!sortReverse" class="fa fa-caret-up" aria-hidden="true"></i>
+</th>
+<th ng-click="order='email';sortReverse=!sortReverse">Email</th><th>Mobile</th><th>Action</th>
+<tr ng-repeat="x in users | orderBy : order : sortReverse | filter : key | limitTo : limit">
 
 <td>
 <img ng-src="{{x.pic}}" width="60" height="60" class="img-circle"><br>
@@ -88,6 +96,14 @@ Please enter you image
 </tr>
 </table>
 <div ng-if="users.length==0 " class="alert alert-warning">No user record found !</div>
+</div>
+
+<div class="col-lg-12" class="form-control">
+<select ng-model="limit">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
 </div>
 
 </div>
@@ -136,6 +152,9 @@ this.deleteUser = function(user){
 
 app.controller('myController',function($scope,$rootScope,User,$timeout){
 console.log($rootScope.users)
+$scope.limit = 3;
+$scope.sortReverse = false;
+$scope.order = 'first_name';
 $scope.loadStt = true;
 $scope.add = function(){
 $scope.loadStt = true;

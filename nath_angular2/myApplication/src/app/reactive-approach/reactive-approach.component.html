@@ -23,6 +23,18 @@
 <span *ngIf="signUp.get('password').errors['maxlength']">Password should not be more then 20 characters</span>
 </p>
 </div>
+<div >
+
+<div class="form-group" formArrayName="hobbies">
+<button class="btn btn-success" (click)="addHobby()">Add Hobby</button>
+<label>Hobbies </label>
+<div *ngFor="let hobby of signUp.get('hobbies').controls;let i=index">
+<input class="form-control" [formControlName]="i">
+{{i}}<button class="btn btn-danger" (click)="removeHobby(i)"><span class="glyphicon glyphicon-trash"></span></button>
+</div>
+</div>
+
+</div>
 
 <div class="form-group">
 <button  (click)="register()" class="btn btn-success">Register</button>

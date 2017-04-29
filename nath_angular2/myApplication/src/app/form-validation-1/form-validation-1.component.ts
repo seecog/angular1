@@ -12,8 +12,13 @@ export class FormValidation1Component implements OnInit {
   ngOnInit() {
   }
   register(){
-	  console.log(this.frm.value.username);
-	  console.log(this.frm.value.password);
+	  console.log(this.frm);
+  }
+  
+  reset(){
+	  
+	  this.frm.reset();
+	  
   }
 
 }
