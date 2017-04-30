@@ -9,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
   <p>last Name : {{last_name}}</p>
   <p>Department : {{dept}}</p>
   <p>salary : {{sal}}</p>
+  <p>
+  <input [value]="first_name">
+  <button class="btn btn-primary" (click)="show()">Click here</button>
+  </p>
   `,
   styles: [`
   h1{
@@ -19,6 +23,7 @@ import { Component, OnInit } from '@angular/core';
 	  color : green
   }
   `]
+  
 })
 export class EmployeeComponent {
 
@@ -27,6 +32,10 @@ private last_name : string = 'kumar';
 private dept : string = 'Aeronautics';
 private imgdept : string = 'http://mdot.ms.gov/portal/divisions/aeronautics/images/header.jpg';
 private sal : number = 100000000;
+
+show(){
+	alert('I am inside the component '+this.first_name)
+}
 
   constructor() { }
 
