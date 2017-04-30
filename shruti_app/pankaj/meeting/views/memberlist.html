@@ -22,9 +22,11 @@ No member found!
 </td>
 <td>
 {{x.first_name}} {{x.last_name}} 
+<div ng-show="x.show">
 <form name="giftfrm" ng-submit="saveGift(x,giftText)" novalidate>
 <input class="form-control" ng-model="giftText">
 </form>
+</div>
 <ul>
 <li ng-repeat="y in x.awards">
 {{y.gift}}

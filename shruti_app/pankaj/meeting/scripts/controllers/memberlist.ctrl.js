@@ -19,11 +19,8 @@ angular.module('myApp').controller('Memberlistcontroller',function($scope,$route
 		$scope.loadStt = true;	
 		});
 		
-		$scope.giftStatusEntry = function(x){
-			alert('Inside th status ')
-			console.log(x);
-			$scope.showRef = x;
-		    $scope.showRef.giftStt = !$scope.showRef.giftStt;
+		$scope.giftStatusEntry = function(x){			
+		    x.show = !x.show;
 		}
 		
 		$scope.saveGift = function(member,giftext){
