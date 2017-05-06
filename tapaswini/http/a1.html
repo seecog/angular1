@@ -1,0 +1,64 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController" ng-init="getRecord()">
+<div>
+<p>
+First Name : <input ng-model="student.first_name">
+</p>
+<p>
+Last Name : <input ng-model="student.last_name">
+</p>
+<p>
+Email : <input ng-model="student.email">
+</p>
+<p>
+<button ng-click="addRecord()">Add Student</button>
+</p>
+</div>
+
+
+
+<table class="table">
+<th>First Name</th><th>Last Name</th><th>Email</th>
+<tr ng-repeat="x in students">
+<td>{{x.first_name}}</td>
+<td>{{x.last_name}}</td>
+<td>{{x.email}}</td>
+</tr>
+</table>
+
+
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope,$http){
+
+$scope.addRecord = function(){
+
+$http.post('https://school-48cb3.firebaseio.com/students.json',$scope.student).then(function(res){
+console.log(res);
+$scope.getRecord();
+}).catch(function(err){
+console.log(err)
+});
+
+}
+
+$scope.getRecord = function(){
+$http.get('https://school-48cb3.firebaseio.com/students.json').then(function(res){
+console.log(JSON.stringify(res))
+
+$scope.students = res.data;
+}).catch(function(err){
+console.log(err)
+});
+}
+
+});
+
+
+</script>
+</html>
