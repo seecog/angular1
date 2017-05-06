@@ -22,6 +22,7 @@ import { TriperiService } from './mytri/triperi.service';
 import { FormValidation1Component } from './form-validation-1/form-validation-1.component';
 import { ReactiveApproachComponent } from './reactive-approach/reactive-approach.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { HttpexComponent } from './httpex/httpex.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ShoppingComponent,
     MytriComponent,
     FormValidation1Component,
-    ReactiveApproachComponent
+    ReactiveApproachComponent,
+    HttpexComponent
   ],
   imports: [
     BrowserModule,
