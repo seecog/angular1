@@ -2,8 +2,8 @@ angular.module('myApp').config(['$routeProvider',function($routeProvider){
 
 $routeProvider
 .when('/',{
-templateUrl : 'views/home.html',
-controller : 'HomeController'
+templateUrl : 'views/login.html',
+controller : 'LoginController'
 })
 .when('/addProduct',{
 	templateUrl : 'views/addproduct.html',

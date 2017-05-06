@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DescriptionComponent } from './description/description.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { PropertyBindingComponent } from './property-binding/property-binding.component';
+import { KattapaComponent } from './kattapa/kattapa.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DescriptionComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    PropertyBindingComponent,
+    KattapaComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

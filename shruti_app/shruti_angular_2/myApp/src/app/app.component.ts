@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'My first programme is good';
+  private emp;
+  
+  showMessage(msg : string){
+	  alert('the message is '+msg)
+  }
+  shwEmployeeDetail(employee : any){
+	  this.emp = employee;
+  }
 }

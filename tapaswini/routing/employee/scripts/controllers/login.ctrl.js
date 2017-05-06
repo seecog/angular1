@@ -1,0 +1,13 @@
+angular.module('myApp').controller('LoginController',function($scope,$location){
+	
+	$scope.login = function(){
+		if($scope.username=='mohan' && $scope.password=="123456")
+		{
+			$location.path('/home');
+		}
+		
+	}
+	
+	
+	
+});

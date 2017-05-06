@@ -3,4 +3,5 @@ angular.module('myApp').controller('ViewproductController',function($scope,$root
 var id = $routeParams.id;
 $scope.product = $rootScope.products[id];
 console.log('The id is '+id)
+$location.path('/');
 });

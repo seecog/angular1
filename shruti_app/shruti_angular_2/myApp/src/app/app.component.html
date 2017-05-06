@@ -4,7 +4,11 @@
 <div class="col-lg-12">
 <div class="col-lg-12">
 <!--<app-login></app-login>-->
-<app-employee></app-employee>
+<!--<app-employee></app-employee>-->
+<!-- custom property binding -->
+<app-product></app-product>
+<app-property-binding [email]="'mohan@gmail.com'" (employedetail)="shwEmployeeDetail($event)" (clickPankaj)="showMessage($event)" [last_name]="'kattapa'"></app-property-binding>
+{{emp}}
 </div>
 <div class="col-lg-12">
 <!--<app-description></app-description>-->

@@ -1,0 +1,35 @@
+<p>
+  First Name : <input [value]="first_name">
+</p>
+<p>
+<!-- from custom property binding -->
+  Last Name : <input [value]="last_name">
+</p>
+<p>
+  Email : <input [value]="email">
+</p>
+<p>
+<button [disabled]="stt">Click Here</button>
+</p>
+
+<p>
+<span [innerHTML]="myInfo"></span>
+</p>
+
+<p>
+<button (click)="show()">Click Here</button>
+</p>
+
+
+<p>
+<span [ngClass]="['myStyle','myFont']">I am living in banglore</span>
+</p>
+
+<p>
+<span [ngClass]="{'myStyle':true}">I am living in banglore</span>
+</p>
+
+
+<form (ngSubmit)="showNow()">
+<button type="submit">Click Now</button>
+</form>

@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
   <p>salary : {{sal}}</p>
   <p>
   <input [value]="first_name">
-  <button class="btn btn-primary" (click)="show()">Click here</button>
+  
   </p>
   `,
   styles: [`
