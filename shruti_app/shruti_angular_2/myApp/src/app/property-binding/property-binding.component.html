@@ -1,8 +1,11 @@
+<!--
+
+
+
 <p>
   First Name : <input [value]="first_name">
 </p>
 <p>
-<!-- from custom property binding -->
   Last Name : <input [value]="last_name">
 </p>
 <p>
@@ -33,3 +36,6 @@
 <form (ngSubmit)="showNow()">
 <button type="submit">Click Now</button>
 </form>
+-->
+
+<button class="btn btn-success" (click)="showProduct(id)">Id is {{id}}</button>

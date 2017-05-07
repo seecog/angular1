@@ -2,5 +2,25 @@
 <img src="https://cdn-images-1.medium.com/max/800/1*juPyda3wq9uz_SNFRLuANg@2x.png" width=100 height=100>
 <p>
 let's start angular2
+<input [(ngModel)]="employee.first_name"> {{employee | json}}
 </p>
+
+<form (ngSubmit)="saveRecord()" name="frm" #f="ngForm">
+<div ngModelGroup="info">
+<p>
+First Name <input [ngModel]="first_name" name="first_name" required minlength="3" maxLength="6" #fnm="ngModel">
+<span *ngIf="fnm.errors && fnm.touched">
+<span [hidden]="!fnm.errors.required">First name required</span>
+<span [hidden]="!fnm.errors.minlength">Minimum 3 characters required</span>
+</span>
+</p>
+
+<p>
+Last Name <input [ngModel]="last_name" name="last_name" required #lnm="ngModel">
+<span *ngIf="!lnm.valid">Last name required</span>
+</p>
+</div>
+<button [disabled]="!f.valid" type="submit">Save Record</button>
+</form>
+
 </div>

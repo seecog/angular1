@@ -10,6 +10,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { PropertyBindingComponent } from './property-binding/property-binding.component';
 import { KattapaComponent } from './kattapa/kattapa.component';
 import { ProductComponent } from './product/product.component';
+import { PropertyBinding2Component } from './property-binding-2/property-binding-2.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductComponent } from './product/product.component';
     EmployeeComponent,
     PropertyBindingComponent,
     KattapaComponent,
-    ProductComponent
+    ProductComponent,
+    PropertyBinding2Component
   ],
   imports: [
     BrowserModule,

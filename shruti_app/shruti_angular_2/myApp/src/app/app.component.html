@@ -1,17 +1,44 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <div class="container">
-<div class="col-lg-12">
-<div class="col-lg-12">
+
+<div class="col-lg-6">
 <!--<app-login></app-login>-->
 <!--<app-employee></app-employee>-->
 <!-- custom property binding -->
-<app-product></app-product>
+<!--<app-product></app-product>
 <app-property-binding [email]="'mohan@gmail.com'" (employedetail)="shwEmployeeDetail($event)" (clickPankaj)="showMessage($event)" [last_name]="'kattapa'"></app-property-binding>
-{{emp}}
+{{empr?.first_name}}<br>
+{{empr?.last_name}}<br>
+{{empr?.email}}<br>
+<p>
+<app-property-binding [id]="'0'" (productDetail)="showSpecificDish($event)"></app-property-binding>
+</p>
+<p>
+<app-property-binding [id]="'1'" (productDetail)="showSpecificDish($event)"></app-property-binding>
+</p>
+<p>
+<app-property-binding [id]="'2'" (productDetail)="showSpecificDish($event)"></app-property-binding>
+</p>
+-->
+<app-property-binding-2></app-property-binding-2>
 </div>
+
+<div class="col-lg-6">
+<!--<img src="{{product?.product_img}}" width="200" class="img-circle" height="200" align="left">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{product?.product_name}}</b>
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{product?.product_cost}}</b>
+</p>-->
+</div>
+
+
 <div class="col-lg-12">
 <!--<app-description></app-description>-->
 </div>
 </div>
-</div>
+
+
+

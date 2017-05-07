@@ -23,6 +23,8 @@ import { FormValidation1Component } from './form-validation-1/form-validation-1.
 import { ReactiveApproachComponent } from './reactive-approach/reactive-approach.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HttpexComponent } from './httpex/httpex.component';
+import { EshopComponent } from './eshop/eshop.component';
+import { EditcategoryComponent } from './eshop/editcategory/editcategory.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,9 @@ import { HttpexComponent } from './httpex/httpex.component';
     MytriComponent,
     FormValidation1Component,
     ReactiveApproachComponent,
-    HttpexComponent
+    HttpexComponent,
+    EshopComponent,
+    EditcategoryComponent
   ],
   imports: [
     BrowserModule,

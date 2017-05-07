@@ -1,9 +1,8 @@
 export class  Emp{
-	private first_name : string;
-	private last_name : string;
-	constructor(fnm,lnm){
-		
-		this.first_name = fnm;
-		this.last_name = lnm;
+	public first_name : string;
+	public last_name : string;
+	constructor(first_name:string,last_name:string){
+		this.first_name = first_name;
+		this.last_name = last_name;
 	}
 }

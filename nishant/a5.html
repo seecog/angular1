@@ -1,0 +1,20 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+</head>
+<body ng-app="app" ng-controller="myController">
+
+The average is {{(p+c+m+s+e)/5.0}}
+</body>
+<script>
+var myApp = angular.module('app',[]);
+myApp.controller('myController',function($scope){
+$scope.p = 100;
+$scope.c = 99;
+$scope.m = 98;
+$scope.s = 90;
+$scope.e = 87;
+});
+</script>
+</html>

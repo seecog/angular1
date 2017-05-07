@@ -8,5 +8,9 @@ angular.module('myApp').config(['$routeProvider',function($routeProvider){
 		templateUrl : '../views/home.html',
 		controller : 'HomeController'
 	})
+	.when('/studentinfo/:id',{
+		templateUrl : '../views/studentinfo.html',
+		controller : 'StudentinfoController'
+	})
 	
 }])

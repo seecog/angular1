@@ -1,0 +1,54 @@
+<div class="col-lg-12">
+<form [formGroup]="addCategoryForm">
+<div class="form-group">
+<label>Category Name </label>
+<input formControlName="category_name" class="form-control">
+</div>
+
+<div class="form-group">
+<label>Category Img </label>
+<input formControlName="category_img" class="form-control">
+</div>
+
+<div class="form-group">
+<button (click)="saveCategory()">Save Category</button>
+</div>
+
+</form>
+</div>
+
+<div class="col-lg-6">
+<!--<button class="btn btn-primary" (click)="editcategory('-KjXgEcrkb6RVfoZphbc')">Edit -KjXgEcrkb6RVfoZphbc</button>
+<button class="btn btn-primary" (click)="editcategory('--KjXgkgJRgm6OxnV6Gpi')">Edit --KjXgkgJRgm6OxnV6Gpi</button>
+-->
+<p>
+<app-editcategory [id]="'-KjY6QLYzSw04xwpZmV-'" (categoryDelete)="deleteCategory($event)" (categoryInfo)="showEdit($event)"></app-editcategory>
+</p>
+<p>
+<app-editcategory [id]="'-KjY6dkQNGVmgUQD-zoT'" (categoryDelete)="deleteCategory($event)" (categoryInfo)="showEdit($event)"></app-editcategory>
+</p>
+</div>
+<div *ngIf="editCategory" class="col-lg-6">
+<form  [formGroup]="editCategoryForm">
+
+<div class="form-group">
+<label>Category ref </label>
+<input formControlName="category_ref" class="form-control">
+</div>
+
+<div class="form-group">
+<label>Category Name </label>
+<input formControlName="category_name" class="form-control">
+</div>
+
+<div class="form-group">
+<label>Category Img </label>
+<input formControlName="category_img" class="form-control">
+</div>
+
+<div class="form-group">
+<button (click)="updateCategory()">Update Category</button>
+</div>
+
+</form>
+</div>
