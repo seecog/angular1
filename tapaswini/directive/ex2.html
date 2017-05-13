@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<my-directive a=12>
+</my-directive>
+<my-directive a=14>
+</my-directive>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive('myDirective',function(){
+return {
+template : '<h1>This is new directive {{a}}</h1>'
+}
+});
+app.controller('myController',function($scope){
+$scope.a = 100;
+
+});
+</script>
+</html>

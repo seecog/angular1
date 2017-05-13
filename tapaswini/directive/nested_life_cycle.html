@@ -1,0 +1,43 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<my-directive a="1">
+<my-directive a="2">
+<my-directive a="3"></my-directive>
+</my-directive>
+</my-directive>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.directive('myDirective',function(){
+
+return {
+compile : function(iElement,iAttrs){
+console.log('Inside compile '+iAttrs.a)
+return {
+pre : function(scope,iElement,iAttrs){
+console.log('Inside pre link '+iAttrs.a)
+},
+post : function(scope,iElement,iAttrs){
+console.log('Inside post link '+iAttrs.a)
+}
+
+}
+
+},
+controller : function($scope,$element,$attrs){
+console.log('Inside coontroller '+$attrs.a)
+}
+
+
+}
+
+});
+app.controller('myController',function($scope){
+
+
+});
+</script>
+</html>
