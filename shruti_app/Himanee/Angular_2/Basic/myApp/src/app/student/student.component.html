@@ -1,0 +1,27 @@
+<h1>Student Detail</h1>
+
+<!--<p>First name : {{first_name}}</p>
+<p>Last Name : {{lst_name}}</p>
+<p>Age : {{age}}</p>
+<p>Class : {{class}}</p>
+<p>Father Name : {{stud_father_name}}</p>
+<img src="{{img}}" width=200 height=200 align="left">-->
+<p>
+  First name :<input [value]="first_name">
+</p>
+<p>
+  Last Name :<input [value]="lst_name">
+</p>
+<p>
+  Age: <input [value]= "age">
+</p>
+<p>
+  Class : <input [value] ="class">
+</p>
+<p>
+  Father name :<input [value]="stud_father_name">
+</p>
+<img [src]="img">
+<button (click)="details()">Click me!!</button>
+
+

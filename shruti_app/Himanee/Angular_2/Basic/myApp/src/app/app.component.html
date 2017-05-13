@@ -1,0 +1,46 @@
+<!--<app-product [name]="'himanee'" [cost] ="'500'"></app-product>
+-->
+
+<!--<app-student></app-student>-->
+<!--<app-triangle></app-triangle>-->
+
+<div class='ng-col-6'>
+<h1 class='text-primary'>The movie Store</h1>
+
+<app-property-binding [id]="'0'" (pictureDetail)="showSpecificpic($event)"></app-property-binding><br>
+<app-property-binding [id]="'1'" (pictureDetail)="showSpecificpic($event)"></app-property-binding><br>
+<app-property-binding [id]="'2'" (pictureDetail)="showSpecificpic($event)"></app-property-binding>
+<app-property-binding [id]="'3'" (pictureDetail)="showSpecificpic($event)"></app-property-binding>
+<app-property-binding [id]="'4'" (pictureDetail)="showSpecificpic($event)"></app-property-binding>
+<app-property-binding [id]="'5'" (pictureDetail)="showSpecificpic($event)"></app-property-binding>
+<app-property-binding [id]="'6'" (pictureDetail)="showSpecificpic($event)"></app-property-binding>
+<app-property-binding [id]="'7'" (pictureDetail)="showSpecificpic($event)"></app-property-binding>
+<app-property-binding [id]="'8'" (pictureDetail)="showSpecificpic($event)"></app-property-binding>
+<app-property-binding [id]="'9'" (pictureDetail)="showSpecificpic($event)"></app-property-binding>
+</div>
+
+<div class='ng-col-6'>
+<img src="{{picture?.image}}" width="300" class="img-circle" height="300" align="left">
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{picture?.movie_name}}</b>
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{picture?.movie_genre}}</b>
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{picture?.release_date}}</b>
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{picture?.actor}}</b>
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{picture?.actress}}</b>
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{picture?.prod_cost}}</b>
+</p>
+<p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{picture?.money_earned}}</b>
+</p>
+
+</div>
