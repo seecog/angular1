@@ -12,7 +12,7 @@ angular.module('myApp').config(['$routeProvider',function($routeProvider){
 		templateUrl : 'views/addcategory.html',
 		controller : 'addCatController'
 	})
-	.when('/addproducts',{
+	.when('/addproduct/:id',{
 		templateUrl : 'views/addproducts.html',
 		controller : 'addProductController'
 	})
@@ -23,5 +23,9 @@ angular.module('myApp').config(['$routeProvider',function($routeProvider){
 	.when('/editcategory/:id',{
 		templateUrl : 'views/editcat.html',
 		controller : 'editcatController'
+	})
+	.when('/products/:id',{
+		templateUrl : 'views/products.html',
+		controller : 'ProductsController'
 	})
 }]);
