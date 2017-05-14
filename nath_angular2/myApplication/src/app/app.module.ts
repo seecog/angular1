@@ -25,6 +25,32 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { HttpexComponent } from './httpex/httpex.component';
 import { EshopComponent } from './eshop/eshop.component';
 import { EditcategoryComponent } from './eshop/editcategory/editcategory.component';
+import { BasicComponent } from './basic/basic.component';
+import {Routes,RouterModule} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { ContactComponent } from './contact/contact.component';
+import { UserComponent } from './user/user.component';
+/*const appRoutes : Routes = [
+{
+path : '',
+component : HomeComponent
+},
+{
+	path : 'users',
+	component : UsersComponent
+},
+{
+	path : 'users/:id',
+	component : UserComponent	
+},
+{
+	path : 'contact',
+	component : ContactComponent
+	
+}
+];
+*/
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +70,12 @@ import { EditcategoryComponent } from './eshop/editcategory/editcategory.compone
     ReactiveApproachComponent,
     HttpexComponent,
     EshopComponent,
-    EditcategoryComponent
+    EditcategoryComponent,
+    BasicComponent,
+    HomeComponent,
+    UsersComponent,
+    ContactComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

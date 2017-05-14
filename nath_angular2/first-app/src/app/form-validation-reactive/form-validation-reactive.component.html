@@ -1,0 +1,27 @@
+<form [formGroup]="signUp">
+<p>
+Username : <input id="username" formControlName="username">
+<span *ngIf="!signUp.get('username').valid && signUp.get('username').touched">Please enter the username</span>
+<br>
+Email : <input id="email" formControlName="email">
+<span *ngIf="!signUp.get('email').valid && signUp.get('email').touched">
+h
+</span>
+</p>
+Gender : 
+<div *ngFor="let gender of genders">
+<label>
+<input type="radio" formControlName="gender" name="gender" [value]="gender" required> {{gender}}
+</label>
+</div>
+<div formArrayName="hobbies">
+Your Hobbies
+<button (click)="addHobby()">Add Hobby</button>
+<div *ngFor="let x of signUp.get('hobbies').controls; let i = index">
+<input type="text" [formControlName]="i">
+</div>
+</div>
+<p>
+<button [disabled]="!signUp.valid" (click)="addRecord()">Add</button>
+</p>
+</form>

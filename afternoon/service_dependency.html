@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="myController">
+<p>
+A : <input ng-model="a"> {{a}}
+</p>
+<p>
+B : <input ng-model="b"> {{b}}
+</p>
+<p>
+C : <input ng-model="c"> {{c}}
+</p>
+<p>
+<button ng-click="calculateTri()">Area of Tri</button>
+</p>
+</body>
+<script>
+var app = angular.module('myapp',[]);
+app.service('Perimeter',function(){
+this.getPerimeter = function(a,b,c){
+return (a+b+c)/2;
+}
+});
+
+app.service('Triangle',function(Perimeter){
+
+this.triarea = function(x1,y1,z1){
+var s  = Perimeter.getPerimeter(x1,y1,z1);
+return Math.sqrt(s*(s-x1)*(s-y1)*(s-z1));
+}
+
+});
+
+app.controller('myController',function($scope,Triangle){
+
+$scope.calculateTri = function(){
+var ans = Triangle.triarea(parseFloat($scope.a),parseFloat($scope.b),parseFloat($scope.c));
+alert("area is "+ans)
+}
+
+});
+</script>
+</html>
+

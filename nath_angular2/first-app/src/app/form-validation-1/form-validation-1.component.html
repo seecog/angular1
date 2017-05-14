@@ -1,0 +1,27 @@
+<form #f='ngForm'>
+<p ngModelGroup="userData">
+Username : <input name="username" id="username" [(ngModel)]="username" required>
+<br>
+Email : <input name="email" id="email" ngModel required #email="ngModel">
+<span *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+</p>
+<p>
+SEcurity question : 
+<select name="que" ngModel>
+<option value="1">Name of your first teacher ?</option>
+<option value="2">First pet name ?</option>
+</select>
+</p>
+
+
+Gender : 
+<div *ngFor="let gender of genders">
+<label>
+<input type="radio" name="gender" [value]="gender" required> {{gender}}
+</label>
+</div>
+
+<p>
+<button [disabled]="!f.valid"(click)="addRecord()">Add</button>
+</p>
+</form>

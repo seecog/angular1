@@ -1,0 +1,16 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+Value is {{a}}
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+var b = 20;
+$scope.a = 10;
+});
+</script>
+</html>

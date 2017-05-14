@@ -1,0 +1,13 @@
+<div class="container" ng-init="getinfo()">
+<h2>SELECT CATEGORIES OF PRODUCTS</h2><h3><a><href="#">USERS</a></h3>
+	<div class="pull-right"> <a href="#addcategory"> Add Category </a></div>
+<table class="table table-stripped">
+<th>IMAGE</th><th>NAME</th><th>ACTION</th>
+<tr ng-repeat="(key,value) in cat">
+<td><img src="{{value.image}}" class="img-circle"></td>
+<td>{{value.name}}</td>
+<td><a href="#editcategory/{{key}}">EDIT</a></td>
+<td><button class="btn btn-danger" ng-click="delete()"><span class="glyphicon glyphicon-trash"></span></button></td>
+</tr>
+</table>
+</div>

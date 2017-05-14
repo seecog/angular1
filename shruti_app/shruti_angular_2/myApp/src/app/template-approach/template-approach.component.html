@@ -1,0 +1,35 @@
+<div class="col-lg-12">
+<h1 class="text-primary">Add User</h1>
+</div>
+
+<form (ngSubmit)="saveRecord()" #frm="ngForm">
+<!--<form #frm="ngForm">-->
+<div class="col-lg-12">
+<label>First Name</label>
+<input class="form-control" name="first_name" ngModel required #fnm="ngModel">
+
+<span *ngIf="!fnm.valid && fnm.touched" class="text-warning">First name invalid</span>
+<!--<p *ngIf="">
+</p>-->
+</div>
+
+<div class="col-lg-12">
+<label>Last Name</label>
+<input class="form-control" name="last_name" ngModel required minlength="3" #lnm="ngModel">
+
+<p *ngIf="lnm.errors && lnm.touched">
+<span *ngIf="lnm.errors.required">Please enter last name</span>
+<span *ngIf="lnm.errors.minlength">Last name should be of 3 characters</span>
+</p>
+</div>
+
+<div class="col-lg-12"><br>
+<!--<button [disabled]="!frm.valid" (click)="saveRecord()" class="btn btn-primary">save record</button>-->
+
+<button type="submit" [disabled]="!frm.valid" class="btn btn-primary">save record</button>
+</div>
+
+
+
+
+</form>

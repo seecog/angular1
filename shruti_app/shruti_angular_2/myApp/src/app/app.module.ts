@@ -11,7 +11,10 @@ import { PropertyBindingComponent } from './property-binding/property-binding.co
 import { KattapaComponent } from './kattapa/kattapa.component';
 import { ProductComponent } from './product/product.component';
 import { PropertyBinding2Component } from './property-binding-2/property-binding-2.component';
-
+import { TemplateApproachComponent } from './template-approach/template-approach.component';
+import { ReativeApproachComponent } from './reative-approach/reative-approach.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { Reactive2Component } from './reactive2/reactive2.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,12 +24,16 @@ import { PropertyBinding2Component } from './property-binding-2/property-binding
     PropertyBindingComponent,
     KattapaComponent,
     ProductComponent,
-    PropertyBinding2Component
+    PropertyBinding2Component,
+    TemplateApproachComponent,
+    ReativeApproachComponent,
+    Reactive2Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+	ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

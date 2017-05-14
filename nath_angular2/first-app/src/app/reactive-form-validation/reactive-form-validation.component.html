@@ -1,0 +1,68 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<div class="container">
+<div class="col-lg-12">
+<h1 class="text-primary">Registration Form</h1>
+</div>
+<form [formGroup]="signUp">
+<div class="col-lg-12">
+<div>
+<div class="form-group">
+<label for="username">Username : </label>
+<input class="form-control" formControlName="username">
+<p *ngIf="!signUp.get('username').valid && signUp.get('username').touched" class="help-block text-danger">
+<span *ngIf="!signUp.get('username').valid && signUp.get('username').errors.required">
+Enter the username
+</span>
+<span *ngIf="!signUp.get('username').valid && signUp.get('username').errors.minlength">
+Username should be of minimum 3 characters
+</span>
+<span *ngIf="!signUp.get('username').valid && signUp.get('username').errors.maxlength">
+Username can not exceed 10 characters
+</span>
+</p>
+</div>
+
+<div class="form-group">
+<label for="password">Password : </label>
+<input type="password" class="form-control" formControlName="password">
+<p>
+Enter valid password
+</p>
+</div>
+</div>
+
+<div class="form-group">
+<label for="password">Gender : </label>
+<div *ngFor="let x of genders">
+<label>
+<input type="radio" name="gender" [value]="x" formControlName="gender"> {{x}}
+</label>
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="email">Email : </label>
+<input type="email" class="form-control" formControlName="email">
+<p *ngIf="!signUp.get('email').valid && signUp.get('email').touched" class="text-danger">
+Enter valid email
+</p>
+</div>
+
+<div class="form-group" formArrayName="hobbies">
+<label for="email">Hobbies : </label>
+<div *ngFor="let x of signUp.get('hobbies').controls; let i = index">
+<input [formControlName]="i">
+</div>
+</div>
+
+<div class="form-group">
+<button (click)="register2()" class="btn btn-primary">Register</button> 
+<button (click)="reset()" class="btn btn-primary">Reset</button>
+</div>
+
+</div>
+</form>
+</div>
