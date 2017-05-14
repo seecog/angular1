@@ -1,0 +1,59 @@
+
+  <div class="col-lg-12">
+	<h1 class="text-primary">Register</h1>
+  </div>
+  <form (ngSubmit)="saveRecord()" #frm="ngForm">
+  <div class="col-lg-12">
+	<label>First Name</label>
+	<input class="form-control" name="first_name" ngModel required minlength="3" maxlength="10" #fnm="ngModel">
+	<p *ngIf="fnm.errors && fnm.touched">
+	<span *ngIf="fnm.errors.required" class="text-warning">Please Enter First Name</span>
+	<span *ngIf="fnm.errors.minlength" class="text-warning">First name should be of minimum 3 characters</span>
+	<span *ngIf="fnm.errors.maxlength" class="text-warning">First name only upto 10 characters</span>
+	</p>
+  </div>
+  <div class="col-lg-12">
+	<label>Last Name</label>
+	<input class="form-control" name="last_name" ngModel required minlength="3" maxlength="10" #lnm="ngModel">
+	<p *ngIf="lnm.errors && lnm.touched">
+	<span *ngIf="lnm.errors.required" class="text-warning">Please Enter Last Name</span>
+	<span *ngIf="lnm.errors.minlength" class="text-warning">Last name should be of 3 characters</span>
+	<span *ngIf="lnm.errors.maxlength" class="text-warning">First name only upto 10 characters</span>
+	</p>
+  </div>
+  <div class="col-lg-12">
+	<label>Gender</label>
+	<input type="radio" name="gender" [ngModel] required #gen="ngModel">Male
+	<input type="radio" name="gender" [ngModel] required #gen="ngModel">Female
+	<p *ngIf="gen.errors && gen.touched">
+	<span *ngIf="gen.errors.required" class="text-warning">Please Select Gender</span>
+	</p>
+  </div>
+  <div class="col-lg-12">
+	<label>Country</label>
+	<select class="form-control" name="country" ngModel required #country="ngModel">
+		<option value="in">India</option>
+		<option value="us">USA</option>
+		<option value="uk">UK</option>
+		<option value="au">Australia</option>
+		<option value="cn">Canada</option>
+	</select>
+	<p *ngIf="country.errors && country.touched">
+	<span *ngIf="country.errors.required" class="text-warning">Please select your country</span>
+	</p>
+  </div>
+  <div class="col-lg-12">
+	<label>Email</label>
+	<input class="form-control" name="email" ngModel required minlength="3" #em="ngModel">
+	<p *ngIf="em.errors && em.touched">
+	<span *ngIf="em.errors.required" class="text-warning">Please Enter Email</span>
+	</p>
+  </div>
+  <div class="col-lg-12">
+  <p>
+	<button [disabled]="!frm.valid" type="submit" class="btn btn-primary">Register</button>
+	</p>
+  </div>
+  
+  </form>
+
