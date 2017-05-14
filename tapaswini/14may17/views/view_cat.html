@@ -1,0 +1,12 @@
+<div class="row" ng-init="fetch_cat()">
+	<h1> Categories List</h1>
+	<div class="pull-right"><a href="#addcategory"> Add Category </a></div>
+	<table class="table table-striped">
+		<th> Category Image </th><th> Category Name </th><th> Action </th>
+		<tr ng-repeat="(key,value) in catdet">
+			<td>{{value.categ_image}}</td>       
+			<td><img src="{{value.categ_name}}" width="200" height="200" class="img-circle"></td>
+			<td> <a href="#editcategory/{{key}}">Edit</a> | <button class="btn btn-primary" ng-click="del_cat($index)">Delete</button> </td>
+		</tr>
+	</table>
+</div>
