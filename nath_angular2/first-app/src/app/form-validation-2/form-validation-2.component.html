@@ -1,0 +1,24 @@
+<form name="signIn" #f="ngForm">
+<p>
+ Email : <input name="email" id="id" ngModel required  #email="ngModel">
+ <span *ngIf="!email.valid && email.touched">Please enter the email</span>
+</p>
+
+<p>
+Subscriptions : 
+<select name="plan" [(ngModel)]="plan">
+<option value="1">Basic</option>
+<option value="2">Advance</option>
+<option value="3">Pro</option>
+</select>
+</p>
+
+<p>
+Password : <input type="password" name="password" id="password" ngModel required minlength="3" maxlength="10" #password="ngModel">
+<span *ngIf="!password.valid && password.touched">Password is required!</span>
+</p>
+
+<p>
+<button [disabled]="!f.valid" (click)="register()">Register</button>
+</p>
+</form>

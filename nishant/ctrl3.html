@@ -1,0 +1,43 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<p>
+Physics <input ng-model="p">
+</p>
+<p>
+Che <input ng-model="c">
+</p>
+<p>
+Math <input ng-model="m">
+</p>
+
+<p>
+English <input ng-model="e">
+</p>
+<p>
+Social sci <input ng-model="s">
+</p>
+
+<p>
+The sum is <span style="color : red" ng-bind="marks_sum"></span>
+</p>
+<p>
+The sum is {{marks_avg}}
+</p>
+<p>
+<button ng-click="calculate()">Add</button>
+</p>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.calculate = function(){
+$scope.marks_sum = parseFloat($scope.p)+parseFloat($scope.c)+parseFloat($scope.m)+parseFloat($scope.e)+parseFloat($scope.s);
+$scope.marks_avg = $scope.marks_sum/5;
+}
+
+});
+</script>
+</html>

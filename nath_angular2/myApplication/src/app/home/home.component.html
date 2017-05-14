@@ -1,0 +1,22 @@
+<form [formGroup]="addProductForm">
+<div class="col-lg-12">
+<div class="form-group">
+<label>Product Name : </label>
+<input class="form-control" formControlName="product_name">
+</div>
+<div class="form-group">
+<label>Product Cost : </label>
+<input class="form-control" formControlName="product_cost">
+</div>
+
+<div class="form-group">
+<label>Product Img : </label>
+<input class="form-control" formControlName="product_img">
+</div>
+
+<div class="form-group">
+<br>
+<button (click)="addProduct()" class="btn btn-primary" >Save Product</button>
+</div>
+</div>
+</form>

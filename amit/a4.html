@@ -1,0 +1,22 @@
+<html>
+<head>
+
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app=""
+ ng-init="emps=[
+ {name : 'Mohan',age : 21},
+ {name : 'Sohan',age : 22},
+ {name : 'Rohan',age : 23}
+ ]">
+
+ <table>
+ <th>Name</th><th>Age</th>
+ <tr ng-repeat="x in emps">
+ <td><img src="{{x.img}}" width="100" height="100"></td>
+ <td>{{x.name}}</td><td>{{x.age}}</td></td>
+ </tr>
+ </table>
+ 
+</body>
+</html>

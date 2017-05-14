@@ -70,9 +70,11 @@ private editCategoryForm : FormGroup;
   getCategories(){
 	  this.categoryService.getCategories().subscribe(
 	  (data : Response)=>{
-		  
-		  this.categories = data.json()
-		  console.log(JSON.stringify(this.categories))
+		  const ams = data.json();
+		  //this.categories = data.json()
+		  const x = (ams).map(function(key){return ams[key]})
+		  console.log('The retrived data is ')
+		  console.log(x)
 	  },
 	  (error)=>console.log(error)
 	  );

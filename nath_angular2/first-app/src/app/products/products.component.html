@@ -1,0 +1,12 @@
+<div class="col-lg-12" *ngIf="products">
+<table class="table">
+<th>Name</th><th>Cost</th><th>Action</th>
+<tr *ngFor="let product of products">
+<td>{{product.data.product_name}}</td><td>{{product.data.product_cost}}</td>
+<td>
+<a routerLink="/editProduct/{{product.keyVal}}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+<button (click)="deleteProduct(product.keyVal)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+</td>
+</tr>
+</table>
+</div>

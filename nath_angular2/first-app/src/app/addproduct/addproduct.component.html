@@ -1,0 +1,19 @@
+<div class="col-lg-12">
+<h1 class="text-primary">Add Product</h1>
+</div>
+
+<form [formGroup]="addProductForm">
+<div class="col-lg-12">
+<label>Product Name </label>
+<input class="form-control" formControlName="product_name">
+</div>
+<div class="col-lg-12">
+<label>Product Cost </label>
+<input class="form-control" formControlName="product_cost">
+</div>
+
+<div class="col-lg-12"><br>
+<button class="btn btn-primary" (click)="saveProduct()">Save Product</button>
+</div>
+
+</form>
