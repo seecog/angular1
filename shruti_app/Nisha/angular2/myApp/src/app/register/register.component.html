@@ -23,9 +23,9 @@
   </div>
   <div class="col-lg-12">
 	<label>Gender</label>
-	<input type="radio" name="gender" [ngModel] required #gen="ngModel">Male
-	<input type="radio" name="gender" [ngModel] required #gen="ngModel">Female
-	<p *ngIf="gen.errors && gen.touched">
+	<input type="radio" name="gender" value="Male" [ngModel] required #gen="ngModel">Male
+	<input type="radio" name="gender" value="Female" [ngModel] required #gen="ngModel">Female
+	<p *ngIf="gen.errors">
 	<span *ngIf="gen.errors.required" class="text-warning">Please Select Gender</span>
 	</p>
   </div>
@@ -44,9 +44,10 @@
   </div>
   <div class="col-lg-12">
 	<label>Email</label>
-	<input class="form-control" name="email" ngModel required minlength="3" #em="ngModel">
+	<input class="form-control" name="email" ngModel required minlength="3" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #em="ngModel">
 	<p *ngIf="em.errors && em.touched">
 	<span *ngIf="em.errors.required" class="text-warning">Please Enter Email</span>
+	<span *ngIf="em.errors.pattern" class="text-warning">Please Enter Valid email</span>
 	</p>
   </div>
   <div class="col-lg-12">

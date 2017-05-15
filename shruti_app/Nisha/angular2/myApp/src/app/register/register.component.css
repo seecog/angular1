@@ -4,3 +4,9 @@ border:1px solid red;
 input.ng-valid{
 border:1px solid green;
 }
+select.ng-invalid{
+border:1px solid red;
+}
+select.ng-valid{
+border:1px solid green;
+}
