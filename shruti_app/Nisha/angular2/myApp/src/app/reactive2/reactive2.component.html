@@ -1,0 +1,39 @@
+<form [formGroup] = "registerForm">
+<div class="col-lg-12">
+	<div class="form-group">
+		<label>First Name</label>
+		<input class="form-control" formControlName="first_Name">
+		<p *ngIf="!registerForm.get('first_Name').valid">
+		<!--<span *ngIf="!registerForm.get('first_Name').valid">Please enter first name !</span>-->
+		<span *ngIf="registerForm.get('first_Name').errors['required'] && registerForm.get('first_Name').touched">Please enter first name !</span>
+		<span *ngIf="registerForm.get('first_Name').errors['minlength'] && registerForm.get('first_Name').touched">Minimum 3 characters</span>
+		<span *ngIf="registerForm.get('first_Name').errors['maxlength'] && registerForm.get('first_Name').touched">Maximum 20 characters</span>
+		</p>
+	</div>
+	
+	<div class="form-group">
+		<label>Last Name</label>
+		<input class="form-control" formControlName="last_Name">
+		<p *ngIf="!registerForm.get('last_Name').valid">
+		<!--<span *ngIf="!registerForm.get('first_Name').valid">Please enter first name !</span>-->
+		<span *ngIf="registerForm.get('last_Name').errors['required'] && registerForm.get('last_Name').touched">Please enter last name !</span>
+		<span *ngIf="registerForm.get('last_Name').errors['minlength'] && registerForm.get('last_Name').touched">Minimum 3 characters</span>
+		<span *ngIf="registerForm.get('last_Name').errors['maxlength'] && registerForm.get('last_Name').touched">Maximum 20 characters</span>
+		</p>
+	</div>
+	
+	<div class="form-group">
+		<label>Email</label>
+		<input class="form-control" formControlName="email">
+		<p *ngIf="!registerForm.get('email').valid">
+		<!--<span *ngIf="!registerForm.get('first_Name').valid">Please enter first name !</span>-->
+		<span *ngIf="registerForm.get('email').errors['required'] && registerForm.get('email').touched">Please enter email !</span>
+		<span *ngIf="registerForm.get('email').errors['pattern'] && registerForm.get('email').touched">Please enter valid email</span>
+		</p>
+	</div>
+	<div class="form-group">
+		<button class="btn btn-primary" (click)="saveRecord()" [disabled] = "!registerForm.valid">Save Record</button>
+	</div>
+</div>
+</form>
+	

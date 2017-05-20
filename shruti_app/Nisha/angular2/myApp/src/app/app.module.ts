@@ -10,6 +10,7 @@ import { MarksComponent } from './marks/marks.component';
 import { FormValidationComponent } from './form-validation/form-validation.component';
 import { ReactiveValidationComponent } from './reactive-validation/reactive-validation.component';
 import { RegisterComponent } from './register/register.component';
+import { Reactive2Component } from './reactive2/reactive2.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RegisterComponent } from './register/register.component';
     MarksComponent,
     FormValidationComponent,
     ReactiveValidationComponent,
-    RegisterComponent
+    RegisterComponent,
+    Reactive2Component
 	
   ],
   imports: [
