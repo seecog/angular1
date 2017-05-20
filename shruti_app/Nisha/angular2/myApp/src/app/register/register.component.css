@@ -1,6 +1,18 @@
-input.ng-invalid{
+input.ng-invalid.ng-touched{
 border:1px solid red;
 }
 input.ng-valid{
+border:1px solid green;
+}
+select.ng-invalid.ng-touched{
+border:1px solid red;
+}
+select.ng-valid{
+border:1px solid green;
+}
+textarea.ng-invalid.ng-touched{
+border:1px solid red;
+}
+textarea.ng-valid{
 border:1px solid green;
 }

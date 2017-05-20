@@ -15,6 +15,10 @@ import { TemplateApproachComponent } from './template-approach/template-approach
 import { ReativeApproachComponent } from './reative-approach/reative-approach.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { Reactive2Component } from './reactive2/reactive2.component';
+import { ServicesComponent } from './services/services.component';
+import { AddComponent } from './services/add/add.component';
+import { TriangleComponent } from './services/triangle/triangle.component';
+import {PerimeterService} from './services/triangle/perimeter.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +31,10 @@ import { Reactive2Component } from './reactive2/reactive2.component';
     PropertyBinding2Component,
     TemplateApproachComponent,
     ReativeApproachComponent,
-    Reactive2Component
+    Reactive2Component,
+    ServicesComponent,
+    AddComponent,
+    TriangleComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,7 @@ import { Reactive2Component } from './reactive2/reactive2.component';
     HttpModule,
 	ReactiveFormsModule
   ],
-  providers: [],
+  providers: [PerimeterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,105 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+</head>
+<body ng-app="myapp" ng-controller="myController" ng-init="getProducts();">
+<div class="container">
+
+<div class="col-lg-12">
+<h1 class="text-primary">Products</h1>
+</div>
+
+<div class="col-lg-12">
+<div class="form-group">
+<label>Product Img </label>
+<input ng-model="product.product_img" class="form-control">
+</div>
+
+<div class="form-group">
+<label>Product Name </label>
+<input ng-model="product.product_name" class="form-control">
+</div>
+
+
+<div class="form-group">
+<label>Product Cost </label>
+<input ng-model="product.product_cost" class="form-control">
+</div>
+
+<div class="form-group">
+<label>Product Brand </label>
+<select ng-model="product.product_brnd" class="form-control">
+<option value="lg">LG</option>
+<option value="sony">Sony</option>
+</select>
+</div>
+
+<div class="form-group">
+<button class="btn btn-primary" ng-click="saveProduct()">Save</button>
+</div>
+
+</div>
+
+<div class="col-lg-12">
+<table class="table">
+<th>Img</th><th>Name</th><th>Cost</th><th>Brand</th>
+<tr ng-repeat="(key,value) in products">
+<td><img src='{{product.img}}' width="50" height="50" class="img-circle"></td>
+<td>{{value.product_name}}</td>
+<td>{{value.product_cost}}</td>
+<td>{{value.product_brnd}}</td>
+</tr>
+</table>
+</div>
+
+</div>
+</body>
+<script>
+var app = angular.module('myapp',[]);
+app.service('ProductService',function($http,$q){
+
+this.addProduct = function(product){
+var obj = $q.defer();
+$http.post('https://books-ad908.firebaseio.com/products.json',product).then(function(res){
+obj.resolve(res)
+}).catch(function(error){
+obj.reject();
+console.log(error)
+});
+return obj.promise;
+}
+
+this.getProducts = function(){
+var obj = $q.defer();
+$http.get('https://books-ad908.firebaseio.com/products.json').then(function(res){
+obj.resolve(res.data);
+}).catch(function(error){
+obj.reject();
+console.log(error)
+});
+return obj.promise;
+}
+
+});
+app.controller('myController',function($scope,ProductService){
+$scope.product = {};
+$scope.saveProduct = function(){
+ProductService.addProduct($scope.product).then(function(){
+alert('Added')
+$scope.getProducts();
+});
+}
+
+$scope.getProducts = function(){
+ProductService.getProducts().then(function(res){
+$scope.products = res;
+})
+}
+
+});
+</script>
+</html>
+
