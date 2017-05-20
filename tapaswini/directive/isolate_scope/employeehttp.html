@@ -1,0 +1,63 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+</head>
+<body ng-app="myApp" ng-controller="myController" ng-init="getProducts()">
+<div ng-repeat="(key,value) in products">
+<product-info obj="value"  dirproductdel="productdel(key)" dirproductupdate="productupdate(key,value)"></product-info>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.directive('productInfo',function(){
+return {
+scope : {
+obj : '=',
+dirproductdel : '&',
+dirproductupdate : '&'
+},
+templateUrl : 'empdetail.html',
+controller : function($scope,$element,$attrs){
+$scope.obj.editshow = true;
+$scope.stteditshow = function(obj){
+obj.editshow = !obj.editshow;
+}
+
+}
+}
+});
+app.controller('myController',function($scope,$http){
+//$scope.editshow = false;
+
+
+$scope.productupdate = function(keyval,value) {
+$http.put('https://school-48cb3.firebaseio.com/products/'+keyval+'.json',value).then(function(res){
+value.editshow = true;
+//$scope.getProducts();
+}).catch(function(err){
+console.log(err)
+});
+}
+
+$scope.productdel = function(keyval){
+$http.delete('https://school-48cb3.firebaseio.com/products/'+keyval+'.json').then(function(res){
+$scope.getProducts();
+}).catch(function(err){
+console.log(err)
+});
+
+}
+
+
+$scope.getProducts = function(){
+$http.get('https://school-48cb3.firebaseio.com/products.json').then(function(res){
+$scope.products = res.data;
+}).catch(function(err){
+console.log(err)
+});
+}
+});
+
+</script>
+</html>
