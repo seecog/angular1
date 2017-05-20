@@ -14,8 +14,12 @@ export class TemplateApproachComponent implements OnInit {
   
   //saveRecord(fm  : NgForm){
 	  saveRecord(){
-	  console.log(this.fm.value)
+	  console.log(this.fm)
 	  console.log(this.fm.value.first_name)
+  }
+  
+  clearAll(){
+	  this.fm.reset();
   }
 
 }
