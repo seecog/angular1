@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="myController">
+<p>
+The password is {{pass}}
+</p>
+</body>
+<script>
+var app = angular.module('myapp',[]);
+
+app.config(function($provide){
+
+$provide.provider('MySetting',function(){
+
+this.$get = function(){
+return {pass : '123456'};
+}
+
+});
+
+});
+
+app.controller('myController',function($scope,MySetting){
+$scope.pass = MySetting.pass;
+});
+</script>
+</html>
+

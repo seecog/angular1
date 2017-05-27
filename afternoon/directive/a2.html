@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+
+</head>
+<body ng-app="myapp">
+<div class="container">
+<my-directive a="10">
+<my-directive a="20">
+</my-directive>
+</my-directive>
+</div>
+</body>
+<script>
+var app = angular.module('myapp',[]);
+app.directive('myDirective',function(){
+return {
+
+compile : function(iElement,iAttribute){
+console.log('Inside compile '+iAttribute.a)
+return {
+pre : function(scope,iElement,iAttribute){
+console.log('Inside pre '+iAttribute.a)
+},
+post : function(scope,iElement,iAttribute){
+console.log('Inside post '+iAttribute.a)
+}
+}
+},
+controller : function($scope,$element,$attrs){
+console.log('Inside the controller'+$attrs.a)
+}
+
+}
+
+});
+</script>
+</html>
+

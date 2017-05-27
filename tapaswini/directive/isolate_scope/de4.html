@@ -3,15 +3,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="myController">
-<my-directive a= "20"></my-directive>
-<my-directive a="30"></my-directive>
-<my-directive a="40"></my-directive>
+<my-directive num= "a"></my-directive>
+Employee Id : {{emp.id}}
 </body>
 <script>
 var app = angular.module('myApp',[])
+
 app.directive('myDirective',function(){
 return {
-template : '<h1>The value is {{a}} </h1>'
+scope : {
+num : '='
+},
+template : `<input ng-model="num">'
 }
 });
 app.controller('myController',function($scope){
