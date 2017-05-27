@@ -5,9 +5,9 @@ import { Product } from './product';
 @Component({
   selector: 'app-root',
   template: `
- <!-- <app-basic></app-basic>-->
-  <app-eshop></app-eshop>
-<!--  <app-httpex></app-httpex>
+ <app-basic></app-basic>
+<!--   <app-eshop></app-eshop>
+ <app-httpex></app-httpex>
  <app-reactive-approach></app-reactive-approach>
  <app-form-validation-1></app-form-validation-1>
   <app-mytri></app-mytri>

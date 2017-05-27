@@ -31,7 +31,9 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserComponent } from './user/user.component';
-/*const appRoutes : Routes = [
+import {DoublePipe} from './contact/double.pipe';
+import {KeyfilterPipe} from './contact/keyfilter.pipe';
+const appRoutes : Routes = [
 {
 path : '',
 component : HomeComponent
@@ -50,7 +52,7 @@ component : HomeComponent
 	
 }
 ];
-*/
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,13 +77,16 @@ component : HomeComponent
     HomeComponent,
     UsersComponent,
     ContactComponent,
-    UserComponent
+    UserComponent,
+	DoublePipe,
+	KeyfilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-	ReactiveFormsModule
+	ReactiveFormsModule,
+	RouterModule.forRoot(appRoutes)
   ],
   providers: [LogService,CalculateService,TriperiService],
   bootstrap: [AppComponent]

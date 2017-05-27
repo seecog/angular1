@@ -1,3 +1,30 @@
 <p>
   contact works!
 </p>
+<p>
+First Name : {{first_name | uppercase}} {{last_name | lowercase}}
+</p>
+<p>
+Salary : {{salary | double | currency}}
+</p>
+<p>
+<input class="form-control" [(ngModel)]="key">
+</p>
+<p>
+<button class="btn btn-primary" (click)="addProduct()">Add product</button>
+</p>
+<div>
+{{products | json}}
+<table class="table">
+<th>Name</th><th>Cost</th>
+<tr  *ngFor="let product of products | keyfilter : key ">
+<td>
+{{product.name}}
+</td>
+<td>
+{{product.cost | currency : 'inr'}}
+</td>
+</tr>
+</table>
+
+</div>
