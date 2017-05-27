@@ -19,6 +19,8 @@ import { ServicesComponent } from './services/services.component';
 import { AddComponent } from './services/add/add.component';
 import { TriangleComponent } from './services/triangle/triangle.component';
 import {PerimeterService} from './services/triangle/perimeter.service';
+import { ProductsComponent } from './services/products/products.component';
+import { FruitsComponent } from './services/fruits/fruits.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,9 @@ import {PerimeterService} from './services/triangle/perimeter.service';
     Reactive2Component,
     ServicesComponent,
     AddComponent,
-    TriangleComponent
+    TriangleComponent,
+    ProductsComponent,
+    FruitsComponent
   ],
   imports: [
     BrowserModule,
