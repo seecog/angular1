@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<p>
+First No : <input ng-model="a">
+</p>
+<p>
+Second No : <input ng-model="b">
+</p>
+<p>
+<button ng-click="sum()">add</button>
+</p>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+
+$scope.sum = function(){
+var t1 = parseInt($scope.a);
+var t2 = parseInt($scope.b);
+alert(t1+t2);
+}
+
+});
+</script>
+</html>

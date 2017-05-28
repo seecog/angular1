@@ -19,17 +19,14 @@ export class ProductService{
 	}
 	
 	deleteProduct(key){
-		 this.http.delete('https://books-ad908.firebaseio.com/fruits/'+key+'.json')
+		console.log('Inside service '+key)
+		return this.http.delete('https://books-ad908.firebaseio.com/fruits/'+key+'.json')
 		
 	}
 	
 	
 	updateProduct(product){
-for(let x of this.products){
-		  if(x.product_name == product.product_name){
-			  x.product_cost = product.product_cost;
-		  }		  
-	  }
+return this.http.put('https://books-ad908.firebaseio.com/fruits/'+product.key+'.json',{product_name : product.product_name,product_cost : product.product_cost})
 	}
 	
 }

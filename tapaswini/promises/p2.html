@@ -1,0 +1,73 @@
+https://github.com/seecog/angular1.git<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myController" ng-init="getProducts()">
+<button ng-click="addProduct()">Add Product</button>
+
+<table>
+<tr ng-repeat="(key,value) in products">
+<td>{{value.product_name}}</td>
+</tr>
+</table>
+
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.run(function($rootScope){
+
+});
+app.service('Product',function($http,$q,$timeout){
+
+this.addProduct = function(){
+var ob = $q.defer();
+$timeout(function(){
+$http.post('https://books-ad908.firebaseio.com/products.json',{
+product_name : 'A',
+product_cost : 123,
+product_brnd : 'LG'
+}).then(function(res){
+ob.resolve('Data inserted');
+}).catch(function(err){
+console.log('Err inside service')
+console.log(err)
+$q.reject();
+});
+},10000);
+return ob.promise;
+}
+
+
+});
+app.controller('myController',function($scope,$http,Product){
+
+$scope.addProduct = function(){
+Product.addProduct().then(function(){
+$scope.getProducts()
+}).catch(function(err){
+console.log(err)
+});
+
+}
+
+$scope.getProducts = function(){
+console.log('list is here')
+$http.get('https://books-ad908.firebaseio.com/products.json').then(function(res){
+$scope.products = res.data;
+}).catch(function(err){
+console.log(err)
+});
+}
+});
+</script>
+</html>
+
+
+
+
+
+
+
+
+

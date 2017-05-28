@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="" ng-init="doctors = [
+{doctor_name : 'Subhash',doctor_age : 41},
+{doctor_name : 'ramesh',doctor_age : 42},
+{doctor_name : 'Archana',doctor_age : 30}
+]">
+
+<table>
+<th>Name</th><th>Age</th>
+<tr ng-repeat="x in doctors">
+<td>{{x.doctor_name}}</td>
+<td>{{x.doctor_age}}</td>
+</tr>
+
+</table>
+
+
+</body>
+</html>
+
