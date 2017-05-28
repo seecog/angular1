@@ -1,0 +1,36 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+
+
+<div ng-repeat="x in products">
+<product-info product="x"></product-info>
+</div>
+
+</body>
+
+<script>
+var app = angular.module('myApp',[]);
+app.directive('productInfo',function(){
+return {
+scope : {
+product : '='
+},
+templateUrl : 'product.html'
+}
+});
+
+app.controller('myController',function($scope){
+$scope.products = [
+{pimg : 'https://static.pexels.com/photos/39803/pexels-photo-39803.jpeg' ,pnm : 'Apple',pcost : 200 , pwt : 245},
+{pimg : 'http://media.mercola.com/assets/images/foodfacts/pineapple-nutrition-facts.jpg' ,pnm : 'Banana',pcost : 96,pwt : 900},
+{pimg : 'http://media.mercola.com/assets/images/foodfacts/pineapple-nutrition-facts.jpg' ,pnm : 'Pineapple',pcost : 196,pwt : 600}
+];
+
+});
+</script>
+</html>

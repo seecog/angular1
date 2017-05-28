@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+<my-directive a='{{a1}}' b="100"></my-directive>
+<my-directive a='{{a2}}' b="96"></my-directive>
+<my-directive a='{{a3}}' b="90"></my-directive>
+</body>
+
+<script>
+var app = angular.module('myApp',[]);
+app.directive('myDirective',function(){
+return {
+scope : {
+a : '@',
+b : '@'
+},
+template : '<h1>a = {{a}} , b= {{b}}</h1>'
+}
+});
+
+app.controller('myController',function($scope){
+$scope.a1 = 10;
+$scope.a2 = 20;
+$scope.a3= 30;
+});
+</script>
+</html>

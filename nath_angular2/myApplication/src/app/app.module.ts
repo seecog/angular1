@@ -33,6 +33,10 @@ import { ContactComponent } from './contact/contact.component';
 import { UserComponent } from './user/user.component';
 import {DoublePipe} from './contact/double.pipe';
 import {KeyfilterPipe} from './contact/keyfilter.pipe';
+import { OsComponent } from './os/os.component';
+import { AsfilterComponent } from './asfilter/asfilter.component';
+import {SalFilter} from './asfilter/salfilter.pipe';
+import {LimitFilter} from './asfilter/limitfilter.pipe';
 const appRoutes : Routes = [
 {
 path : '',
@@ -79,7 +83,11 @@ component : HomeComponent
     ContactComponent,
     UserComponent,
 	DoublePipe,
-	KeyfilterPipe
+	KeyfilterPipe,
+	OsComponent,
+	AsfilterComponent,
+	SalFilter,
+	LimitFilter
   ],
   imports: [
     BrowserModule,

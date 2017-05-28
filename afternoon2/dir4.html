@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+<!--<product-info product="{{products[0]}}"></product-info>
+<product-info product="{{products[1]}}"></product-info>
+-->
+
+<div ng-repeat="x in products">
+<product-info product="{{x}}"></product-info>
+</div>
+
+</body>
+
+<script>
+var app = angular.module('myApp',[]);
+app.directive('productInfo',function(){
+return {
+scope : {
+product : '@'
+},
+template : '{{product.pnm}}<br>'
+}
+});
+
+app.controller('myController',function($scope){
+$scope.products = [
+{pnm : 'Apple',pcost : 200 , pwt : 245},
+{pnm : 'Banana',pcost : 96,pwt : 900},
+{pnm : 'Pineapple',pcost : 196,pwt : 600}
+];
+
+});
+</script>
+</html>

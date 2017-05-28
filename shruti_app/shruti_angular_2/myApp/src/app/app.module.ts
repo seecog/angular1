@@ -21,6 +21,8 @@ import { TriangleComponent } from './services/triangle/triangle.component';
 import {PerimeterService} from './services/triangle/perimeter.service';
 import { ProductsComponent } from './services/products/products.component';
 import { FruitsComponent } from './services/fruits/fruits.component';
+import { PipesComponent } from './pipes/pipes.component';
+import {DoublePipe} from './pipes/double.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +40,9 @@ import { FruitsComponent } from './services/fruits/fruits.component';
     AddComponent,
     TriangleComponent,
     ProductsComponent,
-    FruitsComponent
+    FruitsComponent,
+    PipesComponent,
+	DoublePipe
   ],
   imports: [
     BrowserModule,
