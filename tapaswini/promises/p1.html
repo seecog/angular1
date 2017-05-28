@@ -1,0 +1,66 @@
+https://github.com/seecog/angular1.git<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.run(function($rootScope){
+
+});
+app.service('Product',function($http,$q,$timeout){
+
+this.getProducts = function(){
+var obj = $q.defer();
+$http.get('https://books-ad908.firebaseio.com/products.json').then(function(res){
+obj.resolve(res.data);
+}).catch(function(err){
+obj.reject();
+console.log(err)
+});
+
+return obj.promise;
+}
+
+this.getback = function(){
+var obj = $q.defer();
+
+$timeout(function(){
+obj.resolve('asa');
+},9000);
+
+return obj.promise;
+}
+
+});
+app.controller('myController',function($scope,$http,Product){
+/*var res = Product.getProducts().then(function(res){
+
+console.log('the record is ')
+console.log(res)
+
+}).catch(function(err){
+console.log(err)
+});*/
+
+var d = Product.getback().then(function(res){
+console.log('d is '+d)
+}).catch(function(err){
+console.log(err)
+});
+console.log('No prom 1')
+console.log('No prom 2')
+});
+</script>
+</html>
+
+
+
+
+
+
+
+
+
