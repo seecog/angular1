@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+The time is {{dt.time}}
+<br>
+<button ng-click="showTime()">Show Current Time</button>
+<button id="bt2">Show Latest</button>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.controller('myController',function($scope){
+$scope.dt = {
+time : new Date()
+};
+
+$scope.showTime = function(){
+$scope.dt = {
+time : new Date()
+};
+}
+
+
+/*
+document.getElementById('bt2').addEventListener("click", function(){
+    $scope.dt = {
+time : new Date()
+};
+$scope.$digest();
+});
+*/
+
+document.getElementById('bt2').addEventListener("click", function(){
+
+$scope.$apply(function(){
+    $scope.dt = {
+time : new Date()
+};
+});
+
+
+});
+
+
+});
+
+</script>
+</html>

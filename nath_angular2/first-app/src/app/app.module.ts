@@ -26,7 +26,7 @@ import { TemplateValidation21stAprilComponent } from './template-validation-21st
 import { ReactiveFormValidationComponent } from './reactive-form-validation/reactive-form-validation.component';
 import {Routes,RouterModule} from '@angular/router';
 import { EditproductComponent } from './editproduct/editproduct.component';
-
+import {DoublePipe} from './contact/double.pipe';
 const appRoutes : Routes = [
 {path : 'products', component : ProductsComponent},
 {path : 'editProduct/:id',component : EditproductComponent},
@@ -55,7 +55,8 @@ const appRoutes : Routes = [
     ProductsComponent,
     AddproductComponent,
     MainlinkComponent,
-    EditproductComponent
+    EditproductComponent,
+	DoublePipe
 	
   ],
   imports: [
