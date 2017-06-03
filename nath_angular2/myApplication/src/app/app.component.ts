@@ -5,8 +5,9 @@ import { Product } from './product';
 @Component({
   selector: 'app-root',
   template: `
-  <app-asfilter></app-asfilter>
-<!--  <app-os></app-os>
+  <app-user></app-user>
+<!--  <app-asfilter></app-asfilter>
+  <app-os></app-os>
   <app-basic></app-basic>
   <app-eshop></app-eshop>
  <app-httpex></app-httpex>

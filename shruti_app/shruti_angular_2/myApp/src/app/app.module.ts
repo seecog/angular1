@@ -23,6 +23,8 @@ import { ProductsComponent } from './services/products/products.component';
 import { FruitsComponent } from './services/fruits/fruits.component';
 import { PipesComponent } from './pipes/pipes.component';
 import {DoublePipe} from './pipes/double.pipe';
+import {HraPipe} from './pipes/hra.pipe';
+import {FilterPipe} from './pipes/search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,9 @@ import {DoublePipe} from './pipes/double.pipe';
     ProductsComponent,
     FruitsComponent,
     PipesComponent,
-	DoublePipe
+	DoublePipe,
+	HraPipe,
+	FilterPipe
   ],
   imports: [
     BrowserModule,
