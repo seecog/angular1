@@ -10,7 +10,8 @@ import {Product} from '../home/product.model';
   providers : [ProductService]
 })
 export class UserComponent implements OnInit {
-
+private nm : string='Rocky';
+private otnm : string = 'asiiweoph';
   constructor(private route : ActivatedRoute,private productService : ProductService) { }
 
   ngOnInit() {

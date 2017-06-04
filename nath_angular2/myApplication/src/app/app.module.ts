@@ -37,6 +37,9 @@ import { OsComponent } from './os/os.component';
 import { AsfilterComponent } from './asfilter/asfilter.component';
 import {SalFilter} from './asfilter/salfilter.pipe';
 import {LimitFilter} from './asfilter/limitfilter.pipe';
+import {ReversePipe} from './user/reverse.pipe';
+import {VowelRem} from './user/vowelrem.pipe';
+import { TestingComponent } from './testing/testing.component';
 const appRoutes : Routes = [
 {
 path : '',
@@ -87,7 +90,10 @@ component : HomeComponent
 	OsComponent,
 	AsfilterComponent,
 	SalFilter,
-	LimitFilter
+	LimitFilter,
+	ReversePipe,
+	VowelRem,
+	TestingComponent
   ],
   imports: [
     BrowserModule,

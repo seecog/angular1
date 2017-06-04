@@ -1,0 +1,38 @@
+https://github.com/somethingnothingforsomething/ecommerce.git
+03 june 2017
+1)ganesh : Login Admin + Form validation , (email and password)
+
+After login It sgould go to home.html
+
+
+2)Priya : Home Page : Menubat from bootstrap bootsnip + categories + Users
+
+category fields : category_name,category_img,category_desc
+categies list should be in card list form.
+categories : When click on categies There should be product list in card form 
+
+product contain : product_name , product_img,product_desc, product-qty
+product_cost
+
+firebase eshop database , Inside eshop categories table. Inside each category we have products
+
+
+3)
+
+Forms : 
+Add category +Edit Category + delete + sarching: add_category form with validation
+service with name category.service.js 
+addCategory , deletecategory , getcategory , getcategoryById()
+
+Add Product : Edit + delete+searchadd_product with validation
+serice : product.service.js | addProduct(),deleteProduct(key),getProduct(id),updateProduct()
+
+4)
+Padi + sravan 
+see the billing and shipping address for users
+
+create a form for billing and shipping address. Once submitted it got stored in inside prodcuts there is users.
+
+5)Sammer : Bootsnip checkout form and connection with stripe +paypal
+
+6)Front end category List . 
