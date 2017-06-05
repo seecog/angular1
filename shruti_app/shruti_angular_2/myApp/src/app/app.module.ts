@@ -25,6 +25,14 @@ import { PipesComponent } from './pipes/pipes.component';
 import {DoublePipe} from './pipes/double.pipe';
 import {HraPipe} from './pipes/hra.pipe';
 import {FilterPipe} from './pipes/search.pipe';
+import {RouterModule,Routes} from '@angular/router';
+
+const appLinks :Routes = [
+{path : 'employee',component : EmployeeComponent},
+{path : 'product',component : ProductComponent }
+];
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +60,8 @@ import {FilterPipe} from './pipes/search.pipe';
     BrowserModule,
     FormsModule,
     HttpModule,
-	ReactiveFormsModule
+	ReactiveFormsModule,
+	RouterModule.forRoot(appLinks)
   ],
   providers: [PerimeterService],
   bootstrap: [AppComponent]
