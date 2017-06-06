@@ -42,6 +42,20 @@ describe('I want to test whole items',()=>{
 		
 	});
 	
+	it('Test 2 ',()=>{
+		var xyz = TestBed.createComponent(UserComponent);
+		var app = xyz.debugElement.componentInstance;
+		app.setMessage('mango')
+		expect(app.msg).toBe('mango');
+	});
+	
+	it('Test 3',()=>{
+		var xyz = TestBed.createComponent(UserComponent);
+		var app = xyz.nativeElement;
+		let x = app.querySelectorAll('tr')
+		expect(x.length).toBe(1)
+	});
+	
 })
 
 
