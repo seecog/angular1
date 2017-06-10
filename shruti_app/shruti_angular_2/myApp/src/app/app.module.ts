@@ -26,10 +26,17 @@ import {DoublePipe} from './pipes/double.pipe';
 import {HraPipe} from './pipes/hra.pipe';
 import {FilterPipe} from './pipes/search.pipe';
 import {RouterModule,Routes} from '@angular/router';
+import {CompanyComponent} from './company/company.component';
+import { EmployeeinfoComponent } from './company/employeeinfo/employeeinfo.component';
+import { PromisesComponent } from './promises/promises.component';
 
 const appLinks :Routes = [
 {path : 'employee',component : EmployeeComponent},
-{path : 'product',component : ProductComponent }
+{path : 'product/:id',component : ProductComponent },
+{path : 'login',component : LoginComponent},
+{path : 'employees',component : CompanyComponent},
+{path : 'employeeinfo/:id',component : EmployeeinfoComponent},
+{path : 'promises',component : PromisesComponent}
 ];
 
 
@@ -54,7 +61,10 @@ const appLinks :Routes = [
     PipesComponent,
 	DoublePipe,
 	HraPipe,
-	FilterPipe
+	FilterPipe,
+	CompanyComponent,
+	EmployeeinfoComponent,
+	PromisesComponent
   ],
   imports: [
     BrowserModule,

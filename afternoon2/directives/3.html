@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<img src="" class="img-circle">
+
+</head>
+<body ng-app="eshop" ng-controller="myController">
+<!-- directive: my-directive -->
+</body>
+<script>
+var app = angular.module('eshop',[])
+app.directive('myDirective',function(){
+return {
+restrict : 'M',
+replace : true,
+template : '<h1>hello world</h1>'
+}
+});
+app.controller('myController',function($scope){
+
+});
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

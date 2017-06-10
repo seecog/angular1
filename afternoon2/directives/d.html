@@ -1,0 +1,75 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<img src="" class="img-circle">
+
+</head>
+<body ng-app="eshop" ng-controller="myController">
+<table>
+<th>Name </th><th>Cost</th><th>Brand</th>
+<tr ng-repeat="(key,value) in fruits">
+<td>{{value.product_name}}</td>
+<td>{{value.product_cost}}</td>
+<td><brand-info id="{{value.brand_id}}"></brand-info></td>
+</tr>
+</table>
+
+
+</body>
+<script>
+var app = angular.module('eshop',[])
+app.directive('brandInfo',function(){
+return {
+
+template : '{{brand_name}}',
+scope : {
+id : '@'
+},
+controller : function($scope,$element,$attrs,$http){
+var id = $scope.id;
+
+$http.get('https://books-ad908.firebaseio.com/brands/'+id+'.json')
+.then(function(res){
+$scope.brand_name = res.data.brand_name;
+}).catch(function(err){
+console.log(err)
+});
+
+
+$element.bind('mouseover',function(){
+$element.css('color','red')
+});
+
+}}
+
+});
+app.controller('myController',function($scope,$http){
+
+$http.get('https://books-ad908.firebaseio.com/fruits.json')
+.then(function(res){
+$scope.fruits = res.data;
+}).catch(function(err){
+console.log(err)
+});
+
+});
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
