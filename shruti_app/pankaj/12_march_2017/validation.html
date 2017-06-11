@@ -1,0 +1,20 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+</head>
+<body ng-app="">
+<form name="frm" novalidate>
+<p>
+First Name : <input name="fnm" ng-model="fnm" required ng-minlength="3" ng-maxlength="10"> 
+<span ng-show="frm.fnm.$dirty && frm.fnm.$error.required">Required firstnamer</span>
+<span ng-show="frm.fnm.$dirty && frm.fnm.$error.minlength">Minlength firstnamer</span>
+<span ng-show="frm.fnm.$dirty && frm.fnm.$error.maxlength">Maxlength firstnamer</span>
+</p>
+<p>
+<button ng-disabled="frm.$invalid" class="btn btn-primary">Save It</button>
+</p>
+</form>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body ng-app="" >
+<form name="frm" novalidate>
+<p>
+First Name : <input name="fnm" ng-model="fnm" required ng-minlength="2" ng-maxlength="20">
+<span ng-show="frm.fnm.$dirty && frm.fnm.$error.required">First name required!</span>
+<span ng-show="frm.fnm.$dirty && frm.fnm.$error.minlength">Minimum 2 characters required</span>
+<span ng-show="frm.fnm.$dirty && frm.fnm.$error.maxlength">Maximum 20 characters allowed</span>
+</p>
+
+<p>
+Email : <input type="email" ng-model="em" name="em" required>
+<span ng-show="frm.em.$dirty && frm.em.$error.email">Invalid email!</span>
+</p>
+
+<p>
+Test : <input name="test" ng-model="test" pattern="^[0-9]*$">
+<span ng-show="frm.test.$dirty && frm.test.$error.pattern">No valid</span>
+</p>
+
+<p>
+<button class="btn btn-primary" ng-disabled="frm.$invalid">Save</button>
+</p>
+
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

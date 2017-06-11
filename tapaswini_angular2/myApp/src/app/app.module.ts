@@ -5,11 +5,17 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProdutsComponent } from './produts/produts.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ProdutsComponent,
+    AddproductComponent
   ],
   imports: [
     BrowserModule,
