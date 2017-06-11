@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="eshop" >
+<my-dir></my-dir>
+
+</body>
+<script>
+var app = angular.module('eshop',[])
+app.directive('myDir',function(){
+return {
+template : '<span>Hello world</span>',
+link : function(scope,element,attrs){
+
+element.bind('mouseover',function(){
+element.css('background-color','red')
+});
+
+element.bind('mouseout',function(){
+element.css('background-color','white')
+});
+
+}}});
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

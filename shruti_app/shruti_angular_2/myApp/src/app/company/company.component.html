@@ -1,0 +1,15 @@
+<div class="col-lg-12">
+<table class="table">
+<th>Name</th><th>Dept</th>
+<tr *ngFor="let x of employeeArr">
+<td>
+<a routerLink="/employeeinfo/{{x.id-1}}">
+{{x.name}}
+</a>
+</td><td>{{x.dept}}</td>
+</tr>
+</table>
+
+</div>
+
+<span myd>All is good</span>
