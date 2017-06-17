@@ -8,21 +8,23 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProdutsComponent } from './produts/produts.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
-
+import { CalculationComponent } from './calculation/calculation.component';
+import {PerimeterService} from './services/perimeter.service';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     ProdutsComponent,
-    AddproductComponent
+    AddproductComponent,
+    CalculationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [PerimeterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

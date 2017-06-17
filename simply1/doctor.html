@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="" ng-init="  
+doctor1={
+id : 1,
+first_name : 'Mohan',
+last_name : 'kumar',
+age : 23
+};
+doctor2={
+id : 2,
+first_name : 'Sohan',
+last_name : 'kumar',
+age : 24
+};">
+<h1>doctor' info</h1>
+<table>
+<tr><td>Id</td><td>{{doctor1.id}}</td></tr>
+<tr><td>Name</td><td>{{doctor1.first_name+" "+ doctor1.last_name}}  </td></tr>
+<tr><td>Age</td><td>{{doctor1.age}}</td></tr>
+</table>
+</body>
+
+</html>
