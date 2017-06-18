@@ -8,6 +8,7 @@ import {CompanyService} from '../services/company.service';
 })
 export class CompanyComponent implements OnInit {
 private  employeeArr : any;
+private count : number = 2;
   constructor(private companyService : CompanyService) { }
 
   ngOnInit() {

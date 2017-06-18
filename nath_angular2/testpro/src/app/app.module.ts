@@ -5,11 +5,18 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
-
+import { StructuraldComponent } from './structurald/structurald.component';
+import {Myloop} from './directives/myloop.directive';
+import {MyCondition} from './directives/mycondition.directive';
+import {MyColor} from './directives/color.directive';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent
+    UserComponent,
+    StructuraldComponent,
+	Myloop,
+	MyCondition,
+	MyColor
   ],
   imports: [
     BrowserModule,

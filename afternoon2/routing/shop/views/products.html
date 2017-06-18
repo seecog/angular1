@@ -1,0 +1,13 @@
+<div class="col-lg-12">
+<a class="btn btn-primary" href="#addproduct">Add Product</a>
+</div>
+<div class="col-lg-12">
+<table class="table" ng-if="products">
+<th>Name</th><th>cost</th><th>Brand</th>
+<tr ng-repeat="(key,value) in products">
+<td>{{value.product_name}}</td>
+<td>{{value.product_cost}}</td>
+<td>{{value.product_brnd}}</td>
+</tr>
+</table>
+</div>

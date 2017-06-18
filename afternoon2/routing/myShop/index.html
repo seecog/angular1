@@ -1,0 +1,29 @@
+<html>
+<head>
+
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+
+
+</head>
+<body ng-app="myApp">
+<p>
+<a href='#about'>About</a> | 
+<a href='#products'>Products</a> | 
+<a href='#contact'>Contact Us</a>
+</p>
+
+<div>
+
+<ng-view></ng-view>
+</div>
+</body>
+<script>
+angular.module('myApp',['ngRoute'])
+</script>
+<script src="scripts/contact.controller.js"></script>
+<script src="scripts/about.controller.js"></script>
+<script src="scripts/products.controller.js"></script>
+<script src="scripts/route.js"></script>
+
+</html>

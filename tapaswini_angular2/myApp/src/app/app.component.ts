@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+	
+	private nm : string ='';
+	setData(y : string){
+		this.nm = y;
+	}
+	
+	add(a : number,b : number){
+		return (a+b);
+	}
+	
 }

@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { PropertyBindingComponent } from './property-binding.component';
+import { StructuraldComponent } from './structurald.component';
 
-describe('PropertyBindingComponent', () => {
-  let component: PropertyBindingComponent;
-  let fixture: ComponentFixture<PropertyBindingComponent>;
+describe('StructuraldComponent', () => {
+  let component: StructuraldComponent;
+  let fixture: ComponentFixture<StructuraldComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PropertyBindingComponent ]
+      declarations: [ StructuraldComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PropertyBindingComponent);
+    fixture = TestBed.createComponent(StructuraldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
