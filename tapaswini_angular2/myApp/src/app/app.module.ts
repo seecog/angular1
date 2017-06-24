@@ -10,6 +10,9 @@ import { ProdutsComponent } from './produts/produts.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { CalculationComponent } from './calculation/calculation.component';
 import {PerimeterService} from './services/perimeter.service';
+import { SsalaryComponent } from './ssalary/ssalary.component';
+import {Da} from './services/da.service';
+import {Hra} from './services/hra.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +20,15 @@ import {PerimeterService} from './services/perimeter.service';
     RegisterComponent,
     ProdutsComponent,
     AddproductComponent,
-    CalculationComponent
+    CalculationComponent,
+    SsalaryComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [PerimeterService],
+  providers: [PerimeterService,Da,Hra],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
