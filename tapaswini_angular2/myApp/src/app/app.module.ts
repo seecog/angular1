@@ -13,6 +13,12 @@ import {PerimeterService} from './services/perimeter.service';
 import { SsalaryComponent } from './ssalary/ssalary.component';
 import {Da} from './services/da.service';
 import {Hra} from './services/hra.service';
+import { CompanyComponent } from './company/company.component';
+import {MyDa} from './services/myda.service';
+import {MyHra} from './services/myhra.service';
+import {MyTa} from './services/myta.service';
+import {MySal} from './services/mysal.service';
+import {Employee} from './services/employee.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,14 +27,15 @@ import {Hra} from './services/hra.service';
     ProdutsComponent,
     AddproductComponent,
     CalculationComponent,
-    SsalaryComponent
+    SsalaryComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [PerimeterService,Da,Hra],
+  providers: [PerimeterService,Da,Hra,MyDa,MyTa,MyHra,MySal,Employee],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

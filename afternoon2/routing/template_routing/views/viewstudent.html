@@ -1,0 +1,19 @@
+<p>
+<div class="pull-right">
+<a class="btn btn-primary" href = "#addStudent">Add student</a>
+</div>
+</p>
+
+<table class="table">
+<th>Name</th><th>Age</th><th>Conatct</th><th>Action</th>
+<tr ng-repeat="x in students">
+<td>{{x.name}}</td>
+<td>{{x.age}}</td>
+<td>{{x.contact}}</td>
+<td>
+<a class="btn btn-primary" href="#editStudent/{{$index}}"><span class="glyphicon glyphicon-edit"></span></a>
+<button class="btn btn-danger" ng-click="removeStudent($index)"><span class="glyphicon glyphicon-trash"></span></button>
+</td>
+</tr>
+
+</table>

@@ -6,10 +6,10 @@ export class Triangle{
 	constructor(private peri : PerimeterService){}
 	
 	
-	area(a : string,b : string,c : string){
-		let perimeter = this.peri.getPerimeter(a,b,c);
-		console.log('perimeter is '+perimeter)
-	}
+	/*area(a : string,b : string,c : string){
+		let p = this.peri.getPerimeter(a,b,c);
+		var area = Math.sqrt(p*(p-a)*(p-b)*(p-c))
+	}*/
 	
 	
 }

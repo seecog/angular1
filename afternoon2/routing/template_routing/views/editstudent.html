@@ -1,0 +1,20 @@
+
+<h1>Edit Student </h1>
+<form ng-controller="AddStudentController">
+<div class="form-group">
+<label>Student Name : </label>
+<input ng-model="index" type="hidden">
+<input class="form-control" ng-model="student.name">
+</div>
+<div class="form-group">
+<label>Student Age : </label>
+<input class="form-control" ng-model="student.age">
+</div>
+<div class="form-group">
+<label>Student Contact : </label>
+<input class="form-control" ng-model="student.contact">
+</div>
+<div class="form-group">
+<button class="btn btn-primary" ng-click="updateStudent()">Update Student</button>
+</div>
+</form>
