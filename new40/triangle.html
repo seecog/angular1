@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.service('Perimeter',function(){
+this.peri = function(a,b,c){
+return (a+b+c)/2.0;
+}
+});
+
+app.service('Triangle',function(Perimeter){
+this.area = function(a,b,c){
+var s = Perimeter.peri(a,b,c);
+var ar = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+return ar;
+}
+});
+app.controller('myController',function($scope,Triangle){
+$scope.a = 10;
+$scope.b = 20;
+$scope.c = 25;
+
+var ans = Triangle.area($scope.a,$scope.b,$scope.c);
+console.log('The Area is '+ans)
+});
+</script>
+</html>

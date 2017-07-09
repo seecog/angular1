@@ -1,0 +1,48 @@
+<div class="col-lg-12">
+<h1>Doctor's List</h1>
+</div>
+
+<div class="col-lg-12">
+<div class="pull-right">
+<a class="btn btn-primary" href="#addDoctor">Add Doctor</a>
+</div>
+</div>
+
+
+<div class="col-lg-12">
+<table class="table">
+<th>Img</th><th>Name</th><th>Age</th><th>Specialization</th><th>Action</th>
+<tr ng-repeat="item in (items | limitTo:settings.pageLimit:settings.offset)">
+<td>
+{{$index}}<img src="./pics/{{item.img}}" width=75 height="75">
+</td>
+<td>
+{{item.name}}
+</td>
+<td>
+{{item.age}}
+</td>
+<td>
+{{item.specialization | uppercase}}
+</td>
+<td>
+<a class="btn btn-success" href="#editDoctor/{{$index}}">
+<span class="glyphicon glyphicon-edit"></span>
+</a>
+<button class="btn btn-danger" ng-click="removeDoctor($index)">
+<span class="glyphicon glyphicon-trash"></span>
+</button>
+</td>
+</tr>
+</table>
+<br>
+
+<simple-pagination
+  current-page="settings.currentPage"
+  offset="settings.offset"
+  page-limit="settings.pageLimit"
+  page-limits="settings.pageLimits"
+  on-update="callback()"
+  total="items.length">
+</simple-pagination>[{{items.length}}]
+</div>

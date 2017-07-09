@@ -1,0 +1,108 @@
+<html>
+   
+   <head>
+      <title>Angular JS Views</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	  <script src="node_modules/angular-simple-pagination/dist/angular-simple-pagination.js"></script>
+	  <link rel="stylesheet" href="node_modules/angular-simple-pagination/dist/angular-simple-pagination.css"/>
+   </head>
+   
+   <body>
+      <h2>AngularJS Application</h2>
+      <div class="container" ng-app = "mainApp">
+	  <div class="col-lg-12">
+         <a href = "#viewDoctors">View Doctors</a>
+	  </div>
+		 <div class="col-lg-12">
+         <div ng-view></div>
+		 </div>
+       </div>
+      
+      <script>
+         var app = angular.module("mainApp", ['ngRoute','angularSimplePagination']);
+		 app.run(function($rootScope){
+		 $rootScope.doctors = [
+		 {id : 1,name : 'Mohan',age : 21,salary : 200000,specialization : 'ent',img :
+		 './pics/1.jpg'},
+		 {id : 2,name : 'sohan',age : 22,salary : 300000,specialization : '3ent',img :
+		 './pics/2.jpg'},
+		 {id : 3,name : 'rohan',age : 23,salary : 400000,specialization : '4ent',img :
+		 './pics/3.jpg'},
+		 {id : 4,name : 'Ankit',age : 24,salary : 100000,specialization : '7ent',img :
+		 './pics/4.jpg'},
+		 {id : 5,name : 'Sujit',age : 25,salary : 800000,specialization : '8ent',img :
+		 './pics/5.jpg'},
+		 {id : 6,name : 'Rohit',age : 29,salary : 900000,specialization : '9ent',img :
+		 './pics/6.jpg'}
+		 ];
+		 });
+         app.config(function($routeProvider){
+		 
+		 $routeProvider
+		 .when('/viewDoctors',{
+		     templateUrl : './views/viewdoctors.html',
+			 controller : 'ViewDoctorController'
+		 })
+		 .when('/addDoctor',{
+		     templateUrl : './views/adddoctor.html',
+			 controller : 'AddDoctorController'
+		 })
+		 .when('/editDoctor/:tree1',{
+		     templateUrl : './views/editdoctor.html',
+			 controller : 'EditDoctorController'
+		 })
+		 
+		 });
+		 
+		 app.controller('ViewDoctorController',function($scope,$rootScope){
+		 
+		 
+		  $scope.settings = {
+    currentPage: 0,
+    offset: 0,
+    pageLimit: 5
+    //pageLimits: ['10', '50', '100']
+  };
+  
+  $scope.items = $rootScope.doctors;
+  $scope.callback = function() {  };
+		 
+		 
+		 
+		 $scope.removeDoctor = function(index){
+		 if(confirm('Do you want to remove this doctor from the list ?')){
+		 $rootScope.doctors.splice(index,1)
+		 $location.path('/viewDoctors');
+		 }
+		 }
+		 
+		 
+		 });
+		 
+		 app.controller('AddDoctorController',function($scope,$location,$rootScope){
+		 
+		 $scope.saveDoctor = function(){
+		 $rootScope.doctors.push($scope.doctor)
+		 $location.path('/viewDoctors');
+		 }
+		 
+		 
+		 });
+         app.controller('EditDoctorController',function($scope,$routeParams,$rootScope,$location){
+		 var index = $routeParams.tree1;
+		 $scope.index = index;
+		 $scope.doctor = $rootScope.doctors[index];
+		 
+		 $scope.updateDoctor = function(){
+		 $rootScope.doctors[$scope.index] = $scope.doctor;
+		 $location.path('/viewDoctors');
+		 }
+		 
+		 });
+
+      </script>
+      
+   </body>
+</html>
