@@ -13,5 +13,7 @@ private products = ['Product 1','Product 2','Product 3'];
 	  let x = this.active.snapshot.params['id']
 	  console.log('The id is '+x)
   }
+  
+  
 
 }
