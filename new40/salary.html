@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.service('Da',function(){
+this.getDa = function(bs){
+return (8*bs)/100.0;
+}
+});
+
+app.service('Ta',function(){
+
+this.getTa = function(bs){
+return (bs*6)/100;
+}
+
+});
+
+app.service('Hra',function(){
+
+this.getHra = function(bs){
+return (bs*10)/100;
+}
+
+});
+
+
+app.service('Salary',function(Da,Ta,Hra){
+this.grossSalary = function(bs){
+var da = Da.getDa(bs);
+var ta = Ta.getTa(bs);
+var hra = Hra.getHra(bs);
+
+return bs+da+ta+hra;
+}
+});
+app.controller('myController',function($scope,Salary){
+$scope.bs = 100000;
+
+var ans = Salary.grossSalary($scope.bs);
+console.log('The Area is '+ans)
+});
+</script>
+</html>

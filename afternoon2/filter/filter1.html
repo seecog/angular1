@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+Name is {{first_name | uppercase}} {{last_name | lowercase }}<br>
+salary is {{salary | currency : ''}}<br>
+
+The date is {{dt |date :'medium'}}
+<br>
+{{employee | json}}
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.first_name = 'mohan';
+$scope.last_name = 'KUMAR';
+$scope.salary = 100000;
+$scope.dt = new Date();
+$scope.employee = {
+id : 1,
+name : 'Mohan',
+contact : {
+mobile : 7348820668,
+email : 'mohan@gmail.com',
+fax : 02288898
+}
+};
+});
+</script>
+</html>
+

@@ -1,0 +1,17 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<h1>The sum is {{a+b}}</h1>
+
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+$scope.a = 10;
+$scope.b = 20;
+});
+</script>
+</html>
+

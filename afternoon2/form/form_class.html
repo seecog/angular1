@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<style>
+input.ng-invalid.ng-touched{
+border : 1px solid red;
+}
+input.ng-valid {
+border : 1px solid green;
+}
+</style>
+</head>
+<body ng-app="">
+<form name="frm">
+<p>
+Username : <input name="unm" ng-model="unm" required>
+</p>
+
+</form>
+</body>
+
+</html>

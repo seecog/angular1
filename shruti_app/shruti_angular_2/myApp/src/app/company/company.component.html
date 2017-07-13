@@ -13,3 +13,16 @@
 </div>
 
 <span myd>All is good</span>
+<br>
+
+<span myColor>All is Indian</span><br>
+<input [(ngModel)]="count">
+<div *ngIf="count">
+Inside
+<span *myLoop="count">My country is great!</span>
+</div>
+
+<hr>
+
+Checking condition : <br>
+<span *myCondition="false">I lives in india.. India wins!!</span>

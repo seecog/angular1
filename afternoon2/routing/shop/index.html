@@ -1,0 +1,55 @@
+<html>
+<head>
+
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body ng-app="myApp">
+<div ng-include="'views/menu.html'"></div>
+<div class="container">
+
+<ng-view></ng-view>
+
+</div>
+</body>
+<script>
+var app = angular.module('myApp',['ngRoute'])
+app.config(function($routeProvider){
+$routeProvider
+.when('/',{
+templateUrl : './views/products.html',
+controller : 'ProductController'
+})
+.when('/addproduct',{
+templateUrl : './views/addproduct.html',
+controller : 'ProductController'
+})
+});
+
+
+
+app.controller('ProductController',function($scope,$http){
+
+$http.get('https://books-ad908.firebaseio.com/products.json').then(function(res){
+console.log(JSON.stringify(res))
+$scope.products = res.data;
+}).catch(function(err){
+console.log(err)
+});
+
+$scope.addProduct = function(){
+console.log(JSON.stringify($scope.product))
+$http.post('https://books-ad908.firebaseio.com/products.json',$scope.product).then(function(res){
+console.log(JSON.stringify(res))
+}).catch(function(err){
+console.log(err)
+});
+}
+
+});
+</script>
+
+</html>

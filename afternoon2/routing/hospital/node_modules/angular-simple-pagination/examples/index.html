@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="simplePaginationDemo">
+  <head>
+    <title>My Angular App</title>
+    <link rel="stylesheet" type="text/css" href="../dist/angular-simple-pagination.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="../dist/angular-simple-pagination.js"></script>
+    <script>
+      angular
+        .module('simplePaginationDemo', ['angularSimplePagination'])
+        .controller('SimplePaginationController', function($scope) {
+          $scope.settings = {
+            currentPage: 0,
+            offset: 0,
+            pageLimit: 10,
+            pageLimits: ['10', '50', '100']
+          };
+
+          $scope.items = [];
+          for(var i = 0; i < 1000; i++) {
+            $scope.items.push({name: 'Item', id: i});
+          }
+
+          $scope.callback = function() {
+            console.log('pagination changed...');
+          }
+        });
+    </script>
+  </head>
+  <body ng-controller="SimplePaginationController">
+    <simple-pagination
+      current-page="settings.currentPage"
+      page-limit="settings.pageLimit"
+      offset="settings.offset"
+      page-limits="settings.pageLimits"
+      on-update="callback()"
+      total="items.length">
+    </simple-pagination>
+
+    <div ng-repeat="item in items | limitTo:settings.pageLimit:settings.offset">
+      <p>{{item.name}} {{item.id}}</p>
+    </div>
+
+    <simple-pagination
+      current-page="settings.currentPage"
+      page-limit="settings.pageLimit"
+      offset="settings.offset"
+      page-limits="settings.pageLimits"
+      on-update="callback()"
+      total="items.length">
+    </simple-pagination>
+  </body>
+</html>

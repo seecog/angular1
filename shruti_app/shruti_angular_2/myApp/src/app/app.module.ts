@@ -32,6 +32,10 @@ import { PromisesComponent } from './promises/promises.component';
 import {ObservableComponent} from './observable/observable.component';
 import { UsersComponent } from './users/users.component';
 import {MyD} from './company/my.directive';
+import {MyColor} from './directive/color.directive';
+import { CustomdirectivexampleComponent } from './customdirectivexample/customdirectivexample.component';
+import {MyLoop} from './directive/myloop.directive';
+import {MyCondition} from './directive/mycondition.directive';
 const appLinks :Routes = [
 {path : 'employee',component : EmployeeComponent},
 {path : 'product/:id',component : ProductComponent },
@@ -71,7 +75,11 @@ const appLinks :Routes = [
 	PromisesComponent,
 	ObservableComponent,
 	UsersComponent,
-	MyD
+	MyD,
+	MyColor,
+	CustomdirectivexampleComponent,
+	MyLoop,
+	MyCondition
   ],
   imports: [
     BrowserModule,
