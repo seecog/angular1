@@ -10,16 +10,22 @@ export class FruitService{
 	}
 	
 	getFruits(){
-		return this.http.get('https://books-ad908.firebaseio.com/fruits.json').map(res=>res.json());
+		return this.http.get('https://vendor-1c1ec.firebaseio.com/fruits.json').map(res=>res.json());
 	}
 	
 	addFruit(fruit : any){
-		return this.http.post('https://books-ad908.firebaseio.com/fruits.json',fruit)
+		console.log('Inside the service.....................')
+		return this.http.post('https://vendor-1c1ec.firebaseio.com/fruits.json',fruit)
 	}
 	
 	deleteFruit(key)
 	{
-		return this.http.delete('https://books-ad908.firebaseio.com/fruits/'+key+'.json')
+		return this.http.delete('https://vendor-1c1ec.firebaseio.com/fruits/'+key+'.json')
+	}
+	
+	updateFruit(key : string,fruit : any){
+		
+		return this.http.put('https://vendor-1c1ec.firebaseio.com/fruits'+key+'.json',fruit);
 	}
 	
 	

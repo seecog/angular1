@@ -6,15 +6,36 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { MoviesComponent } from './movies/movies.component';
 import {Movie} from './services/movies.service';
+import {Routes,RouterModule} from '@angular/router';
+import { MovieComponent } from './movie/movie.component';
+import { SearchmoviesComponent } from './searchmovies/searchmovies.component';
+const movieRoter : Routes = [
+{
+	path : '',
+	component : MoviesComponent
+},
+{
+	path : 'seemore/:search',
+	component : SearchmoviesComponent
+},
+{
+	path : 'movie/:id',
+	component : MovieComponent
+}
+];
+
 @NgModule({
   declarations: [
     AppComponent,
-    MoviesComponent
+    MoviesComponent,
+    MovieComponent,
+	SearchmoviesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+	RouterModule.forRoot(movieRoter)
   ],
   providers: [Movie],
   bootstrap: [AppComponent]

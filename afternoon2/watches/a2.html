@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+Current Time : {{dt.now}}<br>
+<button ng-click="update1()">Update 1</button><br><br>
+<button id="myButton">Update 2</button>
+
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.controller('myController',function($scope){
+
+$scope.dt = {
+now : new Date()
+};
+
+$scope.update1 = function(){
+$scope.dt.now = new Date();
+}
+
+document.getElementById('myButton').addEventListener('click',function(){
+$scope.$apply(function(){
+$scope.dt.now = new Date();
+})
+
+//$scope.$digest();
+});
+
+});
+
+
+</script>
+
+</html>

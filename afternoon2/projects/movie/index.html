@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./assets/css/slate.css"/>
+<style>
+img{
+width : 100%
+}
+</style>
+</head>
+<body ng-app="movieApp">
+<div ng-include="'views/menu.html'"></div>
+<div ng-include="'views/moviesearch.html'"></div>
+
+<div class="container">
+<div ng-view></div>
+</div>
+
+</body>
+<script>
+var app = angular.module('movieApp',['ngRoute'])
+app.config(function($routeProvider){
+
+$routeProvider
+.when('/',{
+templateUrl : 'views/movieslist.html',
+controller : 'MovieslistController'
+})
+});
+
+app.controller('MovieslistController',function($scope,$http){
+
+$http.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=8301a21598f8b45668d5711a814f01f6').then(function(res){
+console.log('The resposne is ')
+console.log(JSON.stringify(res))
+$scope.popularMovies = res.data.results;
+}).catch(function(err){
+console.log(err)
+});
+
+});
+
+</script>
+</html>

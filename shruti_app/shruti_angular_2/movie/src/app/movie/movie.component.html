@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+<div class="panel-heading">
+<h1 class="panel-title">{{mov?.title}}</h1>
+</div>
+<div class="panel-body">
+<div class="col-lg-5">
+<img src="http://image.tmdb.org/t/p/w500/{{mov?.poster_path}}" class="thumbnail">
+</div>
+
+<div class="col-lg-7">
+<ul class="group-list">
+<li class="group-list-item" *ngFor="let x of mov?.genres">
+{{x.name}}
+</li>
+</ul>
+<p>
+{{mov?.release_date}}
+</p>
+<p>
+<a href="{{mov?.homepage}}" class="btn btn-success" target="_blank">Go To Website</a>
+</p>
+</div>
+<div class="col-lg-12">
+{{mov?.overview}}
+</div>
+
+</div>
+
+
+</div>

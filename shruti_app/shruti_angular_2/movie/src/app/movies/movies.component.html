@@ -1,3 +1,44 @@
+<div class="jumbotron">
+  <div class="container">
+  <h2>Movie Collection</h2>
+  <p>
+  <input class="form-control" [(ngModel)]="search"> 
+<br>  
+  <button class="btn btn-default" (click)="searchMovies()">Search Movie</button>
+  </p>  
+  </div>  
+</div>
+
+
+<div *ngIf="searchList" class="panel panel-default">
+<div class="panel-heading">
+<div class="panel-title">
+<h3>Search movies</h3>
+</div>
+</div>
+
+<div class="panel-body">
+<div class="row">
+<div *ngFor="let x of searchList;let i=index;">
+<div *ngIf="i<6" class="col-lg-2">
+<img *ngIf="x.poster_path" src="http://image.tmdb.org/t/p/w500/{{x.poster_path}}" class="thumbnail">
+<h4>{{x.title}}</h4>
+<p>
+{{x.release_date}}
+</p>
+<p>
+<button class="btn btn-default">View Details</button>
+</p>
+</div>
+</div>
+<br>
+<div class="pull-right">
+<a routerLink="/seemore/{{search}}" class="btn btn-default">see more  ..</a>
+</div>
+</div>
+</div>
+</div>
+
 <div class="panel panel-default">
 <div class="panel-heading">
 <div class="panel-title">
@@ -7,8 +48,37 @@
 
 <div class="panel-body">
 <div class="row">
-<div *ngFor="let x of moviesList">
-<div class="col-lg-2">
+<div *ngFor="let x of moviesList;let i = index">
+
+<div *ngIf="i<6" class="col-lg-2">
+<img *ngIf="x.poster_path" src="http://image.tmdb.org/t/p/w500/{{x.poster_path}}" class="thumbnail">
+<h4>{{x.title}}</h4>
+<p>
+{{x.release_date}}
+</p>
+<p>
+<button class="btn btn-default">View Details</button>
+</p>
+</div>
+</div>
+<br>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="panel-title">
+<h3>Movies In Theatre</h3>
+</div>
+</div>
+
+<div class="panel-body">
+<div class="row">
+<div *ngFor="let x of moviesTheatre;let i = index">
+
+<div *ngIf="i<6" class="col-lg-2">
 <img *ngIf="x.poster_path" src="http://image.tmdb.org/t/p/w500/{{x.poster_path}}" class="thumbnail">
 <h4>{{x.title}}</h4>
 <p>
@@ -21,4 +91,4 @@
 </div>
 </div>
 </div>
-</div>Jsonp
+</div>
