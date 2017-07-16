@@ -12,7 +12,7 @@ width : 100%
 </head>
 <body ng-app="movieApp">
 <div ng-include="'views/menu.html'"></div>
-<div ng-include="'views/moviesearch.html'"></div>
+
 
 <div class="container">
 <div ng-view></div>
@@ -30,15 +30,51 @@ controller : 'MovieslistController'
 })
 });
 
-app.controller('MovieslistController',function($scope,$http){
+app.config(function($provide){
 
-$http.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=8301a21598f8b45668d5711a814f01f6').then(function(res){
-console.log('The resposne is ')
-console.log(JSON.stringify(res))
+$provide.provider('MovieConfig',function(){
+this.$get = function(){
+
+return {key : '8301a21598f8b45668d5711a814f01f6'}
+}
+
+});
+});
+
+app.controller('MovieslistController',function($scope,$http,MovieConfig){
+
+$scope.searchMovies = function(){
+$scope.searchYourMovies = [];
+$scope.load_search = false;
+var key = $scope.search;
+console.log('key is '+key)
+$http.get('https://api.themoviedb.org/3/search/movie?query='+key+'&api_key='+MovieConfig.key).then(function(res){
+$scope.searchYourMovies = res.data.results;
+$scope.load_search = true;
+}).catch(function(err){
+console.log(err)
+});
+}
+
+
+$scope.getPopularMovies = function(){
+$http.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key='+MovieConfig.key).then(function(res){
 $scope.popularMovies = res.data.results;
 }).catch(function(err){
 console.log(err)
 });
+
+}
+
+$scope.getTheatreMovies = function(){
+$http.get('https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22&api_key='+MovieConfig.key).then(function(res){
+$scope.theatreMovies = res.data.results;
+}).catch(function(err){
+console.log(err)
+});
+
+
+}
 
 });
 

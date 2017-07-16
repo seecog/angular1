@@ -1,10 +1,42 @@
+<div class="jumbotron" ng-init="getPopularMovies();getTheatreMovies();">
+<div class="container">
+<h2>Search Movies</h2>
+<p>
+<input ng-model="search" class="form-control"><br>
+<button class="btn btn-default" ng-click="searchMovies()">Search</button>
+</p>
+</div>
+</div>
+<div>
+
+<div ng-if="searchYourMovies" class="panel panel-default">
+<div class="panel-heading">
+<h1 class="panel-title">Search List</h1>
+</div>
+<div class="panel-body">
+
+<span ng-if="!load_search" style="color:white;">Loading..</span>
+<div ng-if="movie.poster_path" class="col-lg-2" ng-repeat="movie in searchYourMovies">
+<div ng-if="$index<6">
+<img src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="thumbnail">
+<h4 class="text-primary">{{movie.title}}</h4>
+<p>
+{{movie.release_date}}
+</p>
+<p>
+<a class="btn btn-default">View Details</a>
+</p>
+</div>
+</div>
+
+</div>
+</div>
 
 
 <div class="panel panel-default">
 <div class="panel-heading">
 <h1 class="panel-title">Popular Movie List</h1>
 </div>
-
 <div class="panel-body">
 <div class="col-lg-2" ng-repeat="movie in popularMovies">
 <div ng-if="$index<6">
@@ -18,8 +50,26 @@
 </p>
 </div>
 </div>
+</div>
+</div>
 
-
-
+<div class="panel panel-default">
+<div class="panel-heading">
+<h1 class="panel-title">Movies in theatre List</h1>
+</div>
+<div class="panel-body">
+<div class="col-lg-2" ng-repeat="movie in theatreMovies">
+<div ng-if="$index<6">
+<img src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="thumbnail">
+<h4 class="text-primary">{{movie.title}}</h4>
+<p>
+{{movie.release_date}}
+</p>
+<p>
+<a class="btn btn-default">View Details</a>
+</p>
+</div>
+</div>
+</div>
 </div>
 </div>
