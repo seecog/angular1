@@ -1,0 +1,2 @@
+Movies in theterer :
+ https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2017-01-15&primary_release_date.lte=2017-06-15&api_key=8301a21598f8b45668d5711a814f01f6
