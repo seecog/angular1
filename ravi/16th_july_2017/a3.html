@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="myController">
+<p>
+A = <input ng-model="a">
+</p>
+<p>
+B = <input ng-model="b">{{key}}
+</p>
+<p>
+<button ng-click="addNumbers()">Add </button>
+
+</p>
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.config(function($provide){
+$provide.provider('MyConfig',function(){
+
+this.$get = function(){
+return {key : '45465#@'}
+}
+
+});
+});
+app.controller('myController',function($scope,MyConfig){
+$scope.key = MyConfig.key;
+$scope.addNumbers = function(){
+var t1 = parseInt($scope.a);
+var t2 = parseInt($scope.b);
+alert('Sum is '+(t1+t2))
+}
+
+
+});
+
+</script>
+</html>
+ng-model

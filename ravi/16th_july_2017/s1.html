@@ -1,0 +1,47 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="myController">
+<p>
+A = <input ng-model="a">
+</p>
+<p>
+B = <input ng-model="b">
+</p>
+<p>
+<button ng-click="addNumbers()">Add </button>
+
+</p>
+</body>
+<script>
+var app = angular.module('eshop',[]);
+
+app.service('Calculator',function(){
+
+this.add = function(a,b){
+return (a+b)
+}
+
+this.multiply = function(a,b){
+return (a*b)
+}
+
+
+});
+
+app.controller('myController',function($scope,Calculator){
+
+$scope.addNumbers = function(){
+var t1 = parseInt($scope.a);
+var t2 = parseInt($scope.b);
+var ans = Calculator.add(t1,t2);
+alert('Sum is '+ans)
+}
+
+
+});
+
+</script>
+</html>
+ng-model

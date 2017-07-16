@@ -10,6 +10,7 @@ export class FruitshopComponent implements OnInit {
 private product : any = {};
 private products : any[];
 private btnStt = 1;
+private add_msg : string = '';
   constructor(private fruitService : FruitService) { }
 
   ngOnInit() {
@@ -76,6 +77,7 @@ private btnStt = 1;
 	 (data)=>{
 	 console.log('Updated I like it!')
 	 this.getFruits();
+	 this.add_msg = 'Record updated successfully!'
 	 },
 	 (error)=>console.log(error)
 	 

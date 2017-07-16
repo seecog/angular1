@@ -25,7 +25,7 @@ export class FruitService{
 	
 	updateFruit(key : string,fruit : any){
 		
-		return this.http.put('https://vendor-1c1ec.firebaseio.com/fruits'+key+'.json',fruit);
+		return this.http.put('https://vendor-1c1ec.firebaseio.com/fruits/'+key+'.json',fruit);
 	}
 	
 	
