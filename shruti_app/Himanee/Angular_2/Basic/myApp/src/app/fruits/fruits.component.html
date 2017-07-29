@@ -1,0 +1,24 @@
+<div class="col-lg-12">
+  <form [formGroup]="vendors">
+    <div class="form-group">
+      <label>Fruit Name</label>
+      <input class="form-control" formControlName="fruit_name">
+    </div>
+
+    <div class="form-group">
+      <label>Fruit Colour</label>
+      <input class="form-control" formControlName="fruit_colour">
+    </div>
+
+    <div class="form-group">
+      <label>Fruit Quantity</label>
+      <input class="form-control" formControlName="fruit_qty">
+    </div>
+
+    <div class="form-group">
+      <button *ngIf="btn_status=='add'" class="btn btn-primary" (click)='addfruits()'>Save</button>
+      <button *ngIf="btn_status=='up'" class="btn btn-primary" (click)='updatefruits()'>Update</button>
+    </div>
+
+  </form>
+</div>

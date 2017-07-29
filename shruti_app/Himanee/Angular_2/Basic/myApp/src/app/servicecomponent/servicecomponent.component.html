@@ -1,0 +1,25 @@
+<div class="col-lg-12">
+
+<div class="col-lg-12">
+  <h1 >Calculator</h1>
+</div>
+<form [formGroup]="methodss">
+
+<div class= "col-lg-12">
+  First Number: <input class="form-control" formControlName="first_num">
+</div>
+
+<div class= "col-lg-12">
+  Second Number: <input class="form-control" formControlName="second_num">
+  <p *ngIf="!methodss.get('second_num').valid">
+    <span *ngIf ="methodss.get('second_num').errors['required'] && methodss.get('second_num').touched">Please enter second number!</span>
+  </p>
+</div>
+
+<br>
+<button class="btn btn-primary" (click)="addNum()">Sum</button>
+
+<button class="btn btn-primary" (click)="MulNum()">Multiply</button>
+  </form>
+
+</div>
