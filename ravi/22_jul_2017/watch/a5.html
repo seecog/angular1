@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+The date is {{dt.curr}}
+<br>
+<button ng-click="showDate()">Show 1</button>
+<button id="but1">Click me</button>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+$scope.dt = {
+curr : new Date()
+};
+$scope.showDate = function(){
+
+$scope.dt.curr = new Date();
+}
+
+
+document.getElementById('but1').addEventListener('click',function(){
+/*$scope.dt.curr = new Date();
+$scope.$digest();
+*/
+$scope.$apply(function(){
+$scope.dt.curr = new Date();
+})
+
+});
+
+
+});
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+The number is {{a}}<br>
+
+<input type="text" ng-model="a">
+<button id="id1">Click Here</button>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+$scope.a = 10;
+
+document.getElementById('id1').addEventListener('click',function(){
+$scope.a = 20;
+//$scope.$digest();
+});
+
+
+$scope.$watch('a',function(oldValue,newValue){
+
+console.log('Changed')
+
+
+});
+});
+
+</script>
+</html>

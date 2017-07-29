@@ -2,8 +2,10 @@
 <div class="container">
 <h2>Search Movies</h2>
 <p>
-<input ng-model="search" class="form-control"><br>
-<button class="btn btn-default" ng-click="searchMovies()">Search</button>
+<div mass-autocomplete>
+<input ng-model="dirty.value" class="form-control" mass-autocomplete-item="autocomplete_options"><br>
+</div>
+<button class="btn btn-default" ng-click="searchMovies()">Search</button> [{{dirty.value}}]
 </p>
 </div>
 </div>
@@ -24,7 +26,7 @@
 {{movie.release_date}}
 </p>
 <p>
-<a class="btn btn-default">View Details</a>
+<a class="btn btn-default" href="#movieDetail/{{movie.id}}">View Details</a>
 </p>
 </div>
 </div>
@@ -46,7 +48,7 @@
 {{movie.release_date}}
 </p>
 <p>
-<a class="btn btn-default">View Details</a>
+<a class="btn btn-default" href="#movieDetail/{{movie.id}}">View Details</a>
 </p>
 </div>
 </div>
@@ -66,7 +68,7 @@
 {{movie.release_date}}
 </p>
 <p>
-<a class="btn btn-default">View Details</a>
+<a class="btn btn-default" href="#movieDetail/{{movie.id}}">View Details</a>
 </p>
 </div>
 </div>

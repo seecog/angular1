@@ -20,6 +20,7 @@ import {MySal} from './services/mysal.service';
 import {Employee} from './services/employee.service';
 import { FruitshopComponent } from './fruitshop/fruitshop.component';
 import {FruitService} from './services/fruits.service';
+import { AmitabhComponent } from './amitabh/amitabh.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import {FruitService} from './services/fruits.service';
     CalculationComponent,
     SsalaryComponent,
     CompanyComponent,
-    FruitshopComponent
+    FruitshopComponent,
+    AmitabhComponent
   ],
   imports: [
     BrowserModule,
