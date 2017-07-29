@@ -1,0 +1,85 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<input ng-model="h"><br>
+<input ng-model="p"><br>
+<input ng-model="c"><br>
+<input ng-model="m"><br>
+<input ng-model="e"><br>
+<p>
+The average is {{avg}}
+</p>
+<p>
+Total is {{tot}}
+</p>
+<p ng-if="div=='Fail'" style="color:red">
+Divsion is {{div}}
+</p>
+<p ng-if="div!='Fail'" style="color:black">
+Divsion is {{div}}
+</p>
+<button ng-click="total()">Total</button> 
+<button ng-click="average()">Average</button> 
+<button ng-click="division()">division</button>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.factory('School',function(){
+var obj = {};
+
+obj.getTotal = function(a,b,c,d,e)
+{
+return (a+b+c+d+e);
+}
+
+obj.getAvg = function(a,b,c,d,e){
+return this.getTotal(a,b,c,d,e)/5.0;
+
+}
+
+obj.getDivision = function(a,b,c,d,e){
+var div = '';
+var avg = this.getAvg(a,b,c,d,e);
+if(avg>=60 && avg<=100)
+{
+div = 'First Divsion';
+}
+else if(avg>=45 && avg<60){
+div = 'Second Divsion';
+}
+else if(avg>=35 && avg<45){
+div = 'Third Divsion';
+}
+else{
+div = 'Fail';
+}
+
+return div;
+}
+
+return obj;
+});
+app.controller('myController',function($scope,School){
+
+$scope.total = function(){
+$scope.tot = School.getTotal(parseFloat($scope.p),parseFloat($scope.c),parseFloat($scope.m),parseFloat($scope.h),parseFloat($scope.e))
+}
+
+
+$scope.average = function(){
+$scope.avg = School.getAvg(parseFloat($scope.p),parseFloat($scope.c),parseFloat($scope.m),parseFloat($scope.h),parseFloat($scope.e));
+
+}
+
+$scope.division = function(){
+
+$scope.div = School.getDivision(parseFloat($scope.p),parseFloat($scope.c),parseFloat($scope.m),parseFloat($scope.h),parseFloat($scope.e));
+
+}
+
+});
+
+</script>
+</html>

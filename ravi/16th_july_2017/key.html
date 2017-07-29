@@ -1,0 +1,41 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="myController">
+
+<h1>{{movie.title}}</h1>
+<p>
+{{movie.overview}}
+</p>
+</body>
+<script>
+var app = angular.module('eshop',[]);
+
+app.config(function($provide){
+
+$provide.provider('MovieConfig',function(){
+
+this.$get = function(){
+return {key : '8301a21598f8b45668d5711a814f01f6'};
+}
+
+});
+
+});
+
+app.controller('myController',function($scope,MovieConfig,$http){
+$http.get("https://api.themoviedb.org/3/movie/550?api_key="+MovieConfig.key).then(function(res){
+console.log(JSON.stringify(res.data))
+$scope.movie = res.data;
+}).catch(function(err){
+cnsole.log(err)
+});
+
+
+
+});
+
+</script>
+</html>
+ng-model

@@ -1,0 +1,82 @@
+<html>
+<head>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular-route.min.js"></script>
+<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./assets/css/slate.css"/>
+<style>
+img{
+width : 100%
+}
+</style>
+</head>
+<body ng-app="movieApp">
+<div ng-include="'views/menu.html'"></div>
+
+
+<div class="container">
+<div ng-view></div>
+</div>
+
+</body>
+<script>
+var app = angular.module('movieApp',['ngRoute'])
+app.config(function($routeProvider){
+
+$routeProvider
+.when('/',{
+templateUrl : 'views/movieslist.html',
+controller : 'MovieslistController'
+})
+});
+
+app.config(function($provide){
+
+$provide.provider('MovieConfig',function(){
+this.$get = function(){
+
+return {key : '8301a21598f8b45668d5711a814f01f6'}
+}
+
+});
+});
+
+app.controller('MovieslistController',function($scope,$http,MovieConfig){
+
+$scope.searchMovies = function(){
+$scope.searchYourMovies = [];
+$scope.load_search = false;
+var key = $scope.search;
+console.log('key is '+key)
+$http.get('https://api.themoviedb.org/3/search/movie?query='+key+'&api_key='+MovieConfig.key).then(function(res){
+$scope.searchYourMovies = res.data.results;
+$scope.load_search = true;
+}).catch(function(err){
+console.log(err)
+});
+}
+
+
+$scope.getPopularMovies = function(){
+$http.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key='+MovieConfig.key).then(function(res){
+$scope.popularMovies = res.data.results;
+}).catch(function(err){
+console.log(err)
+});
+
+}
+
+$scope.getTheatreMovies = function(){
+$http.get('https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22&api_key='+MovieConfig.key).then(function(res){
+$scope.theatreMovies = res.data.results;
+}).catch(function(err){
+console.log(err)
+});
+
+
+}
+
+});
+
+</script>
+</html>

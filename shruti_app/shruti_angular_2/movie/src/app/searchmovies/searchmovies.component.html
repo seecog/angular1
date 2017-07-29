@@ -1,0 +1,18 @@
+<div class="panel-body">
+<div *ngFor="let x of searchList;let i=index;">
+<div  class="col-lg-4">
+<img *ngIf="x.poster_path" src="http://image.tmdb.org/t/p/w500/{{x.poster_path}}" class="thumbnail">
+<h4>{{x.title}}</h4>
+<p>
+{{x.release_date}}
+</p>
+<p>
+<a class="btn btn-default" routerLink="/movie/{{x.id}}">View Details</a>
+</p>
+</div>
+</div>
+<br>
+<div class="pull-right">
+<a routerLink="/" class="btn btn-default"> Back  </a>
+</div>
+</div>

@@ -1,0 +1,63 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+img{
+width : 100%
+}
+</style>
+</head>
+<body ng-app="movieApp" ng-controller="MovieController">
+
+<div class="container">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h1 class="panel-title">Popular Movies</h1>
+</div>
+<div class="panel-body">
+
+<div ng-repeat="x in popularMovies" class="col-lg-2">
+<img src="http://image.tmdb.org/t/p/w500/{{x.poster_path}}" class="thumbnail">
+<h2>{{x.title}}</h2>
+<p>
+{{x.release_date}}
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+
+</body>
+<script>
+var app = angular.module('movieApp',[]);
+app.config(function($provide){
+$provide.provider('MovieConfig',function(){
+
+this.$get = function(){
+return {key : '8301a21598f8b45668d5711a814f01f6'};
+}
+
+});
+});
+
+
+app.controller('MovieController',function($scope,$http,MovieConfig){
+
+$http.get('https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key='+MovieConfig.key).then(function(res){
+
+console.log(JSON.stringify(res.data.results));
+$scope.popularMovies = res.data.results;
+
+}).catch(function(err){
+console.log(err)
+});
+
+
+});
+
+</script>
+</html>
