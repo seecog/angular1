@@ -1,0 +1,104 @@
+ <div class="jumbotron">
+
+<div class="col-lg-12">
+  <h1 class="text-primary">Register here</h1>
+</div>
+
+ 
+     <form (ngSubmit)="saveRecord()" [formGroup]="signUp">
+
+       <div class="col-lg-12">
+         <label>First Name</label>
+         <input class ="form-control" formControlName="first_name">
+         <p *ngIf="!signUp.get('first_name').valid">
+         <span *ngIf ="signUp.get('first_name').errors['required'] && signUp.get('first_name').touched">Please enter first name!</span>
+         <span *ngIf ="signUp.get('first_name').errors['minlength'] && signUp.get('first_name').touched">First name should be of 3 characters!</span>
+         <span *ngIf ="signUp.get('first_name').errors['maxlength'] && signUp.get('first_name').touched">First name shouldn't be more than 20 characters!</span>
+         </p>
+       </div>
+
+
+       <div class="col-lg-12">
+         <label>Last Name</label>
+         <input class ="form-control" formControlName="last_name">
+         <p *ngIf="!signUp.get('last_name').valid">
+         <span *ngIf ="signUp.get('last_name').errors['required'] && signUp.get('last_name').touched">Please enter last name!</span>
+         <span *ngIf ="signUp.get('last_name').errors['minlength']  && signUp.get('last_name').touched">Last name should be of 3 characters!</span>
+         <span *ngIf ="signUp.get('last_name').errors['maxlength']  && signUp.get('last_name').touched">Last name shouldn't be more than 20 characters!</span>
+         </p>
+       </div>
+
+       <div class="col-lg-12">
+			  <label> Gender </label><br>
+            <input type="radio"  value="N"  formControlName="gender">Male
+						<input type="radio"  value="Y" formControlName="gender">Female
+            <!--<p *ngIf ="!signUp.get('gender').valid">
+						<span *ngIf ="signUp.get('gender').errors.['required']">Select your gender</span>
+            </p>-->
+		</div>
+		<br>
+    
+    <div class ="col-lg-12">
+      <label> Country: </label>
+        <select formControlName="country">
+          <option value="">Select Country</option>
+          <option value="india">India</option>
+          <option value="australia">Australia</option>
+          <option value="uk">UK</option>
+          <option value="sa">South Africa</option>
+       </select>
+       <p *ngIf="!signUp.get('country').valid">
+     <span class="text-danger" *ngIf ="signUp.get('country').errors['required'] && signUp.get('country').touched" >Please select Country</span>
+       </p>
+  </div>
+
+<div class="col-lg-12">
+   <label> Email : </label>
+   <input class="form-control" formControlName="email">
+   <p *ngIf="!signUp.get('email').valid">
+  <span *ngIf="signUp.get('email').errors['required'] && signUp.get('email').touched">
+    Please enter email !
+    </span>
+  <span *ngIf="signUp.get('email').errors['pattern'] && signUp.get('email').touched">
+    Invalid email
+    </span>
+  </p>
+</div>
+<br>
+
+<div class="col-lg-12">
+   <label> Contact : </label>
+   <input class="form-control" formControlName="contact">
+      <p *ngIf="!signUp.get('contact').valid">
+  <span *ngIf="signUp.get('contact').errors['required'] && signUp.get('contact').touched">
+    Please enter contact !
+    </span>
+  <span *ngIf="signUp.get('contact').errors['pattern'] && signUp.get('contact').touched">
+    Invalid contact
+    </span>
+  </p>
+</div>
+<br>
+
+<div class="col-lg-12">
+   <label> Address : </label>
+   <textarea class="form-control" formControlName="address" placeholder="present address">
+
+   </textarea>
+            <p *ngIf="!signUp.get('address').valid">
+  <span *ngIf="signUp.get('address').errors['required'] && signUp.get('address').touched">
+    Please enter address !
+    </span>
+  <span *ngIf="signUp.get('address').errors['maxlength'] && signUp.get('address').touched">
+    Invalid address
+    </span>
+  </p> 
+</div>
+<br>
+
+<div class="col-lg-12">
+<button type="submit" class ="btn btn-primary">Register</button>
+</div>
+
+     </form>
+  </div>

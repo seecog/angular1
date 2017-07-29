@@ -1,0 +1,26 @@
+<div class="col-lg-12">
+  Choose the no of items: <select [(ngModel)]="key">
+    <option selected disabled>Choose here</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+  </select>
+  
+</div>
+
+
+<div class="col-lg-12">
+
+
+
+<table class="table table-bordered table-striped" >
+  <th>Name</th><th>number of items</th>
+  <tr *ngFor="let x of products | limit:key">
+ 
+    <td>{{x.name}}</td>
+    <td>{{x.items}}</td>
+  </tr>  
+</table>
+</div>
