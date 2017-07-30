@@ -1,0 +1,23 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+
+<input type="text" ng-model="a">
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.controller('myController',function($scope){
+
+$scope.$watch('a',function(newValue,oldValue){
+console.log('Old value is '+oldValue)
+console.log('New value is '+newValue)
+})
+
+});
+
+</script>
+</html>

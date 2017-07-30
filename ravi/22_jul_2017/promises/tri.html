@@ -1,0 +1,50 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<input ng-model="a"><br>
+<input ng-model="b"><br>
+<input ng-model="c"><br>
+<button ng-click="area()">Area of triangle</button>
+<p>
+The area is {{ar}}
+</p>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.factory('Perimeter',function(){
+var ob = {};
+ob.getPerimeter = function(a,b,c){
+return (a+b+c)/2.0;
+}
+return ob;
+});
+app.service('Triangle',function(Perimeter,$q,$timeout){
+this.getArea = function(a,b,c){
+var ob = $q.defer();
+var s = Perimeter.getPerimeter(a,b,c);
+$timeout(function(){
+var ar = Math.sqrt(s*(s-a)*(s-b)*(s-c))
+ob.resolve(ar)
+},5000);
+return ob.promise;
+}
+});
+app.controller('myController',function($scope,Triangle){
+
+$scope.area  = function(){
+
+Triangle.getArea(parseFloat($scope.a),parseFloat($scope.b),parseFloat($scope.c)).then(function(res){
+$scope.ar=res;
+}).catch(function(err){
+console.log(err)
+});
+
+
+}
+
+});
+
+</script>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<span ng-if="a">
+Value is {{a}}
+</span>
+<span ng-if="!a">
+Loading...
+</span>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+
+app.service('Calculator',function($q,$timeout){
+
+this.getData = function(){
+var ob = $q.defer();
+var a = 0;
+$timeout(function(){
+a = 10;
+ob.resolve(a)
+},5000);
+
+return ob.promise;
+}
+});
+app.controller('myController',function($scope,Calculator){
+
+Calculator.getData().then(function(res){
+$scope.a = res;
+}).catch(function(err){
+console.log(err)
+});
+
+});
+
+</script>
+</html>

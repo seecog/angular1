@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+<div class="panel-heading">
+<h1 class="panel-title">{{movie.title}}</h1>
+</div>
+<div class="panel-body">
+<div class="col-lg-6">
+<img src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}" class="thumbnail">
+</div>
+<div class="col-lg-6">
+<ul class="list-group">
+<li class="list-group-item" ng-repeat=" x in movie.genres">
+{{x.name}}
+</li>
+</ul>
+<p>
+<h1>{{movie.release_date | date : 'fullDate'}}</h1>
+</p>
+<p>
+<a ng-if="movie.homepage" class="btn btn-default" href="{{movie.homepage}}" target="_blank">Visit Site</a>
+</p>
+</div>
+</div>
+
+
+</div>
