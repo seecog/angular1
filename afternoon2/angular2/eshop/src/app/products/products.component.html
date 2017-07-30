@@ -1,0 +1,33 @@
+<div class="form-group">
+Id : <input class="form-control" [(ngModel)]="product.id">
+</div>
+<div class="form-group">
+Product Name  : <input class="form-control" [(ngModel)]="product.product_name">
+</div>
+<div class="form-group">
+Product Cost  : <input class="form-control" [(ngModel)]="product.product_cost">
+</div>
+<div class="form-group">
+<button *ngIf="btn_stt=='save'" class="btn btn-primary" (click)="saveProduct()">Save Product</button>
+<button *ngIf="btn_stt=='update'" class="btn btn-primary" (click)="updateProduct()">Update Product</button>
+</div>
+<table class="table">
+<th>Id</th><th>Name</th><th>Cost</th><td>Action</td>
+<tr *ngFor="let x of products">
+<td>
+{{x.id}}
+</td>
+<td>
+{{x.product_name}}
+</td>
+<td>
+{{x.product_cost}}
+</td>
+<td>
+<button (click)="deleteProduct(x)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+<button (click)="editProduct(x)" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
+</td>
+</tr>
+</table>
+
+

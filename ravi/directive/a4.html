@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myShop" ng-controller="myController">
+<emp-info id="{{id1}}" name="{{firstname1}}" age="21"></emp-info>
+<emp-info id="{{id2}}" name="{{firstname2}}" age="22"></emp-info>
+<emp-info id="{{id3}}" name="{{firstname3}}" age="23"></emp-info>
+</body>
+<script>
+var app = angular.module('myShop',[]);
+app.directive('empInfo',function(){
+return {
+scope : {
+id : '@',
+name : '@',
+age : '@'
+},
+template : `
+<p>
+Id : {{id}}
+</p>
+<p>
+Name : {{name}}
+</p>
+<p>
+Age : {{age}}
+</p>
+<hr>
+`
+}
+
+});
+app.controller('myController',function($scope){
+$scope.id1=1;
+$scope.id2=2;
+$scope.id3=3;
+
+$scope.firstname1 ='Mohan';
+$scope.firstname2='Sohan';
+$scope.firstnaame3 = 'Rohan'
+
+
+});
+</script>
+</html>

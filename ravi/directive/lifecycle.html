@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myShop">
+<my-directive></my-directive>
+
+</body>
+<script>
+var app = angular.module('myShop',[]);
+app.directive('myDirective',function(){
+return {
+template : `
+<p>
+Id : 1
+</p>
+<p>
+Name : Mohan kumar
+</p>
+<p>
+Age : 21
+</p>
+
+`
+}
+
+});
+</script>
+</html>

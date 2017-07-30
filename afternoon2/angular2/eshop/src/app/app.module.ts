@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { MohanComponent } from './employees/mohan/mohan.component';
 import { SohanComponent } from './employees/sohan/sohan.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SohanComponent } from './employees/sohan/sohan.component';
     RegisterComponent,
     EmployeesComponent,
     MohanComponent,
-    SohanComponent
+    SohanComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
