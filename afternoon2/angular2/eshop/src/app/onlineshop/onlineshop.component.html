@@ -1,13 +1,31 @@
 <p>
-Id : <input [(ngModel)]="product.id"><br>
-Name : <input [(ngModel)]="product.product_name"><br>
-Cost : <input [(ngModel)]="product.product_cost"><br>
-<button (click)="addProduct()">Add Product</button>
+Id : <input class="form-control" [(ngModel)]="product.id"><br>
+Name : <input class="form-control" [(ngModel)]="product.product_name"><br>
+Cost : <input class="form-control" [(ngModel)]="product.product_cost"><br>
+<button class="btn bt-default" (click)="addProduct()">Add Product</button>
+<button class="btn bt-default" (click)="updateProduct(x)">Update Product</button>
 </p>
-
-<table>
-<th>Id</th><th>Name</th><th>Cost</th>
+<p>
+{{products}}
+</p>
+<table class="table">
+<th>Id</th><th>Name</th><th>Cost</th><th>Contact</th><th>Action</th>
 <tr *ngFor="let x of products">
 <td>{{x.id}}</td><td>{{x.product_name}}</td><td>{{x.product_cost}}</td>
+<td>
+<ul>
+<li *ngFor="let y of x.contact">
+{{y.type}} ({{y.value}})
+</li>
+</ul>
+
+
+</td>
+
+
+<td>
+<button class="btn btn-primary" (click)="editProduct(x)">Edit</button>
+<button class="btn btn-danger" (click)="deleteDoctor(x)">Delete</button>
+</td>
 </tr>
 </table>
