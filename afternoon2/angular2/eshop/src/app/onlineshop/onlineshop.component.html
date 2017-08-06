@@ -1,0 +1,13 @@
+<p>
+Id : <input [(ngModel)]="product.id"><br>
+Name : <input [(ngModel)]="product.product_name"><br>
+Cost : <input [(ngModel)]="product.product_cost"><br>
+<button (click)="addProduct()">Add Product</button>
+</p>
+
+<table>
+<th>Id</th><th>Name</th><th>Cost</th>
+<tr *ngFor="let x of products">
+<td>{{x.id}}</td><td>{{x.product_name}}</td><td>{{x.product_cost}}</td>
+</tr>
+</table>

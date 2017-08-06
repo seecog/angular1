@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<my-data val="{{a}}"></my-data>
+<br>
+<input ng-model="a"><br>
+The value is {{a}}
+
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.directive('myData',function(){
+return {
+scope : {
+val : '@'
+},
+template : '{{val}}<input ng-model="val">'
+}
+});
+
+app.controller('eshopController',function($scope){
+$scope.a = 10;
+
+});
+</script>
+
+</html>

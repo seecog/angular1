@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body ng-app="playerApp" ng-controller="playerController">
+
+<player-info info="ply1"></player-info>
+<player-info info="ply2"></player-info>
+
+</body>
+<script>
+var app = angular.module('playerApp',[]);
+app.directive('playerInfo',function(){
+return {
+templateUrl : './player.html',
+scope : {
+info : '='
+}
+}
+});
+
+app.controller('playerController',function($scope){
+$scope.ply1 = {
+player_name : 'Mohan',
+player_age : 21,
+player_pic : 'http://www.lakshmansruthi.com/cineprofiles/images/mohan.jpg'
+};
+
+$scope.ply2 = {
+player_name : 'Sohan',
+player_age : 22,
+player_pic : 'https://pbs.twimg.com/profile_images/1246551294/Image0940_400x400.jpg'
+};
+
+});
+</script>
+
+</html>
