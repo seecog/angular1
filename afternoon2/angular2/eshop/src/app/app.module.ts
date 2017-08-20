@@ -13,7 +13,11 @@ import { ProductsComponent } from './products/products.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { SubtractComponent } from './subtract/subtract.component';
 import { OnlineshopComponent } from './onlineshop/onlineshop.component';
-
+import {CalculatorService} from './services/calculator.service';
+import { CalctestComponent } from './calctest/calctest.component';
+import {TriangleService} from './services/triangle.service';
+import {SalaryService} from './services/salary.service';
+import {PerimeterService} from './services/perimeter.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,14 +29,15 @@ import { OnlineshopComponent } from './onlineshop/onlineshop.component';
     ProductsComponent,
     CalculatorComponent,
     SubtractComponent,
-    OnlineshopComponent
+    OnlineshopComponent,
+	CalctestComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [CalculatorService,TriangleService,SalaryService,PerimeterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

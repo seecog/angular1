@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+</head>
+<body ng-app="myShop" ng-controller="myController">99
+<emp-item></emp-item>
+</body>
+<script>
+var app = angular.module('myShop',[]);
+app.directive('empItem',function(){
+return {
+
+template : '<span>I a an indian</span>',
+link : function(scope,element,attrs){
+element.bind('mouseover',function(){
+element.css('color','red')
+});
+
+
+}
+}
+});
+app.controller('myController',function($scope){
+
+
+});
+</script>
+</html>

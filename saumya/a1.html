@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController" ng-init="employees = getEmployees()">
+
+{{employees}}
+
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.controller('eshopController',function($scope){
+
+$scope.getEmployees = function(){
+var emps = [
+{
+id : 1,
+name : 'Mohan'
+},
+{
+id : 2,
+name : 'Sohan'
+}
+
+];
+
+return emps;
+}
+
+});
+
+</script>
+</html>

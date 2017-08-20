@@ -1,0 +1,29 @@
+<html>@Injector()
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<my-info showme="greatshow()" subtract="mySubtract()" ></my-info>
+</body>
+<script>
+var app = angular.module('eshop',[])
+app.directive('myInfo',function(){
+return {
+template : '<button ng-click="showme()">Show Message</button>',
+scope : {
+showme : '&',
+
+}
+}
+
+});
+app.controller('eshopController',function($scope){
+
+$scope.greatshow = function(){
+alert('hii')
+}
+});
+
+</script>
+
+</html>

@@ -1,0 +1,34 @@
+<html>
+
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<p>
+First Number : <input ng-model="a">
+</p>
+<p>
+Second Number : <input ng-model="b">
+</p>
+<p>
+The sum is {{sum}}
+</p>
+<p>
+<button ng-click="add()">Add Numbers</button>
+</p>
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.controller('eshopController',function($scope){
+
+$scope.add = function(){
+var t1 = parseFloat($scope.a);
+var t2 = parseInt($scope.b);
+$scope.sum = (t1+t2);
+}
+
+
+});
+
+</script>
+</html>
