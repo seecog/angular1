@@ -4,9 +4,16 @@
 Name : <input class="form-control" ngModel name="nm">
 </p>
 
-<p>
-Email : <input class="form-control" ngModel name="em">
-</p>
+<br><br>
+Email : <input class="form-control" required minlength="5" maxlength="20"
+ pattern="/^[A-z]+$/" ngModel name="em" #email="ngModel">
+<div style="color:red" *ngIf="email.errors && email.dirty">
+<span *ngIf="email.errors.required">Please enter email</span> 
+<span *ngIf="email.errors.minlength">Please enter minimum 5 characters</span>
+<span *ngIf="email.errors.maxlength">Maximum 20 characters required</span>
+<span *ngIf="email.errors.pattern">Invalid email</span>
+</div>
+
 
 <p>
 Contact : <input class="form-control" ngModel name="contact">
