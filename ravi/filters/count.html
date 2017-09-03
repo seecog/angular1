@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+
+
+The count is {{r | count}}
+</body>
+<script>
+var app=angular.module('eshop',[]);
+
+//create filter start
+app.filter('count',function(){
+
+return function(x){
+var ar = x.split('')
+return ar.length;
+}
+});
+//create filter end
+app.controller('eshopController',function($scope){
+
+$scope.r = 'Mohan';
+
+});
+
+
+</script>
+</html>

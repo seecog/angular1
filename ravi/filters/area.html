@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+
+
+The area is {{r | area}}
+</body>
+<script>
+var app=angular.module('eshop',[]);
+
+//create filter start
+app.filter('area',function(){
+
+return function(x){
+
+return 3.14*x*x;
+}
+
+
+});
+
+//create filter end
+app.controller('eshopController',function($scope){
+
+$scope.r = 100;
+
+});
+
+
+</script>
+</html>

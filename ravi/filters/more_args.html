@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+
+
+The power is {{n | any : 11 : 12 : 13}}
+</body>
+<script>
+var app=angular.module('eshop',[]);
+
+//create filter start
+app.filter('any',function(){
+
+return function(x,x2,x3,x4){
+
+return x+'-'+x2+'-'+x3+'-'+x4;
+}
+
+
+});
+
+//create filter end
+app.controller('eshopController',function($scope){
+
+$scope.n = 2;
+
+});
+
+
+</script>
+</html>

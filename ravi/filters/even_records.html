@@ -1,0 +1,48 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+
+<input ng-model="key">
+<table>
+<th ng-click="setId()">Id</th><th ng-click="setName()">Name</th><th ng-click="setAge()">Age</th>
+<tr ng-repeat="x in emps | evenrec">
+<td>{{x.id}}</td>
+<td>{{x.name}}</td>
+<td>{{x.age}}</td>
+</tr>
+</table>
+<br>
+
+
+</body>
+<script>
+var app=angular.module('eshop',[]);
+app.filter('evenrec',function(){
+var newAr = [];
+return function(y){
+for(i=0;i<y.length;i++){
+
+if(i%2==0){
+newAr.push(y[i]);
+}
+
+}
+return newAr;
+}
+
+});
+app.controller('eshopController',function($scope){
+
+$scope.emps = [
+{id : 1,name : 'Mohan',age : 21},
+{id : 2,name : 'Sohan',age : 22},
+{id : 3,name : 'Rohan',age : 23},
+{id : 4,name : 'Jatin',age : 24}
+];
+});
+
+
+</script>
+</html>

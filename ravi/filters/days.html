@@ -1,0 +1,49 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+
+
+The area is {{r | day}}
+</body>
+<script>
+var app=angular.module('eshop',[]);
+
+//create filter start
+app.filter('day',function(){
+
+return function(x){
+
+var y = x%10;
+var txt='';
+switch(y){
+case 1:
+txt = x+'st';
+break;
+case 2:
+txt = x+'nd';
+break;
+case 3:
+txt = x+'rd';
+break;
+default:
+txt = x+'th';
+break;
+}
+return txt;
+}
+
+
+});
+
+//create filter end
+app.controller('eshopController',function($scope){
+
+$scope.r = 23;
+
+});
+
+
+</script>
+</html>

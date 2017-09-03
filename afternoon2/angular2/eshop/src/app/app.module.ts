@@ -18,6 +18,18 @@ import { CalctestComponent } from './calctest/calctest.component';
 import {TriangleService} from './services/triangle.service';
 import {SalaryService} from './services/salary.service';
 import {PerimeterService} from './services/perimeter.service';
+import {Ta} from './services/ta.service';
+import {Da} from './services/da.service';
+import {Hra} from './services/hra.service';
+import {Mysal} from './services/mysal.service';
+import {Double} from './pipes/double.pipe';
+import {AreaPipe} from './pipes/area.pipe';
+import {PowerPipe} from './pipes/power.pipe';
+import {SearchMe} from './pipes/search.pipe';
+import { SearchproductsComponent } from './searchproducts/searchproducts.component';
+import {LimitPipe} from './pipes/limit.pipe';
+import { FormvalidationComponent } from './formvalidation/formvalidation.component';
+import { RegisterformComponent } from './registerform/registerform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,14 +42,22 @@ import {PerimeterService} from './services/perimeter.service';
     CalculatorComponent,
     SubtractComponent,
     OnlineshopComponent,
-	CalctestComponent
+	CalctestComponent,
+	Double,
+	AreaPipe,
+	PowerPipe,
+	SearchMe,
+	SearchproductsComponent,
+	LimitPipe,
+	FormvalidationComponent,
+	RegisterformComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [CalculatorService,TriangleService,SalaryService,PerimeterService],
+  providers: [CalculatorService,TriangleService,SalaryService,PerimeterService,Da,Ta,Hra,Mysal],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

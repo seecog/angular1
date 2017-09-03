@@ -1,0 +1,36 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+
+</body>
+<script>
+var app = angular.module('eshop',[]);
+
+app.config(function($provide){
+
+$provide.provider('FlipcartConfig',function(){
+
+this.$get = function(){
+
+return {
+key : 'hdbhfbewh##$$',
+pass : '238632678kjd$$##'
+
+}
+
+}
+
+});
+
+});
+
+app.controller('eshopController',function($scope,FlipcartConfig){
+
+console.log('My secret data is ')
+console.log(FlipcartConfig)
+});
+
+</script>
+</html>

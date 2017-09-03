@@ -1,0 +1,17 @@
+<form name="frm" #f="ngForm">
+
+<p>
+UserName : <input ngModel name="username" required #unm="ngModel">
+<span *ngIf="!unm.valid && unm.touched">Please enter username</span>
+</p>
+
+<p>
+Password : <input ngModel name="password">
+</p>
+
+<p>
+
+<button (click)="save(f)">Save</button>
+<button (click)="save2()">Save 2</button>
+</p>
+</form>

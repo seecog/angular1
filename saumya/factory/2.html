@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+
+</body>
+<script>
+var app = angular.module([]);
+app.factory('Calculator',function(){
+var amitabh = {};
+
+amitabh.add = function(a,b){
+return (a+b);
+}
+
+amitabh.subtract = function(a,b){
+return (a-b)
+}
+
+return amitabh;
+});
+app.controller('eshopController',function($scope,Calculator){
+var ans1 = Calculator.add(11,12)
+console.log('The sum is '+ans1)
+});
+
+
+</script>
+</html>

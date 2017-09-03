@@ -1,0 +1,59 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<p>
+Name : <input ng-model="doc.name">
+</p>
+<p>
+Age : <input ng-model="doc.age">
+</p>
+<p>
+Salary : <input ng-model="doc.sal">
+</p>
+
+<p>
+<button ng-click="save()">Add Doc</button>
+<p>
+<p>
+<table>
+<th>Id</th><th>Name </th><th>Age </th><th>Salary </th><th>Action</th>
+<tr ng-repeat="x in docs">
+<td>{{$index}}</td></td><td>{{x.name}}</td><td>{{x.age}}</td><td>{{x.sal}}</td>
+<td>
+<button ng-click="delete($index)">Delete</button>
+</td>
+</tr>
+</table>
+</p>
+</body>
+<script>
+var app=angular.module('eshop',[]);
+
+app.controller('eshopController',function($scope){
+$scope.delete = function(x){
+$scope.docs.splice(x,1)
+}
+
+$scope.save = function(){
+console.log(JSON.stringify($scope.doc));
+$scope.docs.push($scope.doc)
+$scope.doc = {};
+}
+
+$scope.docs = [
+{
+id : 1,
+name : 'Mohan',
+age : 21,
+sal : 12000
+}
+];
+$scope.doc = {
+};
+});
+
+
+</script>
+</html>

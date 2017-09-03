@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<p>
+Name : <input ng-model="doc.name">
+</p>
+<p>
+Age : <input ng-model="doc.age">
+</p>
+<p>
+Salary : <input ng-model="doc.sal">
+</p>
+<p>
+{{doc}}
+<p>
+</body>
+<script>
+var app=angular.module('eshop',[]);
+
+app.controller('eshopController',function($scope){
+$scope.doc = {
+id : 1,
+name : 'Mohan',
+age : 21,
+sal : 12000
+};
+});
+
+
+</script>
+</html>

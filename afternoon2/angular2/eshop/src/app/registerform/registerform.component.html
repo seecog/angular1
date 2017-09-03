@@ -1,0 +1,56 @@
+<form name="register" #f="ngForm" (ngSubmit)="save()">
+
+<p>
+Name : <input class="form-control" ngModel name="nm">
+</p>
+
+<p>
+Email : <input class="form-control" ngModel name="em">
+</p>
+
+<p>
+Contact : <input class="form-control" ngModel name="contact">
+</p>
+
+<p>
+gender : <input type="radio" name="gen" value="m" ngModel> Male 
+<input type="radio" name="gen" value="f" ngModel> FeMale 
+</p>
+
+<p>
+
+Hobbies : 
+<input type="checkbox" ngModel name="hob" value="cricket">Cricket
+<input type="checkbox" ngModel name="hob" value="reading">Reading
+<input type="checkbox" ngModel name="hob" value="ten"> Tennis
+<input type="checkbox" ngModel name="hob" value="travel">Travel
+</p>
+
+
+<p>
+Country : <select class="form-control" name="country" ngModel>
+<option value="1">India</option>
+<option value="2">Us</option>
+<option value="3">Russia</option>
+</select>
+</p>
+
+
+<p>
+<input class="btn btn-default" type="submit" value="Submit Form">
+</p>
+</form>
+
+
+<br>
+<hr>
+<table class="table">
+<th>Name </th><th>Email</th><th>Conatct</th><th>Gender</th><th>Hobbies</th>
+<tr *ngFor="let x of empArr;let i=index">
+<td>#{{i}} {{x.name}}</td>
+<td>{{x.email}}</td>
+<td>{{x.contact}}</td>
+<td>{{x.gender}}</td>
+</tr>
+
+</table>

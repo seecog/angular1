@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<p>
+The date is {{dt | date}}
+<p>
+<p>
+Name is {{name | uppercase}}
+</p>
+<p>
+Instrument is {{instrument | lowercase}}
+</p>
+<p>
+The number is {{num | number}}
+</p>
+</body>
+<script>
+var app=angular.module('eshop',[]);
+
+app.controller('eshopController',function($scope){
+$scope.dt = new Date();
+$scope.name = 'mohan';
+$scope.instrument = 'GUITER';
+$scope.num = 100000;
+});
+
+
+</script>
+</html>

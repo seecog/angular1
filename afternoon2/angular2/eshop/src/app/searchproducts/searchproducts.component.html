@@ -1,0 +1,24 @@
+<p>
+<input [(ngModel)]="key">
+</p>
+
+<p>
+  {{products | searchme : key | json}}
+</p>
+
+<p>
+<select [(ngModel)]="search">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+</select>
+</p>
+
+<p>
+Selected search is {{search}}
+</p>
+
+<p>
+
+{{products | limit : search}}
+</p>

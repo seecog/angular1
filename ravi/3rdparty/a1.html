@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="./bower_components/angularjs-slider/dist/rzslider.min.js"></script>
+<link rel="stylesheet" href="./bower_components/angularjs-slider/dist/rzslider.min.css"></link>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<rzslider class="custom-slider"
+          rz-slider-model="slider.minValue"
+          rz-slider-high="slider.maxValue"
+          rz-slider-options="slider.options"></rzslider>
+</body>
+<script>
+var app = angular.module('eshop',['rzModule']);
+app.controller('eshopController',function($scope){
+
+$scope.slider = {
+  minValue: 10,
+  maxValue: 90,
+  options: {
+    floor: 0,
+    ceil: 100,
+    step: 10,
+    showTicks: true
+  }
+};
+
+});
+
+
+</script>
+</html>

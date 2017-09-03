@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<p>
+Id : <input ng-model="product.id"><br>
+Name : <input ng-model="product.name"><br>
+Cost : <input ng-model="product.cost"><br>
+<button ng-click="saveProduct()">Save Product</button>
+</p>
+<p>
+<table border="1">
+<th>Id</th><th>Name</th><th>Cost</th>
+<tr ng-repeat="x in products">
+<td>{{x.id}}</td><td> {{$index}} {{x.name}}</td><td>{{x.cost}}</td>
+<td>
+<button ng-click="deletePoduct($index)">Delete</button>
+</td>
+</tr>
+</table>
+
+</p>
+</body>
+<script>
+var app = angular.module('eshop',[]);
+
+app.run(function($rootScope){
+$rootScope.products = [
+{id : 1, name : 'Apple',cost : 100},
+{id : 2, name : 'Banana',cost : 200},
+{id : 3, name : 'Pineapple',cost : 300},
+];
+});
+
+app.service('Product',function($rootScope){
+
+this.addProduct = function(product){
+$rootScope.products.push(product);
+}
+
+this.removeProduct = function(x){
+$rootScope.products.splice(x,1)
+}
+
+});
+app.controller('eshopController',function($scope,Product){
+
+$scope.saveProduct = function(){
+Product.addProduct($scope.product);
+}
+
+$scope.deletePoduct = function(index){
+Product.removeProduct(index);
+}
+
+
+});
+
+</script>
+</html>

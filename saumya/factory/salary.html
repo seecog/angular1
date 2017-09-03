@@ -1,0 +1,77 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+The salary is {{sal}}
+</body>
+<script>
+var app = angular.module('eshop',[]);
+
+app.config(function($provide){
+
+$provide.provider('MySetting',function(){
+
+this.$get = function(){
+return {
+pass : 12345
+}
+
+}
+
+});
+
+});
+
+app.factory('Ta',function(){
+var obj={};
+obj.getTa = function(bs){
+return (bs*7/100)
+
+}
+return obj;
+});
+
+app.factory('Hra',function(){
+
+return {
+
+getHra : function(bs){
+
+return 9*bs/100;
+
+}
+
+}
+
+});
+
+app.factory('Da',function(){
+var obj = {};
+obj.getDa = function(bs){
+return 7*bs/100;
+}
+
+return obj;
+});
+
+
+app.service('Salary',function(Da,Ta,Hra){
+
+this.getGross = function(bs){
+
+return bs+Ta.getTa(bs)+Hra.getHra(bs)+Da.getDa(bs);
+
+}
+
+});
+app.controller('eshopController',function($scope,Salary,MySetting){
+console.log('the password is '+MySetting.pass)
+var ans = Salary.getGross(10000)
+$scope.sal = ans;
+console.log('the gross salary is '+ans)
+});
+
+
+</script>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+{{my}}
+</body>
+<script>
+var app = angular.module('eshop',[]);
+
+app.config(function($provide){
+
+$provide.provider('MovieConfig',function(){
+this.$get = function(){
+return {
+key : '8301a21598f8b45668d5711a814f01f6'
+}
+
+}
+});
+
+});
+
+app.controller('eshopController',function($scope,$http,MovieConfig){
+
+console.log('The dam url is ')
+console.log('https://api.themoviedb.org/3/movie/550?api_key='+MovieConfig.key)
+$http.get('https://api.themoviedb.org/3/movie/550?api_key='+MovieConfig.key).then(function(res){
+$scope.my = res.data;
+}).catch(function(err){
+console.log('Error is ')
+console.log(err)
+
+});
+
+
+});
+
+</script>
+</html>

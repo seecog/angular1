@@ -1,0 +1,55 @@
+<html>
+<head>
+<style>
+input.ng-valid.ng-touched {
+border : 1px solid green
+}
+input.ng-invalid.ng-touched {
+border : 1px solid red;
+}
+.ng-invalid.btn {
+display : none
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="./bower_components/angularjs-slider/dist/rzslider.min.js"></script>
+<link rel="stylesheet" href="./bower_components/angularjs-slider/dist/rzslider.min.css"></link>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+
+<form name="frm">
+<p>
+First Name : <input ng-model="fnm" name="fnm" ng-minlength="5" ng-maxlength="20">
+<span style="color:red" ng-if="frm.fnm.$dirty && frm.fnm.$error.minlength">Minimum 5 characters required</span>
+<span style="color:red" ng-if="frm.fnm.$dirty && frm.fnm.$error.maxlength">Maximum 20 characters required</span>
+</p>
+<p>
+Email : <input type="email" ng-model="em" name="em">
+<span style="color:red" ng-if="frm.em.$dirty && frm.em.$error.email">Wrong email format</span>
+</p>
+
+<p>
+Address : <input ng-model="add" name="add" required>
+<span style="color:red" ng-if="frm.add.$dirty && frm.add.$error.required">Address required</span>
+</p>
+
+<p>
+Pattern : <input ng-model="i1" name="i1" ng-pattern="/[0123456789]/">
+<span style="color:red" ng-if="frm.i1.$dirty && frm.i1.$error.pattern">Number not valid</span>
+</p>
+
+<p>
+<button ng-disabled="!frm.$valid">Submit</button>
+</p>
+
+
+</form>
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.controller('eshopController',function($scope){
+});
+
+
+</script>
+</html>
