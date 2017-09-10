@@ -1,0 +1,16 @@
+{
+  "name": "mydeclarations",
+  "version": "1.0.0",
+  "description": "It is only a test description",
+  "main": "a1.js",
+  "dependencies": {
+    "async": "^2.5.0",
+    "events": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pankaj",
+  "license": "ISC"
+}

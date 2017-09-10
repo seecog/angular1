@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -30,6 +30,8 @@ import { SearchproductsComponent } from './searchproducts/searchproducts.compone
 import {LimitPipe} from './pipes/limit.pipe';
 import { FormvalidationComponent } from './formvalidation/formvalidation.component';
 import { RegisterformComponent } from './registerform/registerform.component';
+import { FormserviceComponent } from './formservice/formservice.component';
+import { ReactivefrmComponent } from './reactivefrm/reactivefrm.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,11 +52,14 @@ import { RegisterformComponent } from './registerform/registerform.component';
 	SearchproductsComponent,
 	LimitPipe,
 	FormvalidationComponent,
-	RegisterformComponent
+	RegisterformComponent,
+	FormserviceComponent,
+	ReactivefrmComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+	ReactiveFormsModule,
     HttpModule
   ],
   providers: [CalculatorService,TriangleService,SalaryService,PerimeterService,Da,Ta,Hra,Mysal],

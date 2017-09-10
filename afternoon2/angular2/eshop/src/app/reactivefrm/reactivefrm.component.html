@@ -1,0 +1,16 @@
+<form  [formGroup]="login">
+<p>
+Email : <input formControlName="em">
+[{{login.get('em').errors | json}}]
+<span *ngIf="login.get('em').errors">
+
+<span *ngIf="login.get('em').errors['required']">Email required</span>
+</span>
+</p>
+<p>
+Password : <input type="password" formControlName="pass">
+</p>
+<button (click)="checklogin()">Login</button>
+</form>
+
+<img [src]="path" width="" height="">

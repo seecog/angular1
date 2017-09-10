@@ -1,0 +1,23 @@
+<html>
+
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+The no is {{a}}<br>
+Again {{a}}<br>
+value of b is {{b}}<br>
+value of b is {{b}}<br>
+<input ng-model="b"> {{b}}
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.controller('eshopController',function($scope){
+$scope.a = 10;
+$scope.b = 20;
+$scope.$watch('b',function(newValue,oldValue){//call function is also called listener for the $watch
+console.log('It changed '+oldValue+'--'+newValue);
+});
+});
+</script>
+</html>

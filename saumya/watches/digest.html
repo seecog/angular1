@@ -1,0 +1,26 @@
+<html>
+
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+The value is {{my.date}}<br>
+<button ng-click="show1()">Show1</button>
+<button id="bt1">Show2</button>
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.controller('eshopController',function($scope){
+$scope.my = {date : new Date()};
+$scope.show1 = function(){
+$scope.my.date = new Date();
+}
+
+document.getElementById('bt1').addEventListener('click',function(){
+$scope.my = {date : new Date()};
+$scope.$digest();
+});
+
+});
+</script>
+</html>
