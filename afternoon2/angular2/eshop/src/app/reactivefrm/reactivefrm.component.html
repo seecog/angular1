@@ -3,7 +3,6 @@
 Email : <input formControlName="em">
 [{{login.get('em').errors | json}}]
 <span *ngIf="login.get('em').errors">
-
 <span *ngIf="login.get('em').errors['required']">Email required</span>
 </span>
 </p>

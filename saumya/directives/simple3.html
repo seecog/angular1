@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<emp-info a="10"></emp-info>
+<emp-info a="20"></emp-info>
+<emp-info a="30"></emp-info>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.directive('empInfo',function(){
+
+return {
+template : 'value is {{a}}',
+scope : {
+a : '@'//pass by value
+}
+}
+
+});
+app.controller('myController',function($scope){
+$scope.a = 10;
+
+});
+</script>
+</html>
+
+

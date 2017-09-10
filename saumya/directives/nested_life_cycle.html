@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<my-directive>
+<my-directive></my-directive>
+</my-directive>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.directive('myDirective',function(){
+
+return {
+compile : function(){
+console.log('compile phase')
+return {
+
+pre : function(){
+console.log('pre link phase')
+},
+post : function(){
+console.log('post link phase')
+}
+
+}
+
+
+},
+controller : function(){
+console.log('controller phase')
+}
+
+}
+
+});
+</script>
+</html>

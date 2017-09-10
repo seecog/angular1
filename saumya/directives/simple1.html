@@ -1,0 +1,21 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<my-directive></my-directive>
+<my-directive></my-directive>
+<my-directive></my-directive>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.directive('myDirective',function(){
+
+return {
+template : '<h1>i am an indian</h1>'
+
+}
+
+});
+</script>
+</html>

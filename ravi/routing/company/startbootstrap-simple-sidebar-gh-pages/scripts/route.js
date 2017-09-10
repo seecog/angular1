@@ -9,6 +9,10 @@ angular.module('myApp').config(function($routeProvider){
 		template : '<h1>Contact Us</h1>',
 		controller : 'ContactController'
 	})
+	.when('/mohan',{
+		template : '<h1>Hi this is mohan</h1>',
+		controller : 'MohanController'
+	})
 	
 	
 	

@@ -17,8 +17,10 @@ $scope.my.date = new Date();
 }
 
 document.getElementById('bt1').addEventListener('click',function(){
+$scope.$apply(function(){
 $scope.my = {date : new Date()};
-$scope.$digest();
+});
+//$scope.$digest();
 });
 
 });
