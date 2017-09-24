@@ -1,4 +1,8 @@
-<a ui-sref="mohan">Mohan</a> | <a ui-sref="sohan">Sohan</a> | 
-<a ui-sref="rohan">Rohan</a>
+
+<ul>
+<li ng-repeat="x in users">
+<a ui-sref="userinfo({id : $index})">{{x.name}}</a> 
+</li>
+</ul>
 <hr>
 <ui-view></ui-view>

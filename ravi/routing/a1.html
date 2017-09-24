@@ -6,7 +6,10 @@
 <body ng-app="eshop"> 
 <a href="#home">Home</a> | 
 <a href="#about">About Us</a> | 
-<a href="#contact">Contact Us</a> <br> 
+<a href="#contact">Contact Us</a> | 
+<a href="#users">Users</a> | 
+
+ <br> 
 <ng-view>
 
 </ng-view>
@@ -38,9 +41,24 @@ controller : 'AboutController'
 template : '<h1>Conatct Us </h1>',
 controller : 'ContactController'
 })
-
+.when('/users',{
+template : '<a href="#mohan/1">Mohan</a> | <a href="#sohan/2">Sohan</a> | <a href="#rohan/3">Rohan</a>',
+controller : 'UsersController'
+})
+.when('/mohan/:id',{
+template : '<h1>Mohan is here</h1>',
+controller : 'MohanController'
+})
 });
 
+app.controller('MohanController',function($scope,$routeParams){
+var id = $routeParams.id;
+console.log('The id is '+id)
+});
+
+app.controller('UsersController',function($scope){
+
+});
 
 app.controller('HomeController',function($scope){
 

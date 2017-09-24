@@ -1,0 +1,46 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<child></child>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.component('myinfo',{
+template : '<h1>hello world {{a}}</h1>',
+controller : function($scope){
+this.$onInit = function(){
+
+}
+this.a = 100;
+}
+})
+
+app.component('parent',{
+template : '<h1>Parent</h1>',
+
+controller : function(){
+this.help = function(){
+console.log('Help ')
+}
+}
+
+})
+
+
+app.component('child',{
+template : '<h1>Child</h1>',
+include : {
+parent : '^parent'
+},
+controller : function(){
+this.$onInit = function(){
+this.parent.help();
+}
+
+})
+</script>
+</html>
+
+

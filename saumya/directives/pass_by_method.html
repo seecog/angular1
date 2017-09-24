@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+Thhe value is {{val}}<br>
+<emp-info a="val" mymethod="show()"></emp-info>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.directive('empInfo',function(){
+
+return {
+template : '<button ng-click="mymethod()">Click Here</button>',
+scope : {
+a : '=',
+mymethod : '&'//pass by method
+}
+}
+
+});
+app.controller('myController',function($scope){
+$scope.val = 10;
+$scope.show = function(){
+alert('hello world')
+}
+});
+</script>
+</html>
+
+

@@ -16,7 +16,10 @@ app.config(function($stateProvider){
 
 $stateProvider.state('home',{
 url : '/home',
-template : '<h1>Home Page</h1>'
+template : '<h1>Home Page {{eles}}</h1>',
+controller  : function($scope){
+$scope.eles = [1,2,3]
+}
 })
 
 $stateProvider.state('employees',{

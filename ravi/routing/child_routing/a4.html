@@ -1,0 +1,51 @@
+<html>
+<head>
+<script src="./node_modules/angular/angular.min.js"></script>
+<script src="./node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+</head>
+<body ng-app="myApp">
+<a ui-sref="home">Home</a> 
+<a ui-sref="employees">Employees</a>
+<hr>
+<ui-view></ui-view>
+
+</body>
+<script>
+var app = angular.module('myApp',['ui.router']);
+app.run(function($rootScope){
+$rootScope.users = [
+{name : 'Mohan',sal : 100},
+{name : 'Sohan',sal : 200},
+{name : 'Rohan',sal : 300}
+]
+
+})
+app.config(function($stateProvider){
+
+$stateProvider.state('home',{
+url : '/home',
+template : '<h1>Home Page {{eles}}</h1>',
+controller  : function($scope){
+$scope.eles = [1,2,3]
+}
+})
+
+$stateProvider.state('employees',{
+url : '/employees',
+templateUrl : './views/employees.html',
+
+})
+
+$stateProvider.state('userinfo',{
+url : '/userinfo/:id',
+parent : 'employees',
+template : '<h1>{{data}}</h1>',
+controller : function($scope,$stateParams,$rootScope){
+var id = $stateParams.id;
+$scope.data = $rootScope.users[id]
+}
+})
+
+});
+</script>
+</html>

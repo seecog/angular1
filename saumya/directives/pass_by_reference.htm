@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+Thhe value is {{val}}<br>
+<emp-info a="val"></emp-info>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.directive('empInfo',function(){
+
+return {
+template : '<input ng-model="a">',// here a is the object reference , because we have passed it as an reference (pass by reference). So, it can  be reffered as object. We can  use dot operator
+scope : {
+a : '='
+}
+}
+
+});
+app.controller('myController',function($scope){
+$scope.val = 10;
+});
+</script>
+</html>
+
+

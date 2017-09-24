@@ -1,10 +1,14 @@
 var events = require('events');
 var util = require('util');
+var process = require('process')
 class Tick{
 	
 }
 
-
+process.nextTick(function(){
+	
+	console.log('Hello again')
+});
 util.inherits(Tick,events);
 
 

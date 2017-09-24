@@ -1,9 +1,11 @@
 <form  [formGroup]="login">
 <p>
 Email : <input formControlName="em">
-[{{login.get('em').errors | json}}]
 <span *ngIf="login.get('em').errors">
 <span *ngIf="login.get('em').errors['required']">Email required</span>
+<span *ngIf="login.get('em').errors['minlength']">Minimum 5 characters required</span>
+<span *ngIf="login.get('em').errors['maxlength']">Maximum 20 characters allowed</span>
+<span *ngIf="login.get('em').errors['pattern']">Wrong pattern</span>
 </span>
 </p>
 <p>

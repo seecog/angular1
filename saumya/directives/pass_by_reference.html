@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="./angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<emp-info a="{id : 1, name : 'Mohan'}"></emp-info>
+<emp-info a="{id : 2, name : 'Sohan'}"></emp-info>
+<emp-info a="{id : 3, name : 'Rohan'}"></emp-info>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.directive('empInfo',function(){
+
+return {
+template : 'value is {{a.id}}',// here a is the string , because we have passed it as an string (pass by value). So, it can not be reffered as object. We can not use dot operator
+scope : {
+a : '@'
+}
+}
+
+});
+app.controller('myController',function($scope){
+
+});
+</script>
+</html>
+
+
