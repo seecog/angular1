@@ -32,6 +32,15 @@ import { FormvalidationComponent } from './formvalidation/formvalidation.compone
 import { RegisterformComponent } from './registerform/registerform.component';
 import { FormserviceComponent } from './formservice/formservice.component';
 import { ReactivefrmComponent } from './reactivefrm/reactivefrm.component';
+import { FruitsComponent } from './fruits/fruits.component';
+import { AppleComponent } from './fruits/apple/apple.component';
+import { BananaComponent } from './fruits/banana/banana.component';
+import { CitiesComponent } from './cities/cities.component';
+import { CityinfoComponent } from './cityinfo/cityinfo.component';
+import {CityService} from './services/cities.service';
+import { CityComponent } from './cities/city/city.component';
+import { Output1Component } from './output1/output1.component';
+import { ChildComponent } from './output1/child/child.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +63,15 @@ import { ReactivefrmComponent } from './reactivefrm/reactivefrm.component';
 	FormvalidationComponent,
 	RegisterformComponent,
 	FormserviceComponent,
-	ReactivefrmComponent
+	ReactivefrmComponent,
+	FruitsComponent,
+	AppleComponent,
+	BananaComponent,
+	CitiesComponent,
+	CityinfoComponent,
+	CityComponent,
+	Output1Component,
+	ChildComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +79,7 @@ import { ReactivefrmComponent } from './reactivefrm/reactivefrm.component';
 	ReactiveFormsModule,
     HttpModule
   ],
-  providers: [CalculatorService,TriangleService,SalaryService,PerimeterService,Da,Ta,Hra,Mysal],
+  providers: [CalculatorService,TriangleService,SalaryService,PerimeterService,Da,Ta,Hra,Mysal,CityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
