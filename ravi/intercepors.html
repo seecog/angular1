@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>$http interceptors</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+
+</head>
+<body ng-app="app">
+</body>
+<script>
+var app = angular.module("app",[]);
+app.factory('test1',function(){
+return {
+request: function(config) {
+console.log('Inside the request')
+return config;
+},
+
+requestError: function(config) {
+return config;
+},
+
+response: function(res) {
+return res;
+},
+
+responseError: function(res) {
+return res;
+}
+}
+});
+
+//Adding our factory service to the interceptors array for the $httpProvider service
+app.config(function($httpProvider){
+$httpProvider.interceptors.push('test1');
+});
+
+//calling the get api through the $http service
+app.run(function($http){
+$http.get('http://test-routes.herokuapp.com/test/hello')
+.then(function(res) {
+console.log(res.data.message)
+})
+});
+</script>
+</html>
+Interceptor example : 

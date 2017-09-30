@@ -1,0 +1,52 @@
+<!--
+Interceptors in angularJs-->
+<html>
+<head>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.factory('MyInterceptor',function(){
+
+var obj = {};
+obj.request = function(config){
+console.log('Inside request ')
+return config;
+};
+
+obj.requestError = function(config){
+console.log('Inside request error')
+return config;
+};
+
+obj.response = function(config){
+console.log('Inside response ')
+return config;
+}
+
+obj.responseError = function(config){
+console.log('Inside response error')
+return config;
+}
+return obj;
+});
+
+app.config(function($httpProvider){
+$httpProvider.interceptors.push('MyInterceptor');
+});
+
+app.run(function($http){
+
+$http.get('https://books-ad908.firebaseio.com/book.json').then(function(res){
+console.log('Response here')
+}).catch(function(err){
+console.log(err)
+});
+
+});
+</script>
+</html>
+

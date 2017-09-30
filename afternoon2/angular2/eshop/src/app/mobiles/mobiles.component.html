@@ -1,0 +1,19 @@
+<div class="col-lg-4">
+
+<div *ngFor="let x of mobiles">
+<app-mobile [mobileinfo]="x" (mobileclick)="showMobile($event)"></app-mobile>
+</div>
+
+</div>
+<div class="col-lg-8">
+
+<div  *ngIf="mob" class="mobilestyle">
+<img src="{{mob.img}}" class="img-responsive">
+<p>
+{{mob.name}} 
+</p>
+<p>
+{{mob.cost | currency}}
+</p>
+</div>
+</div>

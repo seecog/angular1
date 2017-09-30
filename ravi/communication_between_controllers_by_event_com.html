@@ -1,0 +1,103 @@
+<!--
+We have following ways to comunicate between the 2 controllers :
+a)By using service
+b)$rootScope
+c)By using $scope methods like $emit(), $broadcast() , $on
+
+Note : Example to communicate between the two controllers with the help of $scope events
+-->
+<html>
+<head>
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<style>
+.parentclass{
+width : 300px;
+height : 300px;
+margin : 50px;
+padding : 50px;
+border-radius : 10px;
+background-color : red;
+}
+.childclass{
+width : 150px;
+height : 100px;
+margin : 50px;
+padding : 50px;
+border-radius : 10px;
+background-color : green;
+}
+</style>
+</head>
+<body ng-app="myApp">
+
+<div class="parentclass" ng-controller="parentController">
+<p>
+Value {{a}}<br>
+<button ng-click="sendToChild()">Fire To Child</button>
+</p>
+
+<div class="childclass" ng-controller="childController1">
+<p>
+Value {{a}}<br>
+<button ng-click="sendToParent()">Fire To Parent</button>
+</p>
+
+
+<div class="childclass" ng-controller="childController2">
+<p>
+Value {{a}}<br>
+<button ng-click="sendToParent()">Fire To Parent</button>
+</p>
+
+<div class="childclass" ng-controller="childController1">
+<p>
+Value {{a}}<br>
+<button ng-click="sendToParent()">Fire To Parent</button>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.controller('parentController',function($scope){
+$scope.sendToChild = function(){
+$scope.$broadcast('childdata',200)
+
+}
+$scope.$on('parentdata',function($event,res){
+$scope.a = res;
+})
+
+});
+
+app.controller('childController1',function($scope){
+$scope.sendToParent = function(){
+$scope.$emit('parentdata',100)
+}
+$scope.$on('childdata',function($evt,res){
+$scope.a = res;
+})
+
+});
+app.controller('childController2',function($scope){
+$scope.sendToParent = function(){
+$scope.$emit('parentdata',100)
+}
+$scope.$on('childdata',function($evt,res){
+$scope.a = res;
+})
+});
+app.controller('childController3',function($scope){
+$scope.sendToParent = function(){
+$scope.$emit('parentdata',100)
+}
+$scope.$on('childdata',function($evt,res){
+$scope.a = res;
+})
+});
+
+</script>
+</html>
+

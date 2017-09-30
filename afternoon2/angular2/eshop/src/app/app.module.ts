@@ -41,6 +41,9 @@ import {CityService} from './services/cities.service';
 import { CityComponent } from './cities/city/city.component';
 import { Output1Component } from './output1/output1.component';
 import { ChildComponent } from './output1/child/child.component';
+import { MobilesComponent } from './mobiles/mobiles.component';
+import {MobileService} from './services/mobile.service';
+import { MobileComponent } from './mobiles/mobile/mobile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +74,9 @@ import { ChildComponent } from './output1/child/child.component';
 	CityinfoComponent,
 	CityComponent,
 	Output1Component,
-	ChildComponent
+	ChildComponent,
+	MobilesComponent,
+	MobileComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +84,7 @@ import { ChildComponent } from './output1/child/child.component';
 	ReactiveFormsModule,
     HttpModule
   ],
-  providers: [CalculatorService,TriangleService,SalaryService,PerimeterService,Da,Ta,Hra,Mysal,CityService],
+  providers: [MobileService,CalculatorService,TriangleService,SalaryService,PerimeterService,Da,Ta,Hra,Mysal,CityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
