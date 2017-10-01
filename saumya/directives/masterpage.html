@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="./bower_components/angular/angular.min.js"></script>
+<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+<script src="./scripts/app.js"></script>
+<script src="./directives/search.product.directive.js"></script>
+<script src="./directives/productlist.product.directive.js"></script>
+<script src="../scripts/controllers/myapp.controller.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<div class="container">
+<div class="jumbotron">
+<h1>Product List</h1>
+
+<seach-item key="datakey"></seach-item>
+</div>
+
+<div class="col-lg-12">
+<product-list products="data" search="datakey"></product-list>
+</div>
+
+</div>
+</body>
+
+
+</html>

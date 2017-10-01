@@ -1,0 +1,26 @@
+<style>
+.myClass{
+width : 500px;
+height : 500px;
+margin : 20px;
+padding : 20px;
+border : 1px solid #ccc;
+font-family : georgia;
+font-size : 25px;
+font-weight : bold;
+}
+
+</style>
+
+<div class="col-lg-6" ng-repeat="(key,value) in products | filter : search">
+
+<div class="myClass">
+<img src="{{value.img}}" width="200" height="200" align="left">
+{{value.name}} 
+<p>
+ {{value.cost | currency}}
+</p>
+</div>
+
+
+</div>
