@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="./assets/css/style.css"/>
+<script src="./assets/js/bower_components/angular/angular.min.js"></script>
+<script src="./assets/js/node_modules/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+<script src="./assets/js/app.js"></script>
+<script src="./assets/js/routing.js"></script>
+</head>
+<body ng-app="movieDirectory">
+<div class="container">
+<div class="jumbotron">
+<h1>The Movie world</h1>
+<input class="form-control">
+</div>
+<div class="col-lg-12">
+<a ui-sref="home">Home</a>
+</div>
+<div class="col-lg-12">
+<ui-view></ui-view>
+</div>
+</div>
+</body>
+
+</html>
