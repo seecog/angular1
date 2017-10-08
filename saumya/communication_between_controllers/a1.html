@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+<div ng-controller="ctrl1">
+value is {{a}}
+
+</div>
+<div ng-controller="ctrl2">
+value is {{a}}
+
+</div>
+</body>
+<script>
+var app = angular.module('myapp',[])
+app.service('Mydata',function(){
+this.data = 10;
+});
+app.controller('ctrl1',function($scope,Mydata){
+$scope.a = Mydata.data;
+
+});
+app.controller('ctrl2',function($scope,Mydata){
+$scope.a = Mydata.data;
+});
+</script>
+</html>

@@ -1,1 +1,31 @@
-<h1>This is home page</h1>
+
+
+<div class="panel-body">
+<div class="row">
+<div ng-repeat="x in popularMovies">
+
+<div ng-if="$index<5" class="col-lg-4">
+<img ng-if="x.poster_path" src="http://image.tmdb.org/t/p/w500/{{x.poster_path}}" class="thumbnail">
+<div class="panel-title">{{x.title}}</h4>
+<p>
+{{x.release_date}}
+</p>
+<p>
+<div class="panel-title">
+</p>
+<p>
+<a class="btn btn-default" ui-sref="viewdetail({id : {{x.id}}})">View Details</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+</div>

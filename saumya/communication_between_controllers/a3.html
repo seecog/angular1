@@ -1,0 +1,45 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+<div ng-controller="ctrl1">
+value is {{a}}
+<br><button ng-click="fire2()">Fire To Child</button>
+<div ng-controller="ctrl2">
+value is {{a}}
+<br><button ng-click="fire1()">Fire To Parent</button>
+</div>
+
+</div>
+
+</body>
+<script>
+var app = angular.module('myapp',[])
+app.controller('ctrl1',function($scope){
+$scope.a = 10;
+$scope.$on('message1',function(evnt,data){
+console.log('The broadcast data is '+data)
+$scope.a = data;
+});
+
+$scope.fire2 = function(){
+$scope.$broadcast('message2',$scope.a);
+}
+
+});
+app.controller('ctrl2',function($scope){
+
+
+
+$scope.$on('message2',function(evnt,data){
+$scope.a = data;
+
+});
+$scope.a = 100;
+$scope.fire1 = function(){
+$scope.$emit('message1',$scope.a)
+}
+});
+</script>
+</html>
