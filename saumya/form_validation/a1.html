@@ -1,12 +1,29 @@
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="./angular.min.js"></script>
+<style>
+.error.ng-invalid{
+border : '1px solid red'
+}
+</style>
 </head>
 <body ng-app="">
 <form name="frm">
+<p>
+Username : <input name="unm" ng-model="unm" required ng-minlength="10" ng-maxlength="20">
+<span style="color : red;" ng-if="frm.unm.$dirty && frm.unm.$error.required">Username required</span>
+<span ng-if="frm.unm.$dirty && frm.unm.$error.minlength">Minimum10 chharacters required</span>
+<span ng-if="frm.unm.$dirty && frm.fnm.$error.maxlength">Maximum 20 haracters required</span>
+</p>
+<p>
+Email : <input type="email" name="em" ng-model="em">
+<span style="color : red;" ng-if="frm.em.$dirty && frm.em.$error.email">Email invalid</span>
+</p>
 
-Username : <input name="unm" ng-model="unm" required>
-<span ng-if="frm.unm.$dirty && frm.unm.$error.required">Username required</span>
+<p>
+Contact Number : <input ng-model="contact" name="contact" ng-pattern="/^\d+$/">
+<span style="color : red;" ng-if="frm.contact.$dirty && frm.contact.$error.pattern">Invalid Contact number</span>
+</p>
 
 
 </form>

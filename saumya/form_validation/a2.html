@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+var app = angular.module('checkboxApp', []);
+app.controller('checkboxCtrl', function ($scope) {
+$scope.arrlist = [{
+"userid": 1,
+"name": "Suresh"
+}, {
+"userid": 2,
+"name": "Rohini"
+}, {
+"userid": 3,
+"name": "Praveen"
+}];
+$scope.checkoptions = function (choice) {
+var details = [];
+angular.forEach(choice, function (value, key) {
+
+console.log(JSON.stringify(choice))
+console.log(JSON.stringify(value))
+console.log(JSON.stringify(key))
+
+if (choice[key].checked) {
+details.push(choice[key].userid);
+}
+});
+if (details.length > 0)
+$scope.msg = 'Selected Values: '+details.toString();
+else
+$scope.msg = 'Please choose an option';
+};
+});
+</script>
+</head>
+<body ng-app="checkboxApp" ng-controller="checkboxCtrl">
+<div>
+<h3>AngularJS Check If Checkbox Checked or Not</h3>
+<div ng-repeat="user in arrlist">
+<input type="checkbox" value="{{user.userid}}" ng-model="user.checked" />
+<label>{{user.name}}</label>
+</div><br />
+<input type="button" id="btnClick" value="Submit" ng-click="checkoptions(arrlist)" /><br /><br />
+<span style="color:Red">{{msg}}</span>
+</div>
+</body>
+</html>

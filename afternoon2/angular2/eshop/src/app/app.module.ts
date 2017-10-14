@@ -44,6 +44,7 @@ import { ChildComponent } from './output1/child/child.component';
 import { MobilesComponent } from './mobiles/mobiles.component';
 import {MobileService} from './services/mobile.service';
 import { MobileComponent } from './mobiles/mobile/mobile.component';
+import {MyColor} from './directives/mycolor.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,7 +77,8 @@ import { MobileComponent } from './mobiles/mobile/mobile.component';
 	Output1Component,
 	ChildComponent,
 	MobilesComponent,
-	MobileComponent
+	MobileComponent,
+	MyColor
   ],
   imports: [
     BrowserModule,
