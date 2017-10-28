@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="./angular.js"></script>
+</head>
+<body ng-app="" ng-init="products = [
+
+{id : 1,name:'Banana puf',pic : '',cost : 300,ingredits :['Milk','Soya','Banana']},
+{id: 2, name :'Abc' , pic : '', cost: 300, ingredits: ['Sugar','Egg','Baking Powder']},
+{id: 3, name :'xyz' , pic : '', cost: 600, ingredits: ['Sugar','Egg','Ester']},
+
+]">
+<table>
+<th>ID</th><th>name</th><th>cost</th><th>ingredits</th>
+
+<tr ng-repeat="x in products">
+<td>{{x.id}}</td>
+<td>{{x.name}}</td>
+<td>{{x.cost}}</td>
+<td>
+<ul>
+<li ng-repeat="y in x.ingredits">
+{{y}}
+</li>
+</ul>
+</td>
+</tr>
+
+</table>
+
+</body>
+</html>

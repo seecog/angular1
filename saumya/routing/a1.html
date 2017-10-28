@@ -1,0 +1,58 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+</head>
+<body ng-app="myApp">
+
+<a class="btn btn-primary" href="#!">Home</a> | 
+<a href="#!contact">Contact</a> | 
+<a href="#!about">About Us</a> | 
+<a href="#!products">Our Products</a> | 
+<hr>
+<div ng-view></div>
+
+
+</body>
+<script>
+var app = angular.module('myApp',['ngRoute']);
+app.config(function($routeProvider){
+
+$routeProvider
+.when('/',{
+template : '<h1>Home page</h1>',
+controller : 'HomeController'
+})
+.when('/about',{
+template : '<h1>About Us</h1>',
+controller : 'AboutController'
+})
+.when('/contact',{
+template : '<h1>Contact us</h1>',
+controller : 'ContactController'
+})
+.when('/products',{
+template : '<h1>Products </h1>',
+controller : 'ProductsController'
+})
+.otherwise({
+template : '<h1>Page not found</h1>'
+})
+});
+
+app.controller('HomeController',function(){
+console.log('Home controller')
+})
+app.controller('AboutController',function(){
+console.log('About us')
+});
+app.controller('ContactController',function(){
+console.log('Contact us')
+});
+app.controller('ProductsController',function(){
+console.log('Products')
+});
+</script>
+</html>

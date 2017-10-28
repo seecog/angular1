@@ -1,0 +1,9 @@
+<h1>User List</h1>
+<table class="table">
+<th>Id</th><th>First Name</th><th>Last Name</th>
+<tr ng-repeat="x in emps">
+<td>{{x.id}}</td>
+<td><a href="#!profile/{{x.id}}">{{x.first_name}}</a></td>
+<td>{{x.last_name}}</td>
+</tr>
+</table>

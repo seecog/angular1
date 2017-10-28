@@ -1,0 +1,18 @@
+<html>
+<head>
+<script src="./angular.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="ctrl">
+average is {{a+b+c+d+e/5}}
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.controller('ctrl',function($scope){
+$scope.a = 10;
+$scope.b = 30;
+$scope.c = 20;
+$scope.d = 18;
+$scope.e = 18;
+});
+</script>
+</html>
