@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="./angular.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+<p>
+First Number : <input ng-model="a">
+</p>
+<p>
+Second Number : <input ng-model="b">
+</p>
+<p>
+<button ng-click="sum()">Add</button>
+</p>
+<p>
+Sum is {{su}} 
+</p>
+</body>
+<script>
+var app = angular.module('MyApp',[])
+app.controller('MyController',function($scope){
+
+$scope.sum = function(){
+var t1 = parseInt($scope.a);
+var t2 = parseInt($scope.b);
+$scope.su = (t1+t2);
+}
+
+});
+</script>
+</html>

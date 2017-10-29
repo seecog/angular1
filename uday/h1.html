@@ -1,0 +1,126 @@
+<html>
+<head>
+<script src="./angular.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body ng-app="myApp" ng-controller="ctrl" ng-init="getUsers()">
+
+<div class="container">
+
+<div class="col-lg-12"><h1>User List</h1></div>
+
+<div class="col-lg-12">
+<button class="btn btn-default" ng-click="getUsers()">Users</button>
+</div>
+
+<div class="col-lg-12">
+<table class="table">
+<th>Id</th><th>Name</th><th>Avatar</th><th>Action</th>
+<tr ng-repeat="x in users">
+<td>{{x.id}}</td>
+<td><button class="btn btn-success" ng-click="viewUser(x.id)">{{x.first_name}} {{x.last_name}}</button></td>
+<td><img src="{{x.avatar}}" width="100" height="100" class="img-circle"></td>
+<td>
+<button class="btn btn-danger" ng-click="removeUser(x.id)">Delete</button>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="col-lg-12">
+<div class="form-group">
+<input class="form-control" ng-model="profile.id">
+<input class="form-control" ng-model="profile.first_name">
+</div>
+<div class="form-group">
+<input class="form-control" ng-model="profile.last_name">
+</div>
+<div class="form-group">
+<input class="form-control" ng-model="profile.avatar">
+</div>
+<div class="form-group">
+<button class="btn btn-primary" ng-click="updateUser()">Update</button> 
+<button class="btn btn-primary" ng-click="saveUser()">Save</button>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.controller('ctrl',function($scope,$http){
+
+
+$scope.saveUser = function(){
+console.log('The saved item is ')
+console.log($scope.profile)
+$http.post('https://reqres.in/api/users',$scope.profile).then(function(res){
+
+console.log('Created ')
+console.log(JSON.stringify(res))
+})
+.catch(function(err){
+console.log('The error is ')
+console.log(err)
+});
+}
+
+
+
+$scope.removeUser = function(id){
+$http.delete('https://reqres.in/api/users/'+id).then(function(res){
+
+console.log('the delete status is ')
+console.log(JSON.stringify(res))
+})
+.catch(function(err){
+console.log('The error is ')
+console.log(err)
+});
+}
+
+
+$scope.updateUser = function(){
+console.log($scope.profile)
+
+
+$http.put('https://reqres.in/api/users/'+$scope.profile.id,$scope.profile)
+.then(function(res){
+console.log('The updated record statuus is ')
+console.log(JSON.stringify(res))
+})
+.catch(function(err){
+console.log(err)
+});
+
+
+
+
+}
+
+$scope.viewUser = function(id){
+
+$http.get('https://reqres.in/api/users/'+id)
+.then(function(res){
+console.log('the response is')
+console.log(JSON.stringify(res))
+$scope.profile = res.data.data;
+})
+.catch(function(err){
+console.log(err)
+})
+
+}
+
+$scope.getUsers = function(){
+
+$http.get('https://reqres.in/api/users?page=2')
+.then(function(res){
+$scope.users = res.data.data;
+
+})
+.catch(function(err){
+console.log(err)
+})
+}//function gets ended
+
+});
+</script>
+</html>

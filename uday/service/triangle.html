@@ -1,0 +1,63 @@
+<html>
+<head>
+<script src="./bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myShop" ng-controller="MyController">
+
+<p>
+First Side : <input ng-model="a">
+</p>
+
+<p>
+Second Side : <input ng-model="b">
+</p>
+
+<p>
+Third Side : <input ng-model="c">
+</p>
+
+<p>
+<button ng-click="getArea()">Area</button>
+</p>
+<p>
+Area of triangle is  {{ar}}<br>
+
+</p>
+
+</body>
+<script>
+var app = angular.module('myShop',[]);
+app.service('Perimeter',function(){
+
+this.getPeri = function(t1,t2,t3){
+return (t1+t2+t3)/2;
+}
+
+
+});
+
+app.service('Triangle',function(Perimeter){
+
+this.area = function(t1,t2,t3){
+var y = Perimeter.getPeri(t1,t2,t3);
+return Math.sqrt(y*(y-t1)*(y-t2)+(y-t3));
+
+
+
+
+}
+
+})
+
+app.controller('MyController',function($scope,Triangle){
+$scope.getArea = function(){
+var t1 = parseInt($scope.a);
+var t2 = parseInt($scope.b);
+var t3 = parseInt($scope.c);
+var ans1 = Triangle.area(t1,t2,t3);
+console.log('The area is', ans1)
+}
+});
+
+</script>
+</html>

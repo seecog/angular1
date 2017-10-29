@@ -1,0 +1,63 @@
+<html>
+<head>
+<script src="./angular.js"></script>
+</head>
+<body ng-app="MyApp" ng-controller="MyController">
+<table>
+<th>Id</th><th>Name</th><th>Contacts</th><th>Address</th>
+<tr ng-repeat="x in doctors">
+<td>{{x.id}}</td>
+<td>{{x.name}}</td>
+<td>
+<ul>
+<li ng-repeat="y in x.contacts">
+{{y.type}} - {{y.value}}
+</li>
+</ul>
+</td>
+<td>
+{{x.address.address_1}},{{x.address.address_2}},{{x.address.city}},{{x.address.state}}, <b>{{x.address.building.name}}
+</td>
+</tr>
+
+</table>
+</body>
+<script>
+var app = angular.module('MyApp',[])
+app.controller('MyController',function($scope){
+
+$scope.doctors = [
+{
+id : 1,
+name : 'Apple',
+age : 21,
+speciality : 'ENT',
+contacts : [
+{type : 'email',value : 'mohan@gmail.com'},
+{type : 'mobile',value : 287672721}
+],
+address : {
+address_1 : 'Abc',
+address_2 : 'Def',
+city : 'Ranchi',
+state : 'Jharkhand',
+building : {
+name : 'Kavita enclave',
+block : 'Block B',
+flat_no : 222,
+flat_owner : {
+name : 'Sachin',
+contact : 8767767678
+}
+}
+
+}
+
+}
+
+]
+
+
+});
+</script>
+</html>
