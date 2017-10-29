@@ -45,6 +45,30 @@ import { MobilesComponent } from './mobiles/mobiles.component';
 import {MobileService} from './services/mobile.service';
 import { MobileComponent } from './mobiles/mobile/mobile.component';
 import {MyColor} from './directives/mycolor.directive';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ProfileComponent } from './profile/profile.component';
+import {Routes,RouterModule} from '@angular/router';
+import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { UsersComponent } from './users/users.component';
+import { ProfiledesComponent } from './profiledes/profiledes.component';
+
+
+const myroutes : Routes = [
+{path : '',component : HomeComponent},
+{path : 'contact',component : ContactComponent},
+{path : 'about',component : AboutComponent}
+];
+
+const newroutes : Routes = [
+{path : '',component : UsersComponent},
+{path : 'contact',component : ContactComponent},
+{path : 'about',component : AboutComponent},
+{path : 'profile/:id',component : ProfiledesComponent}
+]
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,13 +102,22 @@ import {MyColor} from './directives/mycolor.directive';
 	ChildComponent,
 	MobilesComponent,
 	MobileComponent,
-	MyColor
+	MyColor,
+	ContactsComponent,
+	ProfileComponent,
+	ContactComponent,
+	HomeComponent,
+	AboutComponent,
+	UsersComponent,
+	ProfiledesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
 	ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+	//RouterModule.forRoot(myroutes)
+	RouterModule.forRoot(newroutes)
   ],
   providers: [MobileService,CalculatorService,TriangleService,SalaryService,PerimeterService,Da,Ta,Hra,Mysal,CityService],
   bootstrap: [AppComponent]
