@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+</head>
+<body ng-app="myApp">
+<div class="container">
+
+<div class="col-lg-12">
+<a ui-sref="users">Users</a>
+</div>
+
+<div class="col-lg-12">
+<div ui-view></div>
+</div>
+</div>
+
+</body>
+<script>
+var app = angular.module('myApp',['ui.router']);
+app.config(function($stateProvider){
+
+$stateProvider.state('users',{
+url : '/',
+templateUrl : './child_views/users.html'
+})
+$stateProvider.state('sachin',{
+url : '/sachin',
+parent : 'users',
+template : 'Sachin Tendulkar'
+})
+
+$stateProvider.state('dravid',{
+url : '/dravid',
+parent : 'users',
+template : 'Dravid'
+
+})
+
+})
+</script>
+</html>
