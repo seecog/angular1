@@ -47,8 +47,19 @@ console.log(err)
 });
 });
 
-app.controller('ProfileController',function($routeParams){
+app.controller('ProfileController',function($routeParams,$http,$scope){
 console.log($routeParams.id)
+
+$http.get('https://reqres.in/api/users/'+$routeParams.id).then(function(res){
+console.log('profile data is ')
+$scope.profile=res.data.data;
+})
+.catch(function(err){
+console.log(err)
+})
+
+
+
 });
 
 
