@@ -1,0 +1,43 @@
+<html>
+<head>
+<script src="./bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myShop" ng-controller="MyController">
+
+
+
+</body>
+<script>
+var app = angular.module('myShop',[]);
+//service start here
+app.service('BlogPost',function($http,$q){
+
+this.getPosts = function(){
+var obj = $q.defer();
+$http.get('http://jsonplaceholder.typicode.com/posts').then(function(res){
+console.log('The response is ')
+obj.resolve(res.data);
+})
+.catch(function(error){
+console.log('The error is ')
+console.log(error)
+obj.reject(error)
+});
+return obj.promise;
+}
+
+});
+//service ends here
+
+
+app.controller('MyController',function($scope,BlogPost){
+var x = BlogPost.getPosts().then(function(res){
+console.log(JSON.stringify(res))
+})
+.catch(function(err){
+console.log(err)
+});
+});
+
+</script>
+</html>

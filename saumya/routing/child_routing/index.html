@@ -10,6 +10,7 @@
 
 <div class="col-lg-12">
 <a ui-sref="users">Users</a>
+<a ui-sref="users.param({id : 112})">Mohan</a>
 </div>
 
 <div class="col-lg-12">
@@ -25,6 +26,13 @@ app.config(function($stateProvider){
 $stateProvider.state('users',{
 url : '/',
 templateUrl : './child_views/users.html'
+})
+$stateProvider.state('users.param',{
+url : '/:id',
+template : 'Goes here',
+controller : function($stateParams){
+console.log('The id is '+$stateParams.id)
+}
 })
 $stateProvider.state('sachin',{
 url : '/sachin',

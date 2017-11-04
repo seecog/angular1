@@ -1,0 +1,76 @@
+<html>
+<head>
+<script src="./bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="myShop" ng-controller="MyController">
+
+<p>
+Basic salary  : <input ng-model="bsal">
+</p>
+
+<p>
+<button ng-click="grossSalary()">Gross salary</button>
+</p>
+<p>
+Gross Salary  is  {{gs}}<br>
+</p>
+
+</body>
+<script>
+var app = angular.module('myShop',[]);
+//service start here
+app.service('Hra',function(){
+
+this.getHra = function(bs){
+return (bs*10)/100;
+}
+
+});
+
+app.service('Da',function(){
+
+this.getDa = function(bs){
+return (bs*7)/100;
+}
+
+});
+
+app.service('Ta',function(){
+this.getTa = function(bs){
+return (bs*5)/100;
+}
+
+});
+
+app.service('Lta',function(){
+this.getLta = function(bs){
+return (bs*10)/100;
+}
+});
+
+
+
+app.service('Salary',function(Hra,Lta,Ta,Da){
+
+this.getGrossSalary = function(bsal){
+var hra = Hra.getHra(bsal);
+var da = Da.getDa(bsal);
+var lta = Lta.getLta(bsal);
+var ta = Ta.getTa(bsal);
+return (bsal+hra+da+lta-ta);
+
+}
+
+
+});
+
+//service ends here
+app.controller('MyController',function($scope,Salary){
+$scope.grossSalary = function(){
+var t1 = parseFloat($scope.bsal);
+$scope.gs = Salary.getGrossSalary(t1);
+}
+});
+
+</script>
+</html>
