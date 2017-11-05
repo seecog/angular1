@@ -1,0 +1,79 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+</head>
+
+<body ng-app="myApp">
+
+<div class="col-lg-12">
+<a ui-sref="posts">Posts</a>
+<a ui-sref="contact">Contact Us</a>
+<a ui-sref="about">About Us</a>
+</div>
+
+<div class="col-lg-12">
+<div ui-view></div>
+</div>
+
+
+</body>
+
+<script>
+var app = angular.module('myApp',['ui.router']);
+app.config(function($stateProvider){
+
+$stateProvider.state('posts.param',{
+url : '/:id',
+template : '{{post}}',
+controller : function($stateParams,$http,$scope){
+$http.get('http://jsonplaceholder.typicode.com/posts/'+$stateParams.id)
+.then(function(res){
+$scope.post = res.data;
+})
+.catch(function(error){
+console.log('The error is ')
+console.log(error)
+})
+}
+
+})
+
+
+$stateProvider.state('posts',{
+url : '/',
+templateUrl : './views/posts.html',
+controller : function($http,$scope){
+
+
+$http.get('http://jsonplaceholder.typicode.com/posts')
+.then(function(res){
+$scope.posts = res.data;
+})
+.catch(function(error){
+console.log('The error is ')
+console.log(error)
+});
+
+
+}
+})
+.state('contact',{
+url : '/contact',
+template : '<h1>Contact Us</h1>',
+controller : function(){
+console.log('Inside the contact us ')
+}
+})
+.state('about',{
+url : '/about',
+template : '<h1>About us</h1>',
+controller : function(){
+console.log('Inside the about us')
+}
+})
+
+})
+</script>
+</html>

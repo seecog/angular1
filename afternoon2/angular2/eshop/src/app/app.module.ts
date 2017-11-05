@@ -53,17 +53,22 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { UsersComponent } from './users/users.component';
 import { ProfiledesComponent } from './profiledes/profiledes.component';
+import { User1Component } from './user1/user1.component';
+import { User2Component } from './user2/user2.component';
 
 
 const myroutes : Routes = [
 {path : '',component : HomeComponent},
-{path : 'contact',component : ContactComponent},
+{path : 'contact',component : ContactComponent
+},
 {path : 'about',component : AboutComponent}
 ];
 
 const newroutes : Routes = [
-{path : '',component : UsersComponent},
-{path : 'contact',component : ContactComponent},
+{path : '',component : UsersComponent
+},
+{path : 'contact',component : ContactComponent
+},
 {path : 'about',component : AboutComponent},
 {path : 'profile/:id',component : ProfiledesComponent}
 ]
@@ -109,7 +114,11 @@ const newroutes : Routes = [
 	HomeComponent,
 	AboutComponent,
 	UsersComponent,
-	ProfiledesComponent
+	ProfiledesComponent,
+	MohanComponent,
+	SohanComponent,
+	User1Component,
+	User2Component
   ],
   imports: [
     BrowserModule,

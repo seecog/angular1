@@ -1,0 +1,182 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+
+</head>
+<body ng-app="myApp" ng-controller="myController">
+
+<div class="container">
+
+
+<div class="col-lg-12">
+<fieldset>
+    <legend>Post description :</legend>
+	<div class="form-group">
+	Id : <input class="form-control" ng-model="post.id">	
+	</div>
+	<div class="form-group">
+	User Id : <input class="form-control" ng-model="post.userId">	
+	</div>
+	<div class="form-group">
+	Title : <input class="form-control" ng-model="post.title">	
+	</div>
+	<div class="form-group">
+	Data : <textarea class="form-control" ng-model="post.body" rows="6" cols="25"></textarea>	
+	</div>
+	<div class="form-group">
+	<button class="btn btn-primary" ng-click="updateRecord()">Update</button>
+	</div>
+</fieldset>
+</div>
+
+<div class="col-lg-12">
+<h1>Posts</h1>
+</div>
+<div class="col-lg-12">
+<table class="table">
+<th>Id</th><th>User Id</th><th>Title</th><th>Action</th>
+<tr ng-repeat="x in posts">
+<td>{{x.id}}</td>
+<td>{{x.userId}}</td>
+<td><a ng-click="getDescription(x.id)">{{x.title}}</a></td>
+<td>
+<button class="btn btn-danger" ng-click="deleteBlog(x.id)">
+<span class="glyphicon glyphicon-trash"></span>Trash
+</button>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</body>
+<script>
+var app = angular.module('myApp',[]);
+app.service('BlogPosts',function($http,$q){
+
+this.getPosts = function(){
+var obj = $q.defer();
+$http.get('https://jsonplaceholder.typicode.com/posts')
+.then(function(res){
+
+obj.resolve(res);
+
+})
+.catch(function(error){
+
+obj.reject(error);
+});
+return obj.promise;
+}
+
+this.getPost = function(id){
+
+var obj = $q.defer();
+$http.get('https://jsonplaceholder.typicode.com/posts/'+id)
+.then(function(res){
+
+obj.resolve(res.data);
+
+})
+.catch(function(error){
+
+obj.reject(error);
+});
+return obj.promise;
+
+}
+
+this.updatePost = function(id,record){
+var obj = $q.defer();
+$http.put('https://jsonplaceholder.typicode.com/posts/'+id,record)
+.then(function(res){
+
+obj.resolve(res);
+
+})
+.catch(function(error){
+
+obj.reject(error);
+});
+return obj.promise;
+
+}
+
+this.deletePost = function(id){
+var obj = $q.defer();
+$http.delete('https://jsonplaceholder.typicode.com/posts/'+id)
+.then(function(res){
+
+obj.resolve(res);
+
+})
+.catch(function(error){
+
+obj.reject(error);
+});
+return obj.promise;
+
+
+}
+});
+app.controller('myController',function($scope,BlogPosts){
+
+$scope.deleteBlog = function(id){
+
+BlogPosts.deletePost(id)
+.then(function(res){
+console.log('The delete is ')
+console.log(JSON.stringify(res))
+
+})
+.catch(function(error){
+console.log('The error is ')
+consle.log(error)
+});
+
+}
+
+$scope.updateRecord = function(){
+var id = $scope.post.id;
+BlogPosts.updatePost(id,$scope.post)
+.then(function(res){
+console.log('The update is ')
+console.log(JSON.stringify(res))
+$scope.post = res;
+
+})
+.catch(function(error){
+console.log('The error is ')
+consle.log(error)
+});
+
+}
+
+
+$scope.getDescription = function(id){
+
+BlogPosts.getPost(id)
+.then(function(res){
+
+$scope.post = res;
+
+})
+.catch(function(error){
+console.log('The error is ')
+consle.log(error)
+});
+
+}
+
+
+BlogPosts.getPosts().then(function(res){
+console.log('The response is ')
+$scope.posts = res.data;
+})
+.catch(function(error){
+console.log('The error is ')
+console.log(error)
+});
+});
+</script>
+</html>

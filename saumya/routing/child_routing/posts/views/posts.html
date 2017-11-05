@@ -1,0 +1,10 @@
+
+
+
+      <span ng-repeat="x in posts">
+    <a  ng-if="$index<5" ui-sref="posts.param({id : x.id})">{{x.title}}</a> | 
+	</span>
+
+<div class="col-lg-12">
+<div ui-view></div>
+</div>
