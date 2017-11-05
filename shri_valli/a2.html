@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="" ng-init="emp= {
+id : 1,
+name : 'Mohan',
+contact : [{type : 'Mobile',value : 12323223},{type : 'Email',value : 'mohan@gmail.com'},{type : 'WhatsApp',value : 3632678326}]
+}">
+
+Id : {{emp.id}}
+<br>
+Name : {{emp.name}}
+<br>
+Contact : 
+<uL>
+<li ng-repeat="x in emp.contact">
+{{x.type}} ({{x.value}})
+</li>
+
+</uL>
+
+</body>
+</html>
+
+

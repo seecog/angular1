@@ -55,6 +55,18 @@ import { UsersComponent } from './users/users.component';
 import { ProfiledesComponent } from './profiledes/profiledes.component';
 import { User1Component } from './user1/user1.component';
 import { User2Component } from './user2/user2.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostComponent } from './post/post.component';
+
+
+const mynewroutes : Routes =[
+{path : '',component : PostsComponent},
+{path : '/:id',component : PostComponent}
+
+
+];
+
+
 
 
 const myroutes : Routes = [
@@ -118,7 +130,9 @@ const newroutes : Routes = [
 	MohanComponent,
 	SohanComponent,
 	User1Component,
-	User2Component
+	User2Component,
+	PostsComponent,
+	PostComponent
   ],
   imports: [
     BrowserModule,
@@ -126,7 +140,7 @@ const newroutes : Routes = [
 	ReactiveFormsModule,
     HttpModule,
 	//RouterModule.forRoot(myroutes)
-	RouterModule.forRoot(newroutes)
+	RouterModule.forRoot(mynewroutes)
   ],
   providers: [MobileService,CalculatorService,TriangleService,SalaryService,PerimeterService,Da,Ta,Hra,Mysal,CityService],
   bootstrap: [AppComponent]
