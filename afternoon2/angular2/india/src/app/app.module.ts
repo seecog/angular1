@@ -6,12 +6,20 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SachinComponent } from './sachin/sachin.component';
+import { DravidComponent } from './dravid/dravid.component';
+import { MongiaComponent } from './mongia/mongia.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SachinComponent,
+    DravidComponent,
+    MongiaComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
