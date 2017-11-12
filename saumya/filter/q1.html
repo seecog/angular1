@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="myFilter" ng-controller="myFilterController">
+<p>
+Name is {{name | uppercase}} {{lastName | lowercase}}
+</p>
+<p>
+Salary : {{salary | currency : 'inr'}}
+</p>
+<p>
+Followers : {{follower | number}}
+</p>
+<p>
+{{info | json}}
+</p>
+<p>
+Today : {{dt | date : "medium"}}
+</p>
+<p>
+Today : {{dt | date : "longDate"}}
+</p>
+<p>
+Today : {{dt | date : "shortTime"}}
+</p><p>
+Today : {{dt | date : "MMM d, y h:mm:ss a Z"}}
+</p>
+<p>
+{{salaryHikes | limitTo : 2}}
+</p>
+<p>
+{{slug | limitTo : 4}}
+</p>
+<P>
+Jiv : {{salaryHikes | orderBy : 'value'}}
+</P>
+</body>
+<script>
+angular.module("myFilter",[])
+.controller("myFilterController",function($scope){
+$scope.name = "mohan";
+$scope.lastName = "KUMAR";
+$scope.salary = 123000
+$scope.follower = 1340000;
+$scope.info = {id : 1,name : 'Mohan kumar',address : 'india',color : 'brown'};
+$scope.dt = new Date();
+$scope.salaryHikes = [
+{year : 2010 , value : 20000},
+{year : 2011 , value : 10000},
+{year : 2012 , value : 18000},
+];
+$scope.slug = 'sdjghads';
+$scope.pets  = ["cow","dog","camel"];
+});
+</script>
+</html>

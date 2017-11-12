@@ -1,0 +1,39 @@
+<html>
+<script>
+//Vanilla javascript | ECMA6
+function Record(){
+this.data = [];
+}
+
+Record.prototype.addRecord = function(n){
+this.data.push(n);
+}
+
+Record.prototype.display = function(){
+
+this.data.filter(function(n){
+console.log(n)
+});
+
+}
+
+Record.prototype.delete = function(n){
+
+this.data=this.data.filter(function(i){
+return i!==n;
+});
+
+}
+
+var ob = new Record();
+ob.addRecord(11)
+ob.addRecord(22)
+ob.addRecord(55);
+ob.addRecord(66);
+ob.display();
+ob.delete(55)
+console.log("------")
+ob.display();
+</script>
+
+</html>

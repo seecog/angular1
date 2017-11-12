@@ -1,0 +1,43 @@
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="myFilter" ng-controller="myFilterController">
+The current salary is {{salary | double}}
+<p>
+The new number is {{base | mypower : 6}}
+</p>
+</body>
+<script>
+angular.module("myFilter",[])
+.filter("double",function(){
+
+return function(n){
+
+return n*2;
+
+}
+
+})
+.filter("mypower",function(){
+
+return function(n,n2){
+p=1;
+for(var i=1;i<=n2;i++)
+{
+p = p*n;
+}
+return p;
+}
+
+})
+.controller("myFilterController",function($scope){
+
+$scope.salary = 1234;
+$scope.base = 2;
+$scope.power = 5;
+
+});
+</script>
+</html>

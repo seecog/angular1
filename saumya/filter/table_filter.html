@@ -1,0 +1,38 @@
+<html>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="myFilter" ng-controller="myFilterController">
+<input ng-model="key">
+<hr>
+<table>
+<th ng-click="sortType='year';sortReverse = !sortReverse">Year</th><th ng-click="sortType='value';sortReverse = !sortReverse">Salary</th>
+<tr ng-repeat="x in salaryHikes | filter : key  | limitTo : lim | orderBy : sortType : sortReverse">
+<td>{{x.year}}</td>
+<td>{{x.value}}</td>
+</tr>
+</table>
+<hr>
+Limit : <select name="lim" ng-model="lim">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+</select>
+
+</body>
+<script>
+angular.module("myFilter",[])
+.controller("myFilterController",function($scope){
+$scope.sortType = "value";
+$scope.sortReverse = false;
+$scope.salaryHikes = [
+{year : 2010 , value : 20000},
+{year : 2011 , value : 10000},
+{year : 2012 , value : 18000},
+];
+
+});
+</script>
+</html>
