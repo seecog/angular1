@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController" ng-init="employees = getEmployees()">
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.factory('$exceptionHandler',function(){
+
+return function(exception,cause){
+console.log("Exception is here")
+console.log(JSON.stringify(exception))
+}
+
+});
+app.controller('eshopController',function($scope,$timeout,$interval){
+
+throw {msg : "remove plastic bags"}
+
+});
+
+</script>
+</html>
