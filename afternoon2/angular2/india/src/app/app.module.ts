@@ -10,6 +10,10 @@ import { SachinComponent } from './sachin/sachin.component';
 import { DravidComponent } from './dravid/dravid.component';
 import { MongiaComponent } from './mongia/mongia.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductComponent } from './product/product.component';
+import { DoctorsComponent } from './doctors/doctors.component';
+import { DoctorComponent } from './doctor/doctor.component';
+import { PatientComponent } from './patient/patient.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { ProductsComponent } from './products/products.component';
     SachinComponent,
     DravidComponent,
     MongiaComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductComponent,
+    DoctorsComponent,
+    DoctorComponent,
+    PatientComponent
   ],
   imports: [
     BrowserModule,

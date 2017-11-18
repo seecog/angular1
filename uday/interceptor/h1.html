@@ -1,0 +1,52 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body ng-app="myApp" ng-controller="ctrl">
+
+</body>
+<script>
+var app = angular.module('myApp',[])
+app.factory('MyInterceptor',function(){
+
+var obj = {};
+obj.request = function($config){
+console.log("Inside the request")
+}
+
+obj.requestError = function($config){
+console.log("Inside the request error")
+}
+obj.response = function($config){
+console.log("Inside the response")
+}
+obj.responseError = function($config){
+console.log("Inside the response error")
+}
+return obj;
+});
+
+app.config(function($httpProvider){
+$httpProvider.interceptors.push('MyInterceptor');
+})
+
+app.run(function($http){
+
+$http.get('https://api.themoviedb.org/3/movie/550?api_key=8301a21598f8b45668d5711a814f01f6').then(function(res){
+console.log('res')
+})
+.catch(function(err){
+console.log(err)
+});
+
+});
+
+
+app.controller('ctrl',function($scope,$http){
+
+
+
+});
+</script>
+</html>

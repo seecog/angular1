@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="./bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController" >
+
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.factory('Perimeter',function(){
+
+var ob = {};
+ob.getPerimeter = function(a,b,c){
+return (a+b+c)/2.0;
+}
+return ob;
+});
+app.service('Triangle',function(Perimeter){
+
+this.area = function(a,b,c){
+var s = Perimeter.getPerimeter(a,b,c);
+return Math.sqrt(s*(s-a)*(s-b)*(s-c))
+}
+
+});
+app.controller('eshopController',function($scope, Triangle){
+console.log(Triangle.area(10,11,12))
+});
+
+</script>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+ <body ng-app="eshop" ng-controller="eshopController" >
+Your age is {{myAge}}
+</body>
+<script>
+var app = angular.module('eshop',[]);
+
+app.constant('age',21)
+
+app.config(function($provide){
+
+$provide.decorator("age",function($delegate){
+return $delegate+'00';
+});
+
+})
+
+
+app.controller('eshopController',function($scope,age){
+$scope.myAge = age;
+});
+
+</script>
+</html>

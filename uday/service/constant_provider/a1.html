@@ -1,0 +1,52 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+New is <body ng-app="eshop" ng-controller="eshopController" >
+{{name}}
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.config(function($provide){
+
+$provide.constant("age",21)
+
+});
+
+app.config(function($provide){
+
+$provide.value('movieTitle',"Thor");
+
+})
+
+app.config(function($provide){
+
+$provide.factory('MyFactory',function(){
+var obj={};
+obj.record = {data : 989898};
+return obj;
+});
+
+})
+
+app.config(function($provide){
+$provide.service('MyService',function(){
+this.record = {data : 12345};
+})
+});
+
+
+app.config(function($provide){
+
+$provide.decorator('movieTitle',function($delegate){
+return $delegate+' go fast';
+})
+
+})
+
+app.controller('eshopController',function($scope, age,movieTitle,MyService,MyFactory){
+$scope.name = movieTitle;
+});
+
+</script>
+</html>

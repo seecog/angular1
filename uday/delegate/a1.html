@@ -1,0 +1,31 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+ <body ng-app="eshop" ng-controller="eshopController" >
+Your salary is {{sal}}
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.service('Salary',function(){
+this.getGrossSalary = function(bs){
+var hra = bs*9/100;
+var da = bs*10/100;
+return bs+da+hra;
+}
+})
+app.decorator("Salary",function($delegate){
+console.log($delegate)
+return $delegate.newFun = function(){
+console.log('AAAAA')
+}
+return $delegate.newsal = function(){
+
+}
+});
+app.controller('eshopController',function($scope,Salary){
+$scope.sal = Salary.getGrossSalary(50000);
+});
+
+</script>
+</html>

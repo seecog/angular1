@@ -13,15 +13,20 @@ private cost : Number ;*/
 private product : any = {};
 private products : any[] = [
 
-{id : 1,name : 'Apple',cost : 300},
-{id : 2,name : 'Banana',cost : 200},
-{id : 3,name : 'Papaya',cost : 100}
+{name : 'Apple',cost : 300},
+{name : 'Banana',cost : 200},
+{name : 'Papaya',cost : 100}
 ];
 
 save(){
 	var newProduct = this.product;
 	this.products.push(newProduct);
 	this.product = {};
+}
+
+delProduct(x){
+	console.log(x)
+this.products.splice(x,1);
 }
 
   constructor() { }
