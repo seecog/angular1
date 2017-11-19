@@ -1,0 +1,9 @@
+<div class="col-lg-6">
+<div class="myClass" *ngFor="let x of animals">
+<app-animal [animal]="x" (emitAnimal)="show($event)"></app-animal>
+</div>
+</div>
+
+<div class="col-lg-6" style="border : 1px solid red">
+{{animalInfo | json}}
+</div>

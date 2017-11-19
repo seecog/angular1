@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="./bower_components/angular-soap/soapclient.js"></script>
+<script src="./bower_components/angular-soap/angular.soap.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController" >
+{{response}}
+</body>
+<script>
+var app = angular.module('eshop',['angularSoap']);
+app.factory("CountryService", ['$soap',function($soap){
+    var base_url = "http://www.webservicex.net/globalweather.asmx";
+ 
+    return {
+        getCities: function(){
+            return $soap.post(base_url,"GetCitiesByCountry",{CountryName : 'india'});
+        }
+    }
+}])
+app.controller('eshopController',function($scope,CountryService){
+console.log('The response is')
+CountryService.getCities().then(function(response){
+console.log(response)
+    $scope.response = response;
+  });
+});
+
+</script>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController" >
+
+</body>
+<script>
+var app = angular.module('eshop',[]);
+app.factory('MyInterceptor',function(){
+var obj = {};
+obj.request = function(config){
+console.log(JSON.stringify(config))
+config.startTime = new Date().getTime();
+return config;
+}
+obj.requestError = function(config){
+return config;
+}
+obj.response = function(res){
+res.config.endTime = new Date().getTime();
+return res;
+}
+obj.responseError = function(config){
+console.log('the response error')
+console.log(config)
+return config
+}
+return obj;
+});
+app.config(function($httpProvider){
+$httpProvider.interceptors.push('MyInterceptor');
+});
+app.controller('eshopController',function($scope,$http){
+
+$http.get('https://api.github.com/users/naorye/repos/567').then(function(res){
+console.log('The response is ')
+console.log(JSON.stringify(res.config.endTime - res.config.startTime))
+})
+.catch(function(err){
+console.log('The error is')
+console.log(err)
+});
+
+});
+
+</script>
+</html>

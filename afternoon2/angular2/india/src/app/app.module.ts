@@ -14,7 +14,12 @@ import { ProductComponent } from './product/product.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorComponent } from './doctor/doctor.component';
 import { PatientComponent } from './patient/patient.component';
-
+import { AnimalsComponent } from './animals/animals.component';
+import { AnimalComponent } from './animal/animal.component';
+import {Calculator} from './services/calculator.service';
+import {Triangle} from './services/trangle.service';
+import {Perimeter} from './services/perimeter.service';
+import { CheckserviceComponent } from './checkservice/checkservice.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,14 +32,17 @@ import { PatientComponent } from './patient/patient.component';
     ProductComponent,
     DoctorsComponent,
     DoctorComponent,
-    PatientComponent
+    PatientComponent,
+    AnimalsComponent,
+    AnimalComponent,
+    CheckserviceComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [Calculator,Perimeter,Triangle],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

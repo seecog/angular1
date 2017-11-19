@@ -1,0 +1,10 @@
+.myClass{
+	width : 300px;
+	height : 100px;
+	border-style : solid;
+	background-color : #fff;
+	border-radius : 12px;
+	border-color : #000000;
+	margin : 100px;
+	padding : 20px;
+}
