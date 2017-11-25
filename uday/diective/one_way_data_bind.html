@@ -1,0 +1,25 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<employee a="{{sal}}"></employee>{{sal}}<br>
+</body>
+
+<script>
+var app = angular.module("myApp",[])
+app.directive("employee",function(){
+
+return {
+template : "<p><input ng-model='a'></p>",
+scope : {
+a : '@'
+}
+}
+
+});
+app.controller("myController",function($scope){
+$scope.sal = 12000;
+});
+</script>
+</html>

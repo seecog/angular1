@@ -1,0 +1,30 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<employee id="1" name="Mohan" sal="120000"></employee><br>
+<employee id="2" name="Sohan" sal="110000"></employee><br>
+<employee id="3" name="Rohan" sal="100000"></employee><br>
+<employee id="4" name="Tapan" sal="90000"></employee><br>
+</body>
+
+<script>
+var app = angular.module("myApp",[])
+app.directive("employee",function(){
+
+return {
+template : "<p>Id : {{id}} , Name : {{name}}</p>",
+scope : {
+id : '@',
+name : '@',
+sal : '@'
+}
+}
+
+});
+app.controller("myController",function($scope){
+$scope.a = 100;
+});
+</script>
+</html>

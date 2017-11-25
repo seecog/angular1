@@ -1,0 +1,25 @@
+<html lang="en" >
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+</head>
+<body ng-app="BlankApp" ng-controller="myController" >
+ 
+ The password is : {{pass}}
+ 
+  <script type="text/javascript">    
+   var app =  angular.module('BlankApp', []);
+    app.value("mypass",123456)
+   app.decorator("mypass",function($delegate){
+   return $delegate+"*****";
+   });
+  
+   app.controller("myController",function($scope,mypass){
+	 $scope.pass = mypass;
+	
+	});
+  </script>
+  
+</body>
+</html>

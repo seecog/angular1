@@ -1,0 +1,32 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<employee info="emp1"></employee><br>
+<employee info="emp2"></employee><br>
+<employee  info="emp"></employee><br>
+</body>
+
+<script>
+var app = angular.module("myApp",[])
+app.directive("employee",function(){
+
+return {
+template : "<p>{{info.id}}-- {{info.name}}</p>",
+scope : {
+info : '='
+}
+}
+
+});
+app.controller("myController",function($scope){
+$scope.emp1={
+id : 1,name : 'Mohan',sa: "2100000"
+};
+$scope.emp2={
+id : 1,name : 'Sohan',sa: "2109909"
+};
+});
+</script>
+</html>

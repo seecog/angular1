@@ -1,0 +1,26 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+<info a= "11"></info><br>
+<info a ="22"></info><br>
+<info a ="33"></info><br>
+<info a ="44"></info><br>
+</body>
+
+<script>
+var app = angular.module("myApp",[])
+app.directive("info",function(){
+
+return {
+template : "<h1>The value is {{a}}</h1>",
+
+}
+
+});
+app.controller("myController",function($scope){
+$scope.a = 100;
+});
+</script>
+</html>

@@ -20,6 +20,9 @@ import {Calculator} from './services/calculator.service';
 import {Triangle} from './services/trangle.service';
 import {Perimeter} from './services/perimeter.service';
 import { CheckserviceComponent } from './checkservice/checkservice.component';
+import { MyproductlistComponent } from './myproductlist/myproductlist.component';
+import {ProductService}  from './services/product.service';
+import { HttpmoduleComponent } from './httpmodule/httpmodule.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,14 +38,16 @@ import { CheckserviceComponent } from './checkservice/checkservice.component';
     PatientComponent,
     AnimalsComponent,
     AnimalComponent,
-    CheckserviceComponent
+    CheckserviceComponent,
+    MyproductlistComponent,
+    HttpmoduleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [Calculator,Perimeter,Triangle],
+  providers: [Calculator,Perimeter,Triangle,ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

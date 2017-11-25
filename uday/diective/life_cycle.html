@@ -1,0 +1,38 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+<lifecycle a="1">
+<lifecycle a="2">
+<lifecycle a="3"> </lifecycle>
+</lifecycle>
+</lifecycle>
+</body>
+<script>
+var app = angular.module("myApp",[])
+app.directive("lifecycle",function(){
+
+return {
+compile : function(tElement,tAttrs){
+console.log("Inside compile phase")
+
+return {
+pre : function(scope,tElement,tAttrs){
+console.log("Inside the pre link function--"+tAttrs.a)
+},
+post : function(scope,tElement,tAttrs){
+console.log("Inside the post link function--"+tAttrs.a)
+}
+}
+
+},
+controller : function($scope,$element,$attrs){
+console.log("Inside the controller function--"+$attrs.a)
+}
+
+}
+
+})
+</script>
+</html>
