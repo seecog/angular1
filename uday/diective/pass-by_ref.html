@@ -1,0 +1,33 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="myController">
+<p>
+<doc-info y="doc1"></doc-info> {{doc1}}
+
+</p>
+
+<p>
+<doc-info y="doc2"></doc-info> {{doc2}}
+</p>
+</body>
+<script>
+var app = angular.module("eshop",[])
+app.directive("docInfo",function(){
+return {
+templateUrl : './doc_detail.html',
+scope : {
+y : '='
+}
+}
+});
+app.controller("myController",function($scope){
+$scope.doc1 = {id : 1,name : 'Satyam',age : 21,sal : 120000,speciality : 'ENT'}
+$scope.doc2 = {id : 2,name : 'Neelendra',age : 22,sal : 140000,speciality : 'NEURO'}
+
+
+});
+</script>
+</script>
+</html>

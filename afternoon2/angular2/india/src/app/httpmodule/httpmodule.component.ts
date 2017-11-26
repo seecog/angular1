@@ -10,8 +10,10 @@ private posts : any[];
   constructor(private x : Http) { }
 
   ngOnInit() {
-	  this.x.get("https://jsonplaceholder.typicode.com/posts").subscribe(
+	  this.x.get("http://localhost:9001/api/").subscribe(
 	  (data : Response)=>{
+		  console.log('The data is ')
+		  console.log()
 		  this.posts = data.json();
 		  
 	  },
@@ -23,3 +25,7 @@ private posts : any[];
   }
 
 }
+
+
+
+

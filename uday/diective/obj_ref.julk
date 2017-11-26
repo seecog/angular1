@@ -1,0 +1,24 @@
+<html>
+<head>
+<script src="./bower_components/angular/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="myController">
+
+<emp-info info="emp1"></emp-info> {{emp1}}
+</body>
+<script>
+var app = angular.module("eshop",[])
+app.directive("empInfo",function(){
+return {
+template : "<p>Id : {{info.id}} {{info.name}}</p>",
+scope : {
+info : '
+}
+}
+});
+app.controller("myController",function($scope){
+$scope.emp1 = {id : 1,name : 'Mohan',age : 21,sal : 120000}
+});
+</script>
+</script>
+</html>

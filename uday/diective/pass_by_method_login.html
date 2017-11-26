@@ -1,0 +1,29 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="myController">
+<p>
+<user-login cred="user" checklogin="login()"></user-login>
+</p>
+</body>
+<script>
+var app = angular.module("eshop",[])
+app.directive("userLogin",function(){
+return {
+templateUrl : 'login.html',
+scope :{
+cred : '=',
+checklogin : "&"
+
+}
+}});
+app.controller("myController",function($scope){
+$scope.user = {};
+$scope.login = function(){
+console.log($scope.user)
+}
+});
+</script>
+</script>
+</html>
