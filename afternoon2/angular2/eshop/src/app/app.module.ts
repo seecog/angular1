@@ -24,7 +24,7 @@ import {Hra} from './services/hra.service';
 import {Mysal} from './services/mysal.service';
 import {Double} from './pipes/double.pipe';
 import {AreaPipe} from './pipes/area.pipe';
-import {PowerPipe} from './pipes/power.pipe';
+//import {PowerPipe} from './pipes/power.pipe';
 import {SearchMe} from './pipes/search.pipe';
 import { SearchproductsComponent } from './searchproducts/searchproducts.component';
 import {LimitPipe} from './pipes/limit.pipe';
@@ -57,8 +57,12 @@ import { User1Component } from './user1/user1.component';
 import { User2Component } from './user2/user2.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
+import { ReactiveappComponent } from './reactiveapp/reactiveapp.component';
+import { PromiseexComponent } from './promiseex/promiseex.component';
+import { DoublePipe } from './double.pipe';
+import { PowerPipe } from './power.pipe';
 
-
+/*
 const mynewroutes : Routes =[
 {path : '',component : PostsComponent},
 {path : '/:id',component : PostComponent}
@@ -66,9 +70,9 @@ const mynewroutes : Routes =[
 
 ];
 
+*/
 
-
-
+/*
 const myroutes : Routes = [
 {path : '',component : HomeComponent},
 {path : 'contact',component : ContactComponent
@@ -84,7 +88,7 @@ const newroutes : Routes = [
 {path : 'about',component : AboutComponent},
 {path : 'profile/:id',component : ProfiledesComponent}
 ]
-
+*/
 
 @NgModule({
   declarations: [
@@ -132,15 +136,19 @@ const newroutes : Routes = [
 	User1Component,
 	User2Component,
 	PostsComponent,
-	PostComponent
+	PostComponent,
+	ReactiveappComponent,
+	PromiseexComponent,
+	DoublePipe,
+	PowerPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
 	ReactiveFormsModule,
-    HttpModule,
+    HttpModule
 	//RouterModule.forRoot(myroutes)
-	RouterModule.forRoot(mynewroutes)
+	//RouterModule.forRoot(mynewroutes)
   ],
   providers: [MobileService,CalculatorService,TriangleService,SalaryService,PerimeterService,Da,Ta,Hra,Mysal,CityService],
   bootstrap: [AppComponent]

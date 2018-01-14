@@ -1,0 +1,37 @@
+<html>
+<head>
+<script src="./bower_components/angular/angular.min.js"></script>
+<script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="./assets/js/app.js"></script>
+<script src="./assets/js/routing.js"></script>
+<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="./assets/style.css"/>
+</head>
+<body ng-app="movieApp">
+<div class="container">
+
+<div class="row">
+<div class="col-lg-12">
+<div class="jumbotron">
+<h1>Search Movie</h1>
+<form>
+<div class="col-lg-10">
+<input class="form-control" type="text" name="search" placeholder="search">  
+</div>
+<div class="col-lg-2">
+<button class="btn btn-primary">Search</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+
+<div class="col-lg-12">
+<a ui-sref="home">Home</a>
+<ui-view></ui-view>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<form name="signUp" [formGroup]="signUp">
+<div class="form-group">
+  Name : <input class="form-control" id="nm" name="nm" formControlName="nm">
+  <p *ngIf="signUp.get('nm').errors">
+  <span *ngIf="signUp.get('nm').errors['required']">Please eneter your name</span>
+  <span *ngIf="signUp.get('nm').errors['minlength']">Minimum 3 characters required</span>
+  </p>
+</div>
+<div class="form-group">
+  Email : <input class="form-control" id="em" name="em" formControlName="em">
+  <p *ngIf="signUp.get('em').errors">
+  <span *ngIf="signUp.get('em').errors['required']">Please eneter your email</span>
+  <span *ngIf="signUp.get('em').errors['pattern']">Invalid email</span>
+  </p>
+</div>
+<div class="form-group">
+<button [disabled]="!signUp.valid" class="btn btn-primary">Register</button>
+</div>
+</form>

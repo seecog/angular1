@@ -1,0 +1,27 @@
+<html>
+<head>
+<script src="./angular.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<p>
+<div class="my-product"></div>
+</p>
+</body>
+<script>
+var app = angular.module("eshop",[])
+
+app.directive("myProduct",function(){
+return {
+restrict : 'C',
+template : '<h1>Testing</h1>'
+
+
+}
+
+});
+app.controller('eshopController',function($scope){
+
+});
+</script>
+</script>
+</html>

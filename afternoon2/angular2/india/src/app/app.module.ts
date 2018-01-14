@@ -23,6 +23,7 @@ import { CheckserviceComponent } from './checkservice/checkservice.component';
 import { MyproductlistComponent } from './myproductlist/myproductlist.component';
 import {ProductService}  from './services/product.service';
 import { HttpmoduleComponent } from './httpmodule/httpmodule.component';
+import { BangComponent } from './bang/bang.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,9 @@ import { HttpmoduleComponent } from './httpmodule/httpmodule.component';
     AnimalComponent,
     CheckserviceComponent,
     MyproductlistComponent,
-    HttpmoduleComponent
+    HttpmoduleComponent,
+    LoginComponent,
+    BangComponent
   ],
   imports: [
     BrowserModule,

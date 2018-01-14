@@ -1,0 +1,61 @@
+<html>
+<head>
+<script src="./angular.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController">
+<p>
+<add-product pdata="product"  addproduct="saveProductCtrl()" ></add-product>-{{product}}
+</p>
+<p>
+
+<div ng-repeat="x in products">
+<my-product info="x" delpro="removeProduct($index)"></my-product>
+</div>
+
+
+</p>
+</body>
+<script>
+var app = angular.module("eshop",[])
+
+app.directive("addProduct",function(){
+return {
+templateUrl : 'viewproduct/addproduct.html',
+scope : {
+addproduct : '&',
+pdata : '='
+}
+
+}
+});
+
+app.directive("myProduct",function(){
+return {
+templateUrl : 'viewproduct/myproduct.html',
+scope : {
+info : '=',
+delpro : '&'
+}
+}
+});
+
+app.controller('eshopController',function($scope){
+$scope.product = {};
+$scope.products = [
+{name : 'Apple',cost : 120},
+{name : 'Banana',cost : 94}
+];
+$scope.removeProduct = function(id){
+console.log(id)
+$scope.products.splice(id,1)
+}
+$scope.saveProductCtrl = function(){
+console.log($scope.product)
+$scope.products.push($scope.product)
+$scope.product = {};
+}
+
+});
+</script>
+</script>
+</html>
